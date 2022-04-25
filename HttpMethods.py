@@ -1,4 +1,5 @@
 from response_parser import Parser
+import requests
 
 # CONSTANTS
 GET = "GET"
@@ -9,52 +10,37 @@ DELETE = "DELETE"
 class HttpClient(object):
     
     """
-    TODO: methods for this class will be implemented lastResort
+    TODO: methods for this class will be implemented last
     """
     def __init__(self, session):
         self.session = session
         self.parser = Parser()
 
     def apiCall(self, method, url, body=None):
-        if method == 'GET':
-            result = self.httpGet(url=url)
-        if method == 'POST':
-            result = self.httpPost(url=url, body=body)
-        if method == 'PUT':
-            result = self.httpPut(url=url, body=body)
-        if method == 'DELETE':
-            result = self.httpDel(url=url, body=body)
-        return result
-
+        methods = {
+            "GET":self.session.get,
+            "POST": self.session.post,
+            "PUT": self.session.put,
+            "DELETE": self.session.delete
+        }
         
-    def httpGet(self, url):
         try:
-            response = self.session.get(url)
-            data = self.parser.parseResponse(response.text)
-            return data
-        except:
-            return {'error': 'bad request'}
+            response = methods[method](url=url, data=body)
 
-    def httpPost(self, url, body=None):
-        try:
-            response = self.session.post(url, body)
-            data = self.parser.parseResponse(response.text)
-            return data
-        except:
-            return {'error': 'bad request'}
+        except requests.exceptions.ConnectTimeout:
+            return{'error': 'Connection Timeout'}
 
-    def httpPut(self, url, body=None):
-        try:
-            response = self.session.put(url, body)
-            data = self.parser.parseResponse(response.text)
-            return data
-        except:
-            return {'error': 'bad request'}
+        except requests.exceptions.ConnectionError:
+            return {'error': 'Connection Failed'}
 
-    def httpDel(self, url, body=None):
-        try:
-            response = self.session.delete(url)
-            data = self.parser.parseResponse(response.text)
-            return data
-        except:
-            return {'error': 'bad request'}
+        except requests.exceptions.SSLError:
+            return {'error': 'SSL Error'}
+            
+        except requests.exceptions.Timeout:
+            return {'errror': 'Timeout'}
+        
+        if response.text == '':
+            return response.text
+        else:
+            result_data = Parser.parseResponse(response=response)
+            return result_data
