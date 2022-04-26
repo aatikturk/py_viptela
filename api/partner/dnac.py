@@ -15,12 +15,12 @@ class DNAC(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def createSDAConfig(self, devicesdaconfiguration, partnerId):
+    def createSDAConfig(self, config, partnerId):
         """
         Create SDA enabled device
         
         Parameters:
-        devicesdaconfiguration:	Device SDA configuration
+        config:	Device SDA configuration
 		partnerId	 (string):	Partner Id
         
         Returns
@@ -30,7 +30,7 @@ class DNAC(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/partner/dnac/sda/config/{partnerId}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, devicesdaconfiguration)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, config)
         return response
 
 
@@ -71,12 +71,12 @@ class DNAC(object):
         return response
 
 
-    def createSDAConfigFromNetconf(self, devicesdaconfiguration, partnerId):
+    def createSDAConfigFromNetconf(self, config, partnerId):
         """
         Create SDA enabled device from Netconf
         
         Parameters:
-        devicesdaconfiguration:	Device SDA configuration
+        config:	Device SDA configuration
 		partnerId	 (string):	Partner Id
         
         Returns
@@ -86,7 +86,7 @@ class DNAC(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/partner/dnac/sda/netconfconfig/{partnerId}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, devicesdaconfiguration)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, config)
         return response
 
 

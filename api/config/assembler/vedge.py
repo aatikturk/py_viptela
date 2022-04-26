@@ -5,7 +5,7 @@ class VedgeAssembly(object):
     """
     Configuration - Policy vEdge Assembler API
     
-    Implements GET POST DEL PUT methods for PolicyvEdgeAssembler endpoints
+    Implements GET POST DEL PUT methods for Policy vEdge Assembler endpoints
 
     """
 

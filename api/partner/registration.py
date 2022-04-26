@@ -91,8 +91,8 @@ class Registration(object):
         List mapped devices for the partner
         
         Parameters:
-        Parameter Description
-		nmsId	 (string):	NMS Id
+        partnerType     (string):   Partner type
+		nmsId	        (string):	NMS Id
         
         Returns
         response    (dict)
@@ -110,9 +110,9 @@ class Registration(object):
         Map devices for the partner
         
         Parameters:
-        listofdevices:	List of devices
-		partnerType	 (string):	Partner type
-		nmsId	 (string):	NMS Id
+        listofdevices:	            List of devices
+		partnerType	    (string):	Partner type
+		nmsId	        (string):	NMS Id
         
         Returns
         response    (dict)
@@ -130,8 +130,8 @@ class Registration(object):
         Unmap all devices for the partner
         
         Parameters:
-        Parameter Description
-		nmsId	 (string):	NMS Id
+        partnerType     (string):   Partner type
+		nmsId	        (string):	NMS Id
         
         Returns
         response    (dict)
@@ -188,9 +188,9 @@ class Registration(object):
         Update NMS partner details
         
         Parameters:
-        partner:	Partner
-		partnerType	 (string):	Partner type
-		nmsId	 (string):	NMS Id
+        partner:	                Partner
+		partnerType	    (string):	Partner type
+		nmsId	        (string):	NMS Id
         
         Returns
         response    (dict)
@@ -208,8 +208,8 @@ class Registration(object):
         Delete NMS partner
         
         Parameters:
-        Parameter Description
-		nmsId	 (string):	NMS Id
+        partnerType	    (string):	Partner type
+		nmsId	        (string):	NMS Id
         
         Returns
         response    (dict)

@@ -15,7 +15,7 @@ class Messaging(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def createDeviceVmanageConnectionList(self):
+    def getVmanageConnList(self):
         """
         Create device vManage connection list
         

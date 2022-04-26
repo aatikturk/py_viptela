@@ -15,7 +15,7 @@ class Vsmart(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def generateVSmartPolicyTemplateList(self):
+    def getVSmartPolicyTemplateList(self):
         """
         Get all template vsmart policy list
         

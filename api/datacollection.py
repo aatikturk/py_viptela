@@ -86,12 +86,12 @@ class Agent(object):
         return response
 
 
-    def generateAlarm(self, dcaalarmmessage):
+    def generateAlarm(self, msg):
         """
         Generate DCA alarms
         
         Parameters:
-        dcaalarmmessage:	DCA alarm message
+        msg:	DCA alarm message
         
         Returns
         response    (dict)
@@ -100,7 +100,7 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/cloudservices/alarm"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, dcaalarmmessage)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, msg)
         return response
 
 
@@ -121,12 +121,12 @@ class Agent(object):
         return response
 
 
-    def storeIdToken(self, dcaidtoken):
+    def storeIdToken(self, token):
         """
         Set DCA Id token
         
         Parameters:
-        dcaidtoken:	DCA Id token
+        token:	DCA Id token
         
         Returns
         response    (dict)
@@ -135,7 +135,7 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/cloudservices/idtoken"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, dcaidtoken)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, token)
         return response
 
 
@@ -156,12 +156,12 @@ class Agent(object):
         return response
 
 
-    def generateDCADeviceStateData(self, querystring, state_data_type):
+    def generateDCADeviceStateData(self, query, state_data_type):
         """
         Get device state data
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
 		state_data_type	 (string):	Device state data
         
         Returns
@@ -171,17 +171,17 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/data/device/state/{state_data_type}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def generateDCADeviceStatisticsData(self, querystring, stats_data_type):
+    def generateDCADeviceStatisticsData(self, query, dataType):
         """
         Get device statistics data
         
         Parameters:
-        querystring:	Query string
-		stats_data_type	 (string):	Device statistics data
+        query:	Query string
+		dataType	 (string):	Device statistics data
         
         Returns
         response    (dict)
@@ -189,8 +189,8 @@ class Agent(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/dca/data/device/statistics/{stats_data_type}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        endpoint = f"https://{self.host}:{self.port}/dataservice/dca/data/device/statistics/{dataType}"
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -211,12 +211,12 @@ class Agent(object):
         return response
 
 
-    def listAllDevicesDCA(self, querystring):
+    def listAllDevicesDCA(self, query):
         """
         Get all devices
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -225,16 +225,16 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/device"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getCrashLogs(self, querystring):
+    def getCrashLogs(self, query):
         """
         Get crash log
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -243,7 +243,7 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/device/crashlog/details"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -282,12 +282,12 @@ class Agent(object):
         return response
 
 
-    def createDCAAnalyticsDataFile(self, querystring, type):
+    def createDCAAnalyticsDataFile(self, query, type):
         """
         Create analytics config data
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
 		type	 (string):	Data type
         
         Returns
@@ -297,7 +297,7 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/settings/configuration/{type}/dca"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -319,12 +319,12 @@ class Agent(object):
         return response
 
 
-    def getDevicesDetailsDCA(self, querystring):
+    def getDevicesDetailsDCA(self, query):
         """
         Get device details
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -333,16 +333,16 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/system/device"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getDCAAttachedConfigToDevice(self, querystring):
+    def getDCAAttachedConfigToDevice(self, query):
         """
         Get attached config to device
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -351,16 +351,16 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/template/device/config/attachedconfig"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getTemplatePolicyDefinitionsDCA(self, querystring):
+    def getTemplatePolicyDefinitionsDCA(self, query):
         """
         Get template policy definitions
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -369,16 +369,16 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/template/policy/definition/approute"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getVPNListsDCA(self, querystring):
+    def getVPNListsDCA(self, query):
         """
         Get VPN details
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -387,16 +387,16 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/template/policy/list/vpn"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getVedgeTemplateListDCA(self, querystring):
+    def getVedgeTemplateListDCA(self, query):
         """
         Get vEdge template list
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -405,16 +405,16 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/template/policy/vedge"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getVsmartTemplateListDCA(self, querystring):
+    def getVsmartTemplateListDCA(self, query):
         """
         Get vSmart template list
         
         Parameters:
-        querystring:	Query string
+        query:	Query string
         
         Returns
         response    (dict)
@@ -423,7 +423,7 @@ class Agent(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/template/policy/vsmart"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, querystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 

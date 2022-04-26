@@ -33,12 +33,12 @@ class ReverseProxy(object):
         return response
 
 
-    def createReverseProxyMappings(self, devicereverseproxymappings, uuid):
+    def createReverseProxyMappings(self, mapping, uuid):
         """
         Create reverse proxy IP/Port mappings for controller
         
         Parameters:
-        devicereverseproxymappings:	Device reverse proxy mappings
+        mapping:	Device reverse proxy mappings
 		uuid	 (string):	Device uuid
         
         Returns
@@ -48,7 +48,7 @@ class ReverseProxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/system/reverseproxy/{uuid}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, devicereverseproxymappings)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, mapping)
         return response
 
 

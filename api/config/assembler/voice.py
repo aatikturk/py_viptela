@@ -5,7 +5,7 @@ class VoiceAssembly(object):
     """
     Configuration - Policy Voice Assembler API
     
-    Implements GET POST DEL PUT methods for PolicyVoiceAssembler endpoints
+    Implements GET POST DEL PUT methods for Policy Voice Assembler endpoints
 
     """
 

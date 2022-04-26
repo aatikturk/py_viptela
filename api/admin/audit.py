@@ -33,12 +33,12 @@ class Audit(object):
         return response
 
 
-    def getRawPropertyData(self, queryfilterforgettingstatrawdata):
+    def getRawPropertyData(self, query):
         """
         Get raw property data with post action
         
         Parameters:
-        queryfilterforgettingstatrawdata:	Query filter for getting stat raw data
+        query:	Query filter for getting stat raw data
         
         Returns
         response    (dict)
@@ -47,7 +47,7 @@ class Audit(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, queryfilterforgettingstatrawdata)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -69,12 +69,12 @@ class Audit(object):
         return response
 
 
-    def getPostPropertyAggregationData(self, queryfilterforgettingstatrawdata):
+    def getPostPropertyAggregationData(self, query):
         """
         Get raw property data aggregated with post action
         
         Parameters:
-        queryfilterforgettingstatrawdata:	Query filter for getting stat raw data
+        query:	Query filter for getting stat raw data
         
         Returns
         response    (dict)
@@ -83,7 +83,7 @@ class Audit(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, queryfilterforgettingstatrawdata)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -160,12 +160,12 @@ class Audit(object):
         return response
 
 
-    def getPostStatBulkRawPropertyData(self, queryfilterforgettingstatrawdata, scrollId, count):
+    def getPostStatBulkRawPropertyData(self, query, scrollId, count):
         """
         Get raw property data in bulk with post action
         
         Parameters:
-        queryfilterforgettingstatrawdata:	Query filter for getting stat raw data
+        query:	Query filter for getting stat raw data
 		scrollId	 (string):	Offset of the query result
 		count	 (string):	Size of the query result
         
@@ -176,7 +176,7 @@ class Audit(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/page?scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, queryfilterforgettingstatrawdata)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 

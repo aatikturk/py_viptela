@@ -207,7 +207,7 @@ class General(object):
         return response
 
 
-    def generateMasterTemplateDefinition(self, type_name):
+    def getMasterTemplateDefinition(self, type_name):
         """
         Generate template type definition by device type
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -282,7 +282,7 @@ class General(object):
         return response
 
 
-    def generateTemplateTypes(self, type):
+    def getTemplateTypes(self, type):
         """
         Generate template types
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -301,7 +301,7 @@ class General(object):
         return response
 
 
-    def generateTemplateTypeDefinition(self, type_name, version):
+    def getTemplateTypeDefinition(self, type_name, version):
         """
         Generate template type definition
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -321,7 +321,7 @@ class General(object):
         return response
 
 
-    def generateTemplateByDeviceType(self, deviceType):
+    def getTemplateByDeviceType(self, deviceType):
         """
         Generate template based on device
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.

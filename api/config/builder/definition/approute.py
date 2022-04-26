@@ -31,7 +31,7 @@ class AppRoute(object):
         return response
 
 
-    def createPolicyDefinition(self, policydefinition):
+    def create(self, policydefinition):
         """
         Create policy definition
         
@@ -49,7 +49,7 @@ class AppRoute(object):
         return response
 
 
-    def savePolicyDefinitionInBulk(self, policydefinition):
+    def saveInBulk(self, policydefinition):
         """
         Create/Edit policy definitions in bulk
         
@@ -67,7 +67,7 @@ class AppRoute(object):
         return response
 
 
-    def editMultiplePolicyDefinition(self, policydefinition, id):
+    def editMultiple(self, policydefinition, id):
         """
         Edit multiple policy definitions
         
@@ -86,7 +86,7 @@ class AppRoute(object):
         return response
 
 
-    def previewPolicyDefinition(self, policydefinition):
+    def preview(self, policydefinition):
         """
         Preview policy definition
         
@@ -104,7 +104,7 @@ class AppRoute(object):
         return response
 
 
-    def previewPolicyDefinitionById(self, id):
+    def previewById(self, id):
         """
         Preview policy definition
         
@@ -122,7 +122,7 @@ class AppRoute(object):
         return response
 
 
-    def getPolicyDefinition(self, id):
+    def get(self, id):
         """
         Get a specific policy definitions
         
@@ -140,7 +140,7 @@ class AppRoute(object):
         return response
 
 
-    def editPolicyDefinition(self, policydefinition, id):
+    def edit(self, policydefinition, id):
         """
         Edit a policy definitions
         
@@ -159,7 +159,7 @@ class AppRoute(object):
         return response
 
 
-    def deletePolicyDefinition(self, id):
+    def delete(self, id):
         """
         Delete policy definition
         

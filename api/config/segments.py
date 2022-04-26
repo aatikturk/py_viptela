@@ -32,12 +32,12 @@ class Segments(object):
         return response
 
 
-    def createSegment(self, networksegment):
+    def createSegment(self, segmen):
         """
         Create network segment
         
         Parameters:
-        networksegment:	Network segment
+        segmen:	Network segment
         
         Returns
         response    (dict)
@@ -46,7 +46,7 @@ class Segments(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/segment"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, networksegment)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, segmen)
         return response
 
 
@@ -68,12 +68,12 @@ class Segments(object):
         return response
 
 
-    def editSegment(self, networksegment, id):
+    def editSegment(self, segmen, id):
         """
         Edit network segment
         
         Parameters:
-        networksegment:	Network segment
+        segmen:	Network segment
 		id	 (string):	Segment Id
         
         Returns
@@ -83,7 +83,7 @@ class Segments(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/segment/{id}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, networksegment)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, segmen)
         return response
 
 

@@ -5,7 +5,7 @@ class SecurityAssembly(object):
     """
     Configuration - Policy Security Assembler API
     
-    Implements GET POST DEL PUT methods for PolicySecurityAssembler endpoints
+    Implements GET POST DEL PUT methods for Policy Security Assembler endpoints
 
     """
 

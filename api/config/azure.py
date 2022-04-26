@@ -32,7 +32,7 @@ class Azure(object):
         return response
 
 
-    def authenticateAzureConnectCredAndAdd(self, credential):
+    def authAzureCredAndAdd(self, credential):
         """
         Authenticate Cloud Account Credentials
         

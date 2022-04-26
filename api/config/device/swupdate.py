@@ -105,12 +105,12 @@ class Software(object):
         return response
 
 
-    def editImageMetadata(self, bodyParameter, versionId):
+    def editImageMetadata(self, imageData, versionId):
         """
         Update Package Metadata
         
         Parameters:
-        bodyParameter:	Description
+        imageData:	Image Meta Data
 		versionId	 (string):	Image ID
         
         Returns
@@ -120,7 +120,7 @@ class Software(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/software/package/{versionId}/metadata"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, imageData)
         return response
 
 

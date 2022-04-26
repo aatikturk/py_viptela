@@ -84,12 +84,12 @@ class Settings(object):
         return response
 
 
-    def editCertConfiguration(self, certificateconfig, settingType):
+    def editCertConfiguration(self, certConfig, settingType):
         """
         Update certificate configuration
         
         Parameters:
-        certificateconfig:	Certificate config
+        certConfig:	Certificate config
 		settingType	 (string):	Setting type
         
         Returns
@@ -99,16 +99,16 @@ class Settings(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/certificate/{settingType}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, certificateconfig)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, certConfig)
         return response
 
 
-    def newCertConfiguration(self, certificateconfig, settingType):
+    def newCertConfiguration(self, certConfig, settingType):
         """
         Add new certificate configuration
         
         Parameters:
-        certificateconfig:	Certificate config
+        certConfig:	Certificate config
 		settingType	 (string):	Setting type
         
         Returns
@@ -118,7 +118,7 @@ class Settings(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/certificate/{settingType}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, certificateconfig)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certConfig)
         return response
 
 
@@ -174,12 +174,12 @@ class Settings(object):
         return response
 
 
-    def editConfiguration(self, configurationsetting, settingType):
+    def editConfiguration(self, configSetting, settingType):
         """
         Update configuration setting
         
         Parameters:
-        configurationsetting:	Configuration setting
+        configSetting:	Configuration setting
 		settingType	 (string):	Setting type
         
         Returns
@@ -189,16 +189,16 @@ class Settings(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/{settingType}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, configurationsetting)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, configSetting)
         return response
 
 
-    def newConfiguration(self, configurationsetting, settingType):
+    def newConfiguration(self, configSetting, settingType):
         """
         Add new configuration
         
         Parameters:
-        configurationsetting:	Configuration setting
+        configSetting:	Configuration setting
 		settingType	 (string):	Setting type
         
         Returns
@@ -208,7 +208,7 @@ class Settings(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/{settingType}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, configurationsetting)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, configSetting)
         return response
 
 

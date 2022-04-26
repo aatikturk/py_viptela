@@ -5,7 +5,7 @@ class Policy(object):
     """
     MDP - Internal Policy Management API
     
-    Implements GET POST DEL PUT methods for InternalPolicyManagement endpoints
+    Implements GET POST DEL PUT methods for Internal Policy Management endpoints
 
     """
 
@@ -15,12 +15,12 @@ class Policy(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def addInternalPolicy(self, addinternalpolicy):
+    def addInternalPolicy(self, policy):
         """
         Add internal policy from vmanage
         
         Parameters:
-        addinternalpolicy:	addInternalPolicy
+        policy:	    Internal Policy
         
         Returns
         response    (dict)
@@ -29,7 +29,7 @@ class Policy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/policies/mdpconfig"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, addinternalpolicy)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, policy)
         return response
 
 

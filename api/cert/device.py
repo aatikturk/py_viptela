@@ -86,7 +86,8 @@ class Device(object):
 
     def forceSyncRootCert(self, singedcertificate):
         """
-        Force sync root certificate<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Force sync root certificate
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
         singedcertificate:	Singed certificate
@@ -102,12 +103,13 @@ class Device(object):
         return response
 
 
-    def generateCSR(self, csrrequestfordevice):
+    def generateCSR(self, csrRequest):
         """
-        Generate CSR<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Generate CSR
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
-        csrrequestfordevice:	CSR request for device
+        csrRequest:	CSR request for device
         
         Returns
         response    (dict)
@@ -116,16 +118,17 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/generate/csr"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, csrrequestfordevice)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, csrRequest)
         return response
 
 
-    def generateEnterpriseCSR(self, csrrequestfordevice):
+    def generateEnterpriseCSR(self, csrRequest):
         """
-        Generate CSR<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Generate CSR
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
-        csrrequestfordevice:	CSR request for device
+        csrRequest:	CSR request for device
         
         Returns
         response    (dict)
@@ -134,16 +137,17 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/generate/enterprise/csr/vedge"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, csrrequestfordevice)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, csrRequest)
         return response
 
 
-    def generateEnterpriseCSR(self, csrrequestfordevice):
+    def generateEnterpriseCSR(self, csrRequest):
         """
-        Generate CSR<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Generate CSR
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
-        csrrequestfordevice:	CSR request for device
+        csrRequest:	CSR request for device
         
         Returns
         response    (dict)
@@ -152,16 +156,17 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/generate/wanedge/csr"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, csrrequestfordevice)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, csrRequest)
         return response
 
 
-    def installCertificate(self, singedcertificate):
+    def installCertificate(self, singedCert):
         """
-        Install singed certificate<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Install singed certificate
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
-        singedcertificate:	Singed certificate
+        singedCert:	Singed certificate
         
         Returns
         response    (dict)
@@ -170,13 +175,14 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/install/signedCert"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, singedcertificate)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, singedCert)
         return response
 
 
     def updateJks(self, updatejks):
         """
-        update JKS<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        update JKS
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
         updatejks:	Update JKS
@@ -226,12 +232,13 @@ class Device(object):
         return response
 
 
-    def resetRSA(self, csrrequestforvedge):
+    def resetRSA(self, csrRequest):
         """
-        Register CSR<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Register CSR
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
-        csrrequestforvedge:	CSR request for vEdge
+        csrRequest:	CSR request for vEdge
         
         Returns
         response    (dict)
@@ -240,13 +247,14 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/reset/rsa"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, csrrequestforvedge)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, csrRequest)
         return response
 
 
     def decommissionEnterpriseCSRForVedge(self, revokingcsrforhardwarevedge):
         """
-        Revoking enterprise CSR for hardware vEdge<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Revoking enterprise CSR for hardware vEdge
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
         revokingcsrforhardwarevedge:	Revoking CSR for hardware vEdge
@@ -280,12 +288,13 @@ class Device(object):
         return response
 
 
-    def saveRootCertChain(self, saverootcertchain):
+    def saveRootCertChain(self, rootChain):
         """
-        Save root cert chain<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Save root cert chain
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
-        saverootcertchain:	Save root cert chain
+        rootChain:	Save root cert chain
         
         Returns
         response    (dict)
@@ -294,7 +303,7 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/rootcertchains"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, saverootcertchain)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, rootChain)
         return response
 
 
@@ -315,12 +324,12 @@ class Device(object):
         return response
 
 
-    def saveVEdgeList(self, vedgedevicelist):
+    def saveVEdgeList(self, deviceList):
         """
         Save vEdge device list
         
         Parameters:
-        vedgedevicelist:	vEdge device list
+        deviceList:	vEdge device list
         
         Returns
         response    (dict)
@@ -329,7 +338,7 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/save/vedge/list"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, vedgedevicelist)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, deviceList)
         return response
 
 
@@ -403,7 +412,8 @@ class Device(object):
 
     def getInstalledCert(self):
         """
-        Get Installed Certificate<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Get Installed Certificate
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
                 
@@ -420,7 +430,8 @@ class Device(object):
 
     def getvEdgeCSR(self):
         """
-        Get vEdge CSR Certificate<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Get vEdge CSR Certificate
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
                 
@@ -454,12 +465,12 @@ class Device(object):
         return response
 
 
-    def setvEdgeList(self, vedgedevicelist):
+    def setvEdgeList(self, deviceList):
         """
         Save vEdge list
         
         Parameters:
-        vedgedevicelist:	vEdge device list
+        deviceList:	vEdge device list
         
         Returns
         response    (dict)
@@ -468,7 +479,7 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/vedge/list"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, vedgedevicelist)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, deviceList)
         return response
 
 
@@ -491,7 +502,8 @@ class Device(object):
 
     def getvSmartList(self):
         """
-        Get vSmart list<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Get vSmart list
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
                 
@@ -525,12 +537,13 @@ class Device(object):
 
     def deleteConfiguration(self, uuid, replaceController, deviceId):
         """
-        Invalidate device<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        Invalidate device
+        NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
         
         Parameters:
-        uuid	 (string):	Device uuid
-		replaceController	 (boolean):	Replace a vSmart in Multi-tenant setup with a new vSmart
-		deviceId	 (string):	uuid of new vSmart
+        uuid	                (string):	Device uuid
+		replaceController	    (boolean):	Replace a vSmart in Multi-tenant setup with a new vSmart
+		deviceId	            (string):	uuid of new vSmart
         
         Returns
         response    (dict)

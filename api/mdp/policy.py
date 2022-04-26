@@ -20,7 +20,7 @@ class Policy(object):
         Retrieve MDP policies
         
         Parameters:
-        Parameter Description
+        nmsId:  NMS server ID
         
         Returns
         response    (dict)
@@ -39,7 +39,7 @@ class Policy(object):
         
         Parameters:
         policylist:	policyList
-		Parameter Description
+		nmsId:  NMS server ID
         
         Returns
         response    (dict)

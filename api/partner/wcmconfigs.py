@@ -20,7 +20,7 @@ class WCM(object):
         Push device configs
         
         Parameters:
-        config:	Netconf configuration
+        config:	            Netconf configuration
 		nmsId	 (string):	NMS Id
         
         Returns

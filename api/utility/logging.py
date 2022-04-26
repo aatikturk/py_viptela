@@ -50,12 +50,12 @@ class Logging(object):
         return response
 
 
-    def debugLog(self, bodyParameter):
+    def debugLog(self, payload):
         """
         Test whether logging works
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -64,16 +64,16 @@ class Logging(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/util/logging/debuglog"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def setLogLevel(self, bodyParameter):
+    def setLogLevel(self, payload):
         """
         Set log level for logger
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -82,7 +82,7 @@ class Logging(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/util/logging/level"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 

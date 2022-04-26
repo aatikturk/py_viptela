@@ -15,7 +15,7 @@ class Geolocation(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getPolicyLists(self):
+    def getLists(self):
         """
         Get policy lists
         
@@ -32,7 +32,7 @@ class Geolocation(object):
         return response
 
 
-    def createPolicyList(self, policylist):
+    def create(self, policylist):
         """
         Create policy list
         
@@ -67,7 +67,7 @@ class Geolocation(object):
         return response
 
 
-    def previewPolicyList(self, policylist):
+    def preview(self, policylist):
         """
         Preview a policy list based on the policy list type
         
@@ -85,7 +85,7 @@ class Geolocation(object):
         return response
 
 
-    def previewPolicyListById(self, id):
+    def previewById(self, id):
         """
         Preview a specific policy list entry based on id provided
         
@@ -121,7 +121,7 @@ class Geolocation(object):
         return response
 
 
-    def editPolicyList(self, policylist, id):
+    def edit(self, policylist, id):
         """
         Edit policy list entries for a specific type of policy list
         
@@ -140,7 +140,7 @@ class Geolocation(object):
         return response
 
 
-    def deletePolicyList(self, id):
+    def delete(self, id):
         """
         Delete policy list entry for a specific type of policy list
         

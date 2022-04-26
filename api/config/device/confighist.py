@@ -33,12 +33,12 @@ class History(object):
         return response
 
 
-    def getStatsRawData(self, statsquerystring):
+    def getStatsRawData(self, query):
         """
         Get stats raw data
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -47,7 +47,7 @@ class History(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/history"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -69,12 +69,12 @@ class History(object):
         return response
 
 
-    def getPostAggregationDataByQuery(self, statsquerystring):
+    def getPostAggregationDataByQuery(self, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -83,16 +83,16 @@ class History(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getPostAggregationAppDataByQuery(self, statsquerystring):
+    def getPostAggregationAppDataByQuery(self, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -101,7 +101,7 @@ class History(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/app-agg/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -252,12 +252,12 @@ class History(object):
         return response
 
 
-    def getPostStatBulkRawData(self, statsquerystring, scrollId, count):
+    def getPostStatBulkRawData(self, query, scrollId, count):
         """
         Get stats raw data
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
 		scrollId	 (string):	ES scroll Id
 		count	 (string):	Result size
         
@@ -268,7 +268,7 @@ class History(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/page?scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 

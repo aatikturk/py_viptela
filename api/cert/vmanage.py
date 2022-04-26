@@ -32,12 +32,12 @@ class Vmanage(object):
         return response
 
 
-    def importCertificate(self, singedcertificate):
+    def importCertificate(self, signedCert):
         """
         Import a signed web server certificate
         
         Parameters:
-        singedcertificate:	Singed certificate
+        signedCert:	Singed certificate
         
         Returns
         response    (dict)
@@ -46,16 +46,16 @@ class Vmanage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/setting/configuration/webserver/certificate"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, singedcertificate)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, signedCert)
         return response
 
 
-    def getCSR(self, csrsigningrequest):
+    def getCSR(self, csrRequest):
         """
         Generate Certificate Signing Request
         
         Parameters:
-        csrsigningrequest:	CSR signing request
+        csrRequest:	CSR signing request
         
         Returns
         response    (dict)
@@ -64,11 +64,11 @@ class Vmanage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/setting/configuration/webserver/certificate"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, csrsigningrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, csrRequest)
         return response
 
 
-    def DumpCertificate(self, type):
+    def dumpCertificate(self, type):
         """
         Get certificate with alias name
         
@@ -86,7 +86,7 @@ class Vmanage(object):
         return response
 
 
-    def GetCertificate(self):
+    def getCertificate(self):
         """
         Get certificate for alias server
         

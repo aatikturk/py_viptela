@@ -15,7 +15,7 @@ class Cluster(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getCloudDockClusterDetail(self, clusterName):
+    def getDetail(self, clusterName):
         """
         Get details of all existing Clusters
         
@@ -33,7 +33,7 @@ class Cluster(object):
         return response
 
 
-    def updateCloudDockCluster(self, clusterconfig):
+    def update(self, clusterconfig):
         """
         Update a existing cluster
         
@@ -51,7 +51,7 @@ class Cluster(object):
         return response
 
 
-    def createCloudDockCluster(self, clusterconfig):
+    def create(self, clusterconfig):
         """
         Add a new cluster
         
@@ -69,7 +69,7 @@ class Cluster(object):
         return response
 
 
-    def acitvateCloudDockCluster(self, clusterName):
+    def acitvate(self, clusterName):
         """
         Activate a cluster
         
@@ -142,7 +142,7 @@ class Cluster(object):
         return response
 
 
-    def CloudDockClusterPreview(self, serialNumber):
+    def preview(self, serialNumber):
         """
         Clouddock cluster preview
         
@@ -160,7 +160,7 @@ class Cluster(object):
         return response
 
 
-    def deAcitvateCloudDockCluster(self, clusterId):
+    def deAcitvate(self, clusterId):
         """
         Deactivate clouddock cluster
         
@@ -178,7 +178,7 @@ class Cluster(object):
         return response
 
 
-    def getCloudDockClusterDetailById(self, clusterId):
+    def getDetailById(self, clusterId):
         """
         Get cluster by Id
         
@@ -215,7 +215,7 @@ class Cluster(object):
         return response
 
 
-    def deleteCloudDockClusterByName(self, clustername):
+    def deleteByName(self, clustername):
         """
         Delete cluster by name
         

@@ -34,7 +34,7 @@ class Config(object):
         return response
 
 
-    def getAttachedConfig(self, deviceId, type):
+    def getAttached(self, deviceId, type):
         """
         Get local template attached config for given device
         
@@ -53,7 +53,7 @@ class Config(object):
         return response
 
 
-    def generateCLIModeDevices(self, type):
+    def getCLIModeDevices(self, type):
         """
         Generates a JSON object that contains a list of valid devices in CLI mode
         
@@ -71,7 +71,7 @@ class Config(object):
         return response
 
 
-    def updateDeviceToCLIMode(self, devicelist):
+    def updateToCLI(self, devicelist):
         """
         Given a JSON list of devices not managed by any third member partners, push to devices from a CLI template
         
@@ -89,7 +89,7 @@ class Config(object):
         return response
 
 
-    def generatevManageModeDevices(self, type):
+    def getvManageModeDevices(self, type):
         """
         Get list of devices that are allowable for vmanage modes
         

@@ -50,12 +50,12 @@ class Proxy(object):
         return response
 
 
-    def updateCertificate(self, uploaddevicecertificate):
+    def updateCertificate(self, cert):
         """
         Upload device certificate
         
         Parameters:
-        uploaddevicecertificate:	Upload device certificate
+        cert:	Upload device certificate
         
         Returns
         response    (dict)
@@ -64,7 +64,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/certificate"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, uploaddevicecertificate)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, cert)
         return response
 
 
@@ -87,12 +87,12 @@ class Proxy(object):
         return response
 
 
-    def uploadCertificiates(self, certificatefile):
+    def uploadCertificiates(self, certFile):
         """
         Upload device certificates
         
         Parameters:
-        certificatefile:	Certificate file
+        certFile:	Certificate file
         
         Returns
         response    (dict)
@@ -101,7 +101,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/certificates"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, certificatefile)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certFile)
         return response
 
 
@@ -159,12 +159,12 @@ class Proxy(object):
         return response
 
 
-    def generateSslProxyCSR(self, csrrequestforedge):
+    def generateSslProxyCSR(self, csrRequest):
         """
         CSR request SSL proxy for edge
         
         Parameters:
-        csrrequestforedge:	CSR request for edge
+        csrRequest:	CSR request for edge
         
         Returns
         response    (dict)
@@ -173,16 +173,16 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/generate/csr/sslproxy"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, csrrequestforedge)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, csrRequest)
         return response
 
 
-    def generateSSLProxyCSR(self, csrrequest):
+    def generateSSLProxyCSR(self, csrRequest):
         """
         Generate CSR
         
         Parameters:
-        csrrequest:	CSR request
+        csrRequest:	CSR request
         
         Returns
         response    (dict)
@@ -191,7 +191,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/generate/vmanage/csr"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, csrrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, csrRequest)
         return response
 
 
@@ -212,12 +212,12 @@ class Proxy(object):
         return response
 
 
-    def renewCertificate(self, renewdevicecertificaterequest):
+    def renewCertificate(self, certRequest):
         """
         Renew device certificate
         
         Parameters:
-        renewdevicecertificaterequest:	Renew device certificate request
+        certRequest:	Renew device certificate request
         
         Returns
         response    (dict)
@@ -226,16 +226,16 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/renew"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, renewdevicecertificaterequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certRequest)
         return response
 
 
-    def revokeCertificate(self, revokedevicecertificaterequest):
+    def revokeCertificate(self, certRequest):
         """
         Revoke device certificate
         
         Parameters:
-        revokedevicecertificaterequest:	Revoke device certificate request
+        certRequest:	Revoke device certificate request
         
         Returns
         response    (dict)
@@ -244,16 +244,16 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/revoke"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, revokedevicecertificaterequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certRequest)
         return response
 
 
-    def revokeRenewCertificate(self, revokedevicecertificaterequest):
+    def revokeRenewCertificate(self, certRequest):
         """
         Revoke and renew device certificate
         
         Parameters:
-        revokedevicecertificaterequest:	Revoke device certificate request
+        certRequest:	Revoke device certificate request
         
         Returns
         response    (dict)
@@ -262,7 +262,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/revokerenew"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, revokedevicecertificaterequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certRequest)
         return response
 
 
@@ -300,12 +300,12 @@ class Proxy(object):
         return response
 
 
-    def setEnterpriseCert(self, configenterprisecertificaterequest):
+    def setEnterpriseCert(self, certRequest):
         """
         Configure enterprise certificate
         
         Parameters:
-        configenterprisecertificaterequest:	Config enterprise certificate request
+        certRequest:	Config enterprise certificate request
         
         Returns
         response    (dict)
@@ -314,7 +314,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/settings/enterprise/certificate"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, configenterprisecertificaterequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certRequest)
         return response
 
 
@@ -335,7 +335,7 @@ class Proxy(object):
         return response
 
 
-    def setEnterpriseRootCaCert(self, setenterpriserootcarequest):
+    def setEnterpriseRootCaCert(self, certRequest):
         """
         Set vManage enterprise root certificate
         
@@ -349,7 +349,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/settings/enterprise/rootca"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, setenterpriserootcarequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certRequest)
         return response
 
 
@@ -370,12 +370,12 @@ class Proxy(object):
         return response
 
 
-    def setvManageintermediateCert(self, setvmanageintermediatecarequest):
+    def setvManageintermediateCert(self, certRequest):
         """
         Set vManage root certificate
         
         Parameters:
-        setvmanageintermediatecarequest:	Set vManage intermediate CA request
+        certRequest:	Set vManage intermediate CA request
         
         Returns
         response    (dict)
@@ -384,7 +384,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/settings/vmanage/certificate"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, setvmanageintermediatecarequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certRequest)
         return response
 
 
@@ -422,12 +422,12 @@ class Proxy(object):
         return response
 
 
-    def setvManageRootCA(self, setvmanagerootcarequest):
+    def setvManageRootCA(self, certRequest):
         """
         Set vManage root certificate
         
         Parameters:
-        setvmanagerootcarequest:	Set vManage root CA request
+        certRequest:	Set vManage root CA request
         
         Returns
         response    (dict)
@@ -436,7 +436,7 @@ class Proxy(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sslproxy/settings/vmanage/rootca"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, setvmanagerootcarequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, certRequest)
         return response
 
 

@@ -32,12 +32,12 @@ class Sdavc(object):
         return response
 
 
-    def disableCloudConnector(self, bodyParameter):
+    def disableCloudConnector(self, payload):
         """
         Disable SD_AVC Cloud Connector
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -46,16 +46,16 @@ class Sdavc(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sdavc/cloudconnector"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, payload)
         return response
 
 
-    def enableCloudConnector(self, bodyParameter):
+    def enableCloudConnector(self, payload):
         """
         Enable SD_AVC Cloud Connector
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -64,7 +64,7 @@ class Sdavc(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/sdavc/cloudconnector"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 

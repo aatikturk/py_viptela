@@ -15,7 +15,7 @@ class Master(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def generateMasterTemplateList(self, feature):
+    def getMasterTemplateList(self, feature):
         """
         Generate template list
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -53,13 +53,13 @@ class Master(object):
         return response
 
 
-    def createMasterTemplate(self, createtemplaterequest):
+    def createMasterTemplate(self, request):
         """
         Create a device template from feature templates and sub templates
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        createtemplaterequest:	Create template request
+        request:	Create template request
         
         Returns
         response    (dict)
@@ -68,7 +68,7 @@ class Master(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/device/feature"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, createtemplaterequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -90,7 +90,7 @@ class Master(object):
         return response
 
 
-    def generateTemplateForMigration(self, hasAAA):
+    def getTemplateForMigration(self, hasAAA):
         """
         Generate a list of templates which require migration
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
