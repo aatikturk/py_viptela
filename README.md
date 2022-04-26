@@ -1,5 +1,5 @@
 # py-viptela
-### A Python SDK for Cisco SD-WAN vManage API
+### A Python SDK for Cisco SD-WAN vManage API(20.6.2)
 
 This is supposed to be a wrapper around Cisco's vManage API. There's a similar solution provided by Cisco and can be accessed [here](https://github.com/CiscoDevNet/python-viptela)
 
@@ -18,3 +18,48 @@ This is supposed to be a wrapper around Cisco's vManage API. There's a similar s
     
 
 All Endpoints in vManage API are implemented using the vmanage.json file available through vmanage/apidocs page as a reference
+
+## How to Use
+
+* Clone this repo into your computer.
+```
+git clone https://github.com/aatikturk/py-viptela
+```
+
+* Change directory to "py-viptela"
+```
+cd py-viptela
+```
+
+* Import vmanage module and initiate an instance, and import any api module
+  Required parameters are as follows:
+    host:       Ip address of the vManage
+    port:       port to access vmanage
+    username:   vManage username
+    password:   vManage password
+
+```
+>>>from vmanage import Vmanage
+>>>from api.admin.user import User
+>>>
+>>>vmanage = Vmanage(host='198.18.1.10', port=443, username='admin', password='testpassword')
+>>>
+```
+
+You're ready to make requests using api endpoints. 
+
+Example:  Get all users from the vManage
+
+```
+>>>user_api = User(session=vmanage.session, host=vmanage.host, port=vmanage.port)
+>>>
+>>>users = user_api.findUsers()
+>>>
+>>>users
+[{'userName': 'admin', 'locale': 'en_US', 'group': []},
+ {'userName': 'dclouddemo',
+  'description': 'Administrator',
+  'locale': 'en_US',
+  'resGroupName': 'global',
+  'group': ['netadmin']}]
+```
