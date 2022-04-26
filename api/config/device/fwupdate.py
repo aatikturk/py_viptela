@@ -15,7 +15,7 @@ class Firmware(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getFirmwareImages(self):
+    def get(self):
         """
         Get list of firmware images in the repository
         
@@ -32,7 +32,7 @@ class Firmware(object):
         return response
 
 
-    def processFirmwareImage(self):
+    def process(self):
         """
         Upload firmware image package
         
@@ -49,12 +49,12 @@ class Firmware(object):
         return response
 
 
-    def activateFirmwareImage(self, bodyParameter):
+    def activate(self, fwInfo):
         """
         Activate firmware on device
         
         Parameters:
-        bodyParameter:	Description
+        fwInfo:    Firmware Info
         
         Returns
         response    (dict)
@@ -63,7 +63,7 @@ class Firmware(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/firmware/activate"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, fwInfo)
         return response
 
 
@@ -84,12 +84,12 @@ class Firmware(object):
         return response
 
 
-    def installFirmwareImage(self, bodyParameter):
+    def install(self, fwInfo):
         """
         Install firmware on device
         
         Parameters:
-        bodyParameter:	Description
+        fwInfo:    Firmware Info
         
         Returns
         response    (dict)
@@ -98,16 +98,16 @@ class Firmware(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/firmware/install"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, fwInfo)
         return response
 
 
-    def removeFirmwareImage(self, bodyParameter):
+    def remove(self, fwInfo):
         """
         Remove firmware on device
         
         Parameters:
-        bodyParameter:	Description
+        fwInfo:    Firmware Info
         
         Returns
         response    (dict)
@@ -116,11 +116,11 @@ class Firmware(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/firmware/remove"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, fwInfo)
         return response
 
 
-    def getFirmwareImageDetails(self, versionId):
+    def getDetails(self, versionId):
         """
         Get firmware image details for a given version
         
@@ -138,7 +138,7 @@ class Firmware(object):
         return response
 
 
-    def deleteFirmwareImage(self, versionId):
+    def delete(self, versionId):
         """
         Delete firmware image package
         

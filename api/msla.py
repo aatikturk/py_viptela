@@ -15,12 +15,12 @@ class MSLA(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def editDeviceWithLicense(self, subscriptionandlicense):
+    def editDeviceWithLicense(self, license):
         """
         Update device subscription
         
         Parameters:
-        subscriptionandlicense:	Subscription and license
+        license:	Subscription and license
         
         Returns
         response    (dict)
@@ -29,16 +29,16 @@ class MSLA(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/msla/assignLicense"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, subscriptionandlicense)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, license)
         return response
 
 
-    def createDeviceWithLicense(self, subscriptionandlicense):
+    def createDeviceWithLicense(self, license):
         """
         Create device subscription
         
         Parameters:
-        subscriptionandlicense:	Subscription and license
+        license:	Subscription and license
         
         Returns
         response    (dict)
@@ -47,7 +47,7 @@ class MSLA(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/msla/assignLicense"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, subscriptionandlicense)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, license)
         return response
 
 
@@ -136,12 +136,12 @@ class MSLA(object):
         return response
 
 
-    def getSubscriptions(self, bodyParameter):
+    def getSubscriptions(self, payload):
         """
         Retrieve MSLA subscription/licenses
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -150,7 +150,7 @@ class MSLA(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/msla/licenses/subscription"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -257,12 +257,12 @@ class MSLA(object):
         return response
 
 
-    def getSubscriptions(self, bodyParameter):
+    def getSubscriptions(self, payload):
         """
         Retrieve MSLA subscription/licenses
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -271,16 +271,16 @@ class MSLA(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/msla/template/licenses"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def getSubscriptions(self, bodyParameter):
+    def getSubscriptions(self, payload):
         """
         Retrieve MSLA subscription/licenses
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -289,7 +289,7 @@ class MSLA(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/msla/va/License"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 

@@ -70,12 +70,12 @@ class Backup(object):
         return response
 
 
-    def exportBackup(self, backuprequestinformation):
+    def exportBackup(self, request):
         """
         Trigger a backup of configuration database and statstics database and store it in vManage
         
         Parameters:
-        backuprequestinformation:	backup request information
+        request:	backup request information
         
         Returns
         response    (dict)
@@ -84,7 +84,7 @@ class Backup(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/backup/export"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, backuprequestinformation)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -123,12 +123,12 @@ class Backup(object):
         return response
 
 
-    def remoteImportBackup(self, bodyParameter):
+    def remoteImportBackup(self, payload):
         """
         Remote import backup from a remote URL and import the data and apply it to the configuraion database
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Request Payload
         
         Returns
         response    (dict)
@@ -137,16 +137,16 @@ class Backup(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/restore/remoteimport"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def scheduleBackup(self, schedulerequestinformation):
+    def scheduleBackup(self, requestInfo):
         """
         create  backup scheduler config-db and statstics database with startDateTime and persist to config-db
         
         Parameters:
-        schedulerequestinformation:	schedule request information
+        requestInfo:	schedule request information
         
         Returns
         response    (dict)
@@ -155,7 +155,7 @@ class Backup(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/schedule/create"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, schedulerequestinformation)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, requestInfo)
         return response
 
 

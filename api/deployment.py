@@ -33,12 +33,12 @@ class Deployer(object):
         return response
 
 
-    def configureDNSSec(self, dnssecconfigrequest):
+    def configureDNSSec(self, request):
         """
         Configure DNS-Sec
         
         Parameters:
-        dnssecconfigrequest:	DNS sec config request
+        request:	DNS sec config request
         
         Returns
         response    (dict)
@@ -47,7 +47,7 @@ class Deployer(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/fedramp/dnssec/config"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, dnssecconfigrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -68,12 +68,12 @@ class Deployer(object):
         return response
 
 
-    def configFedrampMode(self, networkdeploymentmode):
+    def configFedrampMode(self, mode):
         """
         Set network deployment mode
         
         Parameters:
-        networkdeploymentmode:	Network deployment mode
+        mode:	Network deployment mode
         
         Returns
         response    (dict)
@@ -82,7 +82,7 @@ class Deployer(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/fedramp/status"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, networkdeploymentmode)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, mode)
         return response
 
 
@@ -104,12 +104,12 @@ class Deployer(object):
         return response
 
 
-    def configureWazuhClient(self, wazhuhconfiguration):
+    def configureWazuhClient(self, wazhuhConfig):
         """
         Configure Wazuh agent
         
         Parameters:
-        wazhuhconfiguration:	Wazhuh configuration
+        wazhuhConfig:	Wazhuh configuration
         
         Returns
         response    (dict)
@@ -118,7 +118,7 @@ class Deployer(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/fedramp/wazuh/config"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, wazhuhconfiguration)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, wazhuhConfig)
         return response
 
 

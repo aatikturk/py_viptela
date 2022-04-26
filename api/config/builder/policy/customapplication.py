@@ -50,7 +50,7 @@ class CustomApp(object):
         return response
 
 
-    def createCustomApp(self, apppayload):
+    def create(self, apppayload):
         """
         Create a policy custom applications
         
@@ -68,7 +68,7 @@ class CustomApp(object):
         return response
 
 
-    def getCustomAppById(self, id):
+    def getById(self, id):
         """
         Get a policy custom applications
         
@@ -86,7 +86,7 @@ class CustomApp(object):
         return response
 
 
-    def editCustomApp(self, apppayload, id):
+    def edit(self, apppayload, id):
         """
         Edit a policy custom applications
         
@@ -105,7 +105,7 @@ class CustomApp(object):
         return response
 
 
-    def deleteCustomApp(self, id):
+    def delete(self, id):
         """
         Delete a policy custom applications
         

@@ -32,12 +32,12 @@ class CloudOnRamp(object):
         return response
 
 
-    def createAndMap(self, maphosttotransitvpcrequest):
+    def createAndMap(self, request):
         """
         Map Host to Transit VPC/VNet
         
         Parameters:
-        maphosttotransitvpcrequest:	Map host to transit VPC request
+        request:	Map host to transit VPC request
         
         Returns
         response    (dict)
@@ -46,7 +46,7 @@ class CloudOnRamp(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cor"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, maphosttotransitvpcrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -89,12 +89,12 @@ class CloudOnRamp(object):
         return response
 
 
-    def acquireResourcePool(self, addipfromresourcepoolrequest):
+    def acquireResourcePool(self, request):
         """
         Acquire IP from resource pool
         
         Parameters:
-        addipfromresourcepoolrequest:	Add IP from resource pool request
+        request:	Add IP from resource pool request
         
         Returns
         response    (dict)
@@ -103,7 +103,7 @@ class CloudOnRamp(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cor/acquireResourcePool"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, addipfromresourcepoolrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -163,12 +163,12 @@ class CloudOnRamp(object):
         return response
 
 
-    def authenticateCredAndUpdate(self, cloudaccountcredential):
+    def authenticateCredAndUpdate(self, credential):
         """
         Authenticate and update cloud account credentials
         
         Parameters:
-        cloudaccountcredential:	Cloud account credential
+        credential:	Cloud account credential
         
         Returns
         response    (dict)
@@ -177,16 +177,16 @@ class CloudOnRamp(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cor/cloud/authenticate"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, cloudaccountcredential)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, credential)
         return response
 
 
-    def authenticateCloudOnRampCredAndAdd(self, cloudaccountcredential):
+    def authenticateCloudOnRampCredAndAdd(self, credential):
         """
         Authenticate cloud account credentials
         
         Parameters:
-        cloudaccountcredential:	Cloud account credential
+        credential:	Cloud account credential
         
         Returns
         response    (dict)
@@ -195,7 +195,7 @@ class CloudOnRamp(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cor/cloud/authenticate"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, cloudaccountcredential)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, credential)
         return response
 
 
@@ -235,12 +235,12 @@ class CloudOnRamp(object):
         return response
 
 
-    def createResourcePool(self, addresourcepoolrequest):
+    def createResourcePool(self, request):
         """
         Add resource pool
         
         Parameters:
-        addresourcepoolrequest:	Add resource pool request
+        request:	Add resource pool request
         
         Returns
         response    (dict)
@@ -249,7 +249,7 @@ class CloudOnRamp(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cor/createResourcePool"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, addresourcepoolrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -293,12 +293,12 @@ class CloudOnRamp(object):
         return response
 
 
-    def addDevicePair(self, adddevicepairrequest):
+    def addDevicePair(self, request):
         """
         Add device pair
         
         Parameters:
-        adddevicepairrequest:	Add device pair request
+        request:	Add device pair request
         
         Returns
         response    (dict)
@@ -307,7 +307,7 @@ class CloudOnRamp(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cor/devicepair"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, adddevicepairrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 

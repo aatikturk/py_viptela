@@ -32,12 +32,12 @@ class SoftwareActions(object):
         return response
 
 
-    def createImageURL(self, createsoftwareimagerequestpayload):
+    def createImageURL(self, payload):
         """
         Create software image URL
         
         Parameters:
-        createsoftwareimagerequestpayload:	Create software image request payload
+        payload:	Create software image request payload
         
         Returns
         response    (dict)
@@ -46,7 +46,7 @@ class SoftwareActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/software"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, createsoftwareimagerequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -174,12 +174,12 @@ class SoftwareActions(object):
         return response
 
 
-    def updateImageURL(self, updatesoftwareimagerequestpayload, versionId):
+    def updateImageURL(self, payload, versionId):
         """
         Update software image URL
         
         Parameters:
-        updatesoftwareimagerequestpayload:	Update software image request payload
+        payload:	Update software image request payload
 		versionId	 (string):	Version
         
         Returns
@@ -189,7 +189,7 @@ class SoftwareActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/software/{versionId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, updatesoftwareimagerequestpayload)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, payload)
         return response
 
 

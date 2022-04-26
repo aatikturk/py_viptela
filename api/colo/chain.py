@@ -15,12 +15,12 @@ class Chain(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def attachServiceChain(self, attachservicechainrequest):
+    def attachServiceChain(self, request):
         """
         Attach service chain to cluster
         
         Parameters:
-        attachservicechainrequest:	Attach service chain request
+        request:	Attach service chain request
         
         Returns
         response    (dict)
@@ -29,16 +29,16 @@ class Chain(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/attach"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, attachservicechainrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
-    def attachServiceChain(self, attachservicechainrequest):
+    def attachServiceChain(self, request):
         """
         Attach service chain to cluster
         
         Parameters:
-        attachservicechainrequest:	Attach service chain request
+        request:	Attach service chain request
         
         Returns
         response    (dict)
@@ -47,16 +47,16 @@ class Chain(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/autoattach"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, attachservicechainrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
-    def detachServiceChain(self, detachservicechainrequest):
+    def detachServiceChain(self, request):
         """
         Detach service chain
         
         Parameters:
-        detachservicechainrequest:	Detach service chain request
+        request:	Detach service chain request
         
         Returns
         response    (dict)
@@ -65,7 +65,7 @@ class Chain(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/detach"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, detachservicechainrequest)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, request)
         return response
 
 

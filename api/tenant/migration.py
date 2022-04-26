@@ -103,12 +103,12 @@ class Migration(object):
         return response
 
 
-    def migrateNetwork(self, networkmigration):
+    def migrateNetwork(self, networkMigration):
         """
         Migrate network
         
         Parameters:
-        networkmigration:	Network migration
+        networkMigration:	Network migration
         
         Returns
         response    (dict)
@@ -117,7 +117,7 @@ class Migration(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/tenantmigration/networkMigration"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, networkmigration)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, networkMigration)
         return response
 
 

@@ -15,12 +15,12 @@ class Connectivity(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def invalidateDevice(self, vedgedeviceinfo):
+    def invalidateDevice(self, devInfo):
         """
         invalidate the device
         
         Parameters:
-        vedgedeviceinfo:	vEdge device info
+        devInfo:	vEdge device info
         
         Returns
         response    (dict)
@@ -29,16 +29,16 @@ class Connectivity(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/device/invalidate"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, vedgedeviceinfo)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, devInfo)
         return response
 
 
-    def stageDevice(self, vedgedeviceinfo):
+    def stageDevice(self, devInfo):
         """
         Stop data traffic to device
         
         Parameters:
-        vedgedeviceinfo:	vEdge device info
+        devInfo:	vEdge device info
         
         Returns
         response    (dict)
@@ -47,16 +47,16 @@ class Connectivity(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/certificate/device/stage"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, vedgedeviceinfo)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, devInfo)
         return response
 
 
-    def createAdminTech(self, admintechgenerationrequest):
+    def createAdminTech(self, request):
         """
         Generate admin tech logs
         
         Parameters:
-        admintechgenerationrequest:	Admin tech generation request
+        request:	Admin tech generation request
         
         Returns
         response    (dict)
@@ -65,16 +65,16 @@ class Connectivity(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/tools/admintech"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, admintechgenerationrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
-    def copyAdminTechOnDevice(self, admintechcopyrequest):
+    def copyAdminTechOnDevice(self, request):
         """
         copy admin tech logs
         
         Parameters:
-        admintechcopyrequest:	Admin tech copy request
+        request:	Admin tech copy request
         
         Returns
         response    (dict)
@@ -83,16 +83,16 @@ class Connectivity(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/tools/admintech/copy"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, admintechcopyrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
-    def deleteAdminTechOnDevice(self, admintechcopyrequest):
+    def deleteAdminTechOnDevice(self, request):
         """
         delete admin tech logs
         
         Parameters:
-        admintechcopyrequest:	Admin tech copy request
+        request:	Admin tech copy request
         
         Returns
         response    (dict)
@@ -101,7 +101,7 @@ class Connectivity(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/tools/admintech/delete"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint, admintechcopyrequest)
+        response = self.client.apiCall(HttpMethods.DELETE, endpoint, request)
         return response
 
 
@@ -141,12 +141,12 @@ class Connectivity(object):
         return response
 
 
-    def listAdminTechsOnDevice(self, admintechlistingrequest):
+    def listAdminTechsOnDevice(self, request):
         """
         List admin tech logs
         
         Parameters:
-        admintechlistingrequest:	Admin tech listing request
+        request:	Admin tech listing request
         
         Returns
         response    (dict)
@@ -155,7 +155,7 @@ class Connectivity(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/tools/admintechlist"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, admintechlistingrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -193,12 +193,12 @@ class Connectivity(object):
         return response
 
 
-    def factoryReset(self, devicefactoryreset):
+    def factoryReset(self, payload):
         """
         Device factory reset
         
         Parameters:
-        devicefactoryreset:	Device factory reset
+        payload:	Device factory reset
         
         Returns
         response    (dict)
@@ -207,7 +207,7 @@ class Connectivity(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/tools/factoryreset"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, devicefactoryreset)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 

@@ -51,13 +51,13 @@ class Cluster(object):
         return response
 
 
-    def configureVmanage(self, vmanageserverconfig):
+    def configureVmanage(self, vmanageConfig):
         """
         Configure vManage
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        vmanageserverconfig:	vManage server config
+        vmanageConfig:	vManage server config
         
         Returns
         response    (dict)
@@ -66,7 +66,7 @@ class Cluster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/clusterManagement/configure"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, vmanageserverconfig)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, vmanageConfig)
         return response
 
 
@@ -217,13 +217,13 @@ class Cluster(object):
         return response
 
 
-    def removeVmanage(self, vmanageserverinfo):
+    def removeVmanage(self, vmanageInfo):
         """
         Remove vManage from cluster
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        vmanageserverinfo:	vManage server info
+        vmanageInfo:	vManage server info
         
         Returns
         response    (dict)
@@ -232,7 +232,7 @@ class Cluster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/clusterManagement/remove"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, vmanageserverinfo)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, vmanageInfo)
         return response
 
 
@@ -254,13 +254,13 @@ class Cluster(object):
         return response
 
 
-    def editVmanage(self, vmanageclusterconfig):
+    def editVmanage(self, clusterConfig):
         """
         Update vManage cluster info
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        vmanageclusterconfig:	vManage cluster config
+        clusterConfig:	vManage cluster config
         
         Returns
         response    (dict)
@@ -269,16 +269,16 @@ class Cluster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/clusterManagement/setup"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, vmanageclusterconfig)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, clusterConfig)
         return response
 
 
-    def addVmanage(self, vmanageclusterconfig):
+    def addVmanage(self, clusterConfig):
         """
         Add vManage to cluster
         
         Parameters:
-        vmanageclusterconfig:	vManage cluster config
+        clusterConfig:	vManage cluster config
         
         Returns
         response    (dict)
@@ -287,7 +287,7 @@ class Cluster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/clusterManagement/setup"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, vmanageclusterconfig)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, clusterConfig)
         return response
 
 
@@ -309,12 +309,12 @@ class Cluster(object):
         return response
 
 
-    def setTenancyMode(self, tenancymodesetting):
+    def setTenancyMode(self, tenancySetting):
         """
         Update vManage tenancy mode
         
         Parameters:
-        tenancymodesetting:	Tenancy mode setting
+        tenancySetting:	Tenancy mode setting
         
         Returns
         response    (dict)
@@ -323,7 +323,7 @@ class Cluster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/clusterManagement/tenancy/mode"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, tenancymodesetting)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, tenancySetting)
         return response
 
 
@@ -345,13 +345,13 @@ class Cluster(object):
         return response
 
 
-    def addOrUpdateUserCredentials(self, usercredential):
+    def addOrUpdateUserCredentials(self, creds):
         """
         Add or update user credentials for cluster operations
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        usercredential:	User credential
+        creds:	User credential
         
         Returns
         response    (dict)
@@ -360,7 +360,7 @@ class Cluster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/clusterManagement/userCreds"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, usercredential)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, creds)
         return response
 
 

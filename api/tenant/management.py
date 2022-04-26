@@ -17,7 +17,8 @@ class Manage(object):
     
     def getAllTenants(self, deviceId):
         """
-        Lists all the tenants on the vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Lists all the tenants on the vManage
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
         deviceId	 (string):	List all tenants associated with a vSmart
@@ -33,12 +34,13 @@ class Manage(object):
         return response
 
 
-    def createTenant(self, tenantmodel):
+    def createTenant(self, tenantModel):
         """
-        Create a new tenant in Multi-Tenant vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Create a new tenant in Multi-Tenant vManage
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        tenantmodel:	Tenant model
+        tenantModel:	Tenant model
         
         Returns
         response    (dict)
@@ -47,16 +49,17 @@ class Manage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/tenant"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantmodel)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
         return response
 
 
-    def createTenantAsync(self, tenantmodel):
+    def createTenantAsync(self, tenantModel):
         """
-        Create a new tenant in Multi-Tenant vManage asynchronously<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Create a new tenant in Multi-Tenant vManage asynchronously
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        tenantmodel:	Tenant model
+        tenantModel:	Tenant model
         
         Returns
         response    (dict)
@@ -65,16 +68,17 @@ class Manage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/tenant/async"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantmodel)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
         return response
 
 
-    def createTenantAsyncBulk(self, tenantmodel):
+    def createTenantAsyncBulk(self, tenantModel):
         """
-        Create multiple tenants on vManage asynchronously<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Create multiple tenants on vManage asynchronously
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        tenantmodel:	Tenant model
+        tenantModel:	Tenant model
         
         Returns
         response    (dict)
@@ -83,16 +87,17 @@ class Manage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/tenant/bulk/async"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantmodel)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
         return response
 
 
-    def deleteTenantAsyncBulk(self, tenantmodel):
+    def deleteTenantAsyncBulk(self, tenantModel):
         """
-        Delete multiple tenants on vManage asynchronously<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Delete multiple tenants on vManage asynchronously
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        tenantmodel:	Tenant model
+        tenantModel:	Tenant model
         
         Returns
         response    (dict)
@@ -101,13 +106,14 @@ class Manage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/tenant/bulk/async"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint, tenantmodel)
+        response = self.client.apiCall(HttpMethods.DELETE, endpoint, tenantModel)
         return response
 
 
     def getTenantvSmartMapping(self):
         """
-        Retrieve mapping of tenants to vSmarts<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Retrieve mapping of tenants to vSmarts
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 
@@ -124,7 +130,8 @@ class Manage(object):
 
     def tenantvSmartMtMigrate(self):
         """
-        Migrate tenants from single tenant vSmarts to multi-tenant capable vSmarts<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Migrate tenants from single tenant vSmarts to multi-tenant capable vSmarts
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 
@@ -141,7 +148,8 @@ class Manage(object):
 
     def getTenantHostingCapacityOnvSmarts(self):
         """
-        Lists all the vsmarts on the vManage and its tenant hosting capacity<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Lists all the vsmarts on the vManage and its tenant hosting capacity
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 
@@ -158,7 +166,8 @@ class Manage(object):
 
     def getTenant(self, tenantId):
         """
-        Get a tenant by Id<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Get a tenant by Id
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
         tenantId	 (string):	Tenant Id
@@ -174,12 +183,13 @@ class Manage(object):
         return response
 
 
-    def updateTenant(self, tenantmodel, tenantId):
+    def updateTenant(self, tenantModel, tenantId):
         """
-        Update a tenant in Multi-Tenant vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Update a tenant in Multi-Tenant vManage
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        tenantmodel:	Tenant model
+        tenantModel:	Tenant model
 		tenantId	 (string):	Tenant Id
         
         Returns
@@ -189,16 +199,17 @@ class Manage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/tenant/{tenantId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, tenantmodel)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, tenantModel)
         return response
 
 
-    def deleteTenant(self, tenantmodel, tenantId):
+    def deleteTenant(self, tenantModel, tenantId):
         """
-        Delete a tenant by Id<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Delete a tenant by Id
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        tenantmodel:	Tenant model
+        tenantModel:	Tenant model
 		tenantId	 (string):	Tenant Id
         
         Returns
@@ -208,13 +219,14 @@ class Manage(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/tenant/{tenantId}/delete"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantmodel)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
         return response
 
 
     def switchTenant(self, tenantId):
         """
-        Switch to a specific tenant<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Switch to a specific tenant
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
         tenantId	 (string):	Tenant Id
@@ -232,7 +244,8 @@ class Manage(object):
 
     def vSessionId(self, tenantId):
         """
-        Get VSessionId for a specific tenant<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Get VSessionId for a specific tenant
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
         tenantId	 (string):	Tenant Id
@@ -250,7 +263,8 @@ class Manage(object):
 
     def getAllTenantStatuses(self):
         """
-        List all tenant status<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        List all tenant status
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 
@@ -267,7 +281,8 @@ class Manage(object):
 
     def forceStatusCollection(self):
         """
-        Force tenant status collection<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Force tenant status collection
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 

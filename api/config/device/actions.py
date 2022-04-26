@@ -194,12 +194,12 @@ class DeviceActions(object):
         return response
 
 
-    def processLxcActivate(self, activationrequestpayload):
+    def processLxcActivate(self, payload):
         """
         Process an activation operation
         
         Parameters:
-        activationrequestpayload:	Activation request payload
+        payload:	Activation request payload
         
         Returns
         response    (dict)
@@ -208,16 +208,16 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/lxcactivate"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, activationrequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def processLxcDelete(self, deleterequestpayload):
+    def processLxcDelete(self, payload):
         """
         Process a delete operation
         
         Parameters:
-        deleterequestpayload:	Delete request payload
+        payload:	Delete request payload
         
         Returns
         response    (dict)
@@ -226,16 +226,16 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/lxcdelete"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, deleterequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def processLxcInstall(self, installationrequestpayload):
+    def processLxcInstall(self, payload):
         """
         Process an installation operation
         
         Parameters:
-        installationrequestpayload:	Installation request payload
+        payload:	Installation request payload
         
         Returns
         response    (dict)
@@ -244,16 +244,16 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/lxcinstall"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, installationrequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def processLxcReload(self, reloadrequestpayload):
+    def processLxcReload(self, payload):
         """
         Process a reload operation
         
         Parameters:
-        reloadrequestpayload:	Reload request payload
+        payload:	Reload request payload
         
         Returns
         response    (dict)
@@ -262,16 +262,16 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/lxcreload"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, reloadrequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def processLxcReset(self, resetrequestpayload):
+    def processLxcReset(self, payload):
         """
         Process a reset operation
         
         Parameters:
-        resetrequestpayload:	Reset request payload
+        payload:	Reset request payload
         
         Returns
         response    (dict)
@@ -280,16 +280,16 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/lxcreset"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, resetrequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def processLxcUpgrade(self, upgraderequestpayload):
+    def processLxcUpgrade(self, payload):
         """
         Process an upgrade operation
         
         Parameters:
-        upgraderequestpayload:	Upgrade request payload
+        payload:	Upgrade request payload
         
         Returns
         response    (dict)
@@ -298,7 +298,7 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/lxcupgrade"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, upgraderequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -320,12 +320,12 @@ class DeviceActions(object):
         return response
 
 
-    def processReboot(self, devicerebootrequestpayload):
+    def processReboot(self, payload):
         """
         Process a reboot operation
         
         Parameters:
-        devicerebootrequestpayload:	Device reboot request payload
+        payload:	Device reboot request payload
         
         Returns
         response    (dict)
@@ -334,7 +334,7 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/reboot"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, devicerebootrequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -374,12 +374,12 @@ class DeviceActions(object):
         return response
 
 
-    def reDiscoverDevices(self, rediscoverdevicerequestpayload):
+    def reDiscoverDevices(self, payload):
         """
         Rediscover device
         
         Parameters:
-        rediscoverdevicerequestpayload:	Rediscover device request payload
+        payload:	Rediscover device request payload
         
         Returns
         response    (dict)
@@ -388,16 +388,16 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/rediscover"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, rediscoverdevicerequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def reDiscoverAllDevice(self, rediscoverdevicerequestpayload):
+    def reDiscoverAllDevice(self, payload):
         """
         Rediscover all devices
         
         Parameters:
-        rediscoverdevicerequestpayload:	Rediscover device request payload
+        payload:	Rediscover device request payload
         
         Returns
         response    (dict)
@@ -406,7 +406,7 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/rediscoverall"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, rediscoverdevicerequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -428,12 +428,12 @@ class DeviceActions(object):
         return response
 
 
-    def processRemovePartition(self, deviceremovepartitionrequestpayload):
+    def processRemovePartition(self, payload):
         """
         Process remove partition operation
         
         Parameters:
-        deviceremovepartitionrequestpayload:	Device remove partition request payload
+        payload:	Device remove partition request payload
         
         Returns
         response    (dict)
@@ -442,7 +442,7 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/removepartition"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, deviceremovepartitionrequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -572,12 +572,12 @@ class DeviceActions(object):
         return response
 
 
-    def processVnfInstall(self, installationrequestpayload):
+    def processVnfInstall(self, payload):
         """
         Process an installation operation
         
         Parameters:
-        installationrequestpayload:	Installation request payload
+        payload:	Installation request payload
         
         Returns
         response    (dict)
@@ -586,7 +586,7 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/vnfinstall"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, installationrequestpayload)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -624,12 +624,12 @@ class DeviceActions(object):
         return response
 
 
-    def processZTPUpgradeConfig(self, ztpupgradeconfig):
+    def processZTPUpgradeConfig(self, ztpConfig):
         """
         Process ZTP upgrade configuration
         
         Parameters:
-        ztpupgradeconfig:	ZTP upgrade config
+        ztpConfig:	ZTP upgrade config
         
         Returns
         response    (dict)
@@ -638,7 +638,7 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/ztp/upgrade"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, ztpupgradeconfig)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, ztpConfig)
         return response
 
 
@@ -659,12 +659,12 @@ class DeviceActions(object):
         return response
 
 
-    def processZTPUpgradeConfigSetting(self, ztpupgradesetting):
+    def processZTPUpgradeConfigSetting(self, ztpSetting):
         """
         Process ZTP upgrade configuration setting
         
         Parameters:
-        ztpupgradesetting:	ZTP upgrade setting
+        ztpSetting:	ZTP upgrade setting
         
         Returns
         response    (dict)
@@ -673,7 +673,7 @@ class DeviceActions(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/ztp/upgrade/setting"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, ztpupgradesetting)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, ztpSetting)
         return response
 
 

@@ -123,12 +123,12 @@ class User(object):
         return response
 
 
-    def resourceGroup(self, globalnetadminswitchestoadifferentresourcegroupview):
+    def resourceGroup(self, groupView):
         """
         Global netadmin switches to a different resource group view
         
         Parameters:
-        globalnetadminswitchestoadifferentresourcegroupview:	Global netadmin switches to a different resource group view
+        groupView:	Global netadmin switches to a different resource group view
         
         Returns
         response    (dict)
@@ -137,7 +137,7 @@ class User(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/admin/resourcegroup/switch"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, globalnetadminswitchestoadifferentresourcegroupview)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, groupView)
         return response
 
 
@@ -146,8 +146,8 @@ class User(object):
         Update a group
         
         Parameters:
-        updategroupdescription:	Update group description
-		Parameter Description
+        groupdesc:  (string)	Update group description
+		groupId:    (string)    Resource group Id
         
         Returns
         response    (dict)
@@ -165,7 +165,7 @@ class User(object):
         Delete a group
         
         Parameters:
-        Parameter Description
+        groupId:    (string)    Resource group Id
         
         Returns
         response    (dict)
@@ -413,7 +413,7 @@ class User(object):
         Update user
         
         Parameters:
-        user:	User
+        user:	                User
 		userName	 (string):	User name
         
         Returns
@@ -519,7 +519,7 @@ class User(object):
         Update user group
         
         Parameters:
-        usergroup:	User group
+        usergroup:	            User group
 		userGroupId	 (string):	User group Id
         
         Returns

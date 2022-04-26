@@ -5,7 +5,7 @@ class Config(object):
     """
     MDP - Config Object API
     
-    Implements GET POST DEL PUT methods for ConfigObject endpoints
+    Implements GET POST DEL PUT methods for Config Object endpoints
 
     """
 

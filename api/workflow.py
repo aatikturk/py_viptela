@@ -34,12 +34,12 @@ class Workflow(object):
         return response
 
 
-    def saveWorkflow(self, requesttosavealreadycreatedworkflowwithgivenusercontext):
+    def saveWorkflow(self, payload):
         """
         Saves the workflow
         
         Parameters:
-        requesttosavealreadycreatedworkflowwithgivenusercontext:	Request to save already created workflow with given user context
+        payload:	Request to save already created workflow with given user context
         
         Returns
         response    (dict)
@@ -48,16 +48,16 @@ class Workflow(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/workflow"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, requesttosavealreadycreatedworkflowwithgivenusercontext)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, payload)
         return response
 
 
-    def createWorkflow(self, requesttocreateworkflowwithgivenusercontext):
+    def createWorkflow(self, payload):
         """
         Creates a workflow in the system
         
         Parameters:
-        requesttocreateworkflowwithgivenusercontext:	Request to create workflow with given user context
+        payload:	Request to create workflow with given user context
         
         Returns
         response    (dict)
@@ -66,16 +66,16 @@ class Workflow(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/workflow"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, requesttocreateworkflowwithgivenusercontext)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def deleteWorkflow(self, requesttodeletetheworkflow, id):
+    def deleteWorkflow(self, payload, id):
         """
         Deletes the workflow
         
         Parameters:
-        requesttodeletetheworkflow:	Request to delete the workflow
+        payload:	Request to delete the workflow
 		id	 (string):	Workflow id
         
         Returns
@@ -85,7 +85,7 @@ class Workflow(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/workflow?id={id}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint, requesttodeletetheworkflow)
+        response = self.client.apiCall(HttpMethods.DELETE, endpoint, payload)
         return response
 
 

@@ -33,7 +33,7 @@ class Group(object):
         return response
 
 
-    def updateServiceGroupCluster(self, servicegroup):
+    def update(self, servicegroup):
         """
         Update service group
         
@@ -51,7 +51,7 @@ class Group(object):
         return response
 
 
-    def createServiceGroupCluster(self, servicegroup):
+    def create(self, servicegroup):
         """
         Add new service group
         
@@ -69,7 +69,7 @@ class Group(object):
         return response
 
 
-    def getServiceGroupInCluster(self, ClusterId, UserGroupName):
+    def getGroupInCluster(self, ClusterId, UserGroupName):
         """
         Get service chains in cluster
         
@@ -122,7 +122,7 @@ class Group(object):
         return response
 
 
-    def deleteServiceGroupCluster(self, name):
+    def delete(self, name):
         """
         Delete service group
         

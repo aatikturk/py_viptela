@@ -67,12 +67,12 @@ class Diag(object):
         return response
 
 
-    def getStatsRawData(self, statsquerystring):
+    def getStatsRawData(self, query):
         """
         Get stats raw data
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -81,7 +81,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/speedtest"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -103,12 +103,12 @@ class Diag(object):
         return response
 
 
-    def getPostAggregationDataByQuery(self, statsquerystring):
+    def getPostAggregationDataByQuery(self, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -117,16 +117,16 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/speedtest/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getPostAggregationAppDataByQuery(self, statsquerystring):
+    def getPostAggregationAppDataByQuery(self, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -135,7 +135,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/speedtest/app-agg/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -230,12 +230,12 @@ class Diag(object):
         return response
 
 
-    def getPostStatBulkRawData(self, statsquerystring, scrollId, count):
+    def getPostStatBulkRawData(self, query, scrollId, count):
         """
         Get stats raw data
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
 		scrollId	 (string):	ES scroll Id
 		count	 (string):	Result size
         
@@ -246,7 +246,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/speedtest/page?scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -267,12 +267,12 @@ class Diag(object):
         return response
 
 
-    def getSessionInfoCapture(self, bodyParameter):
+    def getSessionInfoCapture(self, payload):
         """
         getSessionInfoCapture Description
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
         
         Returns
         response    (dict)
@@ -281,7 +281,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/capture"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -412,12 +412,12 @@ class Diag(object):
         return response
 
 
-    def getSessionInfoLog(self, bodyParameter):
+    def getSessionInfoLog(self, payload):
         """
         getSessionInfoLog Description
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
         
         Returns
         response    (dict)
@@ -426,7 +426,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/log"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -435,7 +435,7 @@ class Diag(object):
         disableDeviceLog Description
         
         Parameters:
-        Parameter Description
+        sessionId	 (string):	Session Id
         
         Returns
         response    (dict)
@@ -484,12 +484,12 @@ class Diag(object):
         return response
 
 
-    def searchDeviceLog(self, bodyParameter, sessionId):
+    def searchDeviceLog(self, payload, sessionId):
         """
         searchDeviceLog Description
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
 		sessionId	 (string):	Session Id
         
         Returns
@@ -499,7 +499,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/log/search/{sessionId}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -556,12 +556,12 @@ class Diag(object):
         return response
 
 
-    def streamLog(self, bodyParameter, logType, deviceUUID, sessionId):
+    def streamLog(self, payload, logType, deviceUUID, sessionId):
         """
         streamLog Description
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
 		logType	 (string):	Log type
 		deviceUUID	 (string):	Device uuid
 		sessionId	 (string):	Session Id
@@ -573,7 +573,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -614,12 +614,12 @@ class Diag(object):
         return response
 
 
-    def getStatsRawData(self, statsquerystring):
+    def getStatsRawData(self, query):
         """
         Get stats raw data
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -628,7 +628,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/nwpi"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -650,12 +650,12 @@ class Diag(object):
         return response
 
 
-    def getPostAggregationDataByQuery(self, statsquerystring):
+    def getPostAggregationDataByQuery(self, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -664,16 +664,16 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/nwpi/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getPostAggregationAppDataByQuery(self, statsquerystring):
+    def getPostAggregationAppDataByQuery(self, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
         
         Returns
         response    (dict)
@@ -682,7 +682,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/nwpi/app-agg/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -916,12 +916,12 @@ class Diag(object):
         return response
 
 
-    def monitorStart(self, bodyParameter):
+    def monitorStart(self, payload):
         """
         CXP Monitor Action - Start
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
         
         Returns
         response    (dict)
@@ -930,16 +930,16 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/nwpi/monitor/start"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
-    def monitorStop(self, bodyParameter):
+    def monitorStop(self, payload):
         """
         CXP Monitor Action - Stop
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
         
         Returns
         response    (dict)
@@ -948,7 +948,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/nwpi/monitor/stop"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -1043,12 +1043,12 @@ class Diag(object):
         return response
 
 
-    def getPostStatBulkRawData(self, statsquerystring, scrollId, count):
+    def getPostStatBulkRawData(self, query, scrollId, count):
         """
         Get stats raw data
         
         Parameters:
-        statsquerystring:	Stats query string
+        query:	Stats query string
 		scrollId	 (string):	ES scroll Id
 		count	 (string):	Result size
         
@@ -1059,7 +1059,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/nwpi/page?scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -1099,12 +1099,12 @@ class Diag(object):
         return response
 
 
-    def traceStart(self, bodyParameter):
+    def traceStart(self, payload):
         """
         Trace Action - Start
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
         
         Returns
         response    (dict)
@@ -1113,7 +1113,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/nwpi/trace/start"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -1192,12 +1192,12 @@ class Diag(object):
         return response
 
 
-    def getSession(self, bodyParameter):
+    def getSession(self, payload):
         """
         getSession Description
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
         
         Returns
         response    (dict)
@@ -1206,7 +1206,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/speed"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -1301,12 +1301,12 @@ class Diag(object):
         return response
 
 
-    def saveSpeedTestResults(self, bodyParameter, deviceUUID, sessionId):
+    def saveSpeedTestResults(self, payload, deviceUUID, sessionId):
         """
         saveSpeedTestResults Description
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
 		Parameter Description
 		Parameter Description
         
@@ -1317,7 +1317,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/speed/{deviceUUID}/{sessionId}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
@@ -1340,12 +1340,12 @@ class Diag(object):
         return response
 
 
-    def processDeviceStatus(self, bodyParameter, deviceUUID):
+    def processDeviceStatus(self, payload, deviceUUID):
         """
         Get device status stream
         
         Parameters:
-        bodyParameter:	Description
+        payload:    Request Payload
 		deviceUUID	 (string):	Device uuid
         
         Returns
@@ -1355,7 +1355,7 @@ class Diag(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/stream/device/status/{deviceUUID}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 

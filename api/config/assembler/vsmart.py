@@ -5,7 +5,7 @@ class VsmartAssembly(object):
     """
     Configuration - Policy vSmart Assembler API
     
-    Implements GET POST DEL PUT methods for PolicyvSmartAssembler endpoints
+    Implements GET POST DEL PUT methods for Policy vSmart Assembler endpoints
 
     """
 

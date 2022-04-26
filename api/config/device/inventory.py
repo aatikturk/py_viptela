@@ -17,7 +17,8 @@ class Inventory(object):
     
     def createDevice(self, createdevicerequest):
         """
-        Create new device<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Create new device
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
         createdevicerequest:	Create device request
@@ -394,7 +395,8 @@ class Inventory(object):
 
     def getTenantManagementSystemIPs(self):
         """
-        Get management system IP<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Get management system IP
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 

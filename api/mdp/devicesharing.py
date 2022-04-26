@@ -5,7 +5,7 @@ class DeviceSharing(object):
     """
     MDP - Device Sharing API
     
-    Implements GET POST DEL PUT methods for DeviceSharing endpoints
+    Implements GET POST DEL PUT methods for Device Sharing endpoints
 
     """
 

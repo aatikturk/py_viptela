@@ -15,7 +15,7 @@ class App(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getPolicyLists(self):
+    def getApp(self):
         """
         Get policy lists
         
@@ -32,7 +32,7 @@ class App(object):
         return response
 
 
-    def createPolicyList(self, policylist):
+    def createApp(self, policylist):
         """
         Create policy list
         
@@ -50,7 +50,7 @@ class App(object):
         return response
 
 
-    def previewPolicyList(self, policylist):
+    def previewApp(self, policylist):
         """
         Preview a policy list based on the policy list type
         
@@ -68,7 +68,7 @@ class App(object):
         return response
 
 
-    def previewPolicyListById(self, id):
+    def previewAppById(self, id):
         """
         Preview a specific policy list entry based on id provided
         
@@ -86,7 +86,7 @@ class App(object):
         return response
 
 
-    def getListsById(self, id):
+    def getAppListsById(self, id):
         """
         Get a specific policy list based on the id
         
@@ -104,7 +104,7 @@ class App(object):
         return response
 
 
-    def editPolicyList(self, policylist, id):
+    def edit(self, policylist, id):
         """
         Edit policy list entries for a specific type of policy list
         
@@ -123,7 +123,7 @@ class App(object):
         return response
 
 
-    def deletePolicyList(self, id):
+    def deleteApp(self, id):
         """
         Delete policy list entry for a specific type of policy list
         
@@ -141,7 +141,7 @@ class App(object):
         return response
 
 
-    def getPolicyLists(self):
+    def getLocalApp(self):
         """
         Get policy lists
         
@@ -158,7 +158,7 @@ class App(object):
         return response
 
 
-    def createPolicyList(self, policylist):
+    def createLocalApp(self, policylist):
         """
         Create policy list
         
@@ -176,7 +176,7 @@ class App(object):
         return response
 
 
-    def previewPolicyList(self, policylist):
+    def previewLocalApp(self, policylist):
         """
         Preview a policy list based on the policy list type
         
@@ -194,7 +194,7 @@ class App(object):
         return response
 
 
-    def previewPolicyListById(self, id):
+    def previewLocalAppById(self, id):
         """
         Preview a specific policy list entry based on id provided
         
@@ -212,7 +212,7 @@ class App(object):
         return response
 
 
-    def getListsById(self, id):
+    def getLocalAppListsById(self, id):
         """
         Get a specific policy list based on the id
         
@@ -230,7 +230,7 @@ class App(object):
         return response
 
 
-    def editPolicyList(self, policylist, id):
+    def editLocalApp(self, policylist, id):
         """
         Edit policy list entries for a specific type of policy list
         
@@ -249,7 +249,7 @@ class App(object):
         return response
 
 
-    def deletePolicyList(self, id):
+    def deleteLocalApp(self, id):
         """
         Delete policy list entry for a specific type of policy list
         

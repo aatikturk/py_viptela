@@ -34,12 +34,12 @@ class MultiCloud(object):
         return response
 
 
-    def validateAccountAdd(self, multicloudaccountinfo):
+    def validateAccountAdd(self, account):
         """
         Authenticate cloud account credentials
         
         Parameters:
-        multicloudaccountinfo:	Multicloud account info
+        account:	Multicloud account info
         
         Returns
         response    (dict)
@@ -48,7 +48,7 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, multicloudaccountinfo)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, account)
         return response
 
 
@@ -70,12 +70,12 @@ class MultiCloud(object):
         return response
 
 
-    def validateEdgeAccountAdd(self, multicloudedgeaccountinfo):
+    def validateEdgeAccountAdd(self, account):
         """
         Authenticate edge account credentials
         
         Parameters:
-        multicloudedgeaccountinfo:	Multicloud edge account info
+        account:	Multicloud edge account info
         
         Returns
         response    (dict)
@@ -84,7 +84,7 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts/edge"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, multicloudedgeaccountinfo)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, account)
         return response
 
 
@@ -106,12 +106,12 @@ class MultiCloud(object):
         return response
 
 
-    def updateEdgeAccount(self, multicloudedgeaccountinfo, accountId):
+    def updateEdgeAccount(self, account, accountId):
         """
         Update Multicloud edge account
         
         Parameters:
-        multicloudedgeaccountinfo:	Multicloud edge account info
+        account:	Multicloud edge account info
 		accountId	 (string):	Multicloud Edge Account Id
         
         Returns
@@ -121,7 +121,7 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts/edge/{accountId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, multicloudedgeaccountinfo)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, account)
         return response
 
 
@@ -143,12 +143,12 @@ class MultiCloud(object):
         return response
 
 
-    def validateEdgeAccountUpdateCredentials(self, multicloudedgeaccountinfo, accountId):
+    def validateEdgeAccountUpdateCredentials(self, account, accountId):
         """
         Update Multicloud edge account credential
         
         Parameters:
-        multicloudedgeaccountinfo:	Multicloud edge account info
+        account:	Multicloud edge account info
 		accountId	 (string):	Multicloud Edge Account Id
         
         Returns
@@ -158,7 +158,7 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts/edge/{accountId}/credentials"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, multicloudedgeaccountinfo)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, account)
         return response
 
 
@@ -180,12 +180,12 @@ class MultiCloud(object):
         return response
 
 
-    def updateAccount(self, multicloudaccountinfo, accountId):
+    def updateAccount(self, account, accountId):
         """
         Update multicloud account
         
         Parameters:
-        multicloudaccountinfo:	Multicloud account info
+        account:	Multicloud account info
 		accountId	 (string):	Account Id
         
         Returns
@@ -195,7 +195,7 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts/{accountId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, multicloudaccountinfo)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, account)
         return response
 
 
@@ -217,12 +217,12 @@ class MultiCloud(object):
         return response
 
 
-    def validateAccountUpdateCredentials(self, multicloudaccountinfo, accountId):
+    def validateAccountUpdateCredentials(self, account, accountId):
         """
         Update multicloud account credential
         
         Parameters:
-        multicloudaccountinfo:	Multicloud account info
+        account:	Multicloud account info
 		accountId	 (string):	Account Id
         
         Returns
@@ -232,7 +232,7 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts/{accountId}/credentials"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, multicloudaccountinfo)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, account)
         return response
 
 
@@ -1061,12 +1061,12 @@ class MultiCloud(object):
         return response
 
 
-    def updateIcgw(self, bodyParameter, edgeGatewayName):
+    def updateIcgw(self, gatewayInfo, edgeGatewayName):
         """
         Update Interconnect Gateway
         
         Parameters:
-        bodyParameter:	Description
+        gatewayInfo:	Description
 		edgeGatewayName	 (string):	Edge gateway name
         
         Returns
@@ -1076,7 +1076,7 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/gateway/edge/{edgeGatewayName}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, gatewayInfo)
         return response
 
 

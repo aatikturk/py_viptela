@@ -17,7 +17,8 @@ class Backup(object):
     
     def deleteTenantBackup(self, fileName):
         """
-        Delete all or a specific backup file stored in vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Delete all or a specific backup file stored in vManage
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
         fileName	 (string):	File name
@@ -35,7 +36,8 @@ class Backup(object):
 
     def downloadExistingBackupFile(self, path):
         """
-        Download a Backup File that is already stored in vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Download a Backup File that is already stored in vManage
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
         path	 (string):	File path
@@ -53,7 +55,8 @@ class Backup(object):
 
     def exportTenantBackup(self):
         """
-        Trigger a backup of configuration database and store it in vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Trigger a backup of configuration database and store it in vManage
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 
@@ -70,7 +73,8 @@ class Backup(object):
 
     def importTenantBackup(self):
         """
-        Submit a previously backed up file and import the data and apply it to the configuraion database<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Submit a previously backed up file and import the data and apply it to the configuraion database
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 
@@ -87,7 +91,8 @@ class Backup(object):
 
     def listTenantBackup(self):
         """
-        List all backup files of a tenant stored in vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
+        List all backup files of a tenant stored in vManage
+        NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
                 

@@ -15,7 +15,7 @@ class Umbrella(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getAllKeysFromUmbrella(self):
+    def getAllKeys(self):
         """
         Get keys from Umbrella
         
@@ -32,7 +32,7 @@ class Umbrella(object):
         return response
 
 
-    def getManagementKeysFromUmbrella(self):
+    def getManagementKeys(self):
         """
         Get management keys from Umbrella
         
@@ -49,7 +49,7 @@ class Umbrella(object):
         return response
 
 
-    def getNetworkKeysFromUmbrella(self):
+    def getNetworkKeys(self):
         """
         Get network devices keys from Umbrella
         
@@ -66,7 +66,7 @@ class Umbrella(object):
         return response
 
 
-    def getReportingKeysFromUmbrella(self):
+    def getReportingKeys(self):
         """
         Get reporting keys from Umbrella
         

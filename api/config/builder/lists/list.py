@@ -15,7 +15,7 @@ class List(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getAllPolicyLists(self):
+    def getAll(self):
         """
         Get all policy lists
         

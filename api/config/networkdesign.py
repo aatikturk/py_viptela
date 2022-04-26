@@ -32,12 +32,12 @@ class NetworkDesign(object):
         return response
 
 
-    def editNetworkDesign(self, networkdesignpayload, id):
+    def editNetworkDesign(self, payload, id):
         """
         Edit network segment
         
         Parameters:
-        networkdesignpayload:	Network design payload
+        payload:	Network design payload
 		id	 (string):	Id
         
         Returns
@@ -47,7 +47,7 @@ class NetworkDesign(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign?id={id}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, networkdesignpayload)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, payload)
         return response
 
 

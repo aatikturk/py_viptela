@@ -189,7 +189,7 @@ class Disaster(object):
         return response
 
 
-    def getDisasterRecoveryStatus(self):
+    def getDRStatus(self):
         """
         Disaster recovery status
         
@@ -325,7 +325,7 @@ class Disaster(object):
         return response
 
 
-    def disasterRecoveryPauseReplication(self):
+    def DRPauseReplication(self):
         """
         Pause DR data replication
         
@@ -342,12 +342,12 @@ class Disaster(object):
         return response
 
 
-    def update(self, datacenterregistrationrequest):
+    def update(self, request):
         """
         Update data centers for disaster recovery
         
         Parameters:
-        datacenterregistrationrequest:	Datacenter registration request
+        request:	Datacenter registration request
         
         Returns
         response    (dict)
@@ -356,16 +356,16 @@ class Disaster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/disasterrecovery/register"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, datacenterregistrationrequest)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, request)
         return response
 
 
-    def register(self, datacenterregistrationrequest):
+    def register(self, request):
         """
         Register data centers for disaster recovery
         
         Parameters:
-        datacenterregistrationrequest:	Datacenter registration request
+        request:	Datacenter registration request
         
         Returns
         response    (dict)
@@ -374,7 +374,7 @@ class Disaster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/disasterrecovery/register"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, datacenterregistrationrequest)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
         return response
 
 
@@ -412,7 +412,7 @@ class Disaster(object):
         return response
 
 
-    def updateDisasterRecoveryState(self, datacenterregistration):
+    def updateDRState(self, datacenterregistration):
         """
         Update complete disaster recovery information to remote data center
         
@@ -447,7 +447,7 @@ class Disaster(object):
         return response
 
 
-    def disasterRecoveryReplicationRequest(self, drrequest):
+    def DRReplicationRequest(self, drrequest):
         """
         Replication Request message sent from primary
         
@@ -483,7 +483,7 @@ class Disaster(object):
         return response
 
 
-    def getDisasterRecoveryLocalReplicationSchedule(self):
+    def getDRLocalReplicationSchedule(self):
         """
         Get disaster recovery local replication schedule
         
@@ -585,7 +585,7 @@ class Disaster(object):
         return response
 
 
-    def disasterRecoveryUnPauseReplication(self):
+    def DRUnPauseReplication(self):
         """
         Un-Pause DR data replication
         

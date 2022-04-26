@@ -15,7 +15,7 @@ class Forwarding(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getPolicyLists(self):
+    def get(self):
         """
         Get policy lists
         
@@ -32,7 +32,7 @@ class Forwarding(object):
         return response
 
 
-    def createPolicyList(self, policylist):
+    def create(self, policylist):
         """
         Create policy list
         
@@ -50,7 +50,7 @@ class Forwarding(object):
         return response
 
 
-    def previewPolicyList(self, policylist):
+    def preview(self, policylist):
         """
         Preview a policy list based on the policy list type
         
@@ -68,7 +68,7 @@ class Forwarding(object):
         return response
 
 
-    def previewPolicyListById(self, id):
+    def previewById(self, id):
         """
         Preview a specific policy list entry based on id provided
         
@@ -104,7 +104,7 @@ class Forwarding(object):
         return response
 
 
-    def editPolicyList(self, policylist, id):
+    def edit(self, policylist, id):
         """
         Edit policy list entries for a specific type of policy list
         
@@ -123,7 +123,7 @@ class Forwarding(object):
         return response
 
 
-    def deletePolicyList(self, id):
+    def delete(self, id):
         """
         Delete policy list entry for a specific type of policy list
         

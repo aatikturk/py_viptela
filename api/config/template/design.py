@@ -15,7 +15,7 @@ class Design(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getGlobalTemplate(self, templateId):
+    def getGlobal(self, templateId):
         """
         Get global template
         
@@ -33,7 +33,7 @@ class Design(object):
         return response
 
 
-    def editGlobalTemplate(self, globaltemplate, templateId):
+    def editGlobal(self, globaltemplate, templateId):
         """
         Edit global template
         
@@ -52,7 +52,7 @@ class Design(object):
         return response
 
 
-    def getDeviceProfileFeatureTemplateList(self):
+    def getFeatureTempList(self):
         """
         Generate device profile template list
         
@@ -69,7 +69,7 @@ class Design(object):
         return response
 
 
-    def generateProfileTemplateList(self):
+    def getProfileList(self):
         """
         Generate profile template list
         
@@ -86,7 +86,7 @@ class Design(object):
         return response
 
 
-    def getDeviceProfileTemplate(self, templateId):
+    def getDeviceProfile(self, templateId):
         """
         Get device profile template
         
@@ -104,7 +104,7 @@ class Design(object):
         return response
 
 
-    def editDeviceProfileTemplate(self, globaltemplate, templateId):
+    def editDeviceProfile(self, globaltemplate, templateId):
         """
         Edit device profile template
         

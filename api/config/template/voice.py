@@ -125,7 +125,7 @@ class Voice(object):
         Get templates that map a device model
         
         Parameters:
-        Parameter Description
+        deviceModel:  Device Model
         
         Returns
         response    (dict)

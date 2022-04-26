@@ -354,14 +354,14 @@ class Device(object):
         return response
 
 
-    def validateTemplate(self, bodyParameter):
+    def validateTemplate(self, payload):
         """
         Validate full template"
 
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        bodyParameter:	Description
+        payload:	Description
         
         Returns
         response    (dict)
@@ -370,7 +370,7 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/device/config/verify"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, payload)
         return response
 
 
