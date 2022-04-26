@@ -1,12 +1,10 @@
 import json
 
 class Parser(object):
-    def __init__(self) -> None:
-        pass
-
-    def parseResponse(self, response):
+    @staticmethod
+    def parseResponse(response):
         try:
-            raw_data = json.loads(response)
+            raw_data = json.loads(response.text)
         except:
             raw_data = {'error':"could not parse response"}
         if 'data' in raw_data:
