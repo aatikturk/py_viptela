@@ -3,7 +3,7 @@
 # py-viptela
 ### A Python SDK for Cisco SD-WAN vManage API(20.6.2)
 
-This is supposed to be a wrapper around Cisco's vManage API. There's a similar solution provided by Cisco and can be accessed [from DevNet website](https://developer.cisco.com/codeexchange/github/repo/CiscoDevNet/python-viptela/)
+This is a wrapper around Cisco's vManage API. All endpoints in the API are implemented. There's a similar solution provided by Cisco and can be accessed [from DevNet website](https://developer.cisco.com/codeexchange/github/repo/CiscoDevNet/python-viptela/)
 
 Also from [github](https://github.com/CiscoDevNet/python-viptela)
 
