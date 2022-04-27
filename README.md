@@ -1,3 +1,5 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/aatikturk/py-viptela)
+
 # py-viptela
 ### A Python SDK for Cisco SD-WAN vManage API(20.6.2)
 
