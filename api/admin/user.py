@@ -88,7 +88,7 @@ class User(object):
         return response
 
 
-    def resourceGroup(self):
+    def getResourceGroups(self):
         """
         Get all groups
         
@@ -105,7 +105,7 @@ class User(object):
         return response
 
 
-    def resourceGroup(self, createagroup):
+    def editResourceGroup(self, createagroup):
         """
         Create a group
         
@@ -123,7 +123,7 @@ class User(object):
         return response
 
 
-    def resourceGroup(self, groupView):
+    def switchView(self, groupView):
         """
         Global netadmin switches to a different resource group view
         
@@ -141,7 +141,7 @@ class User(object):
         return response
 
 
-    def resourceGroup(self, updategroupdescription, groupId):
+    def editResourceGroup(self, updategroupdescription, groupId):
         """
         Update a group
         
@@ -160,7 +160,7 @@ class User(object):
         return response
 
 
-    def resourceGroup(self, groupId):
+    def deleteResourceGroup(self, groupId):
         """
         Delete a group
         
