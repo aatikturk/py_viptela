@@ -50,7 +50,7 @@ class Azure(object):
         return response
 
 
-    def getMappedWanResourceGroups(self, accountid, cloudregion):
+    def getMappedWanRG(self, accountid, cloudregion):
         """
         Get Mapped WAN Resource Groups
         
@@ -69,12 +69,12 @@ class Azure(object):
         return response
 
 
-    def syncWanResourceGroups(self, wanresourcegroup):
+    def syncWanRG(self, wanRG):
         """
         Sync WAN Resource Groups
         
         Parameters:
-        wanresourcegroup:	WAN resource group
+        wanRG:	WAN resource group
         
         Returns
         response    (dict)
@@ -83,11 +83,11 @@ class Azure(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cortex/sync"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, wanresourcegroup)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, wanRG)
         return response
 
 
-    def getWanResourceGroups(self, accountid):
+    def getWanRG(self, accountid):
         """
         Get WAN Resource Groups
         
@@ -105,12 +105,12 @@ class Azure(object):
         return response
 
 
-    def editWanResourceGroups(self, wanresourcegroup):
+    def editWanRG(self, wanRG):
         """
         Edit WAN Resource Groups
         
         Parameters:
-        wanresourcegroup:	WAN resource group
+        wanRG:	WAN resource group
         
         Returns
         response    (dict)
@@ -119,16 +119,16 @@ class Azure(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cortex/wanrg"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, wanresourcegroup)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, wanRG)
         return response
 
 
-    def saveWanResourceGroups(self, wanresourcegroup):
+    def saveWanRG(self, wanRG):
         """
         Create WAN Resource Groups
         
         Parameters:
-        wanresourcegroup:	WAN resource group
+        wanRG:	WAN resource group
         
         Returns
         response    (dict)
@@ -137,16 +137,16 @@ class Azure(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cortex/wanrg"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, wanresourcegroup)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, wanRG)
         return response
 
 
-    def deleteWanResourceGroups(self, wanresourcegroup):
+    def deleteWanRG(self, wanRG):
         """
         Delete WAN Resource Groups
         
         Parameters:
-        wanresourcegroup:	WAN resource group
+        wanRG:	WAN resource group
         
         Returns
         response    (dict)
@@ -155,7 +155,7 @@ class Azure(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cortex/wanrg"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint, wanresourcegroup)
+        response = self.client.apiCall(HttpMethods.DELETE, endpoint, wanRG)
         return response
 
 

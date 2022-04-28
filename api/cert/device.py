@@ -122,7 +122,7 @@ class Device(object):
         return response
 
 
-    def generateEnterpriseCSR(self, csrRequest):
+    def generateEntCSR(self, csrRequest):
         """
         Generate CSR
         NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
@@ -141,7 +141,7 @@ class Device(object):
         return response
 
 
-    def generateEnterpriseCSR(self, csrRequest):
+    def generateVedgeEntCSR(self, csrRequest):
         """
         Generate CSR
         NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
@@ -535,7 +535,7 @@ class Device(object):
         return response
 
 
-    def deleteConfiguration(self, uuid, replaceController, deviceId):
+    def deleteConfig(self, uuid, replaceController, deviceId):
         """
         Invalidate device
         NOTE: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.

@@ -5,7 +5,7 @@ class Migration(object):
     """
     Tenant Migration API
     
-    Implements GET POST DEL PUT methods for TenantMigration endpoints
+    Implements GET POST DEL PUT methods for Tenant Migration endpoints
 
     """
 
@@ -15,7 +15,7 @@ class Migration(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def downloadTenantData(self, path):
+    def downloadData(self, path):
         """
         Download tenant data
         
@@ -33,7 +33,7 @@ class Migration(object):
         return response
 
 
-    def exportTenantData(self, bodyParameter):
+    def exportData(self, bodyParameter):
         """
         Export tenant data
         
@@ -51,7 +51,7 @@ class Migration(object):
         return response
 
 
-    def importTenantData(self):
+    def importData(self):
         """
         Import tenant data
         
@@ -68,7 +68,7 @@ class Migration(object):
         return response
 
 
-    def getMigrationToken(self, migrationId):
+    def getToken(self, migrationId):
         """
         Get migration token
         
@@ -86,7 +86,7 @@ class Migration(object):
         return response
 
 
-    def reTriggerNetworkMigration(self):
+    def reTrigger(self):
         """
         Re-trigger network migration
         
@@ -103,7 +103,7 @@ class Migration(object):
         return response
 
 
-    def migrateNetwork(self, networkMigration):
+    def migrate(self, networkMigration):
         """
         Migrate network
         

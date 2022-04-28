@@ -105,7 +105,7 @@ class User(object):
         return response
 
 
-    def editResourceGroup(self, createagroup):
+    def createResourceGroup(self, createagroup):
         """
         Create a group
         

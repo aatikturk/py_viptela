@@ -5,7 +5,7 @@ class DeviceGroup(object):
     """
     Troubleshooting Tools - Device Group API
     
-    Implements GET POST DEL PUT methods for DeviceGroup endpoints
+    Implements GET POST DEL PUT methods for Device Group endpoints
 
     """
 

@@ -5,7 +5,7 @@ class SoftwareActions(object):
     """
     Configuration - Software Actions API
     
-    Implements GET POST DEL PUT methods for SoftwareActions endpoints
+    Implements GET POST DEL PUT methods for Software Actions endpoints
 
     """
 
@@ -50,7 +50,7 @@ class SoftwareActions(object):
         return response
 
 
-    def getImageProperties(self, versionId):
+    def getImageProps(self, versionId):
         """
         Get Image Properties
         
@@ -68,7 +68,7 @@ class SoftwareActions(object):
         return response
 
 
-    def findSoftwareImagesWithFilters(self, imageType, vnfType):
+    def findImagesWithFilters(self, imageType, vnfType):
         """
         Get software images
         

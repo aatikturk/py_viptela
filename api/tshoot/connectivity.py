@@ -5,7 +5,7 @@ class Connectivity(object):
     """
     Troubleshooting Tools - Device Connectivity API
     
-    Implements GET POST DEL PUT methods for DeviceConnectivity endpoints
+    Implements GET POST DEL PUT methods for Device Connectivity endpoints
 
     """
 

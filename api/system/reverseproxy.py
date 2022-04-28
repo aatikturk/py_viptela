@@ -5,7 +5,7 @@ class ReverseProxy(object):
     """
     System - Reverse Proxy API
     
-    Implements GET POST DEL PUT methods for ReverseProxy endpoints
+    Implements GET POST DEL PUT methods for Reverse Proxy endpoints
 
     """
 
@@ -15,7 +15,7 @@ class ReverseProxy(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getReverseProxyMappings(self, uuid):
+    def get(self, uuid):
         """
         Get reverse proxy IP/Port mappings for controller
         
@@ -33,7 +33,7 @@ class ReverseProxy(object):
         return response
 
 
-    def createReverseProxyMappings(self, mapping, uuid):
+    def create(self, mapping, uuid):
         """
         Create reverse proxy IP/Port mappings for controller
         

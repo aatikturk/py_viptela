@@ -5,7 +5,7 @@ class Backup(object):
     """
     Tenant Backup Restore API
     
-    Implements GET POST DEL PUT methods for TenantBackupRestore endpoints
+    Implements GET POST DEL PUT methods for Tenant Backup Restore endpoints
 
     """
 
@@ -15,7 +15,7 @@ class Backup(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def deleteTenantBackup(self, fileName):
+    def deleteBkp(self, fileName):
         """
         Delete all or a specific backup file stored in vManage
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -34,7 +34,7 @@ class Backup(object):
         return response
 
 
-    def downloadExistingBackupFile(self, path):
+    def downloadBkpFile(self, path):
         """
         Download a Backup File that is already stored in vManage
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -53,7 +53,7 @@ class Backup(object):
         return response
 
 
-    def exportTenantBackup(self):
+    def exportBkp(self):
         """
         Trigger a backup of configuration database and store it in vManage
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -71,7 +71,7 @@ class Backup(object):
         return response
 
 
-    def importTenantBackup(self):
+    def importBkp(self):
         """
         Submit a previously backed up file and import the data and apply it to the configuraion database
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
@@ -89,7 +89,7 @@ class Backup(object):
         return response
 
 
-    def listTenantBackup(self):
+    def listBkp(self):
         """
         List all backup files of a tenant stored in vManage
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.

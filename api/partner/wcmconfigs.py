@@ -5,7 +5,7 @@ class WCM(object):
     """
     Partner - WCM Configs API
     
-    Implements GET POST DEL PUT methods for WCMConfigs endpoints
+    Implements GET POST DEL PUT methods for WCM Configs endpoints
 
     """
 
@@ -15,7 +15,7 @@ class WCM(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def pushNetconfConfigs(self, config, nmsId):
+    def pushConfigs(self, config, nmsId):
         """
         Push device configs
         

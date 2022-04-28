@@ -5,7 +5,7 @@ class Disaster(object):
     """
     Configuration - Disaster Recovery API
     
-    Implements GET POST DEL PUT methods for DisasterRecovery endpoints
+    Implements GET POST DEL PUT methods for Disaster Recovery endpoints
 
     """
 
@@ -240,7 +240,7 @@ class Disaster(object):
         return response
 
 
-    def getLocalDataCenterState(self):
+    def getLocalDCState(self):
         """
         Get local data center details
         
@@ -412,12 +412,12 @@ class Disaster(object):
         return response
 
 
-    def updateDRState(self, datacenterregistration):
+    def updateDRState(self, dcReg):
         """
         Update complete disaster recovery information to remote data center
         
         Parameters:
-        datacenterregistration:	Datacenter registration
+        dcReg:	Datacenter registration
         
         Returns
         response    (dict)
@@ -426,11 +426,11 @@ class Disaster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/disasterrecovery/remotedc"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, datacenterregistration)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, dcReg)
         return response
 
 
-    def getRemoteDataCenterVersion(self):
+    def getRemoteDCVersion(self):
         """
         Get remote data center vManage version
         
@@ -465,12 +465,12 @@ class Disaster(object):
         return response
 
 
-    def restartDataCenter(self, datacenterregistration):
+    def restartDC(self, dcReg):
         """
         Restart data center
         
         Parameters:
-        datacenterregistration:	Datacenter registration
+        dcReg:	Datacenter registration
         
         Returns
         response    (dict)
@@ -479,7 +479,7 @@ class Disaster(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/disasterrecovery/restartDataCenter"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, datacenterregistration)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, dcReg)
         return response
 
 

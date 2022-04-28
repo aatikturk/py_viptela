@@ -49,7 +49,7 @@ class Registration(object):
         return response
 
 
-    def getPartnersByPartnerType(self, partnerType):
+    def getPartnersByType(self, partnerType):
         """
         Get NMS partners by partner type
         

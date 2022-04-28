@@ -15,13 +15,13 @@ class MultiCloud(object):
         self.port = port
     
     
-    def getAllCloudAccounts(self, cloudType, cloudGatewayEnabled):
+    def getAllCloudAccounts(self, cloudType, cgEnable):
         """
         Get All cloud accounts
         
         Parameters:
         cloudType	 (string):	Cloud type
-		cloudGatewayEnabled	 (boolean):	Cloud gateway enabled flag
+		cgEnable	 (boolean):	Cloud gateway enabled flag
         
         Returns
         response    (dict)
@@ -29,7 +29,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts?cloudType={cloudType}&cloudGatewayEnabled={cloudGatewayEnabled}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/accounts?cloudType={cloudType}&cloudGatewayEnabled={cgEnable}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -143,7 +143,7 @@ class MultiCloud(object):
         return response
 
 
-    def validateEdgeAccountUpdateCredentials(self, account, accountId):
+    def validateEdgeAccountUpdateCred(self, account, accountId):
         """
         Update Multicloud edge account credential
         
@@ -217,7 +217,7 @@ class MultiCloud(object):
         return response
 
 
-    def validateAccountUpdateCredentials(self, account, accountId):
+    def validateAccountUpdateCred(self, account, accountId):
         """
         Update multicloud account credential
         
@@ -293,7 +293,7 @@ class MultiCloud(object):
         return response
 
 
-    def getCgws(self, cloudType, accountId, region, cloudGatewayName):
+    def getCgws(self, cloudType, accountId, region, cgName):
         """
         Get cloud gateways
         
@@ -301,7 +301,7 @@ class MultiCloud(object):
         cloudType	 (string):	Cloud type
 		accountId	 (string):	Account Id
 		region	 (string):	Region
-		cloudGatewayName	 (string):	Cloud gateway name
+		cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -309,17 +309,17 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway?cloudType={cloudType}&accountId={accountId}&region={region}&cloudGatewayName={cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway?cloudType={cloudType}&accountId={accountId}&region={region}&cloudGatewayName={cgName}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def createCgw(self, cloudgateway):
+    def createCgw(self, cg):
         """
         Create cloud gateway
         
         Parameters:
-        cloudgateway:	Cloud gateway
+        cg:	Cloud gateway
         
         Returns
         response    (dict)
@@ -328,11 +328,11 @@ class MultiCloud(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, cloudgateway)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, cg)
         return response
 
 
-    def getAzureNetworkVirtualAppliances(self, cloudType, accoundId, region, resourceGroupName, resourceGroupSource, vhubName, vhubSource):
+    def getAzureNetworkVirtualAppliances(self, cloudType, accoundId, region, rgName, rgSource, vhubName, vhubSource):
         """
         Discover Azure Virtual NVAs
         
@@ -340,8 +340,8 @@ class MultiCloud(object):
         cloudType	 (string):	Cloud type
 		accoundId	 (string):	Account ID
 		region	 (string):	Region
-		resourceGroupName	 (string):	Resource Group Name
-		resourceGroupSource	 (string):	Resource Group Source
+		rgName	 (string):	Resource Group Name
+		rgSource	 (string):	Resource Group Source
 		vhubName	 (string):	VHUB name
 		vhubSource	 (string):	VHUB source
         
@@ -351,7 +351,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/nvas?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={resourceGroupName}&resourceGroupSource={resourceGroupSource}&vhubName={vhubName}&vhubSource={vhubSource}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/nvas?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={rgName}&resourceGroupSource={rgSource}&vhubName={vhubName}&vhubSource={vhubSource}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -373,12 +373,12 @@ class MultiCloud(object):
         return response
 
 
-    def getCgwOrgResources(self, cloudGatewayName):
+    def getCgwOrgResources(self, cgName):
         """
         Get cloud gateways
         
         Parameters:
-        cloudGatewayName	 (string):	Cloud gateway name
+        cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -386,7 +386,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/resource?cloudGatewayName={cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/resource?cloudGatewayName={cgName}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -410,7 +410,7 @@ class MultiCloud(object):
         return response
 
 
-    def getAzureVirtualHubs(self, cloudType, accoundId, region, resourceGroupName, resourceGroupSource, vwanName, vwanSource):
+    def getAzureVirtualHubs(self, cloudType, accoundId, region, rgName, rgSource, vwanName, vwanSource):
         """
         Discover Azure Virtual HUBs
         
@@ -418,8 +418,8 @@ class MultiCloud(object):
         cloudType	 (string):	Cloud type
 		accoundId	 (string):	Account ID
 		region	 (string):	Region
-		resourceGroupName	 (string):	Resource Group Name
-		resourceGroupSource	 (string):	Resource Group Source
+		rgName	 (string):	Resource Group Name
+		rgSource	 (string):	Resource Group Source
 		vwanName	 (string):	VWAN name
 		vwanSource	 (string):	VWAN source
         
@@ -429,20 +429,20 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/vhubs?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={resourceGroupName}&resourceGroupSource={resourceGroupSource}&vwanName={vwanName}&vwanSource={vwanSource}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/vhubs?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={rgName}&resourceGroupSource={rgSource}&vwanName={vwanName}&vwanSource={vwanSource}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getAzureVirtualWans(self, cloudType, accoundId, resourceGroupName, resourceGroupSource):
+    def getAzureVirtualWans(self, cloudType, accoundId, rgName, rgSource):
         """
         Discover Azure Virtual WANs
         
         Parameters:
         cloudType	 (string):	Cloud type
 		accoundId	 (string):	Account ID
-		resourceGroupName	 (string):	Resource Group Name
-		resourceGroupSource	 (string):	Resource Group Source
+		rgName	 (string):	Resource Group Name
+		rgSource	 (string):	Resource Group Source
         
         Returns
         response    (dict)
@@ -450,17 +450,17 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/vwans?cloudType={cloudType}&accoundId={accoundId}&resourceGroupName={resourceGroupName}&resourceGroupSource={resourceGroupSource}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/vwans?cloudType={cloudType}&accoundId={accoundId}&resourceGroupName={rgName}&resourceGroupSource={rgSource}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getCgwDetails(self, cloudGatewayName):
+    def getCgwDetails(self, cgName):
         """
         Get cloud gateway by name
         
         Parameters:
-        cloudGatewayName	 (string):	Cloud gateway name
+        cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -468,18 +468,18 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cgName}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def updateCgw(self, cloudgateway, cloudGatewayName):
+    def updateCgw(self, cloudgateway, cgName):
         """
         Update cloud gateway
         
         Parameters:
         cloudgateway:	Cloud gateway
-		Parameter Description
+		cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -487,17 +487,17 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cgName}"
         response = self.client.apiCall(HttpMethods.PUT, endpoint, cloudgateway)
         return response
 
 
-    def deleteCgw(self, cloudGatewayName):
+    def deleteCgw(self, cgName):
         """
         Delete cloud gateway
         
         Parameters:
-        cloudGatewayName	 (string):	Cloud gateway name
+        cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -505,17 +505,17 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cgName}"
         response = self.client.apiCall(HttpMethods.DELETE, endpoint)
         return response
 
 
-    def getSites(self, cloudGatewayName, systemIp, siteId, color, vpnTunnelStatus):
+    def getSites(self, cgName, systemIp, siteId, color, vpnTunnelStatus):
         """
         Get sites attached to CGW
         
         Parameters:
-        cloudGatewayName	 (string):	Cloud gateway name
+        cgName	 (string):	Cloud gateway name
 		systemIp	 (string):	System IP
 		siteId	 (string):	Site Id
 		color	 (string):	Color
@@ -527,18 +527,18 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site?systemIp={systemIp}&siteId={siteId}&color={color}&vpnTunnelStatus={vpnTunnelStatus}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cgName}/site?systemIp={systemIp}&siteId={siteId}&color={color}&vpnTunnelStatus={vpnTunnelStatus}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def TunnelScaling(self, siteinformation, cloudGatewayName):
+    def TunnelScaling(self, siteinformation, cgName):
         """
         Update tunnel scaling and accelerated vpn parameter for a branch endpoint
         
         Parameters:
         siteinformation:	Site information
-		cloudGatewayName	 (string):	Cloud gateway name
+		cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -546,18 +546,18 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cgName}/site"
         response = self.client.apiCall(HttpMethods.PUT, endpoint, siteinformation)
         return response
 
 
-    def attachSites(self, siteinformation, cloudGatewayName):
+    def attachSites(self, siteinformation, cgName):
         """
         Attach sites to cloud gateway
         
         Parameters:
         siteinformation:	Site information
-		cloudGatewayName	 (string):	Cloud gateway name
+		cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -565,18 +565,18 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cgName}/site"
         response = self.client.apiCall(HttpMethods.POST, endpoint, siteinformation)
         return response
 
 
-    def detachSites(self, siteinformation, cloudGatewayName):
+    def detachSites(self, siteinformation, cgName):
         """
         Detach sites from cloud gateway
         
         Parameters:
         siteinformation:	Site information
-		cloudGatewayName	 (string):	Cloud gateway name
+		cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -584,7 +584,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgateway/{cgName}/site"
         response = self.client.apiCall(HttpMethods.DELETE, endpoint, siteinformation)
         return response
 
@@ -607,12 +607,12 @@ class MultiCloud(object):
         return response
 
 
-    def getCgwCustomSettingDetails(self, cloudGatewayName):
+    def getCgwCustomSettingDetails(self, cgName):
         """
         Get cloud gateway custom setting by cloud gateway name
         
         Parameters:
-        cloudGatewayName	 (string):	Cloud gateway name
+        cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -620,7 +620,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgatewaysetting/{cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/cloudgatewaysetting/{cgName}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -662,13 +662,13 @@ class MultiCloud(object):
         return response
 
 
-    def getCloudConnectedSites(self, cloudType, cloudGatewayName):
+    def getCloudConnectedSites(self, cloudType, cgName):
         """
         Get sites with connectivity to the cloud by cloud type
         
         Parameters:
         cloudType	 (string):	Cloud type
-		cloudGatewayName	 (string):	Cloud Gateway Name
+		cgName	 (string):	Cloud Gateway Name
         
         Returns
         response    (dict)
@@ -676,7 +676,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/connected-sites/{cloudType}?cloudGatewayName={cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/connected-sites/{cloudType}?cloudGatewayName={cgName}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -929,13 +929,13 @@ class MultiCloud(object):
         return response
 
 
-    def getCloudDevices(self, cloudType, cloudGatewayName):
+    def getCloudDevices(self, cloudType, cgName):
         """
         Get cloud devices by cloud type
         
         Parameters:
         cloudType	 (string):	Cloud type
-		cloudGatewayName	 (string):	Cloud Gateway Name
+		cgName	 (string):	Cloud Gateway Name
         
         Returns
         response    (dict)
@@ -943,7 +943,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/devices/{cloudType}?cloudGatewayName={cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/devices/{cloudType}?cloudGatewayName={cgName}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -1487,13 +1487,13 @@ class MultiCloud(object):
         return response
 
 
-    def getCgwAssociatedMappings(self, cloudType, cloudGatewayName, siteUuid):
+    def getCgwAssociatedMappings(self, cloudType, cgName, siteUuid):
         """
         Get associated mappings to the CGW
         
         Parameters:
         cloudType	 (string):	Cloud type
-		cloudGatewayName	 (string):	Cloud Gateway Name
+		cgName	 (string):	Cloud Gateway Name
 		siteUuid	 (string):	Site Device UUID
         
         Returns
@@ -1502,7 +1502,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/mapping/{cloudType}?cloudGatewayName={cloudGatewayName}&siteUuid={siteUuid}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/mapping/{cloudType}?cloudGatewayName={cgName}&siteUuid={siteUuid}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -1778,13 +1778,13 @@ class MultiCloud(object):
         return response
 
 
-    def getTunnelNames(self, cloudType, cloudGatewayName):
+    def getTunnelNames(self, cloudType, cgName):
         """
         Get tunnel names
         
         Parameters:
         cloudType	 (string):	Cloud type
-		cloudGatewayName	 (string):	Cloud gateway name
+		cgName	 (string):	Cloud gateway name
         
         Returns
         response    (dict)
@@ -1792,7 +1792,7 @@ class MultiCloud(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/tunnels/{cloudType}?cloudGatewayName={cloudGatewayName}"
+        endpoint = f"https://{self.host}:{self.port}/dataservice/multicloud/tunnels/{cloudType}?cloudGatewayName={cgName}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 

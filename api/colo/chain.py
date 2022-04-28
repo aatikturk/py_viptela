@@ -15,7 +15,7 @@ class Chain(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def attachServiceChain(self, request):
+    def attach(self, request):
         """
         Attach service chain to cluster
         
@@ -33,7 +33,7 @@ class Chain(object):
         return response
 
 
-    def attachServiceChain(self, request):
+    def autoAttach(self, request):
         """
         Attach service chain to cluster
         
@@ -51,7 +51,7 @@ class Chain(object):
         return response
 
 
-    def detachServiceChain(self, request):
+    def detach(self, request):
         """
         Detach service chain
         

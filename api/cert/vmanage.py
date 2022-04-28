@@ -32,7 +32,7 @@ class Vmanage(object):
         return response
 
 
-    def importCertificate(self, signedCert):
+    def importCert(self, signedCert):
         """
         Import a signed web server certificate
         
@@ -68,7 +68,7 @@ class Vmanage(object):
         return response
 
 
-    def dumpCertificate(self, type):
+    def dumpCert(self, type):
         """
         Get certificate with alias name
         
@@ -86,7 +86,7 @@ class Vmanage(object):
         return response
 
 
-    def getCertificate(self):
+    def getCert(self):
         """
         Get certificate for alias server
         

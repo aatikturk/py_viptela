@@ -66,7 +66,7 @@ class Settings(object):
         return response
 
 
-    def getCertConfiguration(self, settingType):
+    def getCertConfig(self, settingType):
         """
         Retrieve certificate configuration value by settingType
         
@@ -84,7 +84,7 @@ class Settings(object):
         return response
 
 
-    def editCertConfiguration(self, certConfig, settingType):
+    def editCertConfig(self, certConfig, settingType):
         """
         Update certificate configuration
         
@@ -103,7 +103,7 @@ class Settings(object):
         return response
 
 
-    def newCertConfiguration(self, certConfig, settingType):
+    def newCertConfig(self, certConfig, settingType):
         """
         Add new certificate configuration
         
@@ -156,7 +156,7 @@ class Settings(object):
         return response
 
 
-    def getConfigurationBySettingType(self, settingType):
+    def getConfigBySettingType(self, settingType):
         """
         Retrieve configuration value by settingType
         
@@ -174,7 +174,7 @@ class Settings(object):
         return response
 
 
-    def editConfiguration(self, configSetting, settingType):
+    def editConfig(self, configSetting, settingType):
         """
         Update configuration setting
         
@@ -193,7 +193,7 @@ class Settings(object):
         return response
 
 
-    def newConfiguration(self, configSetting, settingType):
+    def newConfig(self, configSetting, settingType):
         """
         Add new configuration
         

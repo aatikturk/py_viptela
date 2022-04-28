@@ -5,7 +5,7 @@ class NetworkDesign(object):
     """
     Configuration - Network Design API
     
-    Implements GET POST DEL PUT methods for NetworkDesign endpoints
+    Implements GET POST DEL PUT methods for Network Design endpoints
 
     """
 
@@ -87,7 +87,7 @@ class NetworkDesign(object):
         return response
 
 
-    def getGlobalParameters(self):
+    def getGlobalParams(self):
         """
         Get global parameter templates
         

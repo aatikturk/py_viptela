@@ -15,7 +15,7 @@ class DeviceSharing(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getAttachedDevices(self, nmsId):
+    def getAttached(self, nmsId):
         """
         Retrieve MDP attached devices
         
@@ -33,7 +33,7 @@ class DeviceSharing(object):
         return response
 
 
-    def editAttachedDevices(self, devicelist, nmsId):
+    def editAttached(self, devicelist, nmsId):
         """
         Edit attached devices
         
@@ -52,7 +52,7 @@ class DeviceSharing(object):
         return response
 
 
-    def attachDevices(self, devicelist, nmsId):
+    def attach(self, devicelist, nmsId):
         """
         Share devices with MDP
         
@@ -71,7 +71,7 @@ class DeviceSharing(object):
         return response
 
 
-    def detachDevices(self, devicelist, nmsId):
+    def detach(self, devicelist, nmsId):
         """
         Disconnect devices from mpd controller
         
@@ -90,7 +90,7 @@ class DeviceSharing(object):
         return response
 
 
-    def getSupportedDevices(self, nmsId):
+    def getSupported(self, nmsId):
         """
         Retrieve MDP supported devices
         

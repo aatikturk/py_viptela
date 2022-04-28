@@ -50,7 +50,7 @@ class Software(object):
         return response
 
 
-    def downloadPackageFile(self, fileName, imageType):
+    def downloadPkgFile(self, fileName, imageType):
         """
         Download software package file
         
@@ -87,7 +87,7 @@ class Software(object):
         return response
 
 
-    def getImageMetadata(self, versionId):
+    def getImgMeta(self, versionId):
         """
         Update Package Metadata
         
@@ -105,7 +105,7 @@ class Software(object):
         return response
 
 
-    def editImageMetadata(self, imageData, versionId):
+    def editImgMeta(self, imageData, versionId):
         """
         Update Package Metadata
         
