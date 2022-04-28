@@ -15,7 +15,7 @@ class Circuits(object):
         self.port = port
     
     
-    def getCircuits(self):
+    def get(self):
         """
         Get network circuits
         
@@ -32,7 +32,7 @@ class Circuits(object):
         return response
 
 
-    def createCircuit(self, networkcircuit):
+    def create(self, networkcircuit):
         """
         Create network circuits
         
@@ -50,7 +50,7 @@ class Circuits(object):
         return response
 
 
-    def editCircuit(self, networkcircuit, id):
+    def edit(self, networkcircuit, id):
         """
         Edit network circuits
         
@@ -69,7 +69,7 @@ class Circuits(object):
         return response
 
 
-    def deleteCircuit(self, id):
+    def delete(self, id):
         """
         Delete network circuits
         

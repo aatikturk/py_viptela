@@ -89,7 +89,7 @@ class CloudOnRamp(object):
         return response
 
 
-    def acquireResourcePool(self, request):
+    def acquireRP(self, request):
         """
         Acquire IP from resource pool
         
@@ -163,7 +163,7 @@ class CloudOnRamp(object):
         return response
 
 
-    def authenticateCredAndUpdate(self, credential):
+    def authCredAndUpdate(self, credential):
         """
         Authenticate and update cloud account credentials
         
@@ -181,7 +181,7 @@ class CloudOnRamp(object):
         return response
 
 
-    def authenticateCloudOnRampCredAndAdd(self, credential):
+    def authCORCredAndAdd(self, credential):
         """
         Authenticate cloud account credentials
         
@@ -235,7 +235,7 @@ class CloudOnRamp(object):
         return response
 
 
-    def createResourcePool(self, request):
+    def createRP(self, request):
         """
         Add resource pool
         
@@ -276,7 +276,7 @@ class CloudOnRamp(object):
         return response
 
 
-    def getCloudOnRampDevices(self):
+    def getCORDevices(self):
         """
         Get available device list
         

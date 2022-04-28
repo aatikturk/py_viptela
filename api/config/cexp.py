@@ -85,7 +85,7 @@ class CloudExpress(object):
         return response
 
 
-    def getAttachedGatewayList(self):
+    def getAttachedGwList(self):
         """
         Get attached gateway list
         
@@ -153,7 +153,7 @@ class CloudExpress(object):
         return response
 
 
-    def getGatewayList(self):
+    def getGwList(self):
         """
         Get gateway list
         
@@ -205,12 +205,12 @@ class CloudExpress(object):
         return response
 
 
-    def editApps(self, cloudxappsandvpns):
+    def editApps(self, appVPN):
         """
         Edit apps and vpns
         
         Parameters:
-        cloudxappsandvpns:	Cloudx apps and vpns
+        appVPN:	Cloudx apps and vpns
         
         Returns
         response    (dict)
@@ -219,16 +219,16 @@ class CloudExpress(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/manage/apps"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, cloudxappsandvpns)
+        response = self.client.apiCall(HttpMethods.PUT, endpoint, appVPN)
         return response
 
 
-    def addApps(self, cloudxappsandvpns):
+    def addApps(self, appVPN):
         """
         Add apps and vpns
         
         Parameters:
-        cloudxappsandvpns:	Cloudx apps and vpns
+        appVPN:	Cloudx apps and vpns
         
         Returns
         response    (dict)
@@ -237,7 +237,7 @@ class CloudExpress(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/manage/apps"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, cloudxappsandvpns)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, appVPN)
         return response
 
 

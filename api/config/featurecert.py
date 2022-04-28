@@ -5,7 +5,7 @@ class FeatureCert(object):
     """
     Configuration - Feature Certificate API
     
-    Implements GET POST DEL PUT methods for FeatureCertificate endpoints
+    Implements GET POST DEL PUT methods for Feature Certificate endpoints
 
     """
 

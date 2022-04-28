@@ -50,7 +50,7 @@ class Proxy(object):
         return response
 
 
-    def updateCertificate(self, cert):
+    def updateCert(self, cert):
         """
         Upload device certificate
         
@@ -87,7 +87,7 @@ class Proxy(object):
         return response
 
 
-    def uploadCertificiates(self, certFile):
+    def uploadCerts(self, certFile):
         """
         Upload device certificates
         
@@ -123,7 +123,7 @@ class Proxy(object):
         return response
 
 
-    def getAllDeviceCertificates(self, devicelist):
+    def getAllDeviceCerts(self, devicelist):
         """
         Get certificate for all cEdges
         
@@ -212,7 +212,7 @@ class Proxy(object):
         return response
 
 
-    def renewCertificate(self, certRequest):
+    def renewCert(self, certRequest):
         """
         Renew device certificate
         
@@ -230,7 +230,7 @@ class Proxy(object):
         return response
 
 
-    def revokeCertificate(self, certRequest):
+    def revokeCert(self, certRequest):
         """
         Revoke device certificate
         
@@ -248,7 +248,7 @@ class Proxy(object):
         return response
 
 
-    def revokeRenewCertificate(self, certRequest):
+    def revokeRenewCert(self, certRequest):
         """
         Revoke and renew device certificate
         
@@ -266,7 +266,7 @@ class Proxy(object):
         return response
 
 
-    def getCertificateState(self):
+    def getCertState(self):
         """
         Get certificate state
         
@@ -283,7 +283,7 @@ class Proxy(object):
         return response
 
 
-    def getEnterpriseCertificate(self):
+    def getEntCert(self):
         """
         Get enterprise certificate
         
@@ -300,7 +300,7 @@ class Proxy(object):
         return response
 
 
-    def setEnterpriseCert(self, certRequest):
+    def setEntCert(self, certRequest):
         """
         Configure enterprise certificate
         
@@ -318,7 +318,7 @@ class Proxy(object):
         return response
 
 
-    def getVManageEnterpriseRootCertificate(self):
+    def getVManageEntRootCert(self):
         """
         Get vManage enterprise root certificate
         
@@ -335,7 +335,7 @@ class Proxy(object):
         return response
 
 
-    def setEnterpriseRootCaCert(self, certRequest):
+    def setEntRootCaCert(self, certRequest):
         """
         Set vManage enterprise root certificate
         
@@ -353,7 +353,7 @@ class Proxy(object):
         return response
 
 
-    def getvManageCertificate(self):
+    def getvManageCert(self):
         """
         Get vManage intermediate certificate
         

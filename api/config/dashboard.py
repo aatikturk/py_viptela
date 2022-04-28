@@ -15,7 +15,7 @@ class Dashboard(object):
         self.port = port
     
     
-    def cancelPendingTasks(self, processId):
+    def cancelPending(self, processId):
         """
         Bulk cancel task status
         
@@ -69,7 +69,7 @@ class Dashboard(object):
         return response
 
 
-    def findRunningTasks(self):
+    def findRunning(self):
         """
         Find running tasks
         
@@ -86,7 +86,7 @@ class Dashboard(object):
         return response
 
 
-    def getActiveTaskCount(self):
+    def getActiveCount(self):
         """
         Get active task count
         
