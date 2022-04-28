@@ -5,7 +5,7 @@ class Policy(object):
     """
     MDP - Policy Management API
     
-    Implements GET POST DEL PUT methods for PolicyManagement endpoints
+    Implements GET POST DEL PUT methods for Policy Management endpoints
 
     """
 

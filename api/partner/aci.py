@@ -5,7 +5,7 @@ class ACIPolicyBuilder(object):
     """
     Partner - ACI Policy Builder API
     
-    Implements GET POST DEL PUT methods for ACIPolicyBuilder endpoints
+    Implements GET POST DEL PUT methods for ACI Policy Builder endpoints
 
     """
 

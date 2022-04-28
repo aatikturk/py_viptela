@@ -15,7 +15,7 @@ class Policy(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def addInternalPolicy(self, policy):
+    def add(self, policy):
         """
         Add internal policy from vmanage
         

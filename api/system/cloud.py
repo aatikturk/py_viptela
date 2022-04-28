@@ -67,7 +67,7 @@ class Cloud(object):
         return response
 
 
-    def getCloudCredentials(self):
+    def getCloudCreds(self):
         """
         Get cloud service credentials
         
@@ -84,7 +84,7 @@ class Cloud(object):
         return response
 
 
-    def addCloudCredentials(self, bodyParameter):
+    def addCloudCreds(self, bodyParameter):
         """
         Get cloud service settings
         
@@ -241,7 +241,7 @@ class Cloud(object):
         return response
 
 
-    def listEntityOwnershipInfo(self):
+    def listEntityOwnerInfo(self):
         """
         List all entity ownership info
         
@@ -258,7 +258,7 @@ class Cloud(object):
         return response
 
 
-    def entityOwnershipInfo(self):
+    def entityOwnerInfo(self):
         """
         Entity ownership info grouped by buckets
         

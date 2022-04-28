@@ -15,7 +15,7 @@ class Topology(object):
         self.port = port
     
     
-    def createFullTopology(self):
+    def createFull(self):
         """
         Create full topology
         
@@ -32,7 +32,7 @@ class Topology(object):
         return response
 
 
-    def createDeviceTopology(self, deviceId):
+    def createDevice(self, deviceId):
         """
         Create device topology
         
@@ -50,7 +50,7 @@ class Topology(object):
         return response
 
 
-    def createPhysicalTopology(self, deviceId):
+    def createPhysical(self, deviceId):
         """
         Create pysical topology
         

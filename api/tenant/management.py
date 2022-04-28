@@ -5,7 +5,7 @@ class Manage(object):
     """
     Tenant Management API
     
-    Implements GET POST DEL PUT methods for TenantManagement endpoints
+    Implements GET POST DEL PUT methods for Tenant Management endpoints
 
     """
 
