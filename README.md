@@ -7,6 +7,8 @@ This is a wrapper around Cisco's vManage API. All endpoints in the API are imple
 
 Also from [github](https://github.com/CiscoDevNet/python-viptela)
 
+There's a separate repo for a postman collection to use with vManage API. That collection included all endpoints and can be found [here](https://github.com/aatikturk/Cisco-SD-WAN-Full-Postman-Collection)
+
 * #### Why another solution?
     It's a great way to learn new things by building things.
 
