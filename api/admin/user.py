@@ -1,7 +1,7 @@
 from http import client
 from pydoc import cli
-from query_builder import Builder
-import HttpMethods
+from py_viptela.query_builder import Builder
+from py_viptela import HttpMethods
 
 class User(object):
     """

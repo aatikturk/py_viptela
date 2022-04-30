@@ -1,4 +1,4 @@
-from response_parser import Parser
+from py_viptela.response_parser import Parser
 import requests
 
 # CONSTANTS

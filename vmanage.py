@@ -1,4 +1,4 @@
-from requests import Session, head
+from requests import Session
 import json
 import urllib3
 

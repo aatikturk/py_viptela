@@ -1,5 +1,5 @@
-from query_builder import Builder
-import HttpMethods
+from py_viptela.query_builder import Builder
+from py_viptela import HttpMethods
 
 class ART(object):
     """
