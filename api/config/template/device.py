@@ -15,7 +15,7 @@ class Device(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def pushMasterTemplate(self, devicetemplate):
+    def pushBootsrapTemplate(self, devicetemplate):
         """
         Attach feature device template
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
