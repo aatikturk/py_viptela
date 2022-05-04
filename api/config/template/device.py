@@ -5,7 +5,7 @@ class Device(object):
     """
     Configuration - Device Template API
     
-    Implements GET POST DEL PUT methods for DeviceTemplate endpoints
+    Implements GET POST DEL PUT methods for Device Template endpoints
 
     """
 
