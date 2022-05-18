@@ -24,7 +24,14 @@ There's a separate repo for a postman collection to use with vManage API. That c
 
 All Endpoints in vManage API are implemented using the vmanage.json file available through vmanage/apidocs page as a reference
 
-## How to Use
+### How to install using pip
+
+```
+pip install py_viptela
+```
+
+
+### How to Use
 
 * Clone this repo into your computer.
 ```
