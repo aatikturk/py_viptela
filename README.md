@@ -27,7 +27,7 @@ All Endpoints in vManage API are implemented using the vmanage.json file availab
 ### How to install using pip
 
 ```
-pip install py_viptela
+pip install py-viptela
 ```
 
 
