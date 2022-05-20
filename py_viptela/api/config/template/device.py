@@ -15,13 +15,13 @@ class Device(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def pushMasterTemplate(self, devicetemplate):
+    def pushMasterBootstrap(self, bootstrapTemplate):
         """
-        Attach feature device template
+        Attach bootstrap template to device
         NOTE: In a multitenant vManage system, this API is only available in the Provider view.
         
         Parameters:
-        devicetemplate:	Device template
+        bootstrapTemplate:	Device template
         
         Returns
         response    (dict)
@@ -30,7 +30,7 @@ class Device(object):
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/template/device/config/attachBootStrap"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, devicetemplate)
+        response = self.client.apiCall(HttpMethods.POST, endpoint, bootstrapTemplate)
         return response
 
 
