@@ -27,6 +27,7 @@ class Logging(object):
         
         """
         
+        self.client.session.headers['Content-Type'] = "text/plain"
         endpoint = f"https://{self.host}:{self.port}/dataservice/util/logfile/appserver"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -45,6 +46,7 @@ class Logging(object):
         
         """
         
+        self.client.session.headers['Content-Type'] = "text/plain"
         endpoint = f"https://{self.host}:{self.port}/dataservice/util/logfile/appserver/lastnlines?lines={lines}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response

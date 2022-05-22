@@ -196,7 +196,7 @@ class Inventory(object):
         return response
 
 
-    def validateUser(self, bodyParameter):
+    def generatePAYG(self, bodyParameter):
         """
         Authenticate vSmart user account
         

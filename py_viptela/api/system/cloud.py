@@ -236,6 +236,7 @@ class Cloud(object):
         
         """
         
+        self.client.session.headers['Content-Type'] = "application/octet-stream"
         endpoint = f"https://{self.host}:{self.port}/dataservice/dca/cloudservices/otp"
         response = self.client.apiCall(HttpMethods.PUT, endpoint, cloudserviceotpvalue)
         return response

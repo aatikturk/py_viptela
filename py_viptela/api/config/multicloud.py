@@ -510,7 +510,7 @@ class MultiCloud(object):
         return response
 
 
-    def getSites(self, cgName, systemIp, siteId, color, vpnTunnelStatus):
+    def getSitesAttached(self, cgName, systemIp, siteId, color, vpnTunnelStatus):
         """
         Get sites attached to CGW
         
@@ -643,7 +643,7 @@ class MultiCloud(object):
         return response
 
 
-    def getCloudConnectedSites(self, edgeType, edgeGatewayName):
+    def getCloudConnectedSitesByEdgeType(self, edgeType, edgeGatewayName):
         """
         Get sites with connectivity to the interconnect gateways by edge type
         
@@ -662,7 +662,7 @@ class MultiCloud(object):
         return response
 
 
-    def getCloudConnectedSites(self, cloudType, cgName):
+    def getCloudConnectedSitesByCloudType(self, cloudType, cgName):
         """
         Get sites with connectivity to the cloud by cloud type
         
@@ -910,9 +910,9 @@ class MultiCloud(object):
         return response
 
 
-    def getCloudDevices(self, edgeType, edgeGatewayName):
+    def getCloudDevicesByEdgeType(self, edgeType, edgeGatewayName):
         """
-        Get cloud devices by cloud type
+        Get cloud devices by edge type
         
         Parameters:
         edgeType	 (string):	Edge type
@@ -929,7 +929,7 @@ class MultiCloud(object):
         return response
 
 
-    def getCloudDevices(self, cloudType, cgName):
+    def getCloudDevicesCloudType(self, cloudType, cgName):
         """
         Get cloud devices by cloud type
         
@@ -1304,9 +1304,9 @@ class MultiCloud(object):
         return response
 
 
-    def deleteEdgeAccount(self, edgeType):
+    def deleteEdge(self, edgeType):
         """
-        Delete edge account
+        Delete edge
         
         Parameters:
         edgeType	 (string):	Edge Type

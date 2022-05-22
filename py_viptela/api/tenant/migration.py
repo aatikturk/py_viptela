@@ -40,6 +40,20 @@ class Migration(object):
         Parameters:
         bodyParameter:	Description
         
+        bodyParameter  example
+        param = {
+            "desc": "string",
+            "getvBondAddress": "string",
+            "idpMetadata": "string",
+            "mode": "string",
+            "name": "string",
+            "oldIdpMetadata": "string",
+            "orgName": "string",
+            "spMetadata": "string",
+            "subDomain": "string",
+            "wanEdgeForecast": "string"
+        }
+        
         Returns
         response    (dict)
         

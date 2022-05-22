@@ -290,7 +290,7 @@ class Diag(object):
         disablePacketCaptureSession Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -308,7 +308,7 @@ class Diag(object):
         downloadFile Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -326,7 +326,7 @@ class Diag(object):
         forceStopPcapSession Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -344,7 +344,7 @@ class Diag(object):
         startPcapSession Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -362,7 +362,7 @@ class Diag(object):
         getFileDownloadStatus Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -380,7 +380,7 @@ class Diag(object):
         stopPcapSession Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -398,8 +398,8 @@ class Diag(object):
         formPostPacketCapture Description
         
         Parameters:
-        Parameter Description
-		Parameter Description
+        deviceUUID:     (string) Device uuid
+		sessionId:      (string) Process uuid
         
         Returns
         response    (dict)
@@ -453,7 +453,7 @@ class Diag(object):
         downloadDebugLog Description
         
         Parameters:
-        sessionId	 (string):	Session Id
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -471,7 +471,7 @@ class Diag(object):
         renewSessionInfo Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -490,7 +490,7 @@ class Diag(object):
         
         Parameters:
         payload:    Request Payload
-		sessionId	 (string):	Session Id
+		sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -525,7 +525,7 @@ class Diag(object):
         clearSession Description
         
         Parameters:
-        sessionId	 (string):	Session Id
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -564,7 +564,7 @@ class Diag(object):
         payload:    Request Payload
 		logType	 (string):	Log type
 		deviceUUID	 (string):	Device uuid
-		sessionId	 (string):	Session Id
+		sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -582,8 +582,8 @@ class Diag(object):
         getDeviceLog Description
         
         Parameters:
-        Parameter Description
-		Parameter Description
+        sessionId   (string): Process uuid
+		logId       (string): log ID
         
         Returns
         response    (dict)
@@ -1215,7 +1215,7 @@ class Diag(object):
         disableSpeedTestSession Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -1233,8 +1233,8 @@ class Diag(object):
         getInterfaceBandwidth Description
         
         Parameters:
-        Parameter Description
-		Parameter Description
+        circuit     (string):   Circuit
+		deviceUUID  (string):   Device ID
         
         Returns
         response    (dict)
@@ -1252,7 +1252,7 @@ class Diag(object):
         startSpeedTest Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -1270,7 +1270,7 @@ class Diag(object):
         getSpeedTestStatus Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -1288,7 +1288,7 @@ class Diag(object):
         stopSpeedTest Description
         
         Parameters:
-        Parameter Description
+        sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -1307,8 +1307,8 @@ class Diag(object):
         
         Parameters:
         payload:    Request Payload
-		Parameter Description
-		Parameter Description
+		deviceUUID  (string):   Device ID
+		sessionId  (string): Process uuid
         
         Returns
         response    (dict)
@@ -1326,8 +1326,8 @@ class Diag(object):
         getSpeedTest Description
         
         Parameters:
-        Parameter Description
-		Parameter Description
+        sessionId  (string): Process uuid
+		logId       (string): Log ID
         
         Returns
         response    (dict)

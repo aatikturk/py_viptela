@@ -178,7 +178,7 @@ class DialPeer(object):
         return response
 
 
-    def getDefinitions(self):
+    def getDefinitionsSRST(self):
         """
         Get policy definitions
         
@@ -195,7 +195,7 @@ class DialPeer(object):
         return response
 
 
-    def create(self, policydefinition):
+    def createSRST(self, policydefinition):
         """
         Create policy definition
         
@@ -213,7 +213,7 @@ class DialPeer(object):
         return response
 
 
-    def saveInBulk(self, policydefinition):
+    def saveInBulkSRST(self, policydefinition):
         """
         Create/Edit policy definitions in bulk
         
@@ -231,7 +231,7 @@ class DialPeer(object):
         return response
 
 
-    def editMultiple(self, policydefinition, id):
+    def editMultipleSRST(self, policydefinition, id):
         """
         Edit multiple policy definitions
         
@@ -250,7 +250,7 @@ class DialPeer(object):
         return response
 
 
-    def preview(self, policydefinition):
+    def previewSRST(self, policydefinition):
         """
         Preview policy definition
         
@@ -268,7 +268,7 @@ class DialPeer(object):
         return response
 
 
-    def previewById(self, id):
+    def previewByIdSRST(self, id):
         """
         Preview policy definition
         
@@ -286,7 +286,7 @@ class DialPeer(object):
         return response
 
 
-    def get(self, id):
+    def getSRST(self, id):
         """
         Get a specific policy definitions
         
@@ -304,7 +304,7 @@ class DialPeer(object):
         return response
 
 
-    def edit(self, policydefinition, id):
+    def editSRST(self, policydefinition, id):
         """
         Edit a policy definitions
         
@@ -323,7 +323,7 @@ class DialPeer(object):
         return response
 
 
-    def delete(self, id):
+    def deleteSRST(self, id):
         """
         Delete policy definition
         

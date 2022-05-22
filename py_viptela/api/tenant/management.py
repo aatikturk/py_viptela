@@ -42,6 +42,16 @@ class Manage(object):
         Parameters:
         tenantModel:	Tenant model
         
+        tenantModel Parameter example
+        
+        param = {
+            "password": "12345",
+            "tenantIdList": [
+            "0f4f1c6e-47da-40c4-8517-9d1e918965d9",
+            "6b7b23bf-5dba-4cca-a36c-1c3cc2254d68"
+            ]
+        }
+
         Returns
         response    (dict)
         
@@ -61,6 +71,16 @@ class Manage(object):
         Parameters:
         tenantModel:	Tenant model
         
+        tenantModel Parameter example
+        
+        param = {
+            "password": "12345",
+            "tenantIdList": [
+            "0f4f1c6e-47da-40c4-8517-9d1e918965d9",
+            "6b7b23bf-5dba-4cca-a36c-1c3cc2254d68"
+            ]
+        }
+
         Returns
         response    (dict)
         
@@ -80,6 +100,16 @@ class Manage(object):
         Parameters:
         tenantModel:	Tenant model
         
+        tenantModel Parameter example
+        
+        param = {
+            "password": "12345",
+            "tenantIdList": [
+            "0f4f1c6e-47da-40c4-8517-9d1e918965d9",
+            "6b7b23bf-5dba-4cca-a36c-1c3cc2254d68"
+            ]
+        }
+
         Returns
         response    (dict)
         
@@ -99,6 +129,16 @@ class Manage(object):
         Parameters:
         tenantModel:	Tenant model
         
+        tenantModel Parameter example
+        
+        param = {
+            "password": "12345",
+            "tenantIdList": [
+            "0f4f1c6e-47da-40c4-8517-9d1e918965d9",
+            "6b7b23bf-5dba-4cca-a36c-1c3cc2254d68"
+            ]
+        }
+
         Returns
         response    (dict)
         
@@ -211,6 +251,16 @@ class Manage(object):
         Parameters:
         tenantModel:	Tenant model
 		tenantId	 (string):	Tenant Id
+        
+        tenantModel Parameter example
+        
+        param = {
+            "password": "12345",
+            "tenantIdList": [
+            "0f4f1c6e-47da-40c4-8517-9d1e918965d9",
+            "6b7b23bf-5dba-4cca-a36c-1c3cc2254d68"
+            ]
+        }
         
         Returns
         response    (dict)
