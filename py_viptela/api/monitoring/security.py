@@ -10,10 +10,10 @@ class Event(object):
     """
 
     def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
-    
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.host    = host
+        self.port    = port
+        self.builder = Builder()
     
     def getSulStatDataRawData(self, query):
         """
@@ -27,9 +27,9 @@ class Event(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -63,9 +63,9 @@ class Event(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/aggregation?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/aggregation?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -117,9 +117,9 @@ class Event(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/csv?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/csv?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -135,9 +135,9 @@ class Event(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -189,9 +189,9 @@ class Event(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/filter/policy_name/{policyType}?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/filter/policy_name/{policyType}?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -209,9 +209,9 @@ class Event(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/page?query={query}&scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/sul/connections/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

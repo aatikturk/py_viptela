@@ -10,26 +10,26 @@ class Aar(object):
     """
 
     def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
-    
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.host    = host
+        self.port    = port
+        self.builder = Builder()
     
     def getStatDataRawData(self, query):
         """
         Get stats raw data
         
         Parameters:
-        query	 (string):	Query string
+        query	 (string):	Query dict
         
         Returns
         response    (dict)
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -38,7 +38,7 @@ class Aar(object):
         Get stats raw data
         
         Parameters:
-        query:	Stats query string
+        query:	Stats query dict
         
         Returns
         response    (dict)
@@ -46,8 +46,8 @@ class Aar(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute"
+        response     = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -56,16 +56,16 @@ class Aar(object):
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        query	 (string):	Query filter
+        query	 (string):	Query filter dict
         
         Returns
         response    (dict)
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/aggregation?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/aggregation?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -74,7 +74,7 @@ class Aar(object):
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        query:	Stats query string
+        query:	Stats query dict
         
         Returns
         response    (dict)
@@ -82,8 +82,8 @@ class Aar(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/aggregation"
+        response     = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -92,16 +92,16 @@ class Aar(object):
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
         Parameters:
-        query:	Stats query string
+        query:	Stats query dict
         
         Returns
         response    (dict)
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/app-agg/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
+
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/app-agg/aggregation"
+        response     = self.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
@@ -117,9 +117,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/csv?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/csv?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -135,9 +135,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/device/tunnel/summary?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/device/tunnel/summary?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -153,9 +153,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/device/tunnels?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/device/tunnels?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -171,9 +171,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -244,9 +244,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/page?query={query}&scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -300,9 +300,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnel/{type}/summary?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnel/{type}/summary?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -320,9 +320,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnels/summary/{type}?query={query}&limit={limit}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnels/summary/{type}?query={query_string}&limit={limit}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -340,9 +340,9 @@ class Aar(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnels/{type}?query={query}&limit={limit}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnels/{type}?query={query_string}&limit={limit}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

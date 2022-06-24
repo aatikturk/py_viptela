@@ -10,10 +10,10 @@ class URLFiltering(object):
     """
 
     def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
-    
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.host    = host
+        self.port    = port
+        self.builder = Builder()
     
     def getStatDataRawData(self, query):
         """
@@ -27,9 +27,9 @@ class URLFiltering(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/urlf?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/urlf?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -63,9 +63,9 @@ class URLFiltering(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/aggregation?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/aggregation?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -117,9 +117,9 @@ class URLFiltering(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/csv?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/csv?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -135,9 +135,9 @@ class URLFiltering(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -190,9 +190,9 @@ class URLFiltering(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/page?query={query}&scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/urlf/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

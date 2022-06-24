@@ -10,10 +10,10 @@ class ServiceChainStatistics(object):
     """
 
     def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
-    
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.host    = host
+        self.port    = port
+        self.builder = Builder()
     
     def getStatDataRawData(self, query):
         """
@@ -27,9 +27,9 @@ class ServiceChainStatistics(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -63,9 +63,9 @@ class ServiceChainStatistics(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/aggregation?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/aggregation?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -117,9 +117,9 @@ class ServiceChainStatistics(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/csv?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/csv?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -135,9 +135,9 @@ class ServiceChainStatistics(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -181,18 +181,18 @@ class ServiceChainStatistics(object):
         Get stats raw data
         
         Parameters:
-        query	 (string):	Query string
+        query	     (string):	Query string
 		scrollId	 (string):	ES scroll Id
-		count	 (string):	Result size
+		count	     (string):	Result size
         
         Returns
         response    (dict)
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/page?query={query}&scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/vnfstatistics/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

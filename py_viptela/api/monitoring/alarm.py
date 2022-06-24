@@ -10,26 +10,28 @@ class Alarm(object):
     """
 
     def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
-    
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.host    = host
+        self.port    = port
+        self.builder = Builder()
     
     def getAlarms(self, query):
         """
         Get alarms for last 30min if vManage query is not specified
         
         Parameters:
-        query	 (string):	Alarm query string
+        query	 (dict):	 query data
         
         Returns
         response    (dict)
         
-        
+        Example query dictionary:
+        query =   {"query": {"field": "active","type": "boolean", "value": ["true"], "operator": "equal" }}
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/alarms?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/alarms?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -56,15 +58,15 @@ class Alarm(object):
         Gets aggregated list of alarms along with the raw alarm data of each aggregation
         
         Parameters:
-        query	 (string):	Alarm query string
+        query	 (string):	Alarm query dict
         
         Returns
         response    (dict)
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/alarms/aggregation?query={query}"
+        query_string = self.builder(query)
+        endpoint = f"https://{self.host}:{self.port}/dataservice/alarms/aggregation?query={query_string}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -144,10 +146,10 @@ class Alarm(object):
         Enable/Disable a specific alarm
         
         Parameters:
-        alarmconfig:	alarm config
+        alarmconfig:	    alarm config
 		eventName	 (string):	Event name
-		disable	 (boolean):	Disable
-		time	 (integer):	time in hours [1, 72], -1 means infinite
+		disable	    (boolean):	Disable
+		time	    (integer):	time in hours [1, 72], -1 means infinite
         
         Returns
         response    (dict)
@@ -172,9 +174,9 @@ class Alarm(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/alarms/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/alarms/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -306,9 +308,9 @@ class Alarm(object):
         Get paginated alarm raw data
         
         Parameters:
-        query	 (string):	Alarm query string
+        query	     (string):	Alarm query string
 		scrollId	 (string):	Query offset
-		count	 (integer):	Query size
+		count	    (integer):	Query size
         
         Returns
         response    (dict)
@@ -326,9 +328,9 @@ class Alarm(object):
         Get paginated alarm raw data
         
         Parameters:
-        alarmquerystring:	Alarm query string
+        alarmquerystring:	    Alarm query string
 		scrollId	 (string):	Query offset
-		count	 (integer):	Query size
+		count	    (integer):	Query size
         
         Returns
         response    (dict)
@@ -450,9 +452,9 @@ class Alarm(object):
         Get alarm by severity
         
         Parameters:
-        level	 (array):	Alarm severity
+        level	     (array):	Alarm severity
 		deviceId	 (array):	Device Id
-		query	 (string):	Query filter
+		query	    (string):	Query filter
         
         Returns
         response    (dict)
@@ -477,9 +479,9 @@ class Alarm(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/alarms/severity/summary?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/alarms/severity/summary?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

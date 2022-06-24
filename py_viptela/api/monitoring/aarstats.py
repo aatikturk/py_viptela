@@ -10,10 +10,10 @@ class AarStats(object):
     """
 
     def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
-    
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.host    = host
+        self.port    = port
+        self.builder = Builder()
     
     def getHealthSummary(self, type, limit, query):
         """
@@ -29,9 +29,9 @@ class AarStats(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/summary/{type}?limit={limit}&query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/summary/{type}?limit={limit}&query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -49,9 +49,9 @@ class AarStats(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/{type}?query={query}&limit={limit}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/{type}?query={query_string}&limit={limit}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

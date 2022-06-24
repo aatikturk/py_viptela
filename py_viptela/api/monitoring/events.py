@@ -10,10 +10,10 @@ class Events(object):
     """
 
     def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
-    
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.host    = host
+        self.port    = port
+        self.builder = Builder()
     
     def getStatDataRawData(self, query):
         """
@@ -27,9 +27,9 @@ class Events(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/event?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -63,9 +63,9 @@ class Events(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/aggregation?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/aggregation?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -134,9 +134,9 @@ class Events(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/csv?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/csv?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -152,9 +152,9 @@ class Events(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -241,9 +241,9 @@ class Events(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/page?query={query}&scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -315,9 +315,9 @@ class Events(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/severity?severity-level={level}&deviceId={deviceId}&query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/severity?severity-level={level}&deviceId={deviceId}&query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -334,9 +334,9 @@ class Events(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/severity/summary?deviceId={deviceId}&query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/severity/summary?deviceId={deviceId}&query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
