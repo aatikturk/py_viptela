@@ -13,7 +13,7 @@ class Audit(object):
         self.host = host
         self.port = port
         self.client = HttpMethods.HttpClient(session=session)
-    
+        self.builder = Builder()
     
     def getStatDataRawAuditLogData(self, inputQuery=None):
         """
@@ -25,10 +25,27 @@ class Audit(object):
         Returns
         response    (dict)
         
+        Sample input query
+        
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog?inputQuery={inputQuery}"
+        query_string = self.builder.generateQuery(inputQuery)
+        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog?inputQuery={query_string}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -43,7 +60,23 @@ class Audit(object):
         Returns
         response    (dict)
         
+        Sample query filter
         
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog"
@@ -63,8 +96,8 @@ class Audit(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/aggregation?inputQuery={inputQuery}"
+        query_string = self.builder.generateQuery(query_string)
+        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/aggregation?inputQuery={query_string}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
@@ -79,6 +112,22 @@ class Audit(object):
         Returns
         response    (dict)
         
+        Sample query filter
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         
         """
         
@@ -97,11 +146,27 @@ class Audit(object):
         Returns
         response    (dict)
         
+        Sample query filter
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query_string)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/auditlog/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -115,7 +180,22 @@ class Audit(object):
         Returns
         response    (dict)
         
-        
+        Sample query filter
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         """
         
         endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/doccount"
@@ -152,11 +232,26 @@ class Audit(object):
         Returns
         response    (dict)
         
-        
+        Sample query filter
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/page?inputQuery={inputQuery}&scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(inputQuery)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/auditlog/page?inputQuery={query_string}&scrollId={scrollId}&count={count}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -172,6 +267,22 @@ class Audit(object):
         Returns
         response    (dict)
         
+        Sample query filter
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         
         """
         
@@ -207,11 +318,27 @@ class Audit(object):
         Returns
         response    (dict)
         
+        Sample query filter
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/severity?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/auditlog/severity?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -225,11 +352,26 @@ class Audit(object):
         Returns
         response    (dict)
         
-        
+        Sample query filter
+        q = {"size": 10000,
+             "query":{
+                "condition": "OR",
+                "rules":[
+                {
+                    "value":[
+                        "6"
+                    ],
+                "field":"entry_time",
+                "type":"date",
+                "operator":"last_n_weeks"
+                }
+                ]
+                }
+            }
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/auditlog/severity/summary?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/auditlog/severity/summary?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
