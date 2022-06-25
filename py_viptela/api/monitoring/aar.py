@@ -27,7 +27,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -63,7 +63,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/aggregation?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -117,7 +117,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/csv?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -135,7 +135,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/device/tunnel/summary?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -153,7 +153,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/device/tunnels?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -171,7 +171,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/doccount?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -244,7 +244,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/page?query={query_string}&scrollId={scrollId}&count={count}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -300,7 +300,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnel/{type}/summary?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -320,7 +320,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnels/summary/{type}?query={query_string}&limit={limit}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -340,7 +340,7 @@ class Aar(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/tunnels/{type}?query={query_string}&limit={limit}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response

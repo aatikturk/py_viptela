@@ -27,7 +27,7 @@ class QoS(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/qos?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -63,7 +63,7 @@ class QoS(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/qos/aggregation?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -117,7 +117,7 @@ class QoS(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/qos/csv?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -135,7 +135,7 @@ class QoS(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/qos/doccount?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -190,7 +190,7 @@ class QoS(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/qos/page?query={query_string}&scrollId={scrollId}&count={count}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response

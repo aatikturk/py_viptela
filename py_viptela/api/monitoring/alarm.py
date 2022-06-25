@@ -29,7 +29,7 @@ class Alarm(object):
         query =   {"query": {"field": "active","type": "boolean", "value": ["true"], "operator": "equal" }}
         """
         
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/alarms?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -65,7 +65,7 @@ class Alarm(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint = f"https://{self.host}:{self.port}/dataservice/alarms/aggregation?query={query_string}"
         response = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -174,7 +174,7 @@ class Alarm(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/alarms/doccount?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -479,7 +479,7 @@ class Alarm(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/alarms/severity/summary?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response

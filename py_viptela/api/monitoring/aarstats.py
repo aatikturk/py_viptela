@@ -29,7 +29,7 @@ class AarStats(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/summary/{type}?limit={limit}&query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -49,7 +49,7 @@ class AarStats(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/{type}?query={query_string}&limit={limit}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response

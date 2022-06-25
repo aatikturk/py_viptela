@@ -15,7 +15,7 @@ class Audit(object):
         self.client = HttpMethods.HttpClient(session=session)
     
     
-    def getStatDataRawAuditLogData(self, inputQuery):
+    def getStatDataRawAuditLogData(self, inputQuery=None):
         """
         Get stat raw data
         

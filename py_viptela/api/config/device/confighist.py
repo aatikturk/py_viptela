@@ -10,10 +10,10 @@ class History(object):
     """
 
     def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
-    
+        self.host    = host
+        self.port    = port
+        self.client  = HttpMethods.HttpClient(session=session)
+        self.builder = Builder()
     
     def getStatDataRawData(self, query):
         """
@@ -27,9 +27,9 @@ class History(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/history?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/device/history?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -63,9 +63,9 @@ class History(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/aggregation?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/device/history/aggregation?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -118,9 +118,9 @@ class History(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/config?deviceId={deviceId}&query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/device/history/config?deviceId={deviceId}&query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -173,9 +173,9 @@ class History(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/csv?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/device/history/csv?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -191,9 +191,9 @@ class History(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/doccount?query={query}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/device/history/doccount?query={query_string}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
@@ -246,9 +246,9 @@ class History(object):
         
         
         """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/history/page?query={query}&scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = self.builder.generateQuery(query)
+        endpoint     = f"https://{self.host}:{self.port}/dataservice/device/history/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

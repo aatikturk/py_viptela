@@ -27,7 +27,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -63,7 +63,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd/aggregation?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -120,7 +120,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd/applications?vpn={vpn}&deviceId={deviceId}&limit={limit}&query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -139,7 +139,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd/applications/summary?limit={limit}&query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -157,7 +157,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd/csv?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -175,7 +175,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd/device/applications?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -193,7 +193,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd/doccount?query={query_string}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
@@ -248,7 +248,7 @@ class Cflowd(object):
         
         
         """
-        query_string = self.builder(query)
+        query_string = self.builder.generateQuery(query)
         endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/cflowd/page?query={query_string}&scrollId={scrollId}&count={count}"
         response     = self.client.apiCall(HttpMethods.GET, endpoint)
         return response
