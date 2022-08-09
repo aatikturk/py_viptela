@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getVmanageControlStatus(vmanage, isCached, vpnId):
     """
     Retrieve vManage control status
@@ -16,7 +13,7 @@ def getVmanageControlStatus(vmanage, isCached, vpnId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/connectionssummary?isCached={isCached}&vpnId={vpnId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getRebootCount(vmanage, isCached):
@@ -33,7 +30,7 @@ def getRebootCount(vmanage, isCached):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/issues/rebootcount?isCached={isCached}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getNetworkIssuesSummary(vmanage):
@@ -49,7 +46,7 @@ def getNetworkIssuesSummary(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/issues/summary"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getNetworkStatusSummary(vmanage):
@@ -65,5 +62,5 @@ def getNetworkStatusSummary(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

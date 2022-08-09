@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getAlarms(vmanage, query):
     """
     Get alarms for last 30min if vManage query is not specified
@@ -17,7 +14,7 @@ def getAlarms(vmanage, query):
     
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getRawData(vmanage, alarmquerystring):
     """
@@ -33,7 +30,7 @@ def getRawData(vmanage, alarmquerystring):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, alarmquerystring)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, alarmquerystring)
     return response
 def getAggregationData(vmanage, query):
     """
@@ -49,7 +46,7 @@ def getAggregationData(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/aggregation?query={query_string}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getPostAggregationData(vmanage, inputquery):
     """
@@ -65,7 +62,7 @@ def getPostAggregationData(vmanage, inputquery):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/aggregation"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, inputquery)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, inputquery)
     return response
 def clearStale(vmanage, alarm_uuid):
     """
@@ -81,7 +78,7 @@ def clearStale(vmanage, alarm_uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/clear"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, alarm_uuid)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, alarm_uuid)
     return response
 def getNonViewedActiveCount(vmanage):
     """
@@ -96,7 +93,7 @@ def getNonViewedActiveCount(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/count"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def listDisabled(vmanage):
     """
@@ -111,7 +108,7 @@ def listDisabled(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/disabled"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def disableEnable(vmanage, alarmconfig, eventName, disable, time):
     """
@@ -130,7 +127,7 @@ def disableEnable(vmanage, alarmconfig, eventName, disable, time):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/disabled?eventName={eventName}&disable={disable}&time={time}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, alarmconfig)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, alarmconfig)
     return response
 def getCount(vmanage, query):
     """
@@ -146,7 +143,7 @@ def getCount(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/doccount?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getCountPost(vmanage, query):
     """
@@ -162,7 +159,7 @@ def getCountPost(vmanage, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/doccount"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, query)
     return response
 def dumpCorrelationEngineData(vmanage):
     """
@@ -177,7 +174,7 @@ def dumpCorrelationEngineData(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/dump"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def getStatDataFields(vmanage):
     """
@@ -192,7 +189,7 @@ def getStatDataFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/fields"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def markAllAsViewed(vmanage, bodyParameter, type):
     """
@@ -209,7 +206,7 @@ def markAllAsViewed(vmanage, bodyParameter, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/markallasviewed?type={type}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, bodyParameter)
     return response
 def markAsViewed(vmanage, listofalarms):
     """
@@ -225,7 +222,7 @@ def markAsViewed(vmanage, listofalarms):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/markviewed"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, listofalarms)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, listofalarms)
     return response
 def getMasterManagerState(vmanage):
     """
@@ -240,7 +237,7 @@ def getMasterManagerState(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/master"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getNonViewed(vmanage):
     """
@@ -255,7 +252,7 @@ def getNonViewed(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/notviewed"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getStatBulkAlarmRawData(vmanage, query, scrollId, count):
     """
@@ -273,7 +270,7 @@ def getStatBulkAlarmRawData(vmanage, query, scrollId, count):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/page?query={query}&scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getPostStatBulkAlarmRawData(vmanage, alarmquerystring, scrollId, count):
     """
@@ -291,7 +288,7 @@ def getPostStatBulkAlarmRawData(vmanage, alarmquerystring, scrollId, count):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, alarmquerystring)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, alarmquerystring)
     return response
 def setPeriodicPurgeTimer(vmanage, interval, activeTime):
     """
@@ -308,7 +305,7 @@ def setPeriodicPurgeTimer(vmanage, interval, activeTime):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/purgefrequency?interval={interval}&activeTime={activeTime}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getStatQueryFields(vmanage):
     """
@@ -323,7 +320,7 @@ def getStatQueryFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/query/fields"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getQueryConfig(vmanage):
     """
@@ -338,7 +335,7 @@ def getQueryConfig(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/query/input"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def correlAntiEntropy(vmanage):
     """
@@ -353,7 +350,7 @@ def correlAntiEntropy(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/reset"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def restartCorrelationEngine(vmanage):
     """
@@ -368,7 +365,7 @@ def restartCorrelationEngine(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/restart"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getTypesAsKeyValue(vmanage):
     """
@@ -383,7 +380,7 @@ def getTypesAsKeyValue(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/rulenamedisplay/keyvalue"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getBySeverity(vmanage, level, deviceId, query):
     """
@@ -401,7 +398,7 @@ def getBySeverity(vmanage, level, deviceId, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/severity?severity-level={level}&deviceId={deviceId}&query={query}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getSeverityCustomHistogram(vmanage, query):
     """
@@ -417,7 +414,7 @@ def getSeverityCustomHistogram(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/severity/summary?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getSeverityMappings(vmanage):
     """
@@ -432,7 +429,7 @@ def getSeverityMappings(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/severitymappings"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def startTracking(vmanage, testName):
     """
@@ -448,7 +445,7 @@ def startTracking(vmanage, testName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/starttracking/{testName}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def getStats(vmanage):
     """
@@ -463,7 +460,7 @@ def getStats(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/stats"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def stopTracking(vmanage, testName):
     """
@@ -479,7 +476,7 @@ def stopTracking(vmanage, testName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/stoptracking/{testName}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def getDeviceTopic(vmanage, ip):
     """
@@ -495,7 +492,7 @@ def getDeviceTopic(vmanage, ip):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/topic?ip={ip}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getDetails(vmanage, alarm_uuid):
     """
@@ -511,7 +508,7 @@ def getDetails(vmanage, alarm_uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/alarms/uuid/{alarm_uuid}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def updateNotificationRule(vmanage, notificationrule, ruleId):
     """
@@ -528,7 +525,7 @@ def updateNotificationRule(vmanage, notificationrule, ruleId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/notifications/rule?ruleId={ruleId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, notificationrule)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, notificationrule)
     return response
 def createNotificationRule(vmanage, notificationrule):
     """
@@ -544,7 +541,7 @@ def createNotificationRule(vmanage, notificationrule):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/notifications/rule"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, notificationrule)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, notificationrule)
     return response
 def getNotificationRule(vmanage, ruleId):
     """
@@ -560,7 +557,7 @@ def getNotificationRule(vmanage, ruleId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/notifications/rules?ruleId={ruleId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def deleteNotificationRule(vmanage, ruleId):
     """
@@ -576,5 +573,5 @@ def deleteNotificationRule(vmanage, ruleId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/notifications/rules?ruleId={ruleId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

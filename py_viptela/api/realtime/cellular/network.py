@@ -1,35 +1,16 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
-class Network(object):
+def getNetworkInfo(vmanage, deviceId):
     """
-    Real-Time Monitoring - Cellular EIOLTE Network Service API
+    Get cellular network  info from device
     
-    Implements GET POST DEL PUT methods for CellularEIOLTENetworkService endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(vmanage, session, host, port):
-        vmanage.host = host
-        vmanage.port = port
-        vmanage.client = HttpMethods.HttpClient(session=session)
     
-    
-    def getNetworkInfo(vmanage, deviceId):
-        """
-        Get cellular network  info from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/network?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/network?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response

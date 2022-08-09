@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def preview(vmanage, policyassembly):
     """
     Get policy assembly preview
@@ -15,7 +12,7 @@ def preview(vmanage, policyassembly):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/assembly/vsmart"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policyassembly)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, policyassembly)
     return response
 
 
@@ -33,6 +30,6 @@ def previewById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/assembly/vsmart/{id}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
     

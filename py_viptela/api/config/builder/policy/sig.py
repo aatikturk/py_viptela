@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getSigDataCenterList(vmanage, type):
     """
     Get list of data centers for zscaler or umbrella
@@ -15,5 +12,5 @@ def getSigDataCenterList(vmanage, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sig/datacenters/{type}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

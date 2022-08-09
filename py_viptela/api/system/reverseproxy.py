@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def get(vmanage, uuid):
     """
     Get reverse proxy IP/Port mappings for controller
@@ -15,7 +12,7 @@ def get(vmanage, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/reverseproxy/{uuid}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def create(vmanage, mapping, uuid):
     """
@@ -32,5 +29,5 @@ def create(vmanage, mapping, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/reverseproxy/{uuid}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, mapping)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, mapping)
     return response

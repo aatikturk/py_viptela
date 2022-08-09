@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getDetail(vmanage, clusterName):
     """
     Get details of all existing Clusters
@@ -15,7 +12,7 @@ def getDetail(vmanage, clusterName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster?clusterName={clusterName}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def update(vmanage, clusterconfig):
@@ -32,7 +29,7 @@ def update(vmanage, clusterconfig):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, clusterconfig)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, clusterconfig)
     return response
 
 def create(vmanage, clusterconfig):
@@ -49,7 +46,7 @@ def create(vmanage, clusterconfig):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, clusterconfig)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, clusterconfig)
     return response
 
 def acitvate(vmanage, clusterName):
@@ -66,7 +63,7 @@ def acitvate(vmanage, clusterName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/activate?clusterName={clusterName}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def dummyccm(vmanage, clusterName):
@@ -83,7 +80,7 @@ def dummyccm(vmanage, clusterName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/activateClusterDummy?clusterName={clusterName}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def dummycspState(vmanage, clusterName, state):
@@ -101,7 +98,7 @@ def dummycspState(vmanage, clusterName, state):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/activateClusterDummyState?clusterName={clusterName}&state={state}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def updateCspToCluster(vmanage, cspconfig):
@@ -118,7 +115,7 @@ def updateCspToCluster(vmanage, cspconfig):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/attached/csp"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, cspconfig)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, cspconfig)
     return response
 
 def preview(vmanage, serialNumber):
@@ -135,7 +132,7 @@ def preview(vmanage, serialNumber):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/config?serialNumber={serialNumber}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def deAcitvate(vmanage, clusterId):
@@ -152,7 +149,7 @@ def deAcitvate(vmanage, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/deactivate?clusterId={clusterId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def getDetailById(vmanage, clusterId):
@@ -169,7 +166,7 @@ def getDetailById(vmanage, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/id?clusterId={clusterId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def rmaCloudDockCsp(vmanage, bodyParameter, clusterName):
@@ -187,7 +184,7 @@ def rmaCloudDockCsp(vmanage, bodyParameter, clusterName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/rma?clusterName={clusterName}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, bodyParameter)
     return response
 
 def deleteByName(vmanage, clustername):
@@ -204,5 +201,5 @@ def deleteByName(vmanage, clustername):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/cluster/{clustername}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

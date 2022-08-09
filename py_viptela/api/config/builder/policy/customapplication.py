@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def MapTrafficProfiles(vmanage, apppayload):
     """
     Set SLA class for policy cloud discovered applications
@@ -15,7 +12,7 @@ def MapTrafficProfiles(vmanage, apppayload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/clouddiscoveredapp"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, apppayload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, apppayload)
     return response
 
 def getCustomApps(vmanage):
@@ -31,7 +28,7 @@ def getCustomApps(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def create(vmanage, apppayload):
@@ -48,7 +45,7 @@ def create(vmanage, apppayload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, apppayload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, apppayload)
     return response
 
 def getById(vmanage, id):
@@ -65,7 +62,7 @@ def getById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp/{id}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def edit(vmanage, apppayload, id):
@@ -83,7 +80,7 @@ def edit(vmanage, apppayload, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp/{id}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, apppayload)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, apppayload)
     return response
 
 def delete(vmanage, id):
@@ -100,5 +97,5 @@ def delete(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp/{id}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

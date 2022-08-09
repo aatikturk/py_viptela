@@ -1,7 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
-
 def getAttached(vmanage, nmsId):
     """
     Retrieve MDP attached devices
@@ -16,7 +12,7 @@ def getAttached(vmanage, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/attachDevices/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editAttached(vmanage, devicelist, nmsId):
@@ -34,7 +30,7 @@ def editAttached(vmanage, devicelist, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/attachDevices/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, devicelist)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, devicelist)
     return response
 
 def attach(vmanage, devicelist, nmsId):
@@ -52,7 +48,7 @@ def attach(vmanage, devicelist, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/attachDevices/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, devicelist)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, devicelist)
     return response
 
 def detach(vmanage, devicelist, nmsId):
@@ -70,7 +66,7 @@ def detach(vmanage, devicelist, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/detachDevices/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, devicelist)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, devicelist)
     return response
 
 def getSupported(vmanage, nmsId):
@@ -87,5 +83,5 @@ def getSupported(vmanage, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/devices/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

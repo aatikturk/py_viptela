@@ -1,5 +1,5 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
+
+
 
 def getStatDataRawAuditLogData(vmanage, inputQuery=None):
     """
@@ -32,7 +32,7 @@ def getStatDataRawAuditLogData(vmanage, inputQuery=None):
     """
     query_string = vmanage.builder.generateQuery(inputQuery)
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog?inputQuery={query_string}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getRawPropertyData(vmanage, query):
@@ -65,7 +65,7 @@ def getRawPropertyData(vmanage, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, query)
     return response
 
 def getPropertyAggregationData(vmanage, inputQuery):
@@ -82,7 +82,7 @@ def getPropertyAggregationData(vmanage, inputQuery):
     """
     query_string = vmanage.builder.generateQuery(query_string)
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/aggregation?inputQuery={query_string}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getPostPropertyAggregationData(vmanage, query):
@@ -115,7 +115,7 @@ def getPostPropertyAggregationData(vmanage, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/aggregation"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, query)
     return response
 
 def getCount(vmanage, query):
@@ -148,7 +148,7 @@ def getCount(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query_string)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/doccount?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getCountPost(vmanage, query):
@@ -180,7 +180,7 @@ def getCountPost(vmanage, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/doccount"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, query)
     return response
 
 def getStatDataFields(vmanage):
@@ -196,7 +196,7 @@ def getStatDataFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/fields"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getStatBulkRawPropertyData(vmanage, inputQuery, scrollId, count):
@@ -230,7 +230,7 @@ def getStatBulkRawPropertyData(vmanage, inputQuery, scrollId, count):
     """
     query_string = vmanage.builder.generateQuery(inputQuery)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/page?inputQuery={query_string}&scrollId={scrollId}&count={count}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getPostStatBulkRawPropertyData(vmanage, query, scrollId, count):
@@ -265,7 +265,7 @@ def getPostStatBulkRawPropertyData(vmanage, query, scrollId, count):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, query)
     return response
 
 def getStatQueryFields(vmanage):
@@ -281,7 +281,7 @@ def getStatQueryFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/query/fields"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def generateAuditLog(vmanage, query):
@@ -314,7 +314,7 @@ def generateAuditLog(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/severity?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getAuditSeverityCustomHistogram(vmanage, query):
@@ -346,7 +346,7 @@ def getAuditSeverityCustomHistogram(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/auditlog/severity/summary?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 

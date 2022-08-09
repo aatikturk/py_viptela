@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def disconnect(vmanage, nmsId):
     """
     disconnect from mpd controller
@@ -15,7 +12,7 @@ def disconnect(vmanage, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/disconnect/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def offboard(vmanage, nmsId):
@@ -32,5 +29,5 @@ def offboard(vmanage, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

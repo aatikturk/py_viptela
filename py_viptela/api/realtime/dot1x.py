@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getClients(vmanage, deviceId):
     """
     Get DOT1x client from device (Real Time)
@@ -15,7 +12,7 @@ def getClients(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/clients?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getInterfaces(vmanage, deviceId):
     """
@@ -31,7 +28,7 @@ def getInterfaces(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/interfaces?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getRadius(vmanage, deviceId):
     """
@@ -47,5 +44,5 @@ def getRadius(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/radius?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

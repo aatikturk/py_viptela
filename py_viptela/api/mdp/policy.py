@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getPolicies(vmanage, nmsId):
     """
     Retrieve MDP policies
@@ -15,7 +12,7 @@ def getPolicies(vmanage, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def updatePolicyStatus(vmanage, policylist, nmsId):
@@ -33,5 +30,5 @@ def updatePolicyStatus(vmanage, policylist, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policylist)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policylist)
     return response

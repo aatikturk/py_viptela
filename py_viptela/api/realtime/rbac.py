@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getPnicStats(vmanage, deviceId):
     """
     Get pnic interfaces from device
@@ -15,7 +12,7 @@ def getPnicStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/pnic?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getPNICStatsFromDevice(vmanage, deviceId):
     """
@@ -31,7 +28,7 @@ def getPNICStatsFromDevice(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/pnic/synced?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getRBACInterface(vmanage, deviceId):
     """
@@ -47,5 +44,5 @@ def getRBACInterface(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/rbac?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

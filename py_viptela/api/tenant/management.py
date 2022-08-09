@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getAllTenants(vmanage, deviceId):
     """
     Lists all the tenants on the vManage
@@ -16,7 +13,7 @@ def getAllTenants(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createTenant(vmanage, tenantModel):
     """
@@ -42,7 +39,7 @@ def createTenant(vmanage, tenantModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, tenantModel)
     return response
 def createTenantAsync(vmanage, tenantModel):
     """
@@ -68,7 +65,7 @@ def createTenantAsync(vmanage, tenantModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/async"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, tenantModel)
     return response
 def createTenantAsyncBulk(vmanage, tenantModel):
     """
@@ -94,7 +91,7 @@ def createTenantAsyncBulk(vmanage, tenantModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/bulk/async"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, tenantModel)
     return response
 def deleteTenantAsyncBulk(vmanage, tenantModel):
     """
@@ -120,7 +117,7 @@ def deleteTenantAsyncBulk(vmanage, tenantModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/bulk/async"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint, tenantModel)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint, tenantModel)
     return response
 def getTenantvSmartMapping(vmanage):
     """
@@ -136,7 +133,7 @@ def getTenantvSmartMapping(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/vsmart"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def tenantvSmartMtMigrate(vmanage):
     """
@@ -152,7 +149,7 @@ def tenantvSmartMtMigrate(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/vsmart-mt/migrate"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def getTenantHostingCapacityOnvSmarts(vmanage):
     """
@@ -168,7 +165,7 @@ def getTenantHostingCapacityOnvSmarts(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/vsmart/capacity"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getTenant(vmanage, tenantId):
     """
@@ -185,7 +182,7 @@ def getTenant(vmanage, tenantId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/{tenantId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def updateTenant(vmanage, tenantModel, tenantId):
     """
@@ -203,7 +200,7 @@ def updateTenant(vmanage, tenantModel, tenantId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/{tenantId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, tenantModel)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, tenantModel)
     return response
 def deleteTenant(vmanage, tenantModel, tenantId):
     """
@@ -231,7 +228,7 @@ def deleteTenant(vmanage, tenantModel, tenantId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/{tenantId}/delete"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, tenantModel)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, tenantModel)
     return response
 def switchTenant(vmanage, tenantId):
     """
@@ -248,7 +245,7 @@ def switchTenant(vmanage, tenantId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/{tenantId}/switch"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def vSessionId(vmanage, tenantId):
     """
@@ -265,7 +262,7 @@ def vSessionId(vmanage, tenantId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenant/{tenantId}/vsessionid"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def getAllTenantStatuses(vmanage):
     """
@@ -281,7 +278,7 @@ def getAllTenantStatuses(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantstatus"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def forceStatusCollection(vmanage):
     """
@@ -297,5 +294,5 @@ def forceStatusCollection(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantstatus/force"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response

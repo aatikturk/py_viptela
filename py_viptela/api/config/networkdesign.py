@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getNetworkDesign(vmanage):
     """
     Get existing network design
@@ -14,7 +11,7 @@ def getNetworkDesign(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editNetworkDesign(vmanage, payload, id):
@@ -32,7 +29,7 @@ def editNetworkDesign(vmanage, payload, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign?id={id}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, payload)
     return response
 
 def createNetworkDesign(vmanage, payload):
@@ -49,7 +46,7 @@ def createNetworkDesign(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def pushNetworkDesign(vmanage, devicetemplate):
@@ -66,7 +63,7 @@ def pushNetworkDesign(vmanage, devicetemplate):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/attachment"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, devicetemplate)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, devicetemplate)
     return response
 
 def getGlobalParams(vmanage):
@@ -82,7 +79,7 @@ def getGlobalParams(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/global/parameters"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def acquireEditLock(vmanage):
@@ -98,7 +95,7 @@ def acquireEditLock(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/lock/edit"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def runMyTest(vmanage, name):
@@ -115,7 +112,7 @@ def runMyTest(vmanage, name):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/mytest/{name}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def pushDeviceProfileTemplate(vmanage, devicetemplate, profileId):
@@ -133,7 +130,7 @@ def pushDeviceProfileTemplate(vmanage, devicetemplate, profileId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/attachment/{profileId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, devicetemplate)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, devicetemplate)
     return response
 
 def acquireAttachLock(vmanage, profileId):
@@ -150,7 +147,7 @@ def acquireAttachLock(vmanage, profileId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/lock/{profileId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def getConfigStatus(vmanage):
@@ -166,7 +163,7 @@ def getConfigStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getConfigStatusById(vmanage, profileId):
@@ -183,7 +180,7 @@ def getConfigStatusById(vmanage, profileId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/status/{profileId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTaskCount(vmanage):
@@ -199,7 +196,7 @@ def getTaskCount(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/task/count"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTaskStatus(vmanage):
@@ -215,7 +212,7 @@ def getTaskStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/task/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTaskStatusById(vmanage, profileId):
@@ -232,7 +229,7 @@ def getTaskStatusById(vmanage, profileId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/task/status/{profileId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getServiceProfileConfig(vmanage, profileId, deviceModel):
@@ -250,5 +247,5 @@ def getServiceProfileConfig(vmanage, profileId, deviceModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/serviceProfileConfig/{profileId}?deviceModel={deviceModel}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

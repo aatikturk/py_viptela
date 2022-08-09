@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getUmbrella(vmanage, deviceId):
     """
     Get SIG Umbrella tunnels from device
@@ -15,7 +12,7 @@ def getUmbrella(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sig/umbrella/tunnels?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getZscaler(vmanage, deviceId):
     """
@@ -31,5 +28,5 @@ def getZscaler(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sig/zscaler/tunnels?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

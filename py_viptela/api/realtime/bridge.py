@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getInterfaces(vmanage, deviceId):
     """
     Get device bridge interface list (Real Time)
@@ -15,7 +12,7 @@ def getInterfaces(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bridge/interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getInterfaceMac(vmanage, bridgeId, ifName, macAddr, deviceId):
     """
@@ -34,7 +31,7 @@ def getInterfaceMac(vmanage, bridgeId, ifName, macAddr, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bridge/mac?bridgeId={bridgeId}&ifName={ifName}&macAddr={macAddr}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getBridgeInterfaceTable(vmanage, deviceId):
     """
@@ -50,5 +47,5 @@ def getBridgeInterfaceTable(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bridge/table?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

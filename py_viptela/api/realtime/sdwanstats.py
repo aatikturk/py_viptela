@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getGlobalDropStats(vmanage, deviceId):
     """
     Get SD-WAN global drop statistics detail from device (Real Time)
@@ -15,7 +12,7 @@ def getGlobalDropStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sdwan-global-drop-statistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getStats(vmanage, deviceId):
     """
@@ -31,5 +28,5 @@ def getStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sdwan-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def installPkg(vmanage):
     """
     Install software package
@@ -14,7 +11,7 @@ def installPkg(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def getUploadImagesCount(vmanage, imageType):
@@ -31,7 +28,7 @@ def getUploadImagesCount(vmanage, imageType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/imageCount?imageType={imageType}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def downloadPkgFile(vmanage, fileName, imageType):
@@ -49,7 +46,7 @@ def downloadPkgFile(vmanage, fileName, imageType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{fileName}?imageType={imageType}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processSoftwareImage(vmanage, imageType):
@@ -66,7 +63,7 @@ def processSoftwareImage(vmanage, imageType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{imageType}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def getImgMeta(vmanage, versionId):
@@ -83,7 +80,7 @@ def getImgMeta(vmanage, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{versionId}/metadata"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editImgMeta(vmanage, imageData, versionId):
@@ -101,5 +98,5 @@ def editImgMeta(vmanage, imageData, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{versionId}/metadata"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, imageData)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, imageData)
     return response

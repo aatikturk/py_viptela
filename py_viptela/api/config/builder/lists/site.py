@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def get(vmanage):
     """
     Get policy lists
@@ -14,7 +11,7 @@ def get(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def create(vmanage, policylist):
@@ -31,7 +28,7 @@ def create(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policylist)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
     return response
 
 def createDefaultSiteList(vmanage):
@@ -47,7 +44,7 @@ def createDefaultSiteList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site/defaultsite"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def preview(vmanage, policylist):
@@ -64,7 +61,7 @@ def preview(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site/preview"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policylist)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
     return response
 
 def previewById(vmanage, id):
@@ -81,7 +78,7 @@ def previewById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site/preview/{id}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getListsById(vmanage, id):
@@ -98,7 +95,7 @@ def getListsById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site/{id}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def edit(vmanage, policylist, id):
@@ -116,7 +113,7 @@ def edit(vmanage, policylist, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site/{id}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policylist)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policylist)
     return response
 
 def delete(vmanage, id):
@@ -133,5 +130,5 @@ def delete(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/site/{id}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getMasterTemplateList(vmanage, feature):
     """
     Generate template list
@@ -16,7 +13,7 @@ def getMasterTemplateList(vmanage, feature):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device?feature={feature}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def createCLITemplate(vmanage, createtemplaterequest):
@@ -34,7 +31,7 @@ def createCLITemplate(vmanage, createtemplaterequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/cli"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, createtemplaterequest)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, createtemplaterequest)
     return response
 
 def createMasterTemplate(vmanage, request):
@@ -52,7 +49,7 @@ def createMasterTemplate(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/feature"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 
 def isMigrationRequired(vmanage):
@@ -69,7 +66,7 @@ def isMigrationRequired(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/is_migration_required"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTemplateForMigration(vmanage, hasAAA):
@@ -87,7 +84,7 @@ def getTemplateForMigration(vmanage, hasAAA):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/migration?hasAAA={hasAAA}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def migrateTemplates(vmanage, id, prefix, includeAll):
@@ -106,7 +103,7 @@ def migrateTemplates(vmanage, id, prefix, includeAll):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/migration?id={id}&prefix={prefix}&includeAll={includeAll}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def migrationInfo(vmanage):
@@ -123,7 +120,7 @@ def migrationInfo(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/migration_info"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getMasterTemplateDefinition(vmanage, templateId):
@@ -141,7 +138,7 @@ def getMasterTemplateDefinition(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/object/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def changeTemplateResourceGroup(vmanage, templateId, resourceGroupName):
@@ -159,7 +156,7 @@ def changeTemplateResourceGroup(vmanage, templateId, resourceGroupName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/resource-group/{resourceGroupName}/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def getOutOfSyncTemplates(vmanage):
@@ -176,7 +173,7 @@ def getOutOfSyncTemplates(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/syncstatus"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getOutOfSyncDevices(vmanage, templateId):
@@ -194,7 +191,7 @@ def getOutOfSyncDevices(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/syncstatus/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editMasterTemplate(vmanage, template, templateId):
@@ -213,7 +210,7 @@ def editMasterTemplate(vmanage, template, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, template)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, template)
     return response
 
 def deleteMasterTemplate(vmanage, templateId):
@@ -231,5 +228,5 @@ def deleteMasterTemplate(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

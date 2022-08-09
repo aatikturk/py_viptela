@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def deleteBkp(vmanage, fileName):
     """
     Delete all or a specific backup file stored in vManage
@@ -16,7 +13,7 @@ def deleteBkp(vmanage, fileName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/delete?fileName={fileName}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response
 def downloadBkpFile(vmanage, path):
     """
@@ -33,7 +30,7 @@ def downloadBkpFile(vmanage, path):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/download/{path}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def exportBkp(vmanage):
     """
@@ -49,7 +46,7 @@ def exportBkp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/export"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def importBkp(vmanage):
     """
@@ -65,7 +62,7 @@ def importBkp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/import"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def listBkp(vmanage):
     """
@@ -81,5 +78,5 @@ def listBkp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/list"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

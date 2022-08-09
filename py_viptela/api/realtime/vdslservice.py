@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getCoLineSpecificStats(vmanage, deviceId):
     """
     Get VDSL service line bonding stats from device
@@ -15,7 +12,7 @@ def getCoLineSpecificStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vdslService/coLineSpecificStats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getCoStats(vmanage, deviceId):
     """
@@ -31,7 +28,7 @@ def getCoStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vdslService/coStats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getCpeLineSpecificStats(vmanage, deviceId):
     """
@@ -47,7 +44,7 @@ def getCpeLineSpecificStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vdslService/cpeLineSpecificStats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getCpeStats(vmanage, deviceId):
     """
@@ -63,7 +60,7 @@ def getCpeStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vdslService/cpeStats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getLineBondingStats(vmanage, deviceId):
     """
@@ -79,7 +76,7 @@ def getLineBondingStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vdslService/lineBondingStats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getLineSpecificStats(vmanage, deviceId):
     """
@@ -95,7 +92,7 @@ def getLineSpecificStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vdslService/lineSpecificStats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getVdslInfo(vmanage, deviceId):
     """
@@ -111,5 +108,5 @@ def getVdslInfo(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vdslService/vdslInfo?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

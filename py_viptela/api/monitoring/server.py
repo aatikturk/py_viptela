@@ -1,34 +1,15 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
-class Server(object):
+def createServerInfo(vmanage):
     """
-    Monitoring - Server Info API
+    Get Server info
     
-    Implements GET POST DEL PUT methods for ServerInfo endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(vmanage, session, host, port):
-        vmanage.client = HttpMethods.HttpClient(session=session)
-        vmanage.host = host
-        vmanage.port = port
     
-    
-    def createServerInfo(vmanage):
-        """
-        Get Server info
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/server/info"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/server/info"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response

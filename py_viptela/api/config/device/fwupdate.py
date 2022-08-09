@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def get(vmanage):
     """
     Get list of firmware images in the repository
@@ -14,7 +11,7 @@ def get(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def process(vmanage):
@@ -30,7 +27,7 @@ def process(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def activate(vmanage, fwInfo):
@@ -47,7 +44,7 @@ def activate(vmanage, fwInfo):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/activate"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, fwInfo)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, fwInfo)
     return response
 
 def getDevicesFWUpgrade(vmanage):
@@ -63,7 +60,7 @@ def getDevicesFWUpgrade(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/devices"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def install(vmanage, fwInfo):
@@ -80,7 +77,7 @@ def install(vmanage, fwInfo):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/install"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, fwInfo)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, fwInfo)
     return response
 
 def remove(vmanage, fwInfo):
@@ -97,7 +94,7 @@ def remove(vmanage, fwInfo):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/remove"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, fwInfo)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, fwInfo)
     return response
 
 def getDetails(vmanage, versionId):
@@ -114,7 +111,7 @@ def getDetails(vmanage, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/{versionId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def delete(vmanage, versionId):
@@ -131,5 +128,5 @@ def delete(vmanage, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/{versionId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def onboardMDP(vmanage, onboard):
     """
     Start MDP onboarding operation
@@ -15,7 +12,7 @@ def onboardMDP(vmanage, onboard):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, onboard)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, onboard)
     return response
 
 def getOnboardStatus(vmanage):
@@ -31,7 +28,7 @@ def getOnboardStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def updateOnboardingPayload(vmanage, onboard, nmsId):
@@ -49,5 +46,5 @@ def updateOnboardingPayload(vmanage, onboard, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard/{nmsId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, onboard)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, onboard)
     return response

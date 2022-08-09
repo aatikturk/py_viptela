@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getSigTunnelList(vmanage, deviceId):
     """
     Get Secure Internet Gateway Tunnel List
@@ -15,5 +12,5 @@ def getSigTunnelList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/sig_tunnels?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

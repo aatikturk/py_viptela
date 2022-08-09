@@ -1,7 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
-    
 def getWorkflows(vmanage, type, id):
     """
     List all workflows for the given tenant
@@ -17,7 +13,7 @@ def getWorkflows(vmanage, type, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow?type={type}&id={id}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def saveWorkflow(vmanage, payload):
     """
@@ -33,7 +29,7 @@ def saveWorkflow(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, payload)
     return response
 def createWorkflow(vmanage, payload):
     """
@@ -49,7 +45,7 @@ def createWorkflow(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 def deleteWorkflow(vmanage, payload, id):
     """
@@ -66,5 +62,5 @@ def deleteWorkflow(vmanage, payload, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow?id={id}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint, payload)
     return response

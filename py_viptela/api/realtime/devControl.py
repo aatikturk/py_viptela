@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getAffinityConfig(vmanage, deviceId):
     """
     Get affinity config from device (Real Time)
@@ -15,7 +12,7 @@ def getAffinityConfig(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/affinity/config?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getAffinityStatus(vmanage, deviceId):
     """
@@ -31,7 +28,7 @@ def getAffinityStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/affinity/status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createRealTimeConnectionList(vmanage, peerType, sysIp, deviceId):
     """
@@ -49,7 +46,7 @@ def createRealTimeConnectionList(vmanage, peerType, sysIp, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/connections?peerType={peerType}&sysIp={sysIp}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createConnectionHistoryListRealTime(vmanage, peerType, sysIp, deviceId):
     """
@@ -67,7 +64,7 @@ def createConnectionHistoryListRealTime(vmanage, peerType, sysIp, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/connectionshistory?peerType={peerType}&sysIp={sysIp}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getTotalCountForDeviceStates(vmanage, isCached):
     """
@@ -83,7 +80,7 @@ def getTotalCountForDeviceStates(vmanage, isCached):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/count?isCached={isCached}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createLinkList(vmanage, state):
     """
@@ -99,7 +96,7 @@ def createLinkList(vmanage, state):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/links?state={state}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createLocalPropertiesListListRealTIme(vmanage, deviceId):
     """
@@ -115,7 +112,7 @@ def createLocalPropertiesListListRealTIme(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/localproperties?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def networkSummary(vmanage, state):
     """
@@ -131,7 +128,7 @@ def networkSummary(vmanage, state):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/networksummary?state={state}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getConnectionStatistics(vmanage, deviceId):
     """
@@ -147,7 +144,7 @@ def getConnectionStatistics(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/statistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getLocalDeviceStatus(vmanage):
     """
@@ -162,7 +159,7 @@ def getLocalDeviceStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createConnectionsSummary(vmanage, deviceId):
     """
@@ -178,7 +175,7 @@ def createConnectionsSummary(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getDeviceControlStatusSummary(vmanage, deviceId):
     """
@@ -194,7 +191,7 @@ def getDeviceControlStatusSummary(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/summary/device?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createSyncedConnectionList(vmanage, peerType, sysIp, deviceId):
     """
@@ -212,7 +209,7 @@ def createSyncedConnectionList(vmanage, peerType, sysIp, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/synced/connections?peerType={peerType}&sysIp={sysIp}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createLocalPropertiesSyncedList(vmanage, deviceId):
     """
@@ -228,7 +225,7 @@ def createLocalPropertiesSyncedList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/synced/localproperties?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createWanInterfaceSyncedList(vmanage, deviceId):
     """
@@ -244,7 +241,7 @@ def createWanInterfaceSyncedList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/synced/waninterface?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createValidDevicesListRealTime(vmanage, deviceId):
     """
@@ -260,7 +257,7 @@ def createValidDevicesListRealTime(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/validdevices?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getValidVManageIdRealTime(vmanage, deviceId):
     """
@@ -276,7 +273,7 @@ def getValidVManageIdRealTime(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/validvmanageid?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createValidVSmartsListRealTime(vmanage, deviceId):
     """
@@ -292,7 +289,7 @@ def createValidVSmartsListRealTime(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/validvsmarts?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createWanInterfaceListList(vmanage, deviceId):
     """
@@ -308,7 +305,7 @@ def createWanInterfaceListList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/waninterface?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getPortHopColor(vmanage, deviceId):
     """
@@ -324,5 +321,5 @@ def getPortHopColor(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/control/waninterface/color?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

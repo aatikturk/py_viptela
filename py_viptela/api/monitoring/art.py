@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getStatDataRawData(vmanage, query):
     """
     Get stats raw data
@@ -15,7 +12,7 @@ def getStatDataRawData(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getStatsRawData(vmanage, statsquerystring):
     """
@@ -31,7 +28,7 @@ def getStatsRawData(vmanage, statsquerystring):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
@@ -47,7 +44,7 @@ def getAggregationDataByQuery(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/aggregation?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getPostAggregationDataByQuery(vmanage, statsquerystring):
     """
@@ -63,7 +60,7 @@ def getPostAggregationDataByQuery(vmanage, statsquerystring):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/aggregation"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
     return response
 def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
@@ -79,7 +76,7 @@ def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/app-agg/aggregation"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
     return response
 def getStatDataRawDataAsCSV(vmanage, query):
     """
@@ -95,7 +92,7 @@ def getStatDataRawDataAsCSV(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/csv?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getCount(vmanage, query):
     """
@@ -111,7 +108,7 @@ def getCount(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/doccount?query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getCountPost(vmanage, query):
     """
@@ -127,7 +124,7 @@ def getCountPost(vmanage, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/doccount"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, query)
     return response
 def getStatDataFields(vmanage):
     """
@@ -142,7 +139,7 @@ def getStatDataFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/fields"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getStatBulkRawData(vmanage, query, scrollId, count):
     """
@@ -160,7 +157,7 @@ def getStatBulkRawData(vmanage, query, scrollId, count):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/page?query={query_string}&scrollId={scrollId}&count={count}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
@@ -178,7 +175,7 @@ def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
     return response
 def getStatQueryFields(vmanage):
     """
@@ -193,5 +190,5 @@ def getStatQueryFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/art/query/fields"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

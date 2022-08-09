@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getCloudXStatus(vmanage):
     """
     Get CloudX feature list
@@ -14,7 +11,7 @@ def getCloudXStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def addCloudxType(vmanage, cloudx, type):
@@ -32,7 +29,7 @@ def addCloudxType(vmanage, cloudx, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/addcloudx/{type}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, cloudx)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, cloudx)
     return response
 
 def getAttachedClientList(vmanage):
@@ -48,7 +45,7 @@ def getAttachedClientList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/attachedclient"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getAttachedDiaList(vmanage):
@@ -64,7 +61,7 @@ def getAttachedDiaList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/attacheddia"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getAttachedGwList(vmanage):
@@ -80,7 +77,7 @@ def getAttachedGwList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/attachedgateway"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getCloudXAvailableApps(vmanage):
@@ -96,7 +93,7 @@ def getCloudXAvailableApps(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/availableapps"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getSiteList(vmanage):
@@ -112,7 +109,7 @@ def getSiteList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/clientlist"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getDiaList(vmanage):
@@ -128,7 +125,7 @@ def getDiaList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/dialist"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getGwList(vmanage):
@@ -144,7 +141,7 @@ def getGwList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/gatewaylist"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def addCloudxInterfaces(vmanage, cloudx):
@@ -161,7 +158,7 @@ def addCloudxInterfaces(vmanage, cloudx):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/interfaces"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, cloudx)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, cloudx)
     return response
 
 def getApps(vmanage):
@@ -177,7 +174,7 @@ def getApps(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/manage/apps"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editApps(vmanage, appVPN):
@@ -194,7 +191,7 @@ def editApps(vmanage, appVPN):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/manage/apps"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, appVPN)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, appVPN)
     return response
 
 def addApps(vmanage, appVPN):
@@ -211,7 +208,7 @@ def addApps(vmanage, appVPN):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/manage/apps"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, appVPN)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, appVPN)
     return response
 
 def sitePerApp(vmanage, appName, vpnId):
@@ -229,5 +226,5 @@ def sitePerApp(vmanage, appName, vpnId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/status?appName={appName}&vpnId={vpnId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

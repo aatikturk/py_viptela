@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getGlobal(vmanage, templateId):
     """
     Get global template
@@ -15,7 +12,7 @@ def getGlobal(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/global/template/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editGlobal(vmanage, globaltemplate, templateId):
@@ -33,7 +30,7 @@ def editGlobal(vmanage, globaltemplate, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/global/template/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, globaltemplate)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, globaltemplate)
     return response
 
 def getFeatureTempList(vmanage):
@@ -49,7 +46,7 @@ def getFeatureTempList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/feature"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getProfileList(vmanage):
@@ -65,7 +62,7 @@ def getProfileList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/template"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getDeviceProfile(vmanage, templateId):
@@ -82,7 +79,7 @@ def getDeviceProfile(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/template/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editDeviceProfile(vmanage, globaltemplate, templateId):
@@ -100,5 +97,5 @@ def editDeviceProfile(vmanage, globaltemplate, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/template/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, globaltemplate)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, globaltemplate)
     return response

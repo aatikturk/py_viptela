@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getCloudXRecv(vmanage, deviceId):
     """
     Get CloudExpress routes received list
@@ -15,7 +12,7 @@ def getCloudXRecv(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/cloudx?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getLinkList(vmanage, state):
     """
@@ -31,7 +28,7 @@ def getLinkList(vmanage, state):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/links?state={state}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getMcastAdvt(vmanage, deviceId):
     """
@@ -47,7 +44,7 @@ def getMcastAdvt(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/mcastautodiscoveradvt?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getMcastRecv(vmanage, deviceId):
     """
@@ -63,7 +60,7 @@ def getMcastRecv(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/mcastautodiscoverrecv?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getMcastRoutesAdvt(vmanage, deviceId):
     """
@@ -79,7 +76,7 @@ def getMcastRoutesAdvt(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/mcastroutesadvt?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getMcastRoutesRecv(vmanage, deviceId):
     """
@@ -95,7 +92,7 @@ def getMcastRoutesRecv(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/mcastroutesrecv?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getSessionList(vmanage, deviceId):
     """
@@ -111,7 +108,7 @@ def getSessionList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/peers?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getAdvRoutesList(vmanage, deviceId):
     """
@@ -127,7 +124,7 @@ def getAdvRoutesList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/routes/advertised?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getAdvRoutesListV6(vmanage, deviceId):
     """
@@ -143,7 +140,7 @@ def getAdvRoutesListV6(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/routes/advertised/ompIpv6?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getRcvdRouteList(vmanage, deviceId):
     """
@@ -159,7 +156,7 @@ def getRcvdRouteList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/routes/received?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getRcvdRouteListVv6(vmanage, deviceId):
     """
@@ -175,7 +172,7 @@ def getRcvdRouteListVv6(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/routes/received/ompIpv6?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getServices(vmanage, deviceId):
     """
@@ -191,7 +188,7 @@ def getServices(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/services?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getDeviceStatus(vmanage):
     """
@@ -206,7 +203,7 @@ def getDeviceStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getSummary(vmanage, deviceId):
     """
@@ -222,7 +219,7 @@ def getSummary(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getSyncSessionList(vmanage, deviceId):
     """
@@ -238,7 +235,7 @@ def getSyncSessionList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/synced/peers?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getAdvTlocsList(vmanage, deviceId):
     """
@@ -254,7 +251,7 @@ def getAdvTlocsList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/tlocs/advertised?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getRcvdTlocsList(vmanage, deviceId):
     """
@@ -270,5 +267,5 @@ def getRcvdTlocsList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/omp/tlocs/received?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

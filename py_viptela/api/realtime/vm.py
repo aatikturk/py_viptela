@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getVbranchNics(vmanage, deviceId):
     """
     Get vbranch vm lifecycle state (NIC)
@@ -15,7 +12,7 @@ def getVbranchNics(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/nics?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getCloudDockNics(vmanage, userGroup):
     """
@@ -31,7 +28,7 @@ def getCloudDockNics(vmanage, userGroup):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/notifications?userGroup={userGroup}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getVbranch(vmanage, deviceId):
     """
@@ -47,7 +44,7 @@ def getVbranch(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/oper/state?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getState(vmanage, deviceId):
     """
@@ -63,5 +60,5 @@ def getState(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/state?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

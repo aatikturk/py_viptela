@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getSlaList(vmanage, deviceId):
     """
     Get SLA class list from device (Real Time)
@@ -15,7 +12,7 @@ def getSlaList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app-route/sla-class?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getStatList(vmanage, remote_system_ip, local_color, remote_color, deviceId):
     """
@@ -34,5 +31,5 @@ def getStatList(vmanage, remote_system_ip, local_color, remote_color, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app-route/statistics?remote-system-ip={remote_system_ip}&local-color={local_color}&remote-color={remote_color}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

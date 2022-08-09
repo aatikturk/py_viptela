@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def invalidateDevice(vmanage, devInfo):
     """
     invalidate the device
@@ -15,7 +12,7 @@ def invalidateDevice(vmanage, devInfo):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/device/invalidate"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, devInfo)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, devInfo)
     return response
 def stageDevice(vmanage, devInfo):
     """
@@ -31,7 +28,7 @@ def stageDevice(vmanage, devInfo):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/device/stage"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, devInfo)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, devInfo)
     return response
 def createAdminTech(vmanage, request):
     """
@@ -47,7 +44,7 @@ def createAdminTech(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintech"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 def copyAdminTechOnDevice(vmanage, request):
     """
@@ -63,7 +60,7 @@ def copyAdminTechOnDevice(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintech/copy"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 def deleteAdminTechOnDevice(vmanage, request):
     """
@@ -79,7 +76,7 @@ def deleteAdminTechOnDevice(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintech/delete"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint, request)
     return response
 def downloadAdminTechFile(vmanage, filename):
     """
@@ -95,7 +92,7 @@ def downloadAdminTechFile(vmanage, filename):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintech/download/{filename}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def deleteAdminTechFile(vmanage, requestID):
     """
@@ -111,7 +108,7 @@ def deleteAdminTechFile(vmanage, requestID):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintech/{requestID}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response
 def listAdminTechsOnDevice(vmanage, request):
     """
@@ -127,7 +124,7 @@ def listAdminTechsOnDevice(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintechlist"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 def listAdminTechs(vmanage):
     """
@@ -142,7 +139,7 @@ def listAdminTechs(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintechs"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getInProgressCount(vmanage):
     """
@@ -157,7 +154,7 @@ def getInProgressCount(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/admintechs/inprogress"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def factoryReset(vmanage, payload):
     """
@@ -173,7 +170,7 @@ def factoryReset(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/factoryreset"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 def npingDevice(vmanage, npingparameter, deviceIP):
     """
@@ -190,7 +187,7 @@ def npingDevice(vmanage, npingparameter, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/nping/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, npingparameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, npingparameter)
     return response
 def pingDevice(vmanage, pingparameter, deviceIP):
     """
@@ -207,7 +204,7 @@ def pingDevice(vmanage, pingparameter, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/ping/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, pingparameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, pingparameter)
     return response
 def processPortHopColor(vmanage, deviceporthopcolor, deviceIP):
     """
@@ -224,7 +221,7 @@ def processPortHopColor(vmanage, deviceporthopcolor, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/porthopcolor/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, deviceporthopcolor)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, deviceporthopcolor)
     return response
 def processInterfaceReset(vmanage, deviceinterface, deviceIP):
     """
@@ -241,7 +238,7 @@ def processInterfaceReset(vmanage, deviceinterface, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/reset/interface/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, deviceinterface)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, deviceinterface)
     return response
 def processResetUser(vmanage, deviceuserreset, deviceIP):
     """
@@ -258,7 +255,7 @@ def processResetUser(vmanage, deviceuserreset, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/resetuser/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, deviceuserreset)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, deviceuserreset)
     return response
 def servicePath(vmanage, servicepathparameter, deviceIP):
     """
@@ -275,7 +272,7 @@ def servicePath(vmanage, servicepathparameter, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/servicepath/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, servicepathparameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, servicepathparameter)
     return response
 def tracerouteDevice(vmanage, tracerouteparameter, deviceIP):
     """
@@ -292,7 +289,7 @@ def tracerouteDevice(vmanage, tracerouteparameter, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/traceroute/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, tracerouteparameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, tracerouteparameter)
     return response
 def tunnelPath(vmanage, tunnelpathparameter, deviceIP):
     """
@@ -309,7 +306,7 @@ def tunnelPath(vmanage, tunnelpathparameter, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tools/tunnelpath/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, tunnelpathparameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, tunnelpathparameter)
     return response
 def getControlConnections(vmanage, uuid):
     """
@@ -325,7 +322,7 @@ def getControlConnections(vmanage, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/troubleshooting/control/{uuid}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getDeviceConfiguration(vmanage, uuid):
     """
@@ -341,5 +338,5 @@ def getDeviceConfiguration(vmanage, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/troubleshooting/devicebringup?uuid={uuid}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

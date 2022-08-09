@@ -33,3 +33,9 @@ class Vmanage(object):
         
         self.client = HttpMethods.HttpClient(self.session)
         self.builder = Builder()
+
+        #HTTP METHODS
+        self.GET = "GET"
+        self.POST = "POST"
+        self.PUT = "PUT"
+        self.DELETE = "DELETE"

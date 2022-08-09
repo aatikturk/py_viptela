@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def generateChangePartitionInfo(vmanage, deviceId):
     """
     Get change partition information
@@ -15,7 +12,7 @@ def generateChangePartitionInfo(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/changepartition?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processChangePartition(vmanage, payload):
@@ -32,7 +29,7 @@ def processChangePartition(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/changepartition"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def generateDeactivateInfo(vmanage, deviceId):
@@ -49,7 +46,7 @@ def generateDeactivateInfo(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/deactivate?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processDeactivateSmu(vmanage, request):
@@ -66,7 +63,7 @@ def processDeactivateSmu(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/deactivate"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 
 def processDefaultPartition(vmanage, request):
@@ -83,7 +80,7 @@ def processDefaultPartition(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/defaultpartition"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 
 def createFilterVPNList(vmanage):
@@ -99,7 +96,7 @@ def createFilterVPNList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/filter/vpn"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def generateInstallInfo(vmanage, deviceId):
@@ -116,7 +113,7 @@ def generateInstallInfo(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/install?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processInstall(vmanage, payload):
@@ -133,7 +130,7 @@ def processInstall(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/install"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def generateDeviceList(vmanage, deviceType, groupId):
@@ -151,7 +148,7 @@ def generateDeviceList(vmanage, deviceType, groupId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/install/devices/{deviceType}?groupId={groupId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def generateDeviceActionList(vmanage):
@@ -167,7 +164,7 @@ def generateDeviceActionList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/list"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processLxcActivate(vmanage, payload):
@@ -184,7 +181,7 @@ def processLxcActivate(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/lxcactivate"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def processLxcDelete(vmanage, payload):
@@ -201,7 +198,7 @@ def processLxcDelete(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/lxcdelete"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def processLxcInstall(vmanage, payload):
@@ -218,7 +215,7 @@ def processLxcInstall(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/lxcinstall"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def processLxcReload(vmanage, payload):
@@ -235,7 +232,7 @@ def processLxcReload(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/lxcreload"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def processLxcReset(vmanage, payload):
@@ -252,7 +249,7 @@ def processLxcReset(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/lxcreset"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def processLxcUpgrade(vmanage, payload):
@@ -269,7 +266,7 @@ def processLxcUpgrade(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/lxcupgrade"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def generateRebootInfo(vmanage, deviceId):
@@ -286,7 +283,7 @@ def generateRebootInfo(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/reboot?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processReboot(vmanage, payload):
@@ -303,7 +300,7 @@ def processReboot(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/reboot"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def generateRebootDeviceList(vmanage, deviceType, deviceId):
@@ -321,7 +318,7 @@ def generateRebootDeviceList(vmanage, deviceType, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/reboot/devices/{deviceType}?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def generateRediscoverInfo(vmanage):
@@ -337,7 +334,7 @@ def generateRediscoverInfo(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/rediscover"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def reDiscoverDevices(vmanage, payload):
@@ -354,7 +351,7 @@ def reDiscoverDevices(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/rediscover"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def reDiscoverAllDevice(vmanage, payload):
@@ -371,7 +368,7 @@ def reDiscoverAllDevice(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/rediscoverall"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def generateRemovePartitionInfo(vmanage, deviceId):
@@ -388,7 +385,7 @@ def generateRemovePartitionInfo(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/removepartition?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processRemovePartition(vmanage, payload):
@@ -405,7 +402,7 @@ def processRemovePartition(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/removepartition"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def processDeleteAmpApiKey(vmanage, uuid):
@@ -422,7 +419,7 @@ def processDeleteAmpApiKey(vmanage, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/security/amp/apikey/{uuid}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response
 
 def processAmpApiReKey(vmanage, payload):
@@ -439,7 +436,7 @@ def processAmpApiReKey(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/security/amp/rekey"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def testApiKey(vmanage, uuid):
@@ -456,7 +453,7 @@ def testApiKey(vmanage, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/security/apikey/{uuid}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def generateSecurityDevicesList(vmanage, policyType, groupId):
@@ -474,7 +471,7 @@ def generateSecurityDevicesList(vmanage, policyType, groupId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/security/devices/{policyType}?groupId={groupId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def triggerPendingTasksMonitoring(vmanage):
@@ -490,7 +487,7 @@ def triggerPendingTasksMonitoring(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/startmonitor"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def testIoxConfig(vmanage, deviceIP):
@@ -507,7 +504,7 @@ def testIoxConfig(vmanage, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/test/ioxconfig/{deviceIP}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def createUniqueVPNList(vmanage, deviceips):
@@ -524,7 +521,7 @@ def createUniqueVPNList(vmanage, deviceips):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/uniquevpnlist"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, deviceips)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, deviceips)
     return response
 
 def processVnfInstall(vmanage, payload):
@@ -541,7 +538,7 @@ def processVnfInstall(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/vnfinstall"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 
 def createVPNList(vmanage):
@@ -557,7 +554,7 @@ def createVPNList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/vpn"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getZTPUpgradeConfig(vmanage):
@@ -573,7 +570,7 @@ def getZTPUpgradeConfig(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/ztp/upgrade"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processZTPUpgradeConfig(vmanage, ztpConfig):
@@ -590,7 +587,7 @@ def processZTPUpgradeConfig(vmanage, ztpConfig):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/ztp/upgrade"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, ztpConfig)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, ztpConfig)
     return response
 
 def getZTPUpgradeConfigSetting(vmanage):
@@ -606,7 +603,7 @@ def getZTPUpgradeConfigSetting(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/ztp/upgrade/setting"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def processZTPUpgradeConfigSetting(vmanage, ztpSetting):
@@ -623,5 +620,5 @@ def processZTPUpgradeConfigSetting(vmanage, ztpSetting):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/ztp/upgrade/setting"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, ztpSetting)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, ztpSetting)
     return response

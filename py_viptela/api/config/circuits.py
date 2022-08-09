@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def get(vmanage):
     """
     Get network circuits
@@ -14,7 +11,7 @@ def get(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def create(vmanage, networkcircuit):
@@ -31,7 +28,7 @@ def create(vmanage, networkcircuit):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, networkcircuit)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, networkcircuit)
     return response
 
 def edit(vmanage, networkcircuit, id):
@@ -49,7 +46,7 @@ def edit(vmanage, networkcircuit, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit/{id}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, networkcircuit)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, networkcircuit)
     return response
 
 def delete(vmanage, id):
@@ -66,5 +63,5 @@ def delete(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit/{id}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

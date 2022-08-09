@@ -1,5 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
 
 def getACIDefinitions(vmanage):
     """
@@ -14,7 +12,7 @@ def getACIDefinitions(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getDscpMappings(vmanage, partnerId):
     """
@@ -30,7 +28,7 @@ def getDscpMappings(vmanage, partnerId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/dscpmapping/{partnerId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def createDscpMappings(vmanage, acidefinition, partnerId):
     """
@@ -47,7 +45,7 @@ def createDscpMappings(vmanage, acidefinition, partnerId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/dscpmapping/{partnerId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, acidefinition)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, acidefinition)
     return response
 def deleteDscpMappings(vmanage, partnerId):
     """
@@ -63,7 +61,7 @@ def deleteDscpMappings(vmanage, partnerId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/dscpmapping/{partnerId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response
 def getEvents(vmanage, partnerId, starttime, endtime):
     """
@@ -81,7 +79,7 @@ def getEvents(vmanage, partnerId, starttime, endtime):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/events/{partnerId}?starttime={starttime}&endtime={endtime}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getDataPrefixMappings(vmanage, partnerId):
     """
@@ -97,7 +95,7 @@ def getDataPrefixMappings(vmanage, partnerId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/prefixmapping/{partnerId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def setDataPrefixMappings(vmanage, prefixdefinition, partnerId):
     """
@@ -114,7 +112,7 @@ def setDataPrefixMappings(vmanage, prefixdefinition, partnerId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/prefixmapping/{partnerId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, prefixdefinition)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, prefixdefinition)
     return response
 def getDataPrefixSequences(vmanage):
     """
@@ -129,5 +127,5 @@ def getDataPrefixSequences(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/sequences"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

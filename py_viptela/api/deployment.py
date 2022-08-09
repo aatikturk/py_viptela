@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def requestDNSSecActions(vmanage, action):
     """
     Request DNS-Sec actions
@@ -15,7 +12,7 @@ def requestDNSSecActions(vmanage, action):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/fedramp/dnssec/actions?action={action}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def configureDNSSec(vmanage, request):
     """
@@ -31,7 +28,7 @@ def configureDNSSec(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/fedramp/dnssec/config"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 def getDNSSecStatus(vmanage):
     """
@@ -46,7 +43,7 @@ def getDNSSecStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/fedramp/dnssec/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def configFedrampMode(vmanage, mode):
     """
@@ -62,7 +59,7 @@ def configFedrampMode(vmanage, mode):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/fedramp/status"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, mode)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, mode)
     return response
 def requestWazuhActions(vmanage, action):
     """
@@ -78,7 +75,7 @@ def requestWazuhActions(vmanage, action):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/fedramp/wazuh/actions?action={action}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def configureWazuhClient(vmanage, wazhuhConfig):
     """
@@ -94,7 +91,7 @@ def configureWazuhClient(vmanage, wazhuhConfig):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/fedramp/wazuh/config"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, wazhuhConfig)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, wazhuhConfig)
     return response
 def getWazuhAgentStatus(vmanage):
     """
@@ -109,5 +106,5 @@ def getWazuhAgentStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/fedramp/wazuh/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

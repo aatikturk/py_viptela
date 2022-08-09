@@ -1,239 +1,198 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
-class Flow(object):
+def getCflowdDPIDeviceFieldJSON(vmanage, isDeviceDashBoard):
     """
-    Monitoring - Cflowd Flows API
+    Get Cflowd DPI query field JSON
     
-    Implements GET POST DEL PUT methods for CflowdFlows endpoints
-
+    Parameters:
+    isDeviceDashBoard	 (boolean):	Flag whether it is device dashboard request
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(vmanage, session, host, port):
-        vmanage.client = HttpMethods.HttpClient(session=session)
-        vmanage.host = host
-        vmanage.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/application/fields?isDeviceDashBoard={isDeviceDashBoard}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getCollectorList(vmanage, deviceId):
+    """
+    Get cflowd collector list from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
     
     
-    def getCflowdDPIDeviceFieldJSON(vmanage, isDeviceDashBoard):
-        """
-        Get Cflowd DPI query field JSON
-        
-        Parameters:
-        isDeviceDashBoard	 (boolean):	Flag whether it is device dashboard request
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/application/fields?isDeviceDashBoard={isDeviceDashBoard}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getCollectorList(vmanage, deviceId):
-        """
-        Get cflowd collector list from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/collector?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getDPIFieldJSON(vmanage, isDeviceDashBoard):
-        """
-        Get CflowdvDPI query field JSON
-        
-        Parameters:
-        isDeviceDashBoard	 (boolean):	Flag whether it is device dashboard request
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/device/fields?isDeviceDashBoard={isDeviceDashBoard}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getFlows(vmanage, vpnId, src, dest, deviceId):
-        """
-        Get list of cflowd flows from device
-        
-        Parameters:
-        vpnId	        (string):	VPN Id
-		src	            (string):	Source IP
-		dest	        (string):	Destination IP
-		deviceId	    (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getFlowsCount(vmanage, vpnId, src, dest, deviceId):
-        """
-        Get cflowd flow count from device
-        
-        Parameters:
-        vpnId	        (string):	VPN Id
-		src	            (string):	Source IP
-		dest	        (string):	Destination IP
-		deviceId	    (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows-count?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getFnFCacheStats(vmanage, deviceId):
-        """
-        Get FnF cache stats from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/cache-stats?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getFnFExportClientStats(vmanage, deviceId):
-        """
-        Get FnF export client stats from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-client-stats?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getFnFExportStats(vmanage, deviceId):
-        """
-        Get FnF export stats from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-stats?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getFnf(vmanage, deviceId):
-        """
-        Get FnF from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/flow-monitor?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getFnFMonitorStats(vmanage, deviceId):
-        """
-        Get FnF monitor stats from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/monitor-stats?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getStatistics(vmanage, deviceId):
-        """
-        Get cflowd statistics from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/statistics?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getTemplate(vmanage, deviceId):
-        """
-        Get cflowd template from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/template?deviceId={deviceId}"
-        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/collector?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getDPIFieldJSON(vmanage, isDeviceDashBoard):
+    """
+    Get CflowdvDPI query field JSON
+    
+    Parameters:
+    isDeviceDashBoard	 (boolean):	Flag whether it is device dashboard request
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/device/fields?isDeviceDashBoard={isDeviceDashBoard}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getFlows(vmanage, vpnId, src, dest, deviceId):
+    """
+    Get list of cflowd flows from device
+    
+    Parameters:
+    vpnId	        (string):	VPN Id
+	src	            (string):	Source IP
+	dest	        (string):	Destination IP
+	deviceId	    (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getFlowsCount(vmanage, vpnId, src, dest, deviceId):
+    """
+    Get cflowd flow count from device
+    
+    Parameters:
+    vpnId	        (string):	VPN Id
+	src	            (string):	Source IP
+	dest	        (string):	Destination IP
+	deviceId	    (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows-count?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getFnFCacheStats(vmanage, deviceId):
+    """
+    Get FnF cache stats from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/cache-stats?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getFnFExportClientStats(vmanage, deviceId):
+    """
+    Get FnF export client stats from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-client-stats?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getFnFExportStats(vmanage, deviceId):
+    """
+    Get FnF export stats from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-stats?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getFnf(vmanage, deviceId):
+    """
+    Get FnF from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/flow-monitor?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getFnFMonitorStats(vmanage, deviceId):
+    """
+    Get FnF monitor stats from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/monitor-stats?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getStatistics(vmanage, deviceId):
+    """
+    Get cflowd statistics from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/statistics?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response
+def getTemplate(vmanage, deviceId):
+    """
+    Get cflowd template from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/template?deviceId={deviceId}"
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    return response

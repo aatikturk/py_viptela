@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def deleteSchduledBackup(vmanage, taskId, backupInfoId):
     """
     Delete all or a specific backup file stored in vManage
@@ -16,7 +13,7 @@ def deleteSchduledBackup(vmanage, taskId, backupInfoId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/backup/backupinfo?taskId={taskId}&backupInfoId={backupInfoId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response
 def getLocalBackupInfo(vmanage, localBackupInfoId):
     """
@@ -32,7 +29,7 @@ def getLocalBackupInfo(vmanage, localBackupInfoId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/backup/backupinfo/{localBackupInfoId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def downloadBackupFile(vmanage, path):
     """
@@ -48,7 +45,7 @@ def downloadBackupFile(vmanage, path):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/backup/download/{path}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def exportBackup(vmanage, request):
     """
@@ -64,7 +61,7 @@ def exportBackup(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/backup/export"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
     return response
 def listBackup(vmanage, size):
     """
@@ -80,7 +77,7 @@ def listBackup(vmanage, size):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/backup/list?size={size}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def importScheduledBackup(vmanage):
     """
@@ -95,7 +92,7 @@ def importScheduledBackup(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/restore/import"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def remoteImportBackup(vmanage, payload):
     """
@@ -111,7 +108,7 @@ def remoteImportBackup(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/restore/remoteimport"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 def scheduleBackup(vmanage, requestInfo):
     """
@@ -127,7 +124,7 @@ def scheduleBackup(vmanage, requestInfo):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/schedule/create"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, requestInfo)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, requestInfo)
     return response
 def listSchedules(vmanage, limit):
     """
@@ -143,7 +140,7 @@ def listSchedules(vmanage, limit):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/schedule/list?limit={limit}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getScheduleRecordForBackup(vmanage, schedulerId):
     """
@@ -159,7 +156,7 @@ def getScheduleRecordForBackup(vmanage, schedulerId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/schedule/{schedulerId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def deleteSchedule(vmanage, schedulerId):
     """
@@ -175,5 +172,5 @@ def deleteSchedule(vmanage, schedulerId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/schedule/{schedulerId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response

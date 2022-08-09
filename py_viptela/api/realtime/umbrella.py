@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getUmbrellaDevReg(vmanage, deviceId):
     """
     Get Umbrella device registration from device
@@ -15,7 +12,7 @@ def getUmbrellaDevReg(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/device-registration?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getUmbrellaDNSCrypt(vmanage, deviceId):
     """
@@ -31,7 +28,7 @@ def getUmbrellaDNSCrypt(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/dnscrypt?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getUmbrellaDpStats(vmanage, deviceId):
     """
@@ -47,7 +44,7 @@ def getUmbrellaDpStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/dp-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getUmbrellaOverview(vmanage, deviceId):
     """
@@ -63,7 +60,7 @@ def getUmbrellaOverview(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/overview?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getUmbrellaConfig(vmanage, deviceId):
     """
@@ -79,5 +76,5 @@ def getUmbrellaConfig(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/umbrella-config?deviceId={deviceId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

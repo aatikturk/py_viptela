@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getCloudConnector(vmanage):
     """
     Get SD_AVC Cloud Connector Config
@@ -14,7 +11,7 @@ def getCloudConnector(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def disableCloudConnector(vmanage, payload):
     """
@@ -30,7 +27,7 @@ def disableCloudConnector(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, payload)
     return response
 def enableCloudConnector(vmanage, payload):
     """
@@ -46,7 +43,7 @@ def enableCloudConnector(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, payload)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
     return response
 def getCloudConnectorStatus(vmanage):
     """
@@ -61,5 +58,5 @@ def getCloudConnectorStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector/status"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

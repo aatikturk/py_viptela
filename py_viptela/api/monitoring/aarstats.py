@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getHealthSummary(vmanage, type, limit, query):
     """
     Get application-aware routing statistics summary from device
@@ -17,7 +14,7 @@ def getHealthSummary(vmanage, type, limit, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/approute/transport/summary/{type}?limit={limit}&query={query_string}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def getHealth(vmanage, type, query, limit):
     """
@@ -35,5 +32,5 @@ def getHealth(vmanage, type, query, limit):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/approute/transport/{type}?query={query_string}&limit={limit}"
-    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response

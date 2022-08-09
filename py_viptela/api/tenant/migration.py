@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def downloadData(vmanage, path):
     """
     Download tenant data
@@ -15,7 +12,7 @@ def downloadData(vmanage, path):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantmigration/download/{path}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def exportData(vmanage, bodyParameter):
     """
@@ -45,7 +42,7 @@ def exportData(vmanage, bodyParameter):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantmigration/export"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, bodyParameter)
     return response
 def importData(vmanage):
     """
@@ -60,7 +57,7 @@ def importData(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantmigration/import"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 def getToken(vmanage, migrationId):
     """
@@ -76,7 +73,7 @@ def getToken(vmanage, migrationId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantmigration/migrationToken?migrationId={migrationId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def reTrigger(vmanage):
     """
@@ -91,7 +88,7 @@ def reTrigger(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantmigration/networkMigration"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 def migrate(vmanage, networkMigration):
     """
@@ -107,5 +104,5 @@ def migrate(vmanage, networkMigration):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantmigration/networkMigration"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, networkMigration)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, networkMigration)
     return response

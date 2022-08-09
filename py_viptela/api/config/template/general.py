@@ -1,6 +1,3 @@
-from py_viptela.query_builder import Builder
-from py_viptela import HttpMethods
-
 def getFeatureTemplateList(vmanage, summary, offset, limit):
     """
     Get feature template list
@@ -18,7 +15,7 @@ def getFeatureTemplateList(vmanage, summary, offset, limit):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature?summary={summary}&offset={offset}&limit={limit}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def createFeatureTemplate(vmanage, featuretemplate):
@@ -35,7 +32,7 @@ def createFeatureTemplate(vmanage, featuretemplate):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, featuretemplate)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, featuretemplate)
     return response
 
 def cloneTemplate(vmanage, id, name, desc):
@@ -55,7 +52,7 @@ def cloneTemplate(vmanage, id, name, desc):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/clone?id={id}&name={name}&desc={desc}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def getNetworkInterface(vmanage, deviceModel):
@@ -73,7 +70,7 @@ def getNetworkInterface(vmanage, deviceModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/default/networkinterface?deviceModel={deviceModel}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getDefaultNetworks(vmanage, deviceModel):
@@ -91,7 +88,7 @@ def getDefaultNetworks(vmanage, deviceModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/default/networks?deviceModel={deviceModel}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTemplateDefinition(vmanage, templateId):
@@ -109,7 +106,7 @@ def getTemplateDefinition(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/definition/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getDeviceTemplatesAttachedToFeature(vmanage, templateId):
@@ -127,7 +124,7 @@ def getDeviceTemplatesAttachedToFeature(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/devicetemplates/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def listLITemplate(vmanage):
@@ -143,7 +140,7 @@ def listLITemplate(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/li"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def createLITemplate(vmanage, litemplate):
@@ -161,7 +158,7 @@ def createLITemplate(vmanage, litemplate):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/li"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, litemplate)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, litemplate)
     return response
 
 def editLITemplate(vmanage, litemplate, templateId):
@@ -180,7 +177,7 @@ def editLITemplate(vmanage, litemplate, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/li/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, litemplate)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, litemplate)
     return response
 
 def getMasterTemplateDefinition(vmanage, type_name):
@@ -198,7 +195,7 @@ def getMasterTemplateDefinition(vmanage, type_name):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/master/{type_name}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTemplateForMigration(vmanage):
@@ -215,7 +212,7 @@ def getTemplateForMigration(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/migration"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getGeneralTemplate(vmanage, templateId):
@@ -233,7 +230,7 @@ def getGeneralTemplate(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/object/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def changeTemplateResourceGroup(vmanage, templateId, resourceGroupName):
@@ -251,7 +248,7 @@ def changeTemplateResourceGroup(vmanage, templateId, resourceGroupName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/resource-group/{resourceGroupName}/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint)
     return response
 
 def getTemplateTypes(vmanage, type):
@@ -269,7 +266,7 @@ def getTemplateTypes(vmanage, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/types?type={type}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTemplateTypeDefinition(vmanage, type_name, version):
@@ -288,7 +285,7 @@ def getTemplateTypeDefinition(vmanage, type_name, version):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/types/definition/{type_name}/{version}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def getTemplateByDeviceType(vmanage, deviceType):
@@ -306,7 +303,7 @@ def getTemplateByDeviceType(vmanage, deviceType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/{deviceType}"
-    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    response = vmanage.client.apiCall(vmanage.GET, endpoint)
     return response
 
 def editFeatureTemplate(vmanage, template, templateId):
@@ -325,7 +322,7 @@ def editFeatureTemplate(vmanage, template, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, template)
+    response = vmanage.client.apiCall(vmanage.PUT, endpoint, template)
     return response
 
 def deleteGeneralTemplate(vmanage, templateId):
@@ -342,7 +339,7 @@ def deleteGeneralTemplate(vmanage, templateId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/{templateId}"
-    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
     return response
 
 def getEncryptedString(vmanage, type6encryption):
@@ -359,5 +356,5 @@ def getEncryptedString(vmanage, type6encryption):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/security/encryptText/encrypt"
-    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, type6encryption)
+    response = vmanage.client.apiCall(vmanage.POST, endpoint, type6encryption)
     return response
