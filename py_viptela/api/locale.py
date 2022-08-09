@@ -11,5 +11,5 @@ def getsupportedLocales(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/localization/supportedLocales"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

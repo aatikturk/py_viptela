@@ -12,7 +12,7 @@ def getGroups(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/igmp/groups?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getInterfaces(vmanage, deviceId):
     """
@@ -28,7 +28,7 @@ def getInterfaces(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/igmp/interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStats(vmanage, deviceId):
     """
@@ -44,7 +44,7 @@ def getStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/igmp/statistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSummary(vmanage, deviceId):
     """
@@ -60,5 +60,5 @@ def getSummary(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/igmp/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

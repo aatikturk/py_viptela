@@ -12,7 +12,7 @@ def sleauthenticate(vmanage, partner):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/authenticate"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, partner)
+    response = vmanage.client.apiCall("POST", endpoint, partner)
     return response
 def fetchAccounts(vmanage, partner, mode):
     """
@@ -29,7 +29,7 @@ def fetchAccounts(vmanage, partner, mode):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/fetchAccounts?mode={mode}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint, partner)
+    response = vmanage.client.apiCall("GET", endpoint, partner)
     return response
 def fetchReports(vmanage, partner):
     """
@@ -45,7 +45,7 @@ def fetchReports(vmanage, partner):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/fetchAllSa"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint, partner)
+    response = vmanage.client.apiCall("GET", endpoint, partner)
     return response
 def fetchReports(vmanage, partner, saDomain, saId):
     """
@@ -63,7 +63,7 @@ def fetchReports(vmanage, partner, saDomain, saId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/fetchReportsForSa?saDomain={saDomain}&saId={saId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint, partner)
+    response = vmanage.client.apiCall("GET", endpoint, partner)
     return response
 def getUserSettings(vmanage):
     """
@@ -78,7 +78,7 @@ def getUserSettings(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/getUserSettings"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def syncLicenses(vmanage, partner):
     """
@@ -94,7 +94,7 @@ def syncLicenses(vmanage, partner):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/removeSaVaSelection"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, partner)
+    response = vmanage.client.apiCall("POST", endpoint, partner)
     return response
 def syncLicenses(vmanage, partner):
     """
@@ -110,7 +110,7 @@ def syncLicenses(vmanage, partner):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/syncLicenses"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, partner)
+    response = vmanage.client.apiCall("POST", endpoint, partner)
     return response
 def uploadAck(vmanage, partner):
     """
@@ -126,5 +126,5 @@ def uploadAck(vmanage, partner):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/smartLicensing/uploadAck"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, partner)
+    response = vmanage.client.apiCall("POST", endpoint, partner)
     return response

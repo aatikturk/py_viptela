@@ -11,7 +11,7 @@ def getCortexStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def authAzureCredAndAdd(vmanage, credential):
@@ -28,7 +28,7 @@ def authAzureCredAndAdd(vmanage, credential):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex/cloud/authenticate"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, credential)
+    response = vmanage.client.apiCall("POST", endpoint, credential)
     return response
 
 def getMappedWanRG(vmanage, accountid, cloudregion):
@@ -46,7 +46,7 @@ def getMappedWanRG(vmanage, accountid, cloudregion):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex/map?accountid={accountid}&cloudregion={cloudregion}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def syncWanRG(vmanage, wanRG):
@@ -63,7 +63,7 @@ def syncWanRG(vmanage, wanRG):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex/sync"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, wanRG)
+    response = vmanage.client.apiCall("POST", endpoint, wanRG)
     return response
 
 def getWanRG(vmanage, accountid):
@@ -80,7 +80,7 @@ def getWanRG(vmanage, accountid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex/wanrg?accountid={accountid}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editWanRG(vmanage, wanRG):
@@ -97,7 +97,7 @@ def editWanRG(vmanage, wanRG):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex/wanrg"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, wanRG)
+    response = vmanage.client.apiCall("PUT", endpoint, wanRG)
     return response
 
 def saveWanRG(vmanage, wanRG):
@@ -114,7 +114,7 @@ def saveWanRG(vmanage, wanRG):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex/wanrg"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, wanRG)
+    response = vmanage.client.apiCall("POST", endpoint, wanRG)
     return response
 
 def deleteWanRG(vmanage, wanRG):
@@ -131,5 +131,5 @@ def deleteWanRG(vmanage, wanRG):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cortex/wanrg"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint, wanRG)
+    response = vmanage.client.apiCall("DELETE", endpoint, wanRG)
     return response

@@ -12,7 +12,7 @@ def getServiceChain(vmanage, serviceGroupName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup?serviceGroupName={serviceGroupName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def update(vmanage, servicegroup):
@@ -29,7 +29,7 @@ def update(vmanage, servicegroup):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, servicegroup)
+    response = vmanage.client.apiCall("PUT", endpoint, servicegroup)
     return response
 
 def create(vmanage, servicegroup):
@@ -46,7 +46,7 @@ def create(vmanage, servicegroup):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, servicegroup)
+    response = vmanage.client.apiCall("POST", endpoint, servicegroup)
     return response
 
 def getGroupInCluster(vmanage, ClusterId, UserGroupName):
@@ -64,7 +64,7 @@ def getGroupInCluster(vmanage, ClusterId, UserGroupName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/attached?ClusterId={ClusterId}&UserGroupName={UserGroupName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getDefaultChain(vmanage):
@@ -80,7 +80,7 @@ def getDefaultChain(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/servicechain/default"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getAvailableChains(vmanage):
@@ -96,7 +96,7 @@ def getAvailableChains(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/servicechains"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def delete(vmanage, name):
@@ -113,5 +113,5 @@ def delete(vmanage, name):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/{name}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

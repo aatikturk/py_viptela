@@ -12,7 +12,7 @@ def getClient(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dhcp/client?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getInterface(vmanage, deviceId):
     """
@@ -28,7 +28,7 @@ def getInterface(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dhcp/interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getServer(vmanage, deviceId):
     """
@@ -44,7 +44,7 @@ def getServer(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dhcp/server?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getV6Interface(vmanage, deviceId):
     """
@@ -60,5 +60,5 @@ def getV6Interface(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dhcpv6/interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

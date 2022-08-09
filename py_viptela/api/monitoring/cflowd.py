@@ -12,7 +12,7 @@ def getStatDataRawData(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd?query={query_string}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStatsRawData(vmanage, statsquerystring):
     """
@@ -28,7 +28,7 @@ def getStatsRawData(vmanage, statsquerystring):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
@@ -44,7 +44,7 @@ def getAggregationDataByQuery(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/aggregation?query={query_string}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def getPostAggregationDataByQuery(vmanage, statsquerystring):
     """
@@ -60,7 +60,7 @@ def getPostAggregationDataByQuery(vmanage, statsquerystring):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/aggregation"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
     return response
 def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
@@ -76,7 +76,7 @@ def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/app-agg/aggregation"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
     return response
 def createFlowsGrid(vmanage, vpn, deviceId, limit, query):
     """
@@ -95,7 +95,7 @@ def createFlowsGrid(vmanage, vpn, deviceId, limit, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/applications?vpn={vpn}&deviceId={deviceId}&limit={limit}&query={query_string}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def createFlowssummary(vmanage, limit, query):
     """
@@ -112,7 +112,7 @@ def createFlowssummary(vmanage, limit, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/applications/summary?limit={limit}&query={query_string}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStatDataRawDataAsCSV(vmanage, query):
     """
@@ -128,7 +128,7 @@ def getStatDataRawDataAsCSV(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/csv?query={query_string}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def createFlowDeviceData(vmanage, query):
     """
@@ -144,7 +144,7 @@ def createFlowDeviceData(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/device/applications?query={query_string}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def getCount(vmanage, query):
     """
@@ -160,7 +160,7 @@ def getCount(vmanage, query):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/doccount?query={query_string}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def getCountPost(vmanage, query):
     """
@@ -176,7 +176,7 @@ def getCountPost(vmanage, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/doccount"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, query)
+    response = vmanage.client.apiCall("POST", endpoint, query)
     return response
 def getStatDataFields(vmanage):
     """
@@ -191,7 +191,7 @@ def getStatDataFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/fields"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStatBulkRawData(vmanage, query, scrollId, count):
     """
@@ -209,7 +209,7 @@ def getStatBulkRawData(vmanage, query, scrollId, count):
     """
     query_string = vmanage.builder.generateQuery(query)
     endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/page?query={query_string}&scrollId={scrollId}&count={count}"
-    response     = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response     = vmanage.client.apiCall("GET", endpoint)
     return response
 def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
@@ -227,7 +227,7 @@ def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, statsquerystring)
+    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
     return response
 def getStatQueryFields(vmanage):
     """
@@ -242,5 +242,5 @@ def getStatQueryFields(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/cflowd/query/fields"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

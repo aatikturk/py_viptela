@@ -11,7 +11,7 @@ def getApp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/app"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def createApp(vmanage, policylist):
@@ -28,7 +28,7 @@ def createApp(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/app"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
+    response = vmanage.client.apiCall("POST", endpoint, policylist)
     return response
 
 def previewApp(vmanage, policylist):
@@ -45,7 +45,7 @@ def previewApp(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/app/preview"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
+    response = vmanage.client.apiCall("POST", endpoint, policylist)
     return response
 
 def previewAppById(vmanage, id):
@@ -62,7 +62,7 @@ def previewAppById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/app/preview/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getAppListsById(vmanage, id):
@@ -79,7 +79,7 @@ def getAppListsById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/app/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def edit(vmanage, policylist, id):
@@ -97,7 +97,7 @@ def edit(vmanage, policylist, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/app/{id}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policylist)
+    response = vmanage.client.apiCall("PUT", endpoint, policylist)
     return response
 
 def deleteApp(vmanage, id):
@@ -114,7 +114,7 @@ def deleteApp(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/app/{id}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response
 
 def getLocalApp(vmanage):
@@ -130,7 +130,7 @@ def getLocalApp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/localapp"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def createLocalApp(vmanage, policylist):
@@ -147,7 +147,7 @@ def createLocalApp(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/localapp"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
+    response = vmanage.client.apiCall("POST", endpoint, policylist)
     return response
 
 def previewLocalApp(vmanage, policylist):
@@ -164,7 +164,7 @@ def previewLocalApp(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/localapp/preview"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
+    response = vmanage.client.apiCall("POST", endpoint, policylist)
     return response
 
 def previewLocalAppById(vmanage, id):
@@ -181,7 +181,7 @@ def previewLocalAppById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/localapp/preview/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getLocalAppListsById(vmanage, id):
@@ -198,7 +198,7 @@ def getLocalAppListsById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/localapp/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editLocalApp(vmanage, policylist, id):
@@ -216,7 +216,7 @@ def editLocalApp(vmanage, policylist, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/localapp/{id}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policylist)
+    response = vmanage.client.apiCall("PUT", endpoint, policylist)
     return response
 
 def deleteLocalApp(vmanage, id):
@@ -233,5 +233,5 @@ def deleteLocalApp(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/localapp/{id}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

@@ -1,4 +1,4 @@
-from py_viptela.response_parser import Parser
+from py_viptela.response_parser import parse_response
 import requests
 
 # CONSTANTS
@@ -14,7 +14,6 @@ class HttpClient(object):
     """
     def __init__(self, session):
         self.session = session
-        self.parser = Parser()
 
     def apiCall(self, method, url, body=None):
         methods = {
@@ -32,15 +31,9 @@ class HttpClient(object):
 
         except requests.exceptions.ConnectionError:
             return {'error': 'Connection Failed'}
-
-        except requests.exceptions.SSLError:
-            return {'error': 'SSL Error'}
             
         except requests.exceptions.Timeout:
             return {'error': 'Timeout'}
-        
-        if response.text == '':
-            return response.text
+
         else:
-            result_data = Parser.parseResponse(response=response)
-            return result_data
+            return parse_response(response)

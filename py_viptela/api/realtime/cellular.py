@@ -12,7 +12,7 @@ def getConnections(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/connection?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getHardwareList(vmanage, deviceId):
     """
@@ -28,7 +28,7 @@ def getHardwareList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/hardware?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getModemList(vmanage, policyId):
     """
@@ -44,7 +44,7 @@ def getModemList(vmanage, policyId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/modem?policyId={policyId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getNetworkList(vmanage, deviceId):
     """
@@ -60,7 +60,7 @@ def getNetworkList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/network?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getProfileList(vmanage, deviceId):
     """
@@ -76,7 +76,7 @@ def getProfileList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/profiles?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getRadioList(vmanage, deviceId):
     """
@@ -92,7 +92,7 @@ def getRadioList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/radio?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSessionsList(vmanage, ifName, priDns, deviceId):
     """
@@ -110,7 +110,7 @@ def getSessionsList(vmanage, ifName, priDns, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/sessions?ifName={ifName}&priDns={priDns}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getCellularStatusList(vmanage, deviceId):
     """
@@ -126,5 +126,5 @@ def getCellularStatusList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellular/status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

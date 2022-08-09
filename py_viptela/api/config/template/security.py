@@ -12,7 +12,7 @@ def generateSecurityTemplateList(vmanage, mode):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security?mode={mode}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def createSecurityTemplate(vmanage, policytemplate):
@@ -29,7 +29,7 @@ def createSecurityTemplate(vmanage, policytemplate):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policytemplate)
+    response = vmanage.client.apiCall("POST", endpoint, policytemplate)
     return response
 
 def getSecurityTemplate(vmanage, policyId):
@@ -46,7 +46,7 @@ def getSecurityTemplate(vmanage, policyId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/definition/{policyId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getSecurityPolicyDeviceList(vmanage):
@@ -62,7 +62,7 @@ def getSecurityPolicyDeviceList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/devices"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getDeviceListById(vmanage, policyId):
@@ -79,7 +79,7 @@ def getDeviceListById(vmanage, policyId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/devices/{policyId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editTemplateWithLenientLock(vmanage, policytemplate, policyId):
@@ -97,7 +97,7 @@ def editTemplateWithLenientLock(vmanage, policytemplate, policyId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/staging/{policyId}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policytemplate)
+    response = vmanage.client.apiCall("PUT", endpoint, policytemplate)
     return response
 
 def generateSecurityPolicySummary(vmanage):
@@ -113,7 +113,7 @@ def generateSecurityPolicySummary(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/summary"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getSecurityTemplatesForDevice(vmanage, deviceModel):
@@ -130,7 +130,7 @@ def getSecurityTemplatesForDevice(vmanage, deviceModel):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/{deviceModel}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editSecurityTemplate(vmanage, policytemplate, policyId):
@@ -148,7 +148,7 @@ def editSecurityTemplate(vmanage, policytemplate, policyId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/{policyId}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policytemplate)
+    response = vmanage.client.apiCall("PUT", endpoint, policytemplate)
     return response
 
 def deleteSecurityTemplate(vmanage, policyId):
@@ -165,5 +165,5 @@ def deleteSecurityTemplate(vmanage, policyId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/security/{policyId}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

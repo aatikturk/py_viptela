@@ -11,7 +11,7 @@ def getBanner(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/banner"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getSessionTimout(vmanage):
@@ -27,7 +27,7 @@ def getSessionTimout(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/clientSessionTimeout"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def createAnalyticsDataFile(vmanage):
@@ -43,7 +43,7 @@ def createAnalyticsDataFile(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/analytics/dca"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def getCertConfig(vmanage, settingType):
@@ -60,7 +60,7 @@ def getCertConfig(vmanage, settingType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/certificate/{settingType}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editCertConfig(vmanage, certConfig, settingType):
@@ -78,7 +78,7 @@ def editCertConfig(vmanage, certConfig, settingType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/certificate/{settingType}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, certConfig)
+    response = vmanage.client.apiCall("PUT", endpoint, certConfig)
     return response
 
 def newCertConfig(vmanage, certConfig, settingType):
@@ -96,7 +96,7 @@ def newCertConfig(vmanage, certConfig, settingType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/certificate/{settingType}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, certConfig)
+    response = vmanage.client.apiCall("POST", endpoint, certConfig)
     return response
 
 def getGoogleMapKey(vmanage):
@@ -112,7 +112,7 @@ def getGoogleMapKey(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/googleMapKey"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getMaintenanceWindow(vmanage):
@@ -128,7 +128,7 @@ def getMaintenanceWindow(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/maintenanceWindow"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getConfigBySettingType(vmanage, settingType):
@@ -145,7 +145,7 @@ def getConfigBySettingType(vmanage, settingType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/{settingType}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editConfig(vmanage, configSetting, settingType):
@@ -163,7 +163,7 @@ def editConfig(vmanage, configSetting, settingType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/{settingType}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, configSetting)
+    response = vmanage.client.apiCall("PUT", endpoint, configSetting)
     return response
 
 def newConfig(vmanage, configSetting, settingType):
@@ -181,5 +181,5 @@ def newConfig(vmanage, configSetting, settingType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/{settingType}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, configSetting)
+    response = vmanage.client.apiCall("POST", endpoint, configSetting)
     return response

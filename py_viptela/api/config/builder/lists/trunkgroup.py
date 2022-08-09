@@ -11,7 +11,7 @@ def get(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/trunkgroup"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def create(vmanage, policylist):
     """
@@ -27,7 +27,7 @@ def create(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/trunkgroup"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
+    response = vmanage.client.apiCall("POST", endpoint, policylist)
     return response
 def preview(vmanage, policylist):
     """
@@ -43,7 +43,7 @@ def preview(vmanage, policylist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/trunkgroup/preview"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policylist)
+    response = vmanage.client.apiCall("POST", endpoint, policylist)
     return response
 def previewById(vmanage, id):
     """
@@ -59,7 +59,7 @@ def previewById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/trunkgroup/preview/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getListsById(vmanage, id):
     """
@@ -75,7 +75,7 @@ def getListsById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/trunkgroup/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def edit(vmanage, policylist, id):
     """
@@ -92,7 +92,7 @@ def edit(vmanage, policylist, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/trunkgroup/{id}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policylist)
+    response = vmanage.client.apiCall("PUT", endpoint, policylist)
     return response
 def delete(vmanage, id):
     """
@@ -108,5 +108,5 @@ def delete(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/trunkgroup/{id}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

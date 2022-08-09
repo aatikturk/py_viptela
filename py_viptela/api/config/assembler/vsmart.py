@@ -12,7 +12,7 @@ def preview(vmanage, policyassembly):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/assembly/vsmart"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policyassembly)
+    response = vmanage.client.apiCall("POST", endpoint, policyassembly)
     return response
 
 
@@ -30,6 +30,6 @@ def previewById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/assembly/vsmart/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
     

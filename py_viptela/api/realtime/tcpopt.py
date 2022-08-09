@@ -12,7 +12,7 @@ def getActiveTCPFlows(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tcpopt/activeflows?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getExpiredTCPFlows(vmanage, deviceId):
     """
@@ -28,7 +28,7 @@ def getExpiredTCPFlows(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tcpopt/expiredflows?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getTCPSummary(vmanage, deviceId):
     """
@@ -44,5 +44,5 @@ def getTCPSummary(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tcpopt/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

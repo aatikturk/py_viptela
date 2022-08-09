@@ -15,7 +15,7 @@ def getNeighbors(vmanage, vpnId, peerAddr, asNo, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bgp/neighbors?vpnId={vpnId}&peerAddr={peerAddr}&as={asNo}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def createBGPRoutesList(vmanage, vpnId, prefix, nexthop, deviceId):
     """
@@ -34,7 +34,7 @@ def createBGPRoutesList(vmanage, vpnId, prefix, nexthop, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bgp/routes?vpnId={vpnId}&prefix={prefix}&nexthop={nexthop}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def createBGPSummary(vmanage, deviceId):
     """
@@ -50,5 +50,5 @@ def createBGPSummary(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bgp/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

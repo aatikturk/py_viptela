@@ -12,7 +12,7 @@ def getCflowdDPIDeviceFieldJSON(vmanage, isDeviceDashBoard):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/application/fields?isDeviceDashBoard={isDeviceDashBoard}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getCollectorList(vmanage, deviceId):
     """
@@ -28,7 +28,7 @@ def getCollectorList(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/collector?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDPIFieldJSON(vmanage, isDeviceDashBoard):
     """
@@ -44,7 +44,7 @@ def getDPIFieldJSON(vmanage, isDeviceDashBoard):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/device/fields?isDeviceDashBoard={isDeviceDashBoard}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getFlows(vmanage, vpnId, src, dest, deviceId):
     """
@@ -63,7 +63,7 @@ def getFlows(vmanage, vpnId, src, dest, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getFlowsCount(vmanage, vpnId, src, dest, deviceId):
     """
@@ -82,7 +82,7 @@ def getFlowsCount(vmanage, vpnId, src, dest, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows-count?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getFnFCacheStats(vmanage, deviceId):
     """
@@ -98,7 +98,7 @@ def getFnFCacheStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/cache-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getFnFExportClientStats(vmanage, deviceId):
     """
@@ -114,7 +114,7 @@ def getFnFExportClientStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-client-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getFnFExportStats(vmanage, deviceId):
     """
@@ -130,7 +130,7 @@ def getFnFExportStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getFnf(vmanage, deviceId):
     """
@@ -146,7 +146,7 @@ def getFnf(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/flow-monitor?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getFnFMonitorStats(vmanage, deviceId):
     """
@@ -162,7 +162,7 @@ def getFnFMonitorStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/monitor-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStatistics(vmanage, deviceId):
     """
@@ -178,7 +178,7 @@ def getStatistics(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/statistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getTemplate(vmanage, deviceId):
     """
@@ -194,5 +194,5 @@ def getTemplate(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/template?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

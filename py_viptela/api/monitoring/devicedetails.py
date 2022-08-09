@@ -14,7 +14,7 @@ def getStateData(vmanage, state_data_type, startId, count):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/state/{state_data_type}?startId={startId}&count={count}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStateDataFields(vmanage, state_data_type):
     """
@@ -30,7 +30,7 @@ def getStateDataFields(vmanage, state_data_type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/state/{state_data_type}/fields"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStateDataWithQuery(vmanage, state_data_type):
     """
@@ -46,7 +46,7 @@ def getStateDataWithQuery(vmanage, state_data_type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/state/{state_data_type}/query"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def listAllDevices(vmanage):
     """
@@ -61,7 +61,7 @@ def listAllDevices(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def setBlockSync(vmanage, blockSync):
     """
@@ -77,7 +77,7 @@ def setBlockSync(vmanage, blockSync):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/blockSync?blockSync={blockSync}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def getRunning(vmanage, deviceId):
     """
@@ -93,7 +93,7 @@ def getRunning(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/config?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getRunningHtml(vmanage, deviceId):
     """
@@ -109,7 +109,7 @@ def getRunningHtml(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/config/html?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDeviceCounters(vmanage):
     """
@@ -124,7 +124,7 @@ def getDeviceCounters(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/counters"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDeviceOnlyStatus(vmanage):
     """
@@ -139,7 +139,7 @@ def getDeviceOnlyStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/devicestatus"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def enableSDAVCOnDevice(vmanage, deviceIP, enable):
     """
@@ -156,7 +156,7 @@ def enableSDAVCOnDevice(vmanage, deviceIP, enable):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/enableSDAVC/{deviceIP}/{enable}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def getHealthDetails(vmanage, deviceId, state):
     """
@@ -173,7 +173,7 @@ def getHealthDetails(vmanage, deviceId, state):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/hardwarehealth/detail?deviceId={deviceId}&state={state}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getHealthSummary(vmanage, isCached, vpnId):
     """
@@ -190,7 +190,7 @@ def getHealthSummary(vmanage, isCached, vpnId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/hardwarehealth/summary?isCached={isCached}&vpnId={vpnId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getListAsKeyValue(vmanage):
     """
@@ -205,7 +205,7 @@ def getListAsKeyValue(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/keyvalue"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def listAllModels(vmanage, list):
     """
@@ -221,7 +221,7 @@ def listAllModels(vmanage, list):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/models?list={list}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDeviceModels(vmanage, uuid):
     """
@@ -237,7 +237,7 @@ def getDeviceModels(vmanage, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/models/{uuid}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def listAllMonitorDetails(vmanage):
     """
@@ -252,7 +252,7 @@ def listAllMonitorDetails(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/monitor"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSyncQueues(vmanage):
     """
@@ -267,7 +267,7 @@ def getSyncQueues(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/queues"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def listReachable(vmanage):
     """
@@ -282,7 +282,7 @@ def listReachable(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/reachable"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getStatsQueues(vmanage):
     """
@@ -297,7 +297,7 @@ def getStatsQueues(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/stats"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getAllStatus(vmanage):
     """
@@ -312,7 +312,7 @@ def getAllStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/status"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def listSyncing(vmanage, groupId):
     """
@@ -328,7 +328,7 @@ def listSyncing(vmanage, groupId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sync_status?groupId={groupId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def syncAllMemDB(vmanage):
     """
@@ -343,7 +343,7 @@ def syncAllMemDB(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/syncall/memorydb"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def getDeviceTlocStatus(vmanage, deviceId, color):
     """
@@ -360,7 +360,7 @@ def getDeviceTlocStatus(vmanage, deviceId, color):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tloc?deviceId={deviceId}&color={color}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getTlocUtil(vmanage):
     """
@@ -375,7 +375,7 @@ def getTlocUtil(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tlocutil"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getTlocUtilDetails(vmanage, util):
     """
@@ -391,7 +391,7 @@ def getTlocUtilDetails(vmanage, util):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tlocutil/detail?util={util}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def listUnreachable(vmanage, personality):
     """
@@ -407,7 +407,7 @@ def listUnreachable(vmanage, personality):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/unreachable?personality={personality}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def removeUnreachable(vmanage, deviceIP):
     """
@@ -423,7 +423,7 @@ def removeUnreachable(vmanage, deviceIP):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/unreachable/{deviceIP}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response
 def getVedgeInventory(vmanage, status):
     """
@@ -439,7 +439,7 @@ def getVedgeInventory(vmanage, status):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vedgeinventory/detail?status={status}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getVedgeInventorySummary(vmanage):
     """
@@ -454,7 +454,7 @@ def getVedgeInventorySummary(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vedgeinventory/summary"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getVManageSystemIP(vmanage):
     """
@@ -469,5 +469,5 @@ def getVManageSystemIP(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vmanage"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

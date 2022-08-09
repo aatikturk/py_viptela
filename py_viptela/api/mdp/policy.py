@@ -12,7 +12,7 @@ def getPolicies(vmanage, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/{nmsId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def updatePolicyStatus(vmanage, policylist, nmsId):
@@ -30,5 +30,5 @@ def updatePolicyStatus(vmanage, policylist, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/{nmsId}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policylist)
+    response = vmanage.client.apiCall("PUT", endpoint, policylist)
     return response

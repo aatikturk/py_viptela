@@ -13,7 +13,7 @@ def uploadConfig(vmanage, templateconfig, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/attach/{deviceId}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, templateconfig)
+    response = vmanage.client.apiCall("PUT", endpoint, templateconfig)
     return response
 
 def getAttached(vmanage, deviceId, type):
@@ -31,7 +31,7 @@ def getAttached(vmanage, deviceId, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/attached/{deviceId}?type={type}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getCLIModeDevices(vmanage, type):
@@ -48,7 +48,7 @@ def getCLIModeDevices(vmanage, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/device/mode/cli?type={type}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def updateToCLI(vmanage, devicelist):
@@ -65,7 +65,7 @@ def updateToCLI(vmanage, devicelist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/device/mode/cli"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, devicelist)
+    response = vmanage.client.apiCall("POST", endpoint, devicelist)
     return response
 
 def getvManageModeDevices(vmanage, type):
@@ -82,7 +82,7 @@ def getvManageModeDevices(vmanage, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/device/mode/vmanage?type={type}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getDeviceDiff(vmanage, deviceId):
@@ -99,7 +99,7 @@ def getDeviceDiff(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/diff/{deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getCompatibleDevices(vmanage, oldDeviceId):
@@ -116,7 +116,7 @@ def getCompatibleDevices(vmanage, oldDeviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/rmalist/{oldDeviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def rmaUpdate(vmanage, templateconfig):
@@ -133,7 +133,7 @@ def rmaUpdate(vmanage, templateconfig):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/rmaupdate"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, templateconfig)
+    response = vmanage.client.apiCall("PUT", endpoint, templateconfig)
     return response
 
 def getRunningConfig(vmanage, deviceId):
@@ -150,7 +150,7 @@ def getRunningConfig(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/running/{deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getVpnForDevice(vmanage, deviceId):
@@ -167,5 +167,5 @@ def getVpnForDevice(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/config/vpn/{deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

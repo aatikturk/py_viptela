@@ -12,7 +12,7 @@ def getUTDDataplaneConfig(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/dataplane-config?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDDataplaneGlobal(vmanage, deviceId):
     """
@@ -28,7 +28,7 @@ def getUTDDataplaneGlobal(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/dataplane-global?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDDataplaneStats(vmanage, deviceId):
     """
@@ -44,7 +44,7 @@ def getUTDDataplaneStats(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/dataplane-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDDataplaneStatsSummary(vmanage, deviceId):
     """
@@ -60,7 +60,7 @@ def getUTDDataplaneStatsSummary(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/dataplane-stats-summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDEngineInstanceStatus(vmanage, deviceId):
     """
@@ -76,7 +76,7 @@ def getUTDEngineInstanceStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/engine-instance-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDEngineStatus(vmanage, deviceId):
     """
@@ -92,7 +92,7 @@ def getUTDEngineStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/engine-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDFileAnalysisStatus(vmanage, deviceId):
     """
@@ -108,7 +108,7 @@ def getUTDFileAnalysisStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/file-analysis-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDFileReputationStatus(vmanage, deviceId):
     """
@@ -124,7 +124,7 @@ def getUTDFileReputationStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/file-reputation-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDIpsUpdateStatus(vmanage, deviceId):
     """
@@ -140,7 +140,7 @@ def getUTDIpsUpdateStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/ips-update-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSignatureVersionInfo(vmanage, deviceId):
     """
@@ -156,7 +156,7 @@ def getSignatureVersionInfo(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/signature/version/details?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDUrlfConnectionStatus(vmanage, deviceId):
     """
@@ -172,7 +172,7 @@ def getUTDUrlfConnectionStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/urlf-con-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDUrlfUpdateStatus(vmanage, deviceId):
     """
@@ -188,7 +188,7 @@ def getUTDUrlfUpdateStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/urlf-update-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getUTDVersionStatus(vmanage, deviceId):
     """
@@ -204,5 +204,5 @@ def getUTDVersionStatus(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/utd/version-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

@@ -12,7 +12,7 @@ def cancelPending(vmanage, processId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/status/cancel/{processId}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def cleanStatus(vmanage, cleanStatus):
@@ -29,7 +29,7 @@ def cleanStatus(vmanage, cleanStatus):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/status/clean?cleanStatus={cleanStatus}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def deleteStatus(vmanage, processId):
@@ -46,7 +46,7 @@ def deleteStatus(vmanage, processId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/status/clear?processId={processId}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response
 
 def findRunning(vmanage):
@@ -62,7 +62,7 @@ def findRunning(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/status/tasks"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getActiveCount(vmanage):
@@ -78,7 +78,7 @@ def getActiveCount(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/status/tasks/activeCount"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getCleanStatus(vmanage, processId):
@@ -95,7 +95,7 @@ def getCleanStatus(vmanage, processId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/status/tasks/clean?processId={processId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def findStatus(vmanage, actionName):
@@ -112,5 +112,5 @@ def findStatus(vmanage, actionName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/status/{actionName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

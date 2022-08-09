@@ -11,7 +11,7 @@ def getDefinitions(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def create(vmanage, policydefinition):
@@ -28,7 +28,7 @@ def create(vmanage, policydefinition):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policydefinition)
+    response = vmanage.client.apiCall("POST", endpoint, policydefinition)
     return response
 
 def saveInBulk(vmanage, policydefinition):
@@ -45,7 +45,7 @@ def saveInBulk(vmanage, policydefinition):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup/bulk"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policydefinition)
+    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def editMultiple(vmanage, policydefinition, id):
@@ -63,7 +63,7 @@ def editMultiple(vmanage, policydefinition, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup/multiple/{id}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policydefinition)
+    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def preview(vmanage, policydefinition):
@@ -80,7 +80,7 @@ def preview(vmanage, policydefinition):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup/preview"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, policydefinition)
+    response = vmanage.client.apiCall("POST", endpoint, policydefinition)
     return response
 
 def previewById(vmanage, id):
@@ -97,7 +97,7 @@ def previewById(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup/preview/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def get(vmanage, id):
@@ -114,7 +114,7 @@ def get(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def edit(vmanage, policydefinition, id):
@@ -132,7 +132,7 @@ def edit(vmanage, policydefinition, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup/{id}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policydefinition)
+    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def delete(vmanage, id):
@@ -149,5 +149,5 @@ def delete(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/securitygroup/{id}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

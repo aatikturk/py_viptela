@@ -12,7 +12,7 @@ def attach(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/attach"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
+    response = vmanage.client.apiCall("POST", endpoint, request)
     return response
 
 def autoAttach(vmanage, request):
@@ -29,7 +29,7 @@ def autoAttach(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/autoattach"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
+    response = vmanage.client.apiCall("POST", endpoint, request)
     return response
 
 def detach(vmanage, request):
@@ -46,7 +46,7 @@ def detach(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/detach"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, request)
+    response = vmanage.client.apiCall("PUT", endpoint, request)
     return response
 
 def getEdgeDevices(vmanage):
@@ -62,7 +62,7 @@ def getEdgeDevices(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/edge/devices"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getpnfDevices(vmanage, pnfDeviceType):
@@ -79,5 +79,5 @@ def getpnfDevices(vmanage, pnfDeviceType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/edge/pnfdevices?pnfDeviceType={pnfDeviceType}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

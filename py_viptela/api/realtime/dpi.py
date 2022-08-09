@@ -12,7 +12,7 @@ def getDPIDeviceFieldJSON(vmanage, isDeviceDashBoard):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/application/fields?isDeviceDashBoard={isDeviceDashBoard}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def createDPICollectorList(vmanage, vpnId, application, family, deviceId):
     """
@@ -31,7 +31,7 @@ def createDPICollectorList(vmanage, vpnId, application, family, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/applications?vpn-id={vpnId}&application={application}&family={family}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getCommonAppList(vmanage):
     """
@@ -46,7 +46,7 @@ def getCommonAppList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/common/applications"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDPIFieldJSON(vmanage):
     """
@@ -61,7 +61,7 @@ def getDPIFieldJSON(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/device/fields"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDPIDeviceDetailsFieldJSON(vmanage):
     """
@@ -76,7 +76,7 @@ def getDPIDeviceDetailsFieldJSON(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/devicedetails/fields"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDPIFlowsList(vmanage, vpnId, ip, application, family, deviceId):
     """
@@ -96,7 +96,7 @@ def getDPIFlowsList(vmanage, vpnId, ip, application, family, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/flows?vpn-id={vpnId}&src-ip={ip}&application={application}&family={family}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getQosmosAppList(vmanage):
     """
@@ -111,7 +111,7 @@ def getQosmosAppList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/qosmos/applications"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDPISummaryRealTime(vmanage, deviceId):
     """
@@ -127,7 +127,7 @@ def getDPISummaryRealTime(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDPIStatistics(vmanage, application, family, deviceId):
     """
@@ -145,5 +145,5 @@ def getDPIStatistics(vmanage, application, family, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dpi/supported-applications?application={application}&family={family}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

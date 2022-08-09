@@ -12,5 +12,5 @@ def add(vmanage, policy):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/mdpconfig"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, policy)
+    response = vmanage.client.apiCall("PUT", endpoint, policy)
     return response

@@ -13,5 +13,5 @@ def pushConfigs(vmanage, config, nmsId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/wcm/netconf/{nmsId}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, config)
+    response = vmanage.client.apiCall("POST", endpoint, config)
     return response

@@ -12,7 +12,7 @@ def editDeviceWithLicense(vmanage, license):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/assignLicense"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, license)
+    response = vmanage.client.apiCall("PUT", endpoint, license)
     return response
 def createDeviceWithLicense(vmanage, license):
     """
@@ -28,7 +28,7 @@ def createDeviceWithLicense(vmanage, license):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/assignLicense"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, license)
+    response = vmanage.client.apiCall("POST", endpoint, license)
     return response
 def getMSLADevices(vmanage):
     """
@@ -43,7 +43,7 @@ def getMSLADevices(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/devices"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDeviceDistributionOverview(vmanage):
     """
@@ -58,7 +58,7 @@ def getDeviceDistributionOverview(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/devices/assignmentdistribution"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getLicenseandDeviceOverview(vmanage):
     """
@@ -73,7 +73,7 @@ def getLicenseandDeviceOverview(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/devices/licenseanddeviceoverviewtable"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getLicenseDistributionOverview(vmanage):
     """
@@ -88,7 +88,7 @@ def getLicenseDistributionOverview(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/devices/licensedistribution"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSubscriptionOverview(vmanage):
     """
@@ -103,7 +103,7 @@ def getSubscriptionOverview(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/devices/subscriptiondistribution"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSubscriptions(vmanage, payload):
     """
@@ -119,7 +119,7 @@ def getSubscriptions(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/licenses/subscription"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
+    response = vmanage.client.apiCall("POST", endpoint, payload)
     return response
 def syncLicenses(vmanage, synclicense):
     """
@@ -135,7 +135,7 @@ def syncLicenses(vmanage, synclicense):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/licenses/sync"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, synclicense)
+    response = vmanage.client.apiCall("POST", endpoint, synclicense)
     return response
 def getlicensedDeviceCount(vmanage):
     """
@@ -150,7 +150,7 @@ def getlicensedDeviceCount(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/monitoring/licensedDeviceCount"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getLicensedDistributionDetails(vmanage):
     """
@@ -165,7 +165,7 @@ def getLicensedDistributionDetails(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/monitoring/licensedDistributionDetails"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getpackagingDistributionDetails(vmanage):
     """
@@ -180,7 +180,7 @@ def getpackagingDistributionDetails(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/monitoring/packagingDistributionDetails"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSubscriptions(vmanage):
     """
@@ -195,7 +195,7 @@ def getSubscriptions(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/subscriptions"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getAllTemplate(vmanage):
     """
@@ -210,7 +210,7 @@ def getAllTemplate(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/template"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSubscriptions(vmanage, payload):
     """
@@ -226,7 +226,7 @@ def getSubscriptions(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/template/licenses"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
+    response = vmanage.client.apiCall("POST", endpoint, payload)
     return response
 def getSubscriptions(vmanage, payload):
     """
@@ -242,5 +242,5 @@ def getSubscriptions(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/msla/va/License"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
+    response = vmanage.client.apiCall("POST", endpoint, payload)
     return response

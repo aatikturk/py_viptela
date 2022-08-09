@@ -12,7 +12,7 @@ def getMpDatabase(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cfm/mp/database?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getMpLocalMep(vmanage, domain, service, mepId, deviceId):
     """
@@ -31,7 +31,7 @@ def getMpLocalMep(vmanage, domain, service, mepId, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cfm/mp/local/mep?domain={domain}&service={service}&mepId={mepId}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getMpLocalMip(vmanage, level, port, svcInst, deviceId):
     """
@@ -50,7 +50,7 @@ def getMpLocalMip(vmanage, level, port, svcInst, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cfm/mp/local/mip?level={level}&port={port}&svcInst={svcInst}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getMpRemoteMep(vmanage, domain, service, locMepId, remMepId, deviceId):
     """
@@ -70,5 +70,5 @@ def getMpRemoteMep(vmanage, domain, service, locMepId, remMepId, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cfm/mp/remotemep?domain={domain}&service={service}&locMepId={locMepId}&remMepId={remMepId}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

@@ -11,7 +11,7 @@ def getSegments(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def createSegment(vmanage, segmen):
@@ -28,7 +28,7 @@ def createSegment(vmanage, segmen):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, segmen)
+    response = vmanage.client.apiCall("POST", endpoint, segmen)
     return response
 
 def getSegment(vmanage, id):
@@ -45,7 +45,7 @@ def getSegment(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment/{id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editSegment(vmanage, segmen, id):
@@ -63,7 +63,7 @@ def editSegment(vmanage, segmen, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment/{id}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, segmen)
+    response = vmanage.client.apiCall("PUT", endpoint, segmen)
     return response
 
 def deleteSegment(vmanage, id):
@@ -80,5 +80,5 @@ def deleteSegment(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment/{id}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

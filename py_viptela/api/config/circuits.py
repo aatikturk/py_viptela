@@ -11,7 +11,7 @@ def get(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def create(vmanage, networkcircuit):
@@ -28,7 +28,7 @@ def create(vmanage, networkcircuit):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, networkcircuit)
+    response = vmanage.client.apiCall("POST", endpoint, networkcircuit)
     return response
 
 def edit(vmanage, networkcircuit, id):
@@ -46,7 +46,7 @@ def edit(vmanage, networkcircuit, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit/{id}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, networkcircuit)
+    response = vmanage.client.apiCall("PUT", endpoint, networkcircuit)
     return response
 
 def delete(vmanage, id):
@@ -63,5 +63,5 @@ def delete(vmanage, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit/{id}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

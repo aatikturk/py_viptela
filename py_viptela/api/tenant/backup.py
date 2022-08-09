@@ -13,7 +13,7 @@ def deleteBkp(vmanage, fileName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/delete?fileName={fileName}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response
 def downloadBkpFile(vmanage, path):
     """
@@ -30,7 +30,7 @@ def downloadBkpFile(vmanage, path):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/download/{path}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def exportBkp(vmanage):
     """
@@ -46,7 +46,7 @@ def exportBkp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/export"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def importBkp(vmanage):
     """
@@ -62,7 +62,7 @@ def importBkp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/import"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def listBkp(vmanage):
     """
@@ -78,5 +78,5 @@ def listBkp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/tenantbackup/list"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

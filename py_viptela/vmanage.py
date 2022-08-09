@@ -1,41 +1,25 @@
-from requests import Session
-import json
-import urllib3
-from py_viptela import HttpMethods
+from py_viptela.restclient import RestClient
 from py_viptela.query_builder import Builder
-class Vmanage(object):
-    
+
+class Vmanage(RestClient):
     def __init__(self, host, port, username, password):
-        self.host = host
-        self.port = port
-        self.username = username
-        self.password = password
-        self.session = Session()
-        self.session.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-        self.session.verify = False
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        
-        #login
-        self.login_url = f"https://{host}:{port}/j_security_check"
-        login_data = {
-            "j_username":self.username,
-            "j_password":self.password
-        }
-        self.session.post(url=self.login_url, data=login_data)
-
-        #get token
-        response = self.session.get(url=f"https://{host}:{port}/dataservice/client/token")
-        token = response.text
-
-        # configure headers for further use
-        self.session.headers['Content-Type'] = 'application/json'
-        self.session.headers['X-XSRF-TOKEN'] = token
-        
-        self.client = HttpMethods.HttpClient(self.session)
+        super().__init__(host, port, username, password)
         self.builder = Builder()
 
-        #HTTP METHODS
-        self.GET = "GET"
-        self.POST = "POST"
-        self.PUT = "PUT"
-        self.DELETE = "DELETE"
+
+    #login
+    def get_jsessionid(self,):
+        payload = {"j_username":self.username,"j_password":self.password }
+        res = self.session.post(f"{self.baseurl}/j_security_check", data=payload)
+        if res.cookies:
+            return True
+        else:
+            return False
+
+    def login(self,):
+        if self.get_jsessionid():
+            res = self.session.get(f"{self.baseurl}/dataservice/client/token", headers=self.headers)
+            self.headers['X-XSRF-TOKEN'] = res.text
+            return True, "Authentication Successful."
+        else:
+            return False, "Authentication Failed."

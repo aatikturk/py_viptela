@@ -15,7 +15,7 @@ def activateContainerOnRemoteHost(vmanage, containerName, url, hostIp, checksum)
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/container-manager/activate/{containerName}?url={url}&hostIp={hostIp}&checksum={checksum}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def deActivateContainer(vmanage, containerName, hostIp):
     """
@@ -32,7 +32,7 @@ def deActivateContainer(vmanage, containerName, hostIp):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/container-manager/deactivate/{containerName}?hostIp={hostIp}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def doesValidImageExist(vmanage, containerName):
     """
@@ -48,7 +48,7 @@ def doesValidImageExist(vmanage, containerName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/container-manager/doesValidImageExist/{containerName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getContainerInspectData(vmanage, containerName, hostIp):
     """
@@ -65,7 +65,7 @@ def getContainerInspectData(vmanage, containerName, hostIp):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/container-manager/inspect/{containerName}?hostIp={hostIp}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getContainerSettings(vmanage, containerName, hostIp):
     """
@@ -82,7 +82,7 @@ def getContainerSettings(vmanage, containerName, hostIp):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/container-manager/settings/{containerName}?hostIp={hostIp}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getChecksum(vmanage):
     """
@@ -97,7 +97,7 @@ def getChecksum(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/checksum"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getCustomApp(vmanage):
     """
@@ -112,7 +112,7 @@ def getCustomApp(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/customapps"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def activateContainer(vmanage, containertaskconfig, taskId):
     """
@@ -129,7 +129,7 @@ def activateContainer(vmanage, containertaskconfig, taskId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/task/{taskId}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, containertaskconfig)
+    response = vmanage.client.apiCall("POST", endpoint, containertaskconfig)
     return response
 def testLoadBalancer(vmanage):
     """
@@ -144,5 +144,5 @@ def testLoadBalancer(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/test"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response

@@ -13,7 +13,7 @@ def getDeviceCert(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/certificate?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def install(vmanage, certRequest):
@@ -31,7 +31,7 @@ def install(vmanage, certRequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/certificate"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, certRequest)
+    response = vmanage.client.apiCall("PUT", endpoint, certRequest)
     return response
 
 def getDeviceCsr(vmanage, deviceId):
@@ -49,7 +49,7 @@ def getDeviceCsr(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/devicecsr?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def genDeviceCsr(vmanage, csrRequest):
@@ -67,7 +67,7 @@ def genDeviceCsr(vmanage, csrRequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/devicecsr"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, csrRequest)
+    response = vmanage.client.apiCall("PUT", endpoint, csrRequest)
     return response
 
 def revoke(vmanage, revokeReq):
@@ -85,7 +85,7 @@ def revoke(vmanage, revokeReq):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/revoke"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, revokeReq)
+    response = vmanage.client.apiCall("PUT", endpoint, revokeReq)
     return response
 
 def getFeatureCaState(vmanage):
@@ -102,5 +102,5 @@ def getFeatureCaState(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/syslogconfig"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

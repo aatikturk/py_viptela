@@ -11,7 +11,7 @@ def getAccessTokenforDevice(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/accesstoken"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getAzureToken(vmanage, bodyParameter):
     """
@@ -27,7 +27,7 @@ def getAzureToken(vmanage, bodyParameter):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/authtoken"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, bodyParameter)
+    response = vmanage.client.apiCall("POST", endpoint, bodyParameter)
     return response
 def connect(vmanage):
     """
@@ -42,7 +42,7 @@ def connect(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/connect"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getCloudCreds(vmanage):
     """
@@ -57,7 +57,7 @@ def getCloudCreds(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/credentials"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def addCloudCreds(vmanage, bodyParameter):
     """
@@ -73,7 +73,7 @@ def addCloudCreds(vmanage, bodyParameter):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/credentials"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, bodyParameter)
+    response = vmanage.client.apiCall("POST", endpoint, bodyParameter)
     return response
 def getDeviceCode(vmanage):
     """
@@ -88,7 +88,7 @@ def getDeviceCode(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/devicecode"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def isStaging(vmanage):
     """
@@ -103,7 +103,7 @@ def isStaging(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/staging"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getTelemetryState(vmanage):
     """
@@ -118,7 +118,7 @@ def getTelemetryState(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/telemetry"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def optIn(vmanage, bodyParameter):
     """
@@ -134,7 +134,7 @@ def optIn(vmanage, bodyParameter):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/telemetry/optin"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, bodyParameter)
+    response = vmanage.client.apiCall("PUT", endpoint, bodyParameter)
     return response
 def optOut(vmanage, bodyParameter):
     """
@@ -150,7 +150,7 @@ def optOut(vmanage, bodyParameter):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/cloudservices/telemetry/optout"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint, bodyParameter)
+    response = vmanage.client.apiCall("DELETE", endpoint, bodyParameter)
     return response
 def getCloudSettings(vmanage):
     """
@@ -165,7 +165,7 @@ def getCloudSettings(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getOTP(vmanage):
     """
@@ -180,7 +180,7 @@ def getOTP(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/otp"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def updatetOTP(vmanage, cloudserviceotpvalue):
     """
@@ -197,7 +197,7 @@ def updatetOTP(vmanage, cloudserviceotpvalue):
     
     vmanage.client.session.headers['Content-Type'] = "application/octet-stream"
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/otp"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, cloudserviceotpvalue)
+    response = vmanage.client.apiCall("PUT", endpoint, cloudserviceotpvalue)
     return response
 def listEntityOwnerInfo(vmanage):
     """
@@ -212,7 +212,7 @@ def listEntityOwnerInfo(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/entityownership/list"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def entityOwnerInfo(vmanage):
     """
@@ -227,5 +227,5 @@ def entityOwnerInfo(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/entityownership/tree"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

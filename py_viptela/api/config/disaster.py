@@ -11,7 +11,7 @@ def activate(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/activate"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def getClusterInfo(vmanage):
@@ -27,7 +27,7 @@ def getClusterInfo(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/clusterInfo"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def restoreConfigDb(vmanage, payload):
@@ -44,7 +44,7 @@ def restoreConfigDb(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/dbrestore"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
+    response = vmanage.client.apiCall("POST", endpoint, payload)
     return response
 
 def getConfigDBRestoreStatus(vmanage):
@@ -60,7 +60,7 @@ def getConfigDBRestoreStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/dbrestorestatus"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def deleteLocalDC(vmanage):
@@ -76,7 +76,7 @@ def deleteLocalDC(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/deleteLocalDataCenter"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def deleteDC(vmanage):
@@ -92,7 +92,7 @@ def deleteDC(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/deleteRemoteDataCenter"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def delete(vmanage):
@@ -108,7 +108,7 @@ def delete(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/deregister"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def getDetails(vmanage):
@@ -124,7 +124,7 @@ def getDetails(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/details"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def download(vmanage, token):
@@ -141,7 +141,7 @@ def download(vmanage, token):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/download/backup/{token}/db_bkp.tar.gz"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def downloadReplicationData(vmanage, token, fileName):
@@ -159,7 +159,7 @@ def downloadReplicationData(vmanage, token, fileName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/download/{token}/{fileName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getDRStatus(vmanage):
@@ -175,7 +175,7 @@ def getDRStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/drstatus"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getHistory(vmanage):
@@ -191,7 +191,7 @@ def getHistory(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/history"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getLocalHistory(vmanage):
@@ -207,7 +207,7 @@ def getLocalHistory(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/localLatestHistory"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getLocalDCState(vmanage):
@@ -223,7 +223,7 @@ def getLocalDCState(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/localdc"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def pauseDR(vmanage):
@@ -239,7 +239,7 @@ def pauseDR(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/pause"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def pauseLocalArbitrator(vmanage):
@@ -255,7 +255,7 @@ def pauseLocalArbitrator(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/pauseLocalArbitrator"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def pauseLocalDCForDR(vmanage):
@@ -271,7 +271,7 @@ def pauseLocalDCForDR(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/pauseLocalDC"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def pauseLocalDCReplication(vmanage):
@@ -287,7 +287,7 @@ def pauseLocalDCReplication(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/pauseLocalReplication"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def DRPauseReplication(vmanage):
@@ -303,7 +303,7 @@ def DRPauseReplication(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/pausereplication"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def update(vmanage, request):
@@ -320,7 +320,7 @@ def update(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/register"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, request)
+    response = vmanage.client.apiCall("PUT", endpoint, request)
     return response
 
 def register(vmanage, request):
@@ -337,7 +337,7 @@ def register(vmanage, request):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/register"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, request)
+    response = vmanage.client.apiCall("POST", endpoint, request)
     return response
 
 def getRemoteDCMembersState(vmanage):
@@ -353,7 +353,7 @@ def getRemoteDCMembersState(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/remoteDcState"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getRemoteDataCenterState(vmanage):
@@ -369,7 +369,7 @@ def getRemoteDataCenterState(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/remotedc"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def updateDRState(vmanage, dcReg):
@@ -386,7 +386,7 @@ def updateDRState(vmanage, dcReg):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/remotedc"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, dcReg)
+    response = vmanage.client.apiCall("POST", endpoint, dcReg)
     return response
 
 def getRemoteDCVersion(vmanage):
@@ -402,7 +402,7 @@ def getRemoteDCVersion(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/remotedc/swversion"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def DRReplicationRequest(vmanage, drrequest):
@@ -419,7 +419,7 @@ def DRReplicationRequest(vmanage, drrequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/requestimport"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, drrequest)
+    response = vmanage.client.apiCall("POST", endpoint, drrequest)
     return response
 
 def restartDC(vmanage, dcReg):
@@ -436,7 +436,7 @@ def restartDC(vmanage, dcReg):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/restartDataCenter"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, dcReg)
+    response = vmanage.client.apiCall("POST", endpoint, dcReg)
     return response
 
 def getDRLocalReplicationSchedule(vmanage):
@@ -452,7 +452,7 @@ def getDRLocalReplicationSchedule(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/schedule"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getdrStatus(vmanage):
@@ -468,7 +468,7 @@ def getdrStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/status"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def unpauseDR(vmanage):
@@ -484,7 +484,7 @@ def unpauseDR(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/unpause"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def unpauseLocalArbitrator(vmanage):
@@ -500,7 +500,7 @@ def unpauseLocalArbitrator(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/unpauseLocalArbitrator"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def unpauseLocalDCForDR(vmanage):
@@ -516,7 +516,7 @@ def unpauseLocalDCForDR(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/unpauseLocalDC"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def unpauseLocalDCReplication(vmanage):
@@ -532,7 +532,7 @@ def unpauseLocalDCReplication(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/unpauseLocalReplication"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def DRUnPauseReplication(vmanage):
@@ -548,7 +548,7 @@ def DRUnPauseReplication(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/unpausereplication"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def updateDrState(vmanage):
@@ -564,7 +564,7 @@ def updateDrState(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/updateDRConfigOnArbitrator"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def updateReplication(vmanage, replicationstatus):
@@ -581,7 +581,7 @@ def updateReplication(vmanage, replicationstatus):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/updateReplication"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, replicationstatus)
+    response = vmanage.client.apiCall("POST", endpoint, replicationstatus)
     return response
 
 def getReachabilityInfo(vmanage, nodelist):
@@ -598,5 +598,5 @@ def getReachabilityInfo(vmanage, nodelist):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/disasterrecovery/validateNodes"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, nodelist)
+    response = vmanage.client.apiCall("POST", endpoint, nodelist)
     return response

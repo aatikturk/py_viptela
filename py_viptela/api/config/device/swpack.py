@@ -12,7 +12,7 @@ def getFileContents(vmanage, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/file/{uuid}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def editConfigFile(vmanage, bootstrapfile, uuid):
@@ -30,7 +30,7 @@ def editConfigFile(vmanage, bootstrapfile, uuid):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/file/{uuid}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, bootstrapfile)
+    response = vmanage.client.apiCall("PUT", endpoint, bootstrapfile)
     return response
 
 def uploadImageFile(vmanage, type):
@@ -47,7 +47,7 @@ def uploadImageFile(vmanage, type):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/uploads/{type}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def createVnfPackage(vmanage, custompackage):
@@ -64,5 +64,5 @@ def createVnfPackage(vmanage, custompackage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/vnfPackage"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, custompackage)
+    response = vmanage.client.apiCall("POST", endpoint, custompackage)
     return response

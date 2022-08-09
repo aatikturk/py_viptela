@@ -12,5 +12,5 @@ def checkGivenIpList(vmanage, devicedetail):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/software/compliance/ip/origin/check"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, devicedetail)
+    response = vmanage.client.apiCall("POST", endpoint, devicedetail)
     return response

@@ -13,7 +13,7 @@ def getWorkflows(vmanage, type, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow?type={type}&id={id}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def saveWorkflow(vmanage, payload):
     """
@@ -29,7 +29,7 @@ def saveWorkflow(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, payload)
+    response = vmanage.client.apiCall("PUT", endpoint, payload)
     return response
 def createWorkflow(vmanage, payload):
     """
@@ -45,7 +45,7 @@ def createWorkflow(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
+    response = vmanage.client.apiCall("POST", endpoint, payload)
     return response
 def deleteWorkflow(vmanage, payload, id):
     """
@@ -62,5 +62,5 @@ def deleteWorkflow(vmanage, payload, id):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/workflow?id={id}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint, payload)
+    response = vmanage.client.apiCall("DELETE", endpoint, payload)
     return response

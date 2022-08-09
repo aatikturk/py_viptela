@@ -14,7 +14,7 @@ def createApplicationsDetailList(vmanage, vpnId, application, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cloudx/application/detail?vpnId={vpnId}&application={application}&query={query}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def createApplicationsList(vmanage, vpnId, application, query):
     """
@@ -32,7 +32,7 @@ def createApplicationsList(vmanage, vpnId, application, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cloudx/applications?vpnId={vpnId}&application={application}&query={query}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def createGatewayExitsList(vmanage, vpnId, application, deviceId):
     """
@@ -50,7 +50,7 @@ def createGatewayExitsList(vmanage, vpnId, application, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cloudx/gatewayexits?vpnId={vpnId}&application={application}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def createLbApplicationsList(vmanage, vpnId, application, query):
     """
@@ -68,7 +68,7 @@ def createLbApplicationsList(vmanage, vpnId, application, query):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cloudx/loadbalance?vpnId={vpnId}&application={application}&query={query}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def createLocalExitsList(vmanage, vpnId, application, deviceId):
     """
@@ -86,5 +86,5 @@ def createLocalExitsList(vmanage, vpnId, application, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cloudx/localexits?vpnId={vpnId}&application={application}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

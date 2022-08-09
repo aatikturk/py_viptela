@@ -12,7 +12,7 @@ def getDetailById(vmanage, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/cluster?clusterId={clusterId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getConfigById(vmanage, clusterId):
     """
@@ -28,7 +28,7 @@ def getConfigById(vmanage, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/cluster/config?clusterId={clusterId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getPortMappingById(vmanage, clusterId):
     """
@@ -44,7 +44,7 @@ def getPortMappingById(vmanage, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/cluster/portView?clusterId={clusterId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getDeviceDetailById(vmanage, deviceId):
     """
@@ -60,7 +60,7 @@ def getDeviceDetailById(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/device?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getSystemStatusById(vmanage, deviceId):
     """
@@ -76,7 +76,7 @@ def getSystemStatusById(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/device/system?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getvnfById(vmanage, deviceId):
     """
@@ -92,7 +92,7 @@ def getvnfById(vmanage, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/device/vnf?deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def listNetworkFunctionMap(vmanage):
     """
@@ -107,7 +107,7 @@ def listNetworkFunctionMap(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/networkfunction/listmap"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getpnfDetails(vmanage, clusterId):
     """
@@ -123,7 +123,7 @@ def getpnfDetails(vmanage, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/pnf?clusterId={clusterId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getPNFConfig(vmanage, pnfSerialNumber, clusterId):
     """
@@ -140,7 +140,7 @@ def getPNFConfig(vmanage, pnfSerialNumber, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/pnf/configuration?pnfSerialNumber={pnfSerialNumber}&clusterId={clusterId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getServiceChainDetails(vmanage, clusterId, userGroupName):
     """
@@ -157,7 +157,7 @@ def getServiceChainDetails(vmanage, clusterId, userGroupName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/servicechain?clusterId={clusterId}&userGroupName={userGroupName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getServiceGroupById(vmanage, clusterId):
     """
@@ -173,7 +173,7 @@ def getServiceGroupById(vmanage, clusterId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/servicegroup?clusterId={clusterId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getvnfDetails(vmanage, clusterId, userGroupName):
     """
@@ -190,7 +190,7 @@ def getvnfDetails(vmanage, clusterId, userGroupName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf?clusterId={clusterId}&userGroupName={userGroupName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def vnfActions(vmanage, vmName, deviceId, action):
     """
@@ -208,7 +208,7 @@ def vnfActions(vmanage, vmName, deviceId, action):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/action?vmName={vmName}&deviceId={deviceId}&action={action}"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 def getVNFEventsCountDetail(vmanage, user_group):
     """
@@ -224,7 +224,7 @@ def getVNFEventsCountDetail(vmanage, user_group):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/alarms?user_group={user_group}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getVNFAlarmCount(vmanage, user_group):
     """
@@ -240,7 +240,7 @@ def getVNFAlarmCount(vmanage, user_group):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/alarms/count?user_group={user_group}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getVNFEventsDetail(vmanage, vnfName):
     """
@@ -256,7 +256,7 @@ def getVNFEventsDetail(vmanage, vnfName):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/events?vnfName={vnfName}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 def getVNFInterfaceDetail(vmanage, vnfName, deviceIp, deviceClass):
     """
@@ -274,5 +274,5 @@ def getVNFInterfaceDetail(vmanage, vnfName, deviceIp, deviceClass):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/interface?vnfName={vnfName}&deviceIp={deviceIp}&deviceClass={deviceClass}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response

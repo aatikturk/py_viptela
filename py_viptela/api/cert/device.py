@@ -12,7 +12,7 @@ def getCertDetails(vmanage, parsecert):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/certdetails"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, parsecert)
+    response = vmanage.client.apiCall("POST", endpoint, parsecert)
     return response
 
 def getCSRViewRightMenus(vmanage):
@@ -28,7 +28,7 @@ def getCSRViewRightMenus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/csr/details"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getDeviceViewRightMenus(vmanage):
@@ -44,7 +44,7 @@ def getDeviceViewRightMenus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/device/details"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getDevicesList(vmanage):
@@ -60,7 +60,7 @@ def getDevicesList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/device/list"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def forceSyncRootCert(vmanage, singedcertificate):
@@ -78,7 +78,7 @@ def forceSyncRootCert(vmanage, singedcertificate):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/forcesync/rootCert"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, singedcertificate)
+    response = vmanage.client.apiCall("POST", endpoint, singedcertificate)
     return response
 
 def generateCSR(vmanage, csrRequest):
@@ -96,7 +96,7 @@ def generateCSR(vmanage, csrRequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/generate/csr"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, csrRequest)
+    response = vmanage.client.apiCall("POST", endpoint, csrRequest)
     return response
 
 def generateEntCSR(vmanage, csrRequest):
@@ -114,7 +114,7 @@ def generateEntCSR(vmanage, csrRequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/generate/enterprise/csr/vedge"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, csrRequest)
+    response = vmanage.client.apiCall("POST", endpoint, csrRequest)
     return response
 
 def generateVedgeEntCSR(vmanage, csrRequest):
@@ -132,7 +132,7 @@ def generateVedgeEntCSR(vmanage, csrRequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/generate/wanedge/csr"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, csrRequest)
+    response = vmanage.client.apiCall("POST", endpoint, csrRequest)
     return response
 
 def installCertificate(vmanage, singedCert):
@@ -150,7 +150,7 @@ def installCertificate(vmanage, singedCert):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/install/signedCert"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, singedCert)
+    response = vmanage.client.apiCall("POST", endpoint, singedCert)
     return response
 
 def updateJks(vmanage, updatejks):
@@ -168,7 +168,7 @@ def updateJks(vmanage, updatejks):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/jks"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, updatejks)
+    response = vmanage.client.apiCall("PUT", endpoint, updatejks)
     return response
 
 def getListStatus(vmanage):
@@ -184,7 +184,7 @@ def getListStatus(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/list/status"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getCertificateData(vmanage):
@@ -200,7 +200,7 @@ def getCertificateData(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/record"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def resetRSA(vmanage, csrRequest):
@@ -218,7 +218,7 @@ def resetRSA(vmanage, csrRequest):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/reset/rsa"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, csrRequest)
+    response = vmanage.client.apiCall("POST", endpoint, csrRequest)
     return response
 
 def decommissionEnterpriseCSRForVedge(vmanage, revokingcsrforhardwarevedge):
@@ -236,7 +236,7 @@ def decommissionEnterpriseCSRForVedge(vmanage, revokingcsrforhardwarevedge):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/revoke/enterprise/certificate"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, revokingcsrforhardwarevedge)
+    response = vmanage.client.apiCall("POST", endpoint, revokingcsrforhardwarevedge)
     return response
 
 def getRootCertChains(vmanage, action):
@@ -253,7 +253,7 @@ def getRootCertChains(vmanage, action):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/rootcertchains?action={action}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def saveRootCertChain(vmanage, rootChain):
@@ -271,7 +271,7 @@ def saveRootCertChain(vmanage, rootChain):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/rootcertchains"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, rootChain)
+    response = vmanage.client.apiCall("PUT", endpoint, rootChain)
     return response
 
 def getRootCertificate(vmanage):
@@ -287,7 +287,7 @@ def getRootCertificate(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/rootcertificate"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def saveVEdgeList(vmanage, deviceList):
@@ -304,7 +304,7 @@ def saveVEdgeList(vmanage, deviceList):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/save/vedge/list"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, deviceList)
+    response = vmanage.client.apiCall("POST", endpoint, deviceList)
     return response
 
 def getCertificateDetail(vmanage):
@@ -320,7 +320,7 @@ def getCertificateDetail(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/stats/detail"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getCertificateStats(vmanage):
@@ -336,7 +336,7 @@ def getCertificateStats(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/stats/summary"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def syncvBond(vmanage):
@@ -352,7 +352,7 @@ def syncvBond(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/syncvbond"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getcEdgeList(vmanage):
@@ -368,7 +368,7 @@ def getcEdgeList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/tokengeneratedlist"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getInstalledCert(vmanage):
@@ -385,7 +385,7 @@ def getInstalledCert(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/vedge"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getvEdgeCSR(vmanage):
@@ -402,7 +402,7 @@ def getvEdgeCSR(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/vedge/csr"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getvEdgeList(vmanage, model, state):
@@ -420,7 +420,7 @@ def getvEdgeList(vmanage, model, state):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/vedge/list?model={model}&state={state}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def setvEdgeList(vmanage, deviceList):
@@ -437,7 +437,7 @@ def setvEdgeList(vmanage, deviceList):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/vedge/list"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, deviceList)
+    response = vmanage.client.apiCall("POST", endpoint, deviceList)
     return response
 
 def getView(vmanage):
@@ -453,7 +453,7 @@ def getView(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/view"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getvSmartList(vmanage):
@@ -470,7 +470,7 @@ def getvSmartList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/vsmart/list"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def setvSmartList(vmanage):
@@ -486,7 +486,7 @@ def setvSmartList(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/vsmart/list"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint)
+    response = vmanage.client.apiCall("POST", endpoint)
     return response
 
 def deleteConfig(vmanage, uuid, replaceController, deviceId):
@@ -506,5 +506,5 @@ def deleteConfig(vmanage, uuid, replaceController, deviceId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/{uuid}?replaceController={replaceController}&deviceId={deviceId}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response

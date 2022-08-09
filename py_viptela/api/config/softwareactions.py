@@ -11,7 +11,7 @@ def findSoftwareImages(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def createImageURL(vmanage, payload):
@@ -28,7 +28,7 @@ def createImageURL(vmanage, payload):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software"
-    response = vmanage.client.apiCall(vmanage.POST, endpoint, payload)
+    response = vmanage.client.apiCall("POST", endpoint, payload)
     return response
 
 def getImageProps(vmanage, versionId):
@@ -45,7 +45,7 @@ def getImageProps(vmanage, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/imageProperties/{versionId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def findImagesWithFilters(vmanage, imageType, vnfType):
@@ -63,7 +63,7 @@ def findImagesWithFilters(vmanage, imageType, vnfType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/images?imageType={imageType}&vnfType={vnfType}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getPnfProperties(vmanage, pnfType):
@@ -80,7 +80,7 @@ def getPnfProperties(vmanage, pnfType):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/pnfproperties/{pnfType}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def findVEdgeSoftwareVersion(vmanage):
@@ -96,7 +96,7 @@ def findVEdgeSoftwareVersion(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/vedge/version"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def findSoftwareVersion(vmanage):
@@ -112,7 +112,7 @@ def findSoftwareVersion(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/version"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def getVnfProperties(vmanage, versionId):
@@ -129,7 +129,7 @@ def getVnfProperties(vmanage, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/vnfproperties/{versionId}"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def findZtpSoftwareVersion(vmanage):
@@ -145,7 +145,7 @@ def findZtpSoftwareVersion(vmanage):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/ztp/version"
-    response = vmanage.client.apiCall(vmanage.GET, endpoint)
+    response = vmanage.client.apiCall("GET", endpoint)
     return response
 
 def updateImageURL(vmanage, payload, versionId):
@@ -163,7 +163,7 @@ def updateImageURL(vmanage, payload, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/{versionId}"
-    response = vmanage.client.apiCall(vmanage.PUT, endpoint, payload)
+    response = vmanage.client.apiCall("PUT", endpoint, payload)
     return response
 
 def deleteImageURL(vmanage, versionId):
@@ -180,5 +180,5 @@ def deleteImageURL(vmanage, versionId):
     """
     
     endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/{versionId}"
-    response = vmanage.client.apiCall(vmanage.DELETE, endpoint)
+    response = vmanage.client.apiCall("DELETE", endpoint)
     return response
