@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class NMS(object):
+def getRunning(vmanage, deviceId):
     """
-    Real-Time Monitoring - NMS API
+    Get nms running state from device
     
-    Implements GET POST DEL PUT methods for NMS endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
     
-    
-    def getRunning(self, deviceId):
-        """
-        Get nms running state from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/nms/running?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/nms/running?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

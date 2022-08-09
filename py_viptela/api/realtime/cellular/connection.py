@@ -9,13 +9,13 @@ class Connection(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    def __init__(vmanage, session, host, port):
+        vmanage.host = host
+        vmanage.port = port
+        vmanage.client = HttpMethods.HttpClient(session=session)
     
     
-    def getConnInfo(self, deviceId):
+    def getConnInfo(vmanage, deviceId):
         """
         Get cellular connection info from device
         
@@ -28,12 +28,12 @@ class Connection(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cellularEiolte/connections?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/connections?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getRadioInfo(self, deviceId):
+    def getRadioInfo(vmanage, deviceId):
         """
         Get cellular radio info from device
         
@@ -46,8 +46,8 @@ class Connection(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cellularEiolte/radio?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/radio?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

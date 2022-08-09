@@ -9,13 +9,13 @@ class Server(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def createServerInfo(self):
+    def createServerInfo(vmanage):
         """
         Get Server info
         
@@ -27,8 +27,8 @@ class Server(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/server/info"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/server/info"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

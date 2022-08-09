@@ -1,107 +1,83 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Umbrella(object):
+def getUmbrellaDevReg(vmanage, deviceId):
     """
-    Real-Time Monitoring - Umbrella API
+    Get Umbrella device registration from device
     
-    Implements GET POST DEL PUT methods for Umbrella endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/device-registration?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getUmbrellaDNSCrypt(vmanage, deviceId):
+    """
+    Get Umbrella DNScrypt information from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
     
     
-    def getUmbrellaDevReg(self, deviceId):
-        """
-        Get Umbrella device registration from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/umbrella/device-registration?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getUmbrellaDNSCrypt(self, deviceId):
-        """
-        Get Umbrella DNScrypt information from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/umbrella/dnscrypt?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getUmbrellaDpStats(self, deviceId):
-        """
-        Get Umbrella dp-stats from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/umbrella/dp-stats?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getUmbrellaOverview(self, deviceId):
-        """
-        Get Umbrella overview from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/umbrella/overview?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getUmbrellaConfig(self, deviceId):
-        """
-        Get Umbrella configuration from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/umbrella/umbrella-config?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/dnscrypt?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getUmbrellaDpStats(vmanage, deviceId):
+    """
+    Get Umbrella dp-stats from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/dp-stats?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getUmbrellaOverview(vmanage, deviceId):
+    """
+    Get Umbrella overview from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/overview?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getUmbrellaConfig(vmanage, deviceId):
+    """
+    Get Umbrella configuration from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/umbrella-config?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

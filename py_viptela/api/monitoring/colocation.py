@@ -9,13 +9,13 @@ class Colo(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def getDetailById(self, clusterId):
+    def getDetailById(vmanage, clusterId):
         """
         Provide details of ids of existing clusters
         
@@ -28,12 +28,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/cluster?clusterId={clusterId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/cluster?clusterId={clusterId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getConfigById(self, clusterId):
+    def getConfigById(vmanage, clusterId):
         """
         Provide details of devices of clusters
         
@@ -46,12 +46,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/cluster/config?clusterId={clusterId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/cluster/config?clusterId={clusterId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getPortMappingById(self, clusterId):
+    def getPortMappingById(vmanage, clusterId):
         """
         Provide details of port mappings in the cluster
         
@@ -64,12 +64,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/cluster/portView?clusterId={clusterId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/cluster/portView?clusterId={clusterId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getDeviceDetailById(self, deviceId):
+    def getDeviceDetailById(vmanage, deviceId):
         """
         List details for Device
         
@@ -82,12 +82,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/device?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/device?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getSystemStatusById(self, deviceId):
+    def getSystemStatusById(vmanage, deviceId):
         """
         List all connected VNF to a device
         
@@ -100,12 +100,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/device/system?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/device/system?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getvnfById(self, deviceId):
+    def getvnfById(vmanage, deviceId):
         """
         List all VNF attached with Device
         
@@ -118,12 +118,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/device/vnf?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/device/vnf?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def listNetworkFunctionMap(self):
+    def listNetworkFunctionMap(vmanage):
         """
         Retrieve network function listing
         
@@ -135,12 +135,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/networkfunction/listmap"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/networkfunction/listmap"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getpnfDetails(self, clusterId):
+    def getpnfDetails(vmanage, clusterId):
         """
         List all PNF by cluster Id
         
@@ -153,12 +153,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/pnf?clusterId={clusterId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/pnf?clusterId={clusterId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getPNFConfig(self, pnfSerialNumber, clusterId):
+    def getPNFConfig(vmanage, pnfSerialNumber, clusterId):
         """
         List configuration of PNF
         
@@ -172,12 +172,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/pnf/configuration?pnfSerialNumber={pnfSerialNumber}&clusterId={clusterId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/pnf/configuration?pnfSerialNumber={pnfSerialNumber}&clusterId={clusterId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getServiceChainDetails(self, clusterId, userGroupName):
+    def getServiceChainDetails(vmanage, clusterId, userGroupName):
         """
         List all service chain or service chains by Id
         
@@ -191,12 +191,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/servicechain?clusterId={clusterId}&userGroupName={userGroupName}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/servicechain?clusterId={clusterId}&userGroupName={userGroupName}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getServiceGroupById(self, clusterId):
+    def getServiceGroupById(vmanage, clusterId):
         """
         List all attached serviceGroups to cluster
         
@@ -209,12 +209,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/servicegroup?clusterId={clusterId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/servicegroup?clusterId={clusterId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getvnfDetails(self, clusterId, userGroupName):
+    def getvnfDetails(vmanage, clusterId, userGroupName):
         """
         Provide details of all existing VNF
         
@@ -228,12 +228,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/vnf?clusterId={clusterId}&userGroupName={userGroupName}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf?clusterId={clusterId}&userGroupName={userGroupName}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def vnfActions(self, vmName, deviceId, action):
+    def vnfActions(vmanage, vmName, deviceId, action):
         """
         VNF action
         
@@ -248,12 +248,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/vnf/action?vmName={vmName}&deviceId={deviceId}&action={action}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/action?vmName={vmName}&deviceId={deviceId}&action={action}"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
         return response
 
 
-    def getVNFEventsCountDetail(self, user_group):
+    def getVNFEventsCountDetail(vmanage, user_group):
         """
         Get event detail of VNF
         
@@ -266,12 +266,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/vnf/alarms?user_group={user_group}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/alarms?user_group={user_group}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getVNFAlarmCount(self, user_group):
+    def getVNFAlarmCount(vmanage, user_group):
         """
         Get event detail of VNF
         
@@ -284,12 +284,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/vnf/alarms/count?user_group={user_group}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/alarms/count?user_group={user_group}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getVNFEventsDetail(self, vnfName):
+    def getVNFEventsDetail(vmanage, vnfName):
         """
         Get event detail of VNF
         
@@ -302,12 +302,12 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/vnf/events?vnfName={vnfName}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/events?vnfName={vnfName}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getVNFInterfaceDetail(self, vnfName, deviceIp, deviceClass):
+    def getVNFInterfaceDetail(vmanage, vnfName, deviceIp, deviceClass):
         """
         Get interface detail of VNF
         
@@ -322,8 +322,8 @@ class Colo(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/monitor/vnf/interface?vnfName={vnfName}&deviceIp={deviceIp}&deviceClass={deviceClass}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/monitor/vnf/interface?vnfName={vnfName}&deviceIp={deviceIp}&deviceClass={deviceClass}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

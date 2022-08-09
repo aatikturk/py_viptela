@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Security(object):
+def checkGivenIpList(vmanage, devicedetail):
     """
-    Utility - Security API
+    Block IP based on list
     
-    Implements GET POST DEL PUT methods for Security endpoints
-
+    Parameters:
+    devicedetail:	Device detail
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
     
-    
-    def checkGivenIpList(self, devicedetail):
-        """
-        Block IP based on list
-        
-        Parameters:
-        devicedetail:	Device detail
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/software/compliance/ip/origin/check"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, devicedetail)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/software/compliance/ip/origin/check"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, devicedetail)
+    return response

@@ -9,13 +9,13 @@ class InterfaceStats(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client  = HttpMethods.HttpClient(session=session)
-        self.host    = host
-        self.port    = port
-        self.builder = Builder()
+    def __init__(vmanage, session, host, port):
+        vmanage.client  = HttpMethods.HttpClient(session=session)
+        vmanage.host    = host
+        vmanage.port    = port
+        vmanage.builder = Builder()
     
-    def getStatDataRawData(self, query):
+    def getStatDataRawData(vmanage, query):
         """
         Get stats raw data
         
@@ -27,13 +27,13 @@ class InterfaceStats(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/interface?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatsRawData(self, statsquerystring):
+    def getStatsRawData(vmanage, statsquerystring):
         """
         Get stats raw data
         
@@ -46,12 +46,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getAggregationDataByQuery(self, query):
+    def getAggregationDataByQuery(vmanage, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
@@ -63,13 +63,13 @@ class InterfaceStats(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/interface/aggregation?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/aggregation?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getPostAggregationDataByQuery(self, statsquerystring):
+    def getPostAggregationDataByQuery(vmanage, statsquerystring):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
@@ -82,12 +82,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/aggregation"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getPostAggregationAppDataByQuery(self, statsquerystring):
+    def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
@@ -100,12 +100,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface/app-agg/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/app-agg/aggregation"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getBandwidthDistribution(self):
+    def getBandwidthDistribution(vmanage):
         """
         Get bandwidth distribution
         
@@ -117,12 +117,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface/ccapacity/distribution"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/ccapacity/distribution"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatDataRawDataAsCSV(self, query):
+    def getStatDataRawDataAsCSV(vmanage, query):
         """
         Get raw data with optional query as CSV
         
@@ -134,13 +134,13 @@ class InterfaceStats(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/interface/csv?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/csv?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getCount(self, query):
+    def getCount(vmanage, query):
         """
         Get response count of a query
         
@@ -152,13 +152,13 @@ class InterfaceStats(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/interface/doccount?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/doccount?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getCountPost(self, query):
+    def getCountPost(vmanage, query):
         """
         Get response count of a query
         
@@ -171,12 +171,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface/doccount"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/doccount"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def getStatDataFields(self):
+    def getStatDataFields(vmanage):
         """
         Get fields and type
         
@@ -188,12 +188,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface/fields"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/fields"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatBulkRawData(self, query, scrollId, count):
+    def getStatBulkRawData(vmanage, query, scrollId, count):
         """
         Get stats raw data
         
@@ -207,13 +207,13 @@ class InterfaceStats(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/interface/page?query={query_string}&scrollId={scrollId}&count={count}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getPostStatBulkRawData(self, statsquerystring, scrollId, count):
+    def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
         """
         Get stats raw data
         
@@ -228,12 +228,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface/page?scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/page?scrollId={scrollId}&count={count}"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getStatQueryFields(self):
+    def getStatQueryFields(vmanage):
         """
         Get query fields
         
@@ -245,12 +245,12 @@ class InterfaceStats(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/interface/query/fields"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/query/fields"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatisticsPerInterface(self, query):
+    def getStatisticsPerInterface(vmanage, query):
         """
         Get statistics per interface
         
@@ -262,9 +262,9 @@ class InterfaceStats(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/interface/type?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/interface/type?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

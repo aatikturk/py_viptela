@@ -9,13 +9,13 @@ class Status(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def getDisabledDeviceList(self, indexName):
+    def getDisabledDeviceList(vmanage, indexName):
         """
         Get list of disabled devices for a statistics index
         
@@ -28,12 +28,12 @@ class Status(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/settings/disable/devicelist/{indexName}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/disable/devicelist/{indexName}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def updateDeviceList(self, disableddevice, indexName):
+    def updateDeviceList(vmanage, disableddevice, indexName):
         """
         Update list of disabled devices for a statistics index
         
@@ -47,12 +47,12 @@ class Status(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/settings/disable/devicelist/{indexName}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, disableddevice)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/disable/devicelist/{indexName}"
+        response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, disableddevice)
         return response
 
 
-    def getSettings(self):
+    def getSettings(vmanage):
         """
         Get statistics settings
         
@@ -64,12 +64,12 @@ class Status(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/settings/status"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/status"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def updateSettings(self, statssetting):
+    def updateSettings(vmanage, statssetting):
         """
         Update statistics settings
         
@@ -82,12 +82,12 @@ class Status(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/settings/status"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, statssetting)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/status"
+        response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, statssetting)
         return response
 
 
-    def getEnabledIndex(self, deviceId):
+    def getEnabledIndex(vmanage, deviceId):
         """
         Get list of enabled device for statistics index
         
@@ -100,8 +100,8 @@ class Status(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/settings/status/device?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/status/device?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

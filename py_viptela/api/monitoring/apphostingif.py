@@ -1,235 +1,197 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Interface(object):
+def getStatDataRawData(vmanage, query):
     """
-    Monitoring - App Hosting Interface API
+    Get stats raw data
     
-    Implements GET POST DEL PUT methods for AppHostingInterface endpoints
-
+    Parameters:
+    query	 (string):	Query string
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client  = HttpMethods.HttpClient(session=session)
-        self.host    = host
-        self.port    = port
-        self.builder = Builder()
+    query_string = vmanage.builder.generateQuery(query)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface?query={query_string}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getStatsRawData(vmanage, statsquerystring):
+    """
+    Get stats raw data
     
-    def getStatDataRawData(self, query):
-        """
-        Get stats raw data
-        
-        Parameters:
-        query	 (string):	Query string
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        query_string = self.builder.generateQuery(query)
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface?query={query_string}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getStatsRawData(self, statsquerystring):
-        """
-        Get stats raw data
-        
-        Parameters:
-        statsquerystring:	Stats query string
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
-        return response
-
-
-    def getAggregationDataByQuery(self, query):
-        """
-        Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
-        
-        Parameters:
-        query	 (string):	Query filter
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/aggregation?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getPostAggregationDataByQuery(self, statsquerystring):
-        """
-        Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
-        
-        Parameters:
-        statsquerystring:	Stats query string
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
-        return response
-
-
-    def getPostAggregationAppDataByQuery(self, statsquerystring):
-        """
-        Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
-        
-        Parameters:
-        statsquerystring:	Stats query string
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/app-agg/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
-        return response
-
-
-    def getStatDataRawDataAsCSV(self, query):
-        """
-        Get raw data with optional query as CSV
-        
-        Parameters:
-        query	 (string):	Query string
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/csv?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getCount(self, query):
-        """
-        Get response count of a query
-        
-        Parameters:
-        query	 (string):	Query
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/doccount?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getCountPost(self, query):
-        """
-        Get response count of a query
-        
-        Parameters:
-        query:	Query
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/doccount"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
-        return response
-
-
-    def getStatDataFields(self):
-        """
-        Get fields and type
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/fields"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getStatBulkRawData(self, query, scrollId, count):
-        """
-        Get stats raw data
-        
-        Parameters:
-        query	 (string):	Query string
-		scrollId	 (string):	ES scroll Id
-		count	 (string):	Result size
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/page?query={query_string}&scrollId={scrollId}&count={count}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getPostStatBulkRawData(self, statsquerystring, scrollId, count):
-        """
-        Get stats raw data
-        
-        Parameters:
-        statsquerystring:	Stats query string
-		scrollId	 (string):	ES scroll Id
-		count	 (string):	Result size
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/page?scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
-        return response
-
-
-    def getStatQueryFields(self):
-        """
-        Get query fields
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/apphostinginterface/query/fields"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    Parameters:
+    statsquerystring:	Stats query string
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    return response
+def getAggregationDataByQuery(vmanage, query):
+    """
+    Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+    
+    Parameters:
+    query	 (string):	Query filter
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    query_string = vmanage.builder.generateQuery(query)
+    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/aggregation?query={query_string}"
+    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getPostAggregationDataByQuery(vmanage, statsquerystring):
+    """
+    Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+    
+    Parameters:
+    statsquerystring:	Stats query string
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/aggregation"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    return response
+def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
+    """
+    Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+    
+    Parameters:
+    statsquerystring:	Stats query string
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/app-agg/aggregation"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    return response
+def getStatDataRawDataAsCSV(vmanage, query):
+    """
+    Get raw data with optional query as CSV
+    
+    Parameters:
+    query	 (string):	Query string
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    query_string = vmanage.builder.generateQuery(query)
+    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/csv?query={query_string}"
+    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getCount(vmanage, query):
+    """
+    Get response count of a query
+    
+    Parameters:
+    query	 (string):	Query
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    query_string = vmanage.builder.generateQuery(query)
+    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/doccount?query={query_string}"
+    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getCountPost(vmanage, query):
+    """
+    Get response count of a query
+    
+    Parameters:
+    query:	Query
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/doccount"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
+    return response
+def getStatDataFields(vmanage):
+    """
+    Get fields and type
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/fields"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getStatBulkRawData(vmanage, query, scrollId, count):
+    """
+    Get stats raw data
+    
+    Parameters:
+    query	 (string):	Query string
+	scrollId	 (string):	ES scroll Id
+	count	 (string):	Result size
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    query_string = vmanage.builder.generateQuery(query)
+    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/page?query={query_string}&scrollId={scrollId}&count={count}"
+    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
+    """
+    Get stats raw data
+    
+    Parameters:
+    statsquerystring:	Stats query string
+	scrollId	 (string):	ES scroll Id
+	count	 (string):	Result size
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/page?scrollId={scrollId}&count={count}"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+    return response
+def getStatQueryFields(vmanage):
+    """
+    Get query fields
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/apphostinginterface/query/fields"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

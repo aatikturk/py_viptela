@@ -9,13 +9,13 @@ class Hardware(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    def __init__(vmanage, session, host, port):
+        vmanage.host = host
+        vmanage.port = port
+        vmanage.client = HttpMethods.HttpClient(session=session)
     
     
-    def getHardwareInfo(self, deviceId):
+    def getHardwareInfo(vmanage, deviceId):
         """
         Get cellular hardware info from device
         
@@ -28,8 +28,8 @@ class Hardware(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cellularEiolte/hardware?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/hardware?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

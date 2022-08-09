@@ -1,85 +1,63 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Umbrella(object):
+def getAllKeys(vmanage):
     """
-    Umbrella API
+    Get keys from Umbrella
     
-    Implements GET POST DEL PUT methods for Umbrella endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/umbrella/getkeys"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getManagementKeys(vmanage):
+    """
+    Get management keys from Umbrella
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
     
     
-    def getAllKeys(self):
-        """
-        Get keys from Umbrella
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/umbrella/getkeys"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getManagementKeys(self):
-        """
-        Get management keys from Umbrella
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/umbrella/getkeys/management"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getNetworkKeys(self):
-        """
-        Get network devices keys from Umbrella
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/umbrella/getkeys/networkdevices"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getReportingKeys(self):
-        """
-        Get reporting keys from Umbrella
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/umbrella/getkeys/reporting"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/umbrella/getkeys/management"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getNetworkKeys(vmanage):
+    """
+    Get network devices keys from Umbrella
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/umbrella/getkeys/networkdevices"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getReportingKeys(vmanage):
+    """
+    Get reporting keys from Umbrella
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/umbrella/getkeys/reporting"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

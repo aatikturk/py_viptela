@@ -2,6 +2,7 @@ from requests import Session
 import json
 import urllib3
 from py_viptela import HttpMethods
+from py_viptela.query_builder import Builder
 class Vmanage(object):
     
     def __init__(self, host, port, username, password):
@@ -31,3 +32,4 @@ class Vmanage(object):
         self.session.headers['X-XSRF-TOKEN'] = token
         
         self.client = HttpMethods.HttpClient(self.session)
+        self.builder = Builder()

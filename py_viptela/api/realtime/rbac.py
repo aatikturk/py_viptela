@@ -1,71 +1,51 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class RBAC(object):
+def getPnicStats(vmanage, deviceId):
     """
-    Real-Time Monitoring - RBAC API
+    Get pnic interfaces from device
     
-    Implements GET POST DEL PUT methods for RBAC endpoints
-
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/pnic?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getPNICStatsFromDevice(vmanage, deviceId):
+    """
+    Get pnic stats from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
     
     
-    def getPnicStats(self, deviceId):
-        """
-        Get pnic interfaces from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/csp/pnic?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getPNICStatsFromDevice(self, deviceId):
-        """
-        Get pnic stats from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/csp/pnic/synced?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getRBACInterface(self, deviceId):
-        """
-        Get RBAC interfaces from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/csp/rbac?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/pnic/synced?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getRBACInterface(vmanage, deviceId):
+    """
+    Get RBAC interfaces from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/rbac?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

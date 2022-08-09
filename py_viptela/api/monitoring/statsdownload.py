@@ -9,13 +9,13 @@ class Downloader(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def fetchList(self, processType):
+    def fetchList(vmanage, processType):
         """
         fetchList Description
         
@@ -28,12 +28,12 @@ class Downloader(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/download/{processType}/fetchvManageList"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/download/{processType}/fetchvManageList"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def download(self, processType, fileType, queue, deviceIp, token, fileName):
+    def download(vmanage, processType, fileType, queue, deviceIp, token, fileName):
         """
         Downloading stats file
         
@@ -51,12 +51,12 @@ class Downloader(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/download/{processType}/file/{fileType}/{queue}/{deviceIp}/{token}/{fileName}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/download/{processType}/file/{fileType}/{queue}/{deviceIp}/{token}/{fileName}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def downloadList(self, bodyParameter, processType):
+    def downloadList(vmanage, bodyParameter, processType):
         """
         Downloading list of stats file
         
@@ -70,8 +70,8 @@ class Downloader(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/download/{processType}/filelist"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/download/{processType}/filelist"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, bodyParameter)
         return response
 
 

@@ -1,89 +1,67 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Multicast(object):
+def createReplicatorList(vmanage, deviceId):
     """
-    Real-Time Monitoring - Multicast API
+    Get replicator list from device
     
-    Implements GET POST DEL PUT methods for Multicast endpoints
-
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/multicast/replicator?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def createRpfList(vmanage, deviceId):
+    """
+    Get RPF list from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
     
     
-    def createReplicatorList(self, deviceId):
-        """
-        Get replicator list from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/multicast/replicator?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def createRpfList(self, deviceId):
-        """
-        Get RPF list from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/multicast/rpf?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def createTopologyList(self, deviceId):
-        """
-        Get topology list from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/multicast/topology?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def createPimTunnelList(self, deviceId):
-        """
-        Get PIM tunnel from device
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/multicast/tunnel?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/multicast/rpf?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def createTopologyList(vmanage, deviceId):
+    """
+    Get topology list from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/multicast/topology?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def createPimTunnelList(vmanage, deviceId):
+    """
+    Get PIM tunnel from device
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/multicast/tunnel?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

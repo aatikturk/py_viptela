@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class ARP(object):
+def getInterface(vmanage, deviceId):
     """
-    Real-Time Monitoring - ARP API
+    Get ARP interfaces from device (Real Time)
     
-    Implements GET POST DEL PUT methods for ARP endpoints
-
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
     
-    
-    def getInterface(self, deviceId):
-        """
-        Get ARP interfaces from device (Real Time)
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/arp?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/arp?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

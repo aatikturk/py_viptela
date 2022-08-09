@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class VPN(object):
+def getVPNInstances(vmanage, deviceId):
     """
-    Real-Time Monitoring - VPN API
+    Get VPN instance list from device (Real Time)
     
-    Implements GET POST DEL PUT methods for VPN endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
     
-    
-    def getVPNInstances(self, deviceId):
-        """
-        Get VPN instance list from device (Real Time)
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/vpn?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vpn?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

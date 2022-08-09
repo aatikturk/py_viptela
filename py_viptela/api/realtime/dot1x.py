@@ -1,71 +1,51 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Dot1x(object):
+def getClients(vmanage, deviceId):
     """
-    Real-Time Monitoring - DOT1x API
+    Get DOT1x client from device (Real Time)
     
-    Implements GET POST DEL PUT methods for DOT1x endpoints
-
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/clients?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getInterfaces(vmanage, deviceId):
+    """
+    Get DOT1x interface from device (Real Time)
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
     
     
-    def getClients(self, deviceId):
-        """
-        Get DOT1x client from device (Real Time)
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/dot1x/clients?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getInterfaces(self, deviceId):
-        """
-        Get DOT1x interface from device (Real Time)
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/dot1x/interfaces?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getRadius(self, deviceId):
-        """
-        Get DOT1x Radius from device (Real Time)
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/dot1x/radius?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/interfaces?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getRadius(vmanage, deviceId):
+    """
+    Get DOT1x Radius from device (Real Time)
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/radius?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

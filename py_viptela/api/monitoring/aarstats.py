@@ -1,57 +1,39 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class AarStats(object):
+def getHealthSummary(vmanage, type, limit, query):
     """
-    Monitoring - Application-Aware Routing Statistics API
+    Get application-aware routing statistics summary from device
     
-    Implements GET POST DEL PUT methods for AwareRoutingStatistics endpoints
-
+    Parameters:
+    type	 (string):	Type
+	limit	 (integer):	Query result size
+	query	 (string):	Query filter
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client  = HttpMethods.HttpClient(session=session)
-        self.host    = host
-        self.port    = port
-        self.builder = Builder()
+    query_string = vmanage.builder.generateQuery(query)
+    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/approute/transport/summary/{type}?limit={limit}&query={query_string}"
+    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getHealth(vmanage, type, query, limit):
+    """
+    Get application-aware routing statistics from device
     
-    def getHealthSummary(self, type, limit, query):
-        """
-        Get application-aware routing statistics summary from device
-        
-        Parameters:
-        type	 (string):	Type
-		limit	 (integer):	Query result size
-		query	 (string):	Query filter
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/summary/{type}?limit={limit}&query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getHealth(self, type, query, limit):
-        """
-        Get application-aware routing statistics from device
-        
-        Parameters:
-        type	 (string):	Type
-		query    (string):  Query filter
-		limit	 (string):	Query result size
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/statistics/approute/transport/{type}?query={query_string}&limit={limit}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    Parameters:
+    type	 (string):	Type
+	query    (string):  Query filter
+	limit	 (string):	Query result size
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    query_string = vmanage.builder.generateQuery(query)
+    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/approute/transport/{type}?query={query_string}&limit={limit}"
+    response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

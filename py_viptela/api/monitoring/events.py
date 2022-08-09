@@ -9,13 +9,13 @@ class Events(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client  = HttpMethods.HttpClient(session=session)
-        self.host    = host
-        self.port    = port
-        self.builder = Builder()
+    def __init__(vmanage, session, host, port):
+        vmanage.client  = HttpMethods.HttpClient(session=session)
+        vmanage.host    = host
+        vmanage.port    = port
+        vmanage.builder = Builder()
     
-    def getStatDataRawData(self, query):
+    def getStatDataRawData(vmanage, query):
         """
         Get stats raw data
         
@@ -27,13 +27,13 @@ class Events(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/event?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatsRawData(self, statsquerystring):
+    def getStatsRawData(vmanage, statsquerystring):
         """
         Get stats raw data
         
@@ -46,12 +46,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getAggregationDataByQuery(self, query):
+    def getAggregationDataByQuery(vmanage, query):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
@@ -63,13 +63,13 @@ class Events(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/aggregation?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/aggregation?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getPostAggregationDataByQuery(self, statsquerystring):
+    def getPostAggregationDataByQuery(vmanage, statsquerystring):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
@@ -82,12 +82,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/aggregation"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getPostAggregationAppDataByQuery(self, statsquerystring):
+    def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         
@@ -100,12 +100,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/app-agg/aggregation"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/app-agg/aggregation"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getComponentsAsKeyValue(self):
+    def getComponentsAsKeyValue(vmanage):
         """
         Retrieve components as key/value pairs
         
@@ -117,12 +117,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/component/keyvalue"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/component/keyvalue"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatDataRawDataAsCSV(self, query):
+    def getStatDataRawDataAsCSV(vmanage, query):
         """
         Get raw data with optional query as CSV
         
@@ -134,13 +134,13 @@ class Events(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/csv?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/csv?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getCount(self, query):
+    def getCount(vmanage, query):
         """
         Get response count of a query
         
@@ -152,13 +152,13 @@ class Events(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/doccount?query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/doccount?query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getCountPost(self, query):
+    def getCountPost(vmanage, query):
         """
         Get response count of a query
         
@@ -171,12 +171,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/doccount"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, query)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/doccount"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, query)
         return response
 
 
-    def enableEventsFromFile(self):
+    def enableEventsFromFile(vmanage):
         """
         Set enable events from file flag
         
@@ -188,12 +188,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/enable/fileprocess"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/enable/fileprocess"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatDataFields(self):
+    def getStatDataFields(vmanage):
         """
         Get fields and type
         
@@ -205,12 +205,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/fields"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/fields"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getListenersInfo(self):
+    def getListenersInfo(vmanage):
         """
         Retrieve listener information
         
@@ -222,12 +222,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/listeners"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/listeners"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatBulkRawData(self, query, scrollId, count):
+    def getStatBulkRawData(vmanage, query, scrollId, count):
         """
         Get stats raw data
         
@@ -241,13 +241,13 @@ class Events(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/page?query={query_string}&scrollId={scrollId}&count={count}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/page?query={query_string}&scrollId={scrollId}&count={count}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getPostStatBulkRawData(self, statsquerystring, scrollId, count):
+    def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
         """
         Get stats raw data
         
@@ -262,12 +262,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/page?scrollId={scrollId}&count={count}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/page?scrollId={scrollId}&count={count}"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, statsquerystring)
         return response
 
 
-    def getStatQueryFields(self):
+    def getStatQueryFields(vmanage):
         """
         Get query fields
         
@@ -279,12 +279,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/query/fields"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/query/fields"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def createEventsQueryConfig(self):
+    def createEventsQueryConfig(vmanage):
         """
         Create query configuration
         
@@ -296,12 +296,12 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/query/input"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/query/input"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def findEvents(self, level, deviceId, query):
+    def findEvents(vmanage, level, deviceId, query):
         """
         Retrieve events
         
@@ -315,13 +315,13 @@ class Events(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/severity?severity-level={level}&deviceId={deviceId}&query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/severity?severity-level={level}&deviceId={deviceId}&query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getSeverityHistogram(self, deviceId, query):
+    def getSeverityHistogram(vmanage, deviceId, query):
         """
         Retrieve severity histogram
         
@@ -334,13 +334,13 @@ class Events(object):
         
         
         """
-        query_string = self.builder.generateQuery(query)
-        endpoint     = f"https://{self.host}:{self.port}/dataservice/event/severity/summary?deviceId={deviceId}&query={query_string}"
-        response     = self.client.apiCall(HttpMethods.GET, endpoint)
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/severity/summary?deviceId={deviceId}&query={query_string}"
+        response     = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getEventTypesAsKeyValue(self):
+    def getEventTypesAsKeyValue(vmanage):
         """
         Retrieve event types as key/value pairs
         
@@ -352,8 +352,8 @@ class Events(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/event/types/keyvalue"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/types/keyvalue"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

@@ -1,71 +1,51 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Resource(object):
+def getAllocInfo(vmanage, deviceId):
     """
-    Real-Time Monitoring - NetworkHub Resources API
+    Get NetworkHub CPU allocation info from device
     
-    Implements GET POST DEL PUT methods for NetworkHubResources endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/resources/cpu-info/allocation?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getCPUInfo(vmanage, deviceId):
+    """
+    Get NetworkHub CPU info from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
     
     
-    def getAllocInfo(self, deviceId):
-        """
-        Get NetworkHub CPU allocation info from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/csp/resources/cpu-info/allocation?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getCPUInfo(self, deviceId):
-        """
-        Get NetworkHub CPU info from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/csp/resources/cpu-info/cpus?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getVNFInfo(self, deviceId):
-        """
-        Get NetworkHub CPU VNF info from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/csp/resources/cpu-info/vnfs?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/resources/cpu-info/cpus?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getVNFInfo(vmanage, deviceId):
+    """
+    Get NetworkHub CPU VNF info from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/resources/cpu-info/vnfs?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

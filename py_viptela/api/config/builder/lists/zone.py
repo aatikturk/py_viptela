@@ -9,13 +9,13 @@ class Zone(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    def __init__(vmanage, session, host, port):
+        vmanage.host = host
+        vmanage.port = port
+        vmanage.client = HttpMethods.HttpClient(session=session)
     
     
-    def get(self):
+    def get(vmanage):
         """
         Get policy lists
         
@@ -27,12 +27,12 @@ class Zone(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/zone"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/zone"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def create(self, policylist):
+    def create(vmanage, policylist):
         """
         Create policy list
         
@@ -45,12 +45,12 @@ class Zone(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/zone"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, policylist)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/zone"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policylist)
         return response
 
 
-    def preview(self, policylist):
+    def preview(vmanage, policylist):
         """
         Preview a policy list based on the policy list type
         
@@ -63,12 +63,12 @@ class Zone(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/zone/preview"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, policylist)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/zone/preview"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policylist)
         return response
 
 
-    def previewById(self, id):
+    def previewById(vmanage, id):
         """
         Preview a specific policy list entry based on id provided
         
@@ -81,12 +81,12 @@ class Zone(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/zone/preview/{id}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/zone/preview/{id}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getListsById(self, id):
+    def getListsById(vmanage, id):
         """
         Get a specific policy list based on the id
         
@@ -99,12 +99,12 @@ class Zone(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/zone/{id}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/zone/{id}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def edit(self, policylist, id):
+    def edit(vmanage, policylist, id):
         """
         Edit policy list entries for a specific type of policy list
         
@@ -118,12 +118,12 @@ class Zone(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/zone/{id}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, policylist)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/zone/{id}"
+        response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policylist)
         return response
 
 
-    def delete(self, id):
+    def delete(vmanage, id):
         """
         Delete policy list entry for a specific type of policy list
         
@@ -136,8 +136,8 @@ class Zone(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/zone/{id}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/zone/{id}"
+        response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
         return response
 
 

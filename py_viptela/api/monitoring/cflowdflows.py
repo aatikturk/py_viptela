@@ -9,13 +9,13 @@ class Flow(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def getCflowdDPIDeviceFieldJSON(self, isDeviceDashBoard):
+    def getCflowdDPIDeviceFieldJSON(vmanage, isDeviceDashBoard):
         """
         Get Cflowd DPI query field JSON
         
@@ -28,12 +28,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/application/fields?isDeviceDashBoard={isDeviceDashBoard}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/application/fields?isDeviceDashBoard={isDeviceDashBoard}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getCollectorList(self, deviceId):
+    def getCollectorList(vmanage, deviceId):
         """
         Get cflowd collector list from device
         
@@ -46,12 +46,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/collector?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/collector?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getDPIFieldJSON(self, isDeviceDashBoard):
+    def getDPIFieldJSON(vmanage, isDeviceDashBoard):
         """
         Get CflowdvDPI query field JSON
         
@@ -64,12 +64,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/device/fields?isDeviceDashBoard={isDeviceDashBoard}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/device/fields?isDeviceDashBoard={isDeviceDashBoard}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFlows(self, vpnId, src, dest, deviceId):
+    def getFlows(vmanage, vpnId, src, dest, deviceId):
         """
         Get list of cflowd flows from device
         
@@ -85,12 +85,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/flows?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFlowsCount(self, vpnId, src, dest, deviceId):
+    def getFlowsCount(vmanage, vpnId, src, dest, deviceId):
         """
         Get cflowd flow count from device
         
@@ -106,12 +106,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/flows-count?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/flows-count?vpn-id={vpnId}&src-ip={src}&dest-ip={dest}&deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFnFCacheStats(self, deviceId):
+    def getFnFCacheStats(vmanage, deviceId):
         """
         Get FnF cache stats from device
         
@@ -124,12 +124,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/fnf/cache-stats?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/cache-stats?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFnFExportClientStats(self, deviceId):
+    def getFnFExportClientStats(vmanage, deviceId):
         """
         Get FnF export client stats from device
         
@@ -142,12 +142,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/fnf/export-client-stats?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-client-stats?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFnFExportStats(self, deviceId):
+    def getFnFExportStats(vmanage, deviceId):
         """
         Get FnF export stats from device
         
@@ -160,12 +160,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/fnf/export-stats?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/export-stats?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFnf(self, deviceId):
+    def getFnf(vmanage, deviceId):
         """
         Get FnF from device
         
@@ -178,12 +178,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/fnf/flow-monitor?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/flow-monitor?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFnFMonitorStats(self, deviceId):
+    def getFnFMonitorStats(vmanage, deviceId):
         """
         Get FnF monitor stats from device
         
@@ -196,12 +196,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/fnf/monitor-stats?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/fnf/monitor-stats?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatistics(self, deviceId):
+    def getStatistics(vmanage, deviceId):
         """
         Get cflowd statistics from device
         
@@ -214,12 +214,12 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/statistics?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/statistics?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getTemplate(self, deviceId):
+    def getTemplate(vmanage, deviceId):
         """
         Get cflowd template from device
         
@@ -232,8 +232,8 @@ class Flow(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cflowd/template?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cflowd/template?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

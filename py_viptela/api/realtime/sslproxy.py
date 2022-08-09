@@ -1,53 +1,35 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Proxy(object):
+def getStats(vmanage, deviceId):
     """
-    Real-Time Monitoring - Sslproxy API
+    Get ssl proxy statistics from device
     
-    Implements GET POST DEL PUT methods for Sslproxy endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sslproxy/statistics?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getStatus(vmanage, deviceId):
+    """
+    Get ssl proxy status from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
     
     
-    def getStats(self, deviceId):
-        """
-        Get ssl proxy statistics from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/sslproxy/statistics?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getStatus(self, deviceId):
-        """
-        Get ssl proxy status from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/sslproxy/status?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sslproxy/status?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

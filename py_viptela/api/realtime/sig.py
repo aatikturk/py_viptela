@@ -1,53 +1,35 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class SIG(object):
+def getUmbrella(vmanage, deviceId):
     """
-    Real-Time Monitoring - SIG API
+    Get SIG Umbrella tunnels from device
     
-    Implements GET POST DEL PUT methods for SIG endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sig/umbrella/tunnels?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getZscaler(vmanage, deviceId):
+    """
+    Get SIG Zscaler tunnels from device
+    
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
     
     
-    def getUmbrella(self, deviceId):
-        """
-        Get SIG Umbrella tunnels from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/sig/umbrella/tunnels?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getZscaler(self, deviceId):
-        """
-        Get SIG Zscaler tunnels from device
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/sig/zscaler/tunnels?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sig/zscaler/tunnels?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

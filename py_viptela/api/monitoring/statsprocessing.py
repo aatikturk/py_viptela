@@ -9,13 +9,13 @@ class Processor(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def getStatisticType(self):
+    def getStatisticType(vmanage):
         """
         Get statistics types
         
@@ -27,12 +27,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def startStatsCollection(self):
+    def startStatsCollection(vmanage):
         """
         Start stats collect
         
@@ -44,12 +44,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/collect"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/collect"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def generateStatsCollectThreadReport(self):
+    def generateStatsCollectThreadReport(vmanage):
         """
         Get stats collect thread report
         
@@ -61,12 +61,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/collect/thread/status"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/collect/thread/status"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def resetStatsCollection(self, processQueue):
+    def resetStatsCollection(vmanage, processQueue):
         """
         Reset stats collect thread report
         
@@ -79,12 +79,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/collection/reset/{processQueue}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/collection/reset/{processQueue}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def enableStatsDemo(self, enable):
+    def enableStatsDemo(vmanage, enable):
         """
         Enable statistic demo mode
         
@@ -97,12 +97,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/demomode?enable={enable}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/demomode?enable={enable}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def processStatsData(self):
+    def processStatsData(vmanage):
         """
         Process stats data
         
@@ -114,12 +114,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/process"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatsProcessingCounters(self):
+    def getStatsProcessingCounters(vmanage):
         """
         Get statistics processing counters
         
@@ -131,12 +131,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/process/counters"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process/counters"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatsProcessReport(self, processQueue):
+    def getStatsProcessReport(vmanage, processQueue):
         """
         Get stats process report
         
@@ -149,12 +149,12 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/process/status?processQueue={processQueue}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process/status?processQueue={processQueue}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatsProcessThreadReport(self):
+    def getStatsProcessThreadReport(vmanage):
         """
         Get stats process thread report
         
@@ -166,8 +166,8 @@ class Processor(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/process/thread/status"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process/thread/status"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

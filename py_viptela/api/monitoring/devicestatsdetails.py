@@ -9,13 +9,13 @@ class DeviceStatisticsDetails(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def getStatisticsType(self):
+    def getStatisticsType(vmanage):
         """
         Get statistics types
         
@@ -27,12 +27,12 @@ class DeviceStatisticsDetails(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/data/device/statistics"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/statistics"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getActiveAlarms(self, scrollId, startDate, endDate, count, timeZone):
+    def getActiveAlarms(vmanage, scrollId, startDate, endDate, count, timeZone):
         """
         Get active alarms
         
@@ -49,12 +49,12 @@ class DeviceStatisticsDetails(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/data/device/statistics/alarm/active?scrollId={scrollId}&startDate={startDate}&endDate={endDate}&count={count}&timeZone={timeZone}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/statistics/alarm/active?scrollId={scrollId}&startDate={startDate}&endDate={endDate}&count={count}&timeZone={timeZone}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getStatsData(self, state_data_type, scrollId, startDate, endDate, count, timeZone):
+    def getStatsData(vmanage, state_data_type, scrollId, startDate, endDate, count, timeZone):
         """
         Get device statistics data
         
@@ -72,12 +72,12 @@ class DeviceStatisticsDetails(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/data/device/statistics/{state_data_type}?scrollId={scrollId}&startDate={startDate}&endDate={endDate}&count={count}&timeZone={timeZone}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/statistics/{state_data_type}?scrollId={scrollId}&startDate={startDate}&endDate={endDate}&count={count}&timeZone={timeZone}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getCountWithStateDataType(self, state_data_type, startDate, endDate, timeZone):
+    def getCountWithStateDataType(vmanage, state_data_type, startDate, endDate, timeZone):
         """
         Get response count of a query
         
@@ -93,12 +93,12 @@ class DeviceStatisticsDetails(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/data/device/statistics/{state_data_type}/doccount?startDate={startDate}&endDate={endDate}&timeZone={timeZone}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/statistics/{state_data_type}/doccount?startDate={startDate}&endDate={endDate}&timeZone={timeZone}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def getFieldsByType(self, state_data_type):
+    def getFieldsByType(vmanage, state_data_type):
         """
         Get statistics fields and types
         
@@ -111,8 +111,8 @@ class DeviceStatisticsDetails(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/data/device/statistics/{state_data_type}/fields"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/data/device/statistics/{state_data_type}/fields"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

@@ -9,13 +9,13 @@ class DpiOD(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    def __init__(vmanage, session, host, port):
+        vmanage.client = HttpMethods.HttpClient(session=session)
+        vmanage.host = host
+        vmanage.port = port
     
     
-    def getQueueEntries(self):
+    def getQueueEntries(vmanage):
         """
         gets current on-demand queue entries
         
@@ -27,12 +27,12 @@ class DpiOD(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/on-demand/queue"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def createQueueEntry(self, queue):
+    def createQueueEntry(vmanage, queue):
         """
         Create on-demand troubleshooting queue entry
         
@@ -45,12 +45,12 @@ class DpiOD(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/on-demand/queue"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, queue)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue"
+        response = vmanage.client.apiCall(HttpMethods.POST, endpoint, queue)
         return response
 
 
-    def getQueueProperties(self):
+    def getQueueProperties(vmanage):
         """
         gets current size of on-demand queue
         
@@ -62,12 +62,12 @@ class DpiOD(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/on-demand/queue/properties"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue/properties"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 
-    def updateQueueEntry(self, queue, entryId):
+    def updateQueueEntry(vmanage, queue, entryId):
         """
         Updates on-demand troubleshooting queue entry
         
@@ -81,12 +81,12 @@ class DpiOD(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/on-demand/queue/{entryId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, queue)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue/{entryId}"
+        response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, queue)
         return response
 
 
-    def deleteQueueEntry(self, entryId):
+    def deleteQueueEntry(vmanage, entryId):
         """
         removes on-demand queue entry
         
@@ -99,8 +99,8 @@ class DpiOD(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/statistics/on-demand/queue/{entryId}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue/{entryId}"
+        response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
         return response
 
 

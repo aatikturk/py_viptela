@@ -9,13 +9,13 @@ class Network(object):
 
     """
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    def __init__(vmanage, session, host, port):
+        vmanage.host = host
+        vmanage.port = port
+        vmanage.client = HttpMethods.HttpClient(session=session)
     
     
-    def getNetworkInfo(self, deviceId):
+    def getNetworkInfo(vmanage, deviceId):
         """
         Get cellular network  info from device
         
@@ -28,8 +28,8 @@ class Network(object):
         
         """
         
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/cellularEiolte/network?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
+        endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/network?deviceId={deviceId}"
+        response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
         return response
 
 

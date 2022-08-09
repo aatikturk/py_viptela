@@ -1,56 +1,38 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class AwareRoute(object):
+def getSlaList(vmanage, deviceId):
     """
-    Real-Time Monitoring - Application-Aware Route API
+    Get SLA class list from device (Real Time)
     
-    Implements GET POST DEL PUT methods for AwareRoute endpoints
-
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app-route/sla-class?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getStatList(vmanage, remote_system_ip, local_color, remote_color, deviceId):
+    """
+    Get application-aware routing statistics from device (Real Time)
+    
+    Parameters:
+    remote-system-ip	 (string):	Remote system IP
+	local-color	 (string):	Local color
+	remote-color	 (string):	Remote color
+	deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
     
     
-    def getSlaList(self, deviceId):
-        """
-        Get SLA class list from device (Real Time)
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/app-route/sla-class?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getStatList(self, remote_system_ip, local_color, remote_color, deviceId):
-        """
-        Get application-aware routing statistics from device (Real Time)
-        
-        Parameters:
-        remote-system-ip	 (string):	Remote system IP
-		local-color	 (string):	Local color
-		remote-color	 (string):	Remote color
-		deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/app-route/statistics?remote-system-ip={remote_system_ip}&local-color={local_color}&remote-color={remote_color}&deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app-route/statistics?remote-system-ip={remote_system_ip}&local-color={local_color}&remote-color={remote_color}&deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

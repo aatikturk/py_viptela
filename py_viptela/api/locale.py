@@ -1,34 +1,18 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Locale(object):
+def getsupportedLocales(vmanage):
     """
-    Locale API
+    Get Supported locales
     
-    Implements GET POST DEL PUT methods for Locale endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
     
-    
-    def getsupportedLocales(self):
-        """
-        Get Supported locales
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/localization/supportedLocales"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/localization/supportedLocales"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

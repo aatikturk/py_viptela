@@ -1,7 +1,7 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-def get(self):
+def get(vmanage):
     """
     Get policy lists
     
@@ -13,11 +13,11 @@ def get(self):
     
     """
     
-    endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/port"
-    response = self.client.apiCall(HttpMethods.GET, endpoint)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/port"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
     return response
 
-def create(self, policylist):
+def create(vmanage, policylist):
     """
     Create policy list
     
@@ -30,11 +30,11 @@ def create(self, policylist):
     
     """
     
-    endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/port"
-    response = self.client.apiCall(HttpMethods.POST, endpoint, policylist)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/port"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policylist)
     return response
 
-def preview(self, policylist):
+def preview(vmanage, policylist):
     """
     Preview a policy list based on the policy list type
     
@@ -47,11 +47,11 @@ def preview(self, policylist):
     
     """
     
-    endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/port/preview"
-    response = self.client.apiCall(HttpMethods.POST, endpoint, policylist)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/port/preview"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policylist)
     return response
 
-def previewById(self, id):
+def previewById(vmanage, id):
     """
     Preview a specific policy list entry based on id provided
     
@@ -64,11 +64,11 @@ def previewById(self, id):
     
     """
     
-    endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/port/preview/{id}"
-    response = self.client.apiCall(HttpMethods.GET, endpoint)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/port/preview/{id}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
     return response
 
-def getListsById(self, id):
+def getListsById(vmanage, id):
     """
     Get a specific policy list based on the id
     
@@ -81,11 +81,11 @@ def getListsById(self, id):
     
     """
     
-    endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/port/{id}"
-    response = self.client.apiCall(HttpMethods.GET, endpoint)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/port/{id}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
     return response
 
-def edit(self, policylist, id):
+def edit(vmanage, policylist, id):
     """
     Edit policy list entries for a specific type of policy list
     
@@ -99,11 +99,11 @@ def edit(self, policylist, id):
     
     """
     
-    endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/port/{id}"
-    response = self.client.apiCall(HttpMethods.PUT, endpoint, policylist)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/port/{id}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policylist)
     return response
 
-def delete(self, id):
+def delete(vmanage, id):
     """
     Delete policy list entry for a specific type of policy list
     
@@ -116,6 +116,6 @@ def delete(self, id):
     
     """
     
-    endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/list/port/{id}"
-    response = self.client.apiCall(HttpMethods.DELETE, endpoint)
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list/port/{id}"
+    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
     return response

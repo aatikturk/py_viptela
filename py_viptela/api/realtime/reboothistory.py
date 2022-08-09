@@ -1,70 +1,50 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class History(object):
+def getList(vmanage, deviceId):
     """
-    Real-Time Monitoring - Reboot History API
+    Get device reboot history
     
-    Implements GET POST DEL PUT methods for RebootHistory endpoints
-
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/reboothistory?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getDetails(vmanage):
+    """
+    Get detailed reboot history list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
     
     
-    def getList(self, deviceId):
-        """
-        Get device reboot history
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/reboothistory?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getDetails(self):
-        """
-        Get detailed reboot history list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/reboothistory/details"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getSyncedList(self, deviceId):
-        """
-        Get device reboot history synchronously
-        
-        Parameters:
-        deviceId	 (string):	Device IP
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/reboothistory/synced?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/reboothistory/details"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def getSyncedList(vmanage, deviceId):
+    """
+    Get device reboot history synchronously
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/reboothistory/synced?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
