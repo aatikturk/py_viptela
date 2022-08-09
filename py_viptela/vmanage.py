@@ -1,4 +1,4 @@
-from py_viptela.restclient import RestClient
+from restclient import RestClient
 from py_viptela.query_builder import Builder
 
 class Vmanage(RestClient):
