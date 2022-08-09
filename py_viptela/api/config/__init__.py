@@ -1,8 +1,18 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api.config import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api.config import module
-del module
+from py_viptela.api.config import assembler
+from py_viptela.api.config import azure
+from py_viptela.api.config import builder
+from py_viptela.api.config import cexp
+from py_viptela.api.config import circuits
+from py_viptela.api.config import cor
+from py_viptela.api.config import dashboard
+from py_viptela.api.config import device
+from py_viptela.api.config import disaster
+from py_viptela.api.config import featurecert
+from py_viptela.api.config import multicloud
+from py_viptela.api.config import networkdesign
+from py_viptela.api.config import segments
+from py_viptela.api.config import settings
+from py_viptela.api.config import sig
+from py_viptela.api.config import softwareactions
+from py_viptela.api.config import template
+from py_viptela.api.config import topology

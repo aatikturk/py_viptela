@@ -1,8 +1,28 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api.config.builder.definition import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api.config.builder.definition import module
-del module
+from py_viptela.api.config.builder.definition import acl
+from py_viptela.api.config.builder.definition import acl6
+from py_viptela.api.config.builder.definition import amp
+from py_viptela.api.config.builder.definition import approute
+from py_viptela.api.config.builder.definition import cflowd
+from py_viptela.api.config.builder.definition import control
+from py_viptela.api.config.builder.definition import data
+from py_viptela.api.config.builder.definition import deviceacl
+from py_viptela.api.config.builder.definition import deviceacl6
+from py_viptela.api.config.builder.definition import dialpeer
+from py_viptela.api.config.builder.definition import fxo
+from py_viptela.api.config.builder.definition import fxs
+from py_viptela.api.config.builder.definition import fxsdid
+from py_viptela.api.config.builder.definition import hns
+from py_viptela.api.config.builder.definition import ips
+from py_viptela.api.config.builder.definition import isdn
+from py_viptela.api.config.builder.definition import localdomain
+from py_viptela.api.config.builder.definition import mesh
+from py_viptela.api.config.builder.definition import qosmap
+from py_viptela.api.config.builder.definition import rewriterule
+from py_viptela.api.config.builder.definition import ruleset
+from py_viptela.api.config.builder.definition import securitygroup
+from py_viptela.api.config.builder.definition import ssl
+from py_viptela.api.config.builder.definition import sslutd
+from py_viptela.api.config.builder.definition import url
+from py_viptela.api.config.builder.definition import vedgeroute
+from py_viptela.api.config.builder.definition import vpn
+from py_viptela.api.config.builder.definition import zbf

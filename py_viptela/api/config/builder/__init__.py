@@ -1,8 +1,3 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api.config.builder import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api.config.builder import module
-del module
+from py_viptela.api.config.builder import definition
+from py_viptela.api.config.builder import lists
+from py_viptela.api.config.builder import policy

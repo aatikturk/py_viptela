@@ -1,8 +1,35 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api.monitoring import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api.monitoring import module
-del module
+from py_viptela.api.monitoring import aar
+from py_viptela.api.monitoring import aarstats
+from py_viptela.api.monitoring import alarm
+from py_viptela.api.monitoring import apphosting
+from py_viptela.api.monitoring import apphostingif
+from py_viptela.api.monitoring import art
+from py_viptela.api.monitoring import bfd
+from py_viptela.api.monitoring import bridgeif
+from py_viptela.api.monitoring import bridgemac
+from py_viptela.api.monitoring import cflowd
+from py_viptela.api.monitoring import cflowdflows
+from py_viptela.api.monitoring import cloudexp
+from py_viptela.api.monitoring import colocation
+from py_viptela.api.monitoring import devicedetails
+from py_viptela.api.monitoring import devicestats
+from py_viptela.api.monitoring import devicestatsdetails
+from py_viptela.api.monitoring import dpi
+from py_viptela.api.monitoring import dpiod
+from py_viptela.api.monitoring import eiolte
+from py_viptela.api.monitoring import events
+from py_viptela.api.monitoring import flowlog
+from py_viptela.api.monitoring import interfacestats
+from py_viptela.api.monitoring import ipsalert
+from py_viptela.api.monitoring import qos
+from py_viptela.api.monitoring import security
+from py_viptela.api.monitoring import server
+from py_viptela.api.monitoring import servicechain
+from py_viptela.api.monitoring import statsdownload
+from py_viptela.api.monitoring import statsprocessing
+from py_viptela.api.monitoring import status
+from py_viptela.api.monitoring import systemstatus
+from py_viptela.api.monitoring import umbrella
+from py_viptela.api.monitoring import umbrellapatterns
+from py_viptela.api.monitoring import urlfiltering
+from py_viptela.api.monitoring import wlanclientinfo

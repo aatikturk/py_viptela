@@ -1,8 +1,12 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api.config.builder.policy import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api.config.builder.policy import module
-del module
+from py_viptela.api.config.builder.policy import appprobeclass
+from py_viptela.api.config.builder.policy import cloudapplication
+from py_viptela.api.config.builder.policy import customapplication
+from py_viptela.api.config.builder.policy import geolocation
+from py_viptela.api.config.builder.policy import mirror
+from py_viptela.api.config.builder.policy import policerclass
+from py_viptela.api.config.builder.policy import sig
+from py_viptela.api.config.builder.policy import slaclass
+from py_viptela.api.config.builder.policy import threatgridapi
+from py_viptela.api.config.builder.policy import umbrelladata
+from py_viptela.api.config.builder.policy import urlblacklist
+from py_viptela.api.config.builder.policy import urlwhitelist

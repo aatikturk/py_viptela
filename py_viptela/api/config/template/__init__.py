@@ -1,8 +1,10 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api.config.template import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api.config.template import module
-del module
+from py_viptela.api.config.template import config
+from py_viptela.api.config.template import design
+from py_viptela.api.config.template import device
+from py_viptela.api.config.template import general
+from py_viptela.api.config.template import lock
+from py_viptela.api.config.template import master
+from py_viptela.api.config.template import security
+from py_viptela.api.config.template import vedge
+from py_viptela.api.config.template import voice
+from py_viptela.api.config.template import vsmart

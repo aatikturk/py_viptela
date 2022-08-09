@@ -1,8 +1,23 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api import module
-del module
+from py_viptela.api import admin
+from py_viptela.api import backup
+from py_viptela.api import cert
+from py_viptela.api import cluster
+from py_viptela.api import colo
+from py_viptela.api import config
+from py_viptela.api import datacollection
+from py_viptela.api import deployment
+from py_viptela.api import device
+from py_viptela.api import locale
+from py_viptela.api import mdp
+from py_viptela.api import monitoring
+from py_viptela.api import msla
+from py_viptela.api import partner
+from py_viptela.api import realtime
+from py_viptela.api import sdavc
+from py_viptela.api import smartlicense
+from py_viptela.api import system
+from py_viptela.api import tenant
+from py_viptela.api import tshoot
+from py_viptela.api import umbrella
+from py_viptela.api import utility
+from py_viptela.api import workflow

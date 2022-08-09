@@ -1,8 +1,31 @@
-import os
-for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[:-3] == ".py":
-        module = module[:-3]
-        from py_viptela.api.config.builder.lists import module
-    elif module != '__init__.py' and module[:-3] != ".py":
-        from py_viptela.api.config.builder.lists import module
-del module
+from py_viptela.api.config.builder.lists import app
+from py_viptela.api.config.builder.lists import aspath
+from py_viptela.api.config.builder.lists import color
+from py_viptela.api.config.builder.lists import community
+from py_viptela.api.config.builder.lists import datafqdnall
+from py_viptela.api.config.builder.lists import dataprefix
+from py_viptela.api.config.builder.lists import dataprefix6
+from py_viptela.api.config.builder.lists import dataprefixall
+from py_viptela.api.config.builder.lists import disc
+from py_viptela.api.config.builder.lists import expcommunity
+from py_viptela.api.config.builder.lists import extcommunity
+from py_viptela.api.config.builder.lists import fax
+from py_viptela.api.config.builder.lists import forwarding
+from py_viptela.api.config.builder.lists import fqdn
+from py_viptela.api.config.builder.lists import ips
+from py_viptela.api.config.builder.lists import list
+from py_viptela.api.config.builder.lists import localdomainname
+from py_viptela.api.config.builder.lists import media
+from py_viptela.api.config.builder.lists import modem
+from py_viptela.api.config.builder.lists import port
+from py_viptela.api.config.builder.lists import prefix
+from py_viptela.api.config.builder.lists import prefix6
+from py_viptela.api.config.builder.lists import prefixall
+from py_viptela.api.config.builder.lists import protocol
+from py_viptela.api.config.builder.lists import site
+from py_viptela.api.config.builder.lists import tloc
+from py_viptela.api.config.builder.lists import translationprofile
+from py_viptela.api.config.builder.lists import translationrule
+from py_viptela.api.config.builder.lists import trunkgroup
+from py_viptela.api.config.builder.lists import vpn
+from py_viptela.api.config.builder.lists import zone
