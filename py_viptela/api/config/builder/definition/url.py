@@ -1,180 +1,148 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
-
-class URLFilter(object):
+    
+def getDefinitions(vmanage):
     """
-    Configuration - Policy URL Filtering Definition Builder API
+    Get policy definitions
     
-    Implements GET POST DEL PUT methods for PolicyURLFilteringDefinitionBuilder endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def create(vmanage, policydefinition):
+    """
+    Create policy definition
+    
+    Parameters:
+    policydefinition:	Policy definition
+    
+    Returns
+    response    (dict)
     
     
-    def getDefinitions(self):
-        """
-        Get policy definitions
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def create(self, policydefinition):
-        """
-        Create policy definition
-        
-        Parameters:
-        policydefinition:	Policy definition
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, policydefinition)
-        return response
-
-
-    def saveInBulk(self, policydefinition):
-        """
-        Create/Edit policy definitions in bulk
-        
-        Parameters:
-        policydefinition:	Policy definition
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering/bulk"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, policydefinition)
-        return response
-
-
-    def editMultiple(self, policydefinition, id):
-        """
-        Edit multiple policy definitions
-        
-        Parameters:
-        policydefinition:	Policy definition
-		id	 (string):	Policy Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering/multiple/{id}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, policydefinition)
-        return response
-
-
-    def preview(self, policydefinition):
-        """
-        Preview policy definition
-        
-        Parameters:
-        policydefinition:	Policy definition
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering/preview"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, policydefinition)
-        return response
-
-
-    def previewById(self, id):
-        """
-        Preview policy definition
-        
-        Parameters:
-        id	 (string):	Policy Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering/preview/{id}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def get(self, id):
-        """
-        Get a specific policy definitions
-        
-        Parameters:
-        id	 (string):	Policy Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering/{id}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def edit(self, policydefinition, id):
-        """
-        Edit a policy definitions
-        
-        Parameters:
-        policydefinition:	Policy definition
-		id	 (string):	Policy Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering/{id}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, policydefinition)
-        return response
-
-
-    def delete(self, id):
-        """
-        Delete policy definition
-        
-        Parameters:
-        id	 (string):	Policy Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/definition/urlfiltering/{id}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policydefinition)
+    return response
+def saveInBulk(vmanage, policydefinition):
+    """
+    Create/Edit policy definitions in bulk
+    
+    Parameters:
+    policydefinition:	Policy definition
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering/bulk"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policydefinition)
+    return response
+def editMultiple(vmanage, policydefinition, id):
+    """
+    Edit multiple policy definitions
+    
+    Parameters:
+    policydefinition:	Policy definition
+	id	 (string):	Policy Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering/multiple/{id}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policydefinition)
+    return response
+def preview(vmanage, policydefinition):
+    """
+    Preview policy definition
+    
+    Parameters:
+    policydefinition:	Policy definition
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering/preview"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policydefinition)
+    return response
+def previewById(vmanage, id):
+    """
+    Preview policy definition
+    
+    Parameters:
+    id	 (string):	Policy Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering/preview/{id}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def get(vmanage, id):
+    """
+    Get a specific policy definitions
+    
+    Parameters:
+    id	 (string):	Policy Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering/{id}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
+def edit(vmanage, policydefinition, id):
+    """
+    Edit a policy definitions
+    
+    Parameters:
+    policydefinition:	Policy definition
+	id	 (string):	Policy Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering/{id}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policydefinition)
+    return response
+def delete(vmanage, id):
+    """
+    Delete policy definition
+    
+    Parameters:
+    id	 (string):	Policy Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/urlfiltering/{id}"
+    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    return response

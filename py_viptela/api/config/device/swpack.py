@@ -1,90 +1,71 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Package(object):
+def getFileContents(vmanage, uuid):
     """
-    Configuration - Device Software Package API
+    Get bootstrap file contents
     
-    Implements GET POST DEL PUT methods for DeviceSoftwarePackage endpoints
-
+    Parameters:
+    uuid	 (string):	File uuid
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/file/{uuid}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def editConfigFile(vmanage, bootstrapfile, uuid):
+    """
+    Edit bootstrap file
+    
+    Parameters:
+    bootstrapfile:	Bootstrap file
+	uuid	 (string):	File uuid
+    
+    Returns
+    response    (dict)
     
     
-    def getFileContents(self, uuid):
-        """
-        Get bootstrap file contents
-        
-        Parameters:
-        uuid	 (string):	File uuid
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/software/package/custom/file/{uuid}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/file/{uuid}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, bootstrapfile)
+    return response
 
+def uploadImageFile(vmanage, type):
+    """
+    Upload virtual image/bootstrap file
+    
+    Parameters:
+    type	 (string):	Upload file type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/uploads/{type}"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    return response
 
-    def editConfigFile(self, bootstrapfile, uuid):
-        """
-        Edit bootstrap file
-        
-        Parameters:
-        bootstrapfile:	Bootstrap file
-		uuid	 (string):	File uuid
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/software/package/custom/file/{uuid}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, bootstrapfile)
-        return response
-
-
-    def uploadImageFile(self, type):
-        """
-        Upload virtual image/bootstrap file
-        
-        Parameters:
-        type	 (string):	Upload file type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/software/package/custom/uploads/{type}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint)
-        return response
-
-
-    def createVnfPackage(self, custompackage):
-        """
-        Create VNF custom package
-        
-        Parameters:
-        custompackage:	Custom package
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/device/action/software/package/custom/vnfPackage"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, custompackage)
-        return response
-
-
+def createVnfPackage(vmanage, custompackage):
+    """
+    Create VNF custom package
+    
+    Parameters:
+    custompackage:	Custom package
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/custom/vnfPackage"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, custompackage)
+    return response

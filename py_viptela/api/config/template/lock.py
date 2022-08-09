@@ -1,53 +1,36 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Lock(object):
+def updateLeaseTime(vmanage, processId):
     """
-    Configuration - Template Lock API
+    Update lease
     
-    Implements GET POST DEL PUT methods for TemplateLock endpoints
-
+    Parameters:
+    processId	 (string):	Process Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/lock/{processId}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def removeLock(vmanage, processId):
+    """
+    Remove lock
+    
+    Parameters:
+    processId	 (string):	Process Id
+    
+    Returns
+    response    (dict)
     
     
-    def updateLeaseTime(self, processId):
-        """
-        Update lease
-        
-        Parameters:
-        processId	 (string):	Process Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/lock/{processId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint)
-        return response
-
-
-    def removeLock(self, processId):
-        """
-        Remove lock
-        
-        Parameters:
-        processId	 (string):	Process Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/lock/{processId}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/lock/{processId}"
+    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    return response

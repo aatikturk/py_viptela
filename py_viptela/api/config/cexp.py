@@ -1,262 +1,233 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class CloudExpress(object):
+def getCloudXStatus(vmanage):
     """
-    Configuration - CloudExpress API
+    Get CloudX feature list
     
-    Implements GET POST DEL PUT methods for CloudExpress endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+def addCloudxType(vmanage, cloudx, type):
+    """
+    Add cloudx gateway
+    
+    Parameters:
+    cloudx:	Cloudx
+	type	 (string):	Cloudx type
+    
+    Returns
+    response    (dict)
     
     
-    def getCloudXStatus(self):
-        """
-        Get CloudX feature list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/addcloudx/{type}"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, cloudx)
+    return response
 
+def getAttachedClientList(vmanage):
+    """
+    Get attached client site list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/attachedclient"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def addCloudxType(self, cloudx, type):
-        """
-        Add cloudx gateway
-        
-        Parameters:
-        cloudx:	Cloudx
-		type	 (string):	Cloudx type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/addcloudx/{type}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, cloudx)
-        return response
+def getAttachedDiaList(vmanage):
+    """
+    Get attached Dia site list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/attacheddia"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def getAttachedGwList(vmanage):
+    """
+    Get attached gateway list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/attachedgateway"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def getAttachedClientList(self):
-        """
-        Get attached client site list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/attachedclient"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+def getCloudXAvailableApps(vmanage):
+    """
+    Get CloudX available apps list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/availableapps"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def getSiteList(vmanage):
+    """
+    Get site list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/clientlist"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def getAttachedDiaList(self):
-        """
-        Get attached Dia site list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/attacheddia"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+def getDiaList(vmanage):
+    """
+    Get Dia site list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/dialist"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def getGwList(vmanage):
+    """
+    Get gateway list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/gatewaylist"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def getAttachedGwList(self):
-        """
-        Get attached gateway list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/attachedgateway"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+def addCloudxInterfaces(vmanage, cloudx):
+    """
+    Enable cloudx gateway
+    
+    Parameters:
+    cloudx:	Cloudx
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/interfaces"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, cloudx)
+    return response
 
+def getApps(vmanage):
+    """
+    Get apps and vpns
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/manage/apps"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def getCloudXAvailableApps(self):
-        """
-        Get CloudX available apps list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/availableapps"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+def editApps(vmanage, appVPN):
+    """
+    Edit apps and vpns
+    
+    Parameters:
+    appVPN:	Cloudx apps and vpns
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/manage/apps"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, appVPN)
+    return response
 
+def addApps(vmanage, appVPN):
+    """
+    Add apps and vpns
+    
+    Parameters:
+    appVPN:	Cloudx apps and vpns
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/manage/apps"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, appVPN)
+    return response
 
-    def getSiteList(self):
-        """
-        Get site list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/clientlist"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getDiaList(self):
-        """
-        Get Dia site list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/dialist"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getGwList(self):
-        """
-        Get gateway list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/gatewaylist"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def addCloudxInterfaces(self, cloudx):
-        """
-        Enable cloudx gateway
-        
-        Parameters:
-        cloudx:	Cloudx
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/interfaces"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, cloudx)
-        return response
-
-
-    def getApps(self):
-        """
-        Get apps and vpns
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/manage/apps"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def editApps(self, appVPN):
-        """
-        Edit apps and vpns
-        
-        Parameters:
-        appVPN:	Cloudx apps and vpns
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/manage/apps"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, appVPN)
-        return response
-
-
-    def addApps(self, appVPN):
-        """
-        Add apps and vpns
-        
-        Parameters:
-        appVPN:	Cloudx apps and vpns
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/manage/apps"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, appVPN)
-        return response
-
-
-    def sitePerApp(self, appName, vpnId):
-        """
-        Get sites per application per vpn
-        
-        Parameters:
-        appName	 (string):	App name
-		vpnId	 (integer):	VPN Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/status?appName={appName}&vpnId={vpnId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+def sitePerApp(vmanage, appName, vpnId):
+    """
+    Get sites per application per vpn
+    
+    Parameters:
+    appName	 (string):	App name
+	vpnId	 (integer):	VPN Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/status?appName={appName}&vpnId={vpnId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

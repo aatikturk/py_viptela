@@ -1,106 +1,86 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
-
-class Chain(object):
+    
+def attach(vmanage, request):
     """
-    Colocation - Service Chain API
+    Attach service chain to cluster
     
-    Implements GET POST DEL PUT methods for ServiceChain endpoints
-
+    Parameters:
+    request:	Attach service chain request
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/attach"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def autoAttach(vmanage, request):
+    """
+    Attach service chain to cluster
+    
+    Parameters:
+    request:	Attach service chain request
+    
+    Returns
+    response    (dict)
     
     
-    def attach(self, request):
-        """
-        Attach service chain to cluster
-        
-        Parameters:
-        request:	Attach service chain request
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/attach"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/autoattach"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, request)
+    return response
 
+def detach(vmanage, request):
+    """
+    Detach service chain
+    
+    Parameters:
+    request:	Detach service chain request
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/detach"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, request)
+    return response
 
-    def autoAttach(self, request):
-        """
-        Attach service chain to cluster
-        
-        Parameters:
-        request:	Attach service chain request
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/autoattach"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, request)
-        return response
+def getEdgeDevices(vmanage):
+    """
+    Get edge devices
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/edge/devices"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-
-    def detach(self, request):
-        """
-        Detach service chain
-        
-        Parameters:
-        request:	Detach service chain request
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/detach"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, request)
-        return response
-
-
-    def getEdgeDevices(self):
-        """
-        Get edge devices
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/edge/devices"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getpnfDevices(self, pnfDeviceType):
-        """
-        Get PNF edge devices
-        
-        Parameters:
-        pnfDeviceType	 (string):	PNF device type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicechain/edge/pnfdevices?pnfDeviceType={pnfDeviceType}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+def getpnfDevices(vmanage, pnfDeviceType):
+    """
+    Get PNF edge devices
+    
+    Parameters:
+    pnfDeviceType	 (string):	PNF device type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicechain/edge/pnfdevices?pnfDeviceType={pnfDeviceType}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

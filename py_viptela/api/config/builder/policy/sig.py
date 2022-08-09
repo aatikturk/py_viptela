@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class SigDC(object):
+def getSigDataCenterList(vmanage, type):
     """
-    Configuration - Policy Secure internet gateway data centers Builder API
+    Get list of data centers for zscaler or umbrella
     
-    Implements GET POST DEL PUT methods for PolicySecureinternetgatewaydatacentersBuilder endpoints
-
+    Parameters:
+    type	 (string):	Provider type
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
     
-    
-    def getSigDataCenterList(self, type):
-        """
-        Get list of data centers for zscaler or umbrella
-        
-        Parameters:
-        type	 (string):	Provider type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/sig/datacenters/{type}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sig/datacenters/{type}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

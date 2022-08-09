@@ -1,89 +1,70 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Circuits(object):
+def get(vmanage):
     """
-    Configuration - Circuits API
+    Get network circuits
     
-    Implements GET POST DEL PUT methods for Circuits endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+def create(vmanage, networkcircuit):
+    """
+    Create network circuits
+    
+    Parameters:
+    networkcircuit:	Network circuit
+    
+    Returns
+    response    (dict)
     
     
-    def get(self):
-        """
-        Get network circuits
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/circuit"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, networkcircuit)
+    return response
 
+def edit(vmanage, networkcircuit, id):
+    """
+    Edit network circuits
+    
+    Parameters:
+    networkcircuit:	Network circuit
+	id	 (string):	Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit/{id}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, networkcircuit)
+    return response
 
-    def create(self, networkcircuit):
-        """
-        Create network circuits
-        
-        Parameters:
-        networkcircuit:	Network circuit
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/circuit"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, networkcircuit)
-        return response
-
-
-    def edit(self, networkcircuit, id):
-        """
-        Edit network circuits
-        
-        Parameters:
-        networkcircuit:	Network circuit
-		id	 (string):	Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/circuit/{id}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, networkcircuit)
-        return response
-
-
-    def delete(self, id):
-        """
-        Delete network circuits
-        
-        Parameters:
-        id	 (string):	Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/circuit/{id}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
-        return response
-
-
+def delete(vmanage, id):
+    """
+    Delete network circuits
+    
+    Parameters:
+    id	 (string):	Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/circuit/{id}"
+    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    return response

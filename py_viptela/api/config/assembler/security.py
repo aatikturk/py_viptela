@@ -1,53 +1,38 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class SecurityAssembly(object):
+def preview(vmanage, policyassembly):
     """
-    Configuration - Policy Security Assembler API
+    Get policy assembly preview
     
-    Implements GET POST DEL PUT methods for Policy Security Assembler endpoints
-
+    Parameters:
+    policyassembly:	Policy assembly
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/assembly/security"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, policyassembly)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def previewById(vmanage, id):
+    """
+    Get policy assembly preview
+    
+    Parameters:
+    id	 (string):	Policy Id
+    
+    Returns
+    response    (dict)
     
     
-    def preview(self, policyassembly):
-        """
-        Get policy assembly preview
-        
-        Parameters:
-        policyassembly:	Policy assembly
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/assembly/security"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, policyassembly)
-        return response
-
-
-    def previewById(self, id):
-        """
-        Get policy assembly preview
-        
-        Parameters:
-        id	 (string):	Policy Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/policy/assembly/security/{id}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/assembly/security/{id}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
 

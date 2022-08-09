@@ -37,7 +37,7 @@ class HttpClient(object):
             return {'error': 'SSL Error'}
             
         except requests.exceptions.Timeout:
-            return {'errror': 'Timeout'}
+            return {'error': 'Timeout'}
         
         if response.text == '':
             return response.text

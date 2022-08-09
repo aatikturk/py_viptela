@@ -1,125 +1,104 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Design(object):
+def getGlobal(vmanage, templateId):
     """
-    Configuration - Network Design Templates API
+    Get global template
     
-    Implements GET POST DEL PUT methods for NetworkDesignTemplates endpoints
-
+    Parameters:
+    templateId	 (string):	Template Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/global/template/{templateId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def editGlobal(vmanage, globaltemplate, templateId):
+    """
+    Edit global template
+    
+    Parameters:
+    globaltemplate:	Global template
+	templateId	 (string):	Template Id
+    
+    Returns
+    response    (dict)
     
     
-    def getGlobal(self, templateId):
-        """
-        Get global template
-        
-        Parameters:
-        templateId	 (string):	Template Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/global/template/{templateId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/global/template/{templateId}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, globaltemplate)
+    return response
 
+def getFeatureTempList(vmanage):
+    """
+    Generate device profile template list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/feature"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def editGlobal(self, globaltemplate, templateId):
-        """
-        Edit global template
-        
-        Parameters:
-        globaltemplate:	Global template
-		templateId	 (string):	Template Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/global/template/{templateId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, globaltemplate)
-        return response
+def getProfileList(vmanage):
+    """
+    Generate profile template list
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/template"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def getDeviceProfile(vmanage, templateId):
+    """
+    Get device profile template
+    
+    Parameters:
+    templateId	 (string):	Template Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/template/{templateId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def getFeatureTempList(self):
-        """
-        Generate device profile template list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/profile/feature"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getProfileList(self):
-        """
-        Generate profile template list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/profile/template"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getDeviceProfile(self, templateId):
-        """
-        Get device profile template
-        
-        Parameters:
-        templateId	 (string):	Template Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/profile/template/{templateId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def editDeviceProfile(self, globaltemplate, templateId):
-        """
-        Edit device profile template
-        
-        Parameters:
-        globaltemplate:	Global template
-		templateId	 (string):	Template Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/networkdesign/profile/template/{templateId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, globaltemplate)
-        return response
-
-
+def editDeviceProfile(vmanage, globaltemplate, templateId):
+    """
+    Edit device profile template
+    
+    Parameters:
+    globaltemplate:	Global template
+	templateId	 (string):	Template Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/networkdesign/profile/template/{templateId}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, globaltemplate)
+    return response

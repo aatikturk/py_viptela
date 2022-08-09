@@ -1,142 +1,120 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Group(object):
+def getServiceChain(vmanage, serviceGroupName):
     """
-    Colocation - Service Group API
+    Get service chain by name
     
-    Implements GET POST DEL PUT methods for ServiceGroup endpoints
-
+    Parameters:
+    serviceGroupName	 (string):	Service group name
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup?serviceGroupName={serviceGroupName}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def update(vmanage, servicegroup):
+    """
+    Update service group
+    
+    Parameters:
+    servicegroup:	Service group
+    
+    Returns
+    response    (dict)
     
     
-    def getServiceChain(self, serviceGroupName):
-        """
-        Get service chain by name
-        
-        Parameters:
-        serviceGroupName	 (string):	Service group name
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicegroup?serviceGroupName={serviceGroupName}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, servicegroup)
+    return response
 
+def create(vmanage, servicegroup):
+    """
+    Add new service group
+    
+    Parameters:
+    servicegroup:	Service group
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, servicegroup)
+    return response
 
-    def update(self, servicegroup):
-        """
-        Update service group
-        
-        Parameters:
-        servicegroup:	Service group
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicegroup"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, servicegroup)
-        return response
+def getGroupInCluster(vmanage, ClusterId, UserGroupName):
+    """
+    Get service chains in cluster
+    
+    Parameters:
+    ClusterId	 (string):	Cluster Id
+	UserGroupName	 (string):	UserGroup Name
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/attached?ClusterId={ClusterId}&UserGroupName={UserGroupName}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def getDefaultChain(vmanage):
+    """
+    Get default service chains
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/servicechain/default"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def create(self, servicegroup):
-        """
-        Add new service group
-        
-        Parameters:
-        servicegroup:	Service group
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicegroup"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, servicegroup)
-        return response
+def getAvailableChains(vmanage):
+    """
+    Get all service chains
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/servicechains"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-
-    def getGroupInCluster(self, ClusterId, UserGroupName):
-        """
-        Get service chains in cluster
-        
-        Parameters:
-        ClusterId	 (string):	Cluster Id
-		UserGroupName	 (string):	UserGroup Name
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicegroup/attached?ClusterId={ClusterId}&UserGroupName={UserGroupName}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getDefaultChain(self):
-        """
-        Get default service chains
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicegroup/servicechain/default"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getAvailableChains(self):
-        """
-        Get all service chains
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicegroup/servicechains"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def delete(self, name):
-        """
-        Delete service group
-        
-        Parameters:
-        name	 (string):	Service group name
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/colocation/servicegroup/{name}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
-        return response
-
-
+def delete(vmanage, name):
+    """
+    Delete service group
+    
+    Parameters:
+    name	 (string):	Service group name
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/colocation/servicegroup/{name}"
+    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    return response
