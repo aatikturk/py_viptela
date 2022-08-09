@@ -1,10 +1,8 @@
-from . import config
-from . import design
-from . import device
-from . import general
-from . import lock
-from . import master
-from . import security
-from . import vedge
-from . import voice
-from . import vsmart
+import os
+for module in os.listdir(os.path.dirname(__file__)):
+    if module != '__init__.py' and module[:-3] == ".py":
+        module = module[:-3]
+        from py_viptela.api.config.template import module
+    elif module != '__init__.py' and module[:-3] != ".py":
+        from py_viptela.api.config.template import module
+del module

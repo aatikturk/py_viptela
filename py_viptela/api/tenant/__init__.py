@@ -1,3 +1,8 @@
-from py_viptela.api.tenant import backup
-from py_viptela.api.tenant import management
-from py_viptela.api.tenant import migration
+import os
+for module in os.listdir(os.path.dirname(__file__)):
+    if module != '__init__.py' and module[:-3] == ".py":
+        module = module[:-3]
+        from py_viptela.api.tenant import module
+    elif module != '__init__.py' and module[:-3] != ".py":
+        from py_viptela.api.tenant import module
+del module

@@ -1,1 +1,1 @@
-from . import api
+from py_viptela import api

@@ -1,6 +1,8 @@
 import os
-from py_viptela.api.realtime import cellular
 for module in os.listdir(os.path.dirname(__file__)):
-    if module != '__init__.py' and module[-3:] == '.py':
-        __import__(module[:-3], locals(), globals())
+    if module != '__init__.py' and module[:-3] == ".py":
+        module = module[:-3]
+        from py_viptela.api.realtime import module
+    elif module != '__init__.py' and module[:-3] != ".py":
+        from py_viptela.api.realtime import module
 del module
