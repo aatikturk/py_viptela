@@ -14,8 +14,8 @@ def createCryptoIpsecIdentity(vmanage, rTlocAddr, rTlocColor, lTlocColor, device
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/identity?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/identity?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createIkeInboundList(vmanage, deviceId):
     """
@@ -30,8 +30,8 @@ def createIkeInboundList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/ike/inbound?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/ike/inbound?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createIkeOutboundList(vmanage, deviceId):
     """
@@ -46,8 +46,8 @@ def createIkeOutboundList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/ike/outbound?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/ike/outbound?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createIkeSessions(vmanage, rTlocAddr, rTlocColor, deviceId):
     """
@@ -64,8 +64,8 @@ def createIkeSessions(vmanage, rTlocAddr, rTlocColor, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/ike/sessions?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/ike/sessions?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createCryptov1LocalSAList(vmanage, rTlocAddr, rTlocColor, deviceId):
     """
@@ -82,8 +82,8 @@ def createCryptov1LocalSAList(vmanage, rTlocAddr, rTlocColor, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/ikev1?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/ikev1?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createCryptov2LocalSAList(vmanage, deviceId):
     """
@@ -98,8 +98,8 @@ def createCryptov2LocalSAList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/ikev2?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/ikev2?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createInBoundList(vmanage, rTlocAddr, rTlocColor, lTlocColor, deviceId):
     """
@@ -117,8 +117,8 @@ def createInBoundList(vmanage, rTlocAddr, rTlocColor, lTlocColor, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/inbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/inbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createLocalSAList(vmanage, deviceId):
     """
@@ -133,8 +133,8 @@ def createLocalSAList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/localsa?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/localsa?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createOutBoundList(vmanage, rTlocAddr, rTlocColor, deviceId):
     """
@@ -151,8 +151,8 @@ def createOutBoundList(vmanage, rTlocAddr, rTlocColor, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/outbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/outbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createIPsecPWKInboundConnections(vmanage, rTlocAddr, rTlocColor, lTlocColor, deviceId):
     """
@@ -170,8 +170,8 @@ def createIPsecPWKInboundConnections(vmanage, rTlocAddr, rTlocColor, lTlocColor,
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/pwk/inbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/pwk/inbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createIPsecPWKLocalSA(vmanage, rTlocAddr, rTlocColor, lTlocColor, deviceId):
     """
@@ -189,8 +189,8 @@ def createIPsecPWKLocalSA(vmanage, rTlocAddr, rTlocColor, lTlocColor, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/pwk/localsa?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/pwk/localsa?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createIPsecPWKOutboundConnections(vmanage, rTlocAddr, rTlocColor, lTlocColor, deviceId):
     """
@@ -208,6 +208,6 @@ def createIPsecPWKOutboundConnections(vmanage, rTlocAddr, rTlocColor, lTlocColor
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipsec/pwk/outbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipsec/pwk/outbound?rTlocAddr={rTlocAddr}&rTlocColor={rTlocColor}&lTlocColor={lTlocColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

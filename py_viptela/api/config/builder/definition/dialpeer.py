@@ -10,8 +10,8 @@ def getDefinitions(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/definition/dialpeer"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def create(vmanage, policydefinition):
@@ -27,8 +27,8 @@ def create(vmanage, policydefinition):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer"
-    response = vmanage.client.apiCall("POST", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/dialpeer"
+    response = vmanage.apiCall("POST", endpoint, policydefinition)
     return response
 
 def saveInBulk(vmanage, policydefinition):
@@ -44,8 +44,8 @@ def saveInBulk(vmanage, policydefinition):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer/bulk"
-    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/dialpeer/bulk"
+    response = vmanage.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def editMultiple(vmanage, policydefinition, id):
@@ -62,8 +62,8 @@ def editMultiple(vmanage, policydefinition, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer/multiple/{id}"
-    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/dialpeer/multiple/{id}"
+    response = vmanage.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def preview(vmanage, policydefinition):
@@ -79,8 +79,8 @@ def preview(vmanage, policydefinition):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer/preview"
-    response = vmanage.client.apiCall("POST", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/dialpeer/preview"
+    response = vmanage.apiCall("POST", endpoint, policydefinition)
     return response
 
 def previewById(vmanage, id):
@@ -96,8 +96,8 @@ def previewById(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer/preview/{id}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/definition/dialpeer/preview/{id}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def get(vmanage, id):
@@ -113,8 +113,8 @@ def get(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer/{id}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/definition/dialpeer/{id}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def edit(vmanage, policydefinition, id):
@@ -131,8 +131,8 @@ def edit(vmanage, policydefinition, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer/{id}"
-    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/dialpeer/{id}"
+    response = vmanage.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def delete(vmanage, id):
@@ -148,8 +148,8 @@ def delete(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/dialpeer/{id}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/policy/definition/dialpeer/{id}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getDefinitionsSRST(vmanage):
@@ -164,8 +164,8 @@ def getDefinitionsSRST(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createSRST(vmanage, policydefinition):
@@ -181,8 +181,8 @@ def createSRST(vmanage, policydefinition):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile"
-    response = vmanage.client.apiCall("POST", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile"
+    response = vmanage.apiCall("POST", endpoint, policydefinition)
     return response
 
 def saveInBulkSRST(vmanage, policydefinition):
@@ -198,8 +198,8 @@ def saveInBulkSRST(vmanage, policydefinition):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile/bulk"
-    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile/bulk"
+    response = vmanage.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def editMultipleSRST(vmanage, policydefinition, id):
@@ -216,8 +216,8 @@ def editMultipleSRST(vmanage, policydefinition, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile/multiple/{id}"
-    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile/multiple/{id}"
+    response = vmanage.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def previewSRST(vmanage, policydefinition):
@@ -233,8 +233,8 @@ def previewSRST(vmanage, policydefinition):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile/preview"
-    response = vmanage.client.apiCall("POST", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile/preview"
+    response = vmanage.apiCall("POST", endpoint, policydefinition)
     return response
 
 def previewByIdSRST(vmanage, id):
@@ -250,8 +250,8 @@ def previewByIdSRST(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile/preview/{id}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile/preview/{id}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getSRST(vmanage, id):
@@ -267,8 +267,8 @@ def getSRST(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile/{id}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile/{id}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editSRST(vmanage, policydefinition, id):
@@ -285,8 +285,8 @@ def editSRST(vmanage, policydefinition, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile/{id}"
-    response = vmanage.client.apiCall("PUT", endpoint, policydefinition)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile/{id}"
+    response = vmanage.apiCall("PUT", endpoint, policydefinition)
     return response
 
 def deleteSRST(vmanage, id):
@@ -302,6 +302,6 @@ def deleteSRST(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/definition/srstphoneprofile/{id}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/policy/definition/srstphoneprofile/{id}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

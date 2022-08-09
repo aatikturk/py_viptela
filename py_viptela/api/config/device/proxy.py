@@ -10,8 +10,8 @@ def getSelfSignedCert(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/certificate/vmanage/selfsignedcert"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/certificate/vmanage/selfsignedcert"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getProxyCertOfEdge(vmanage, deviceId):
@@ -27,8 +27,8 @@ def getProxyCertOfEdge(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/certificate?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/certificate?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateCert(vmanage, cert):
@@ -44,8 +44,8 @@ def updateCert(vmanage, cert):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/certificate"
-    response = vmanage.client.apiCall("PUT", endpoint, cert)
+    endpoint = f"dataservice/sslproxy/certificate"
+    response = vmanage.apiCall("PUT", endpoint, cert)
     return response
 
 def addWANEdge(vmanage, certstate, deviceId):
@@ -62,8 +62,8 @@ def addWANEdge(vmanage, certstate, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/certificate/wanedge/{deviceId}"
-    response = vmanage.client.apiCall("POST", endpoint, certstate)
+    endpoint = f"dataservice/sslproxy/certificate/wanedge/{deviceId}"
+    response = vmanage.apiCall("POST", endpoint, certstate)
     return response
 
 def uploadCerts(vmanage, certFile):
@@ -79,8 +79,8 @@ def uploadCerts(vmanage, certFile):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/certificates"
-    response = vmanage.client.apiCall("POST", endpoint, certFile)
+    endpoint = f"dataservice/sslproxy/certificates"
+    response = vmanage.apiCall("POST", endpoint, certFile)
     return response
 
 def getSslProxyCSR(vmanage, deviceId):
@@ -96,8 +96,8 @@ def getSslProxyCSR(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/csr?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/csr?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getAllDeviceCerts(vmanage, devicelist):
@@ -113,8 +113,8 @@ def getAllDeviceCerts(vmanage, devicelist):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/devicecertificates"
-    response = vmanage.client.apiCall("POST", endpoint, devicelist)
+    endpoint = f"dataservice/sslproxy/devicecertificates"
+    response = vmanage.apiCall("POST", endpoint, devicelist)
     return response
 
 def getAllDeviceCSR(vmanage, devicelist):
@@ -130,8 +130,8 @@ def getAllDeviceCSR(vmanage, devicelist):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/devicecsr"
-    response = vmanage.client.apiCall("POST", endpoint, devicelist)
+    endpoint = f"dataservice/sslproxy/devicecsr"
+    response = vmanage.apiCall("POST", endpoint, devicelist)
     return response
 
 def generateSslProxyCSR(vmanage, csrRequest):
@@ -147,8 +147,8 @@ def generateSslProxyCSR(vmanage, csrRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/generate/csr/sslproxy"
-    response = vmanage.client.apiCall("POST", endpoint, csrRequest)
+    endpoint = f"dataservice/sslproxy/generate/csr/sslproxy"
+    response = vmanage.apiCall("POST", endpoint, csrRequest)
     return response
 
 def generateSSLProxyCSR(vmanage, csrRequest):
@@ -164,8 +164,8 @@ def generateSSLProxyCSR(vmanage, csrRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/generate/vmanage/csr"
-    response = vmanage.client.apiCall("POST", endpoint, csrRequest)
+    endpoint = f"dataservice/sslproxy/generate/vmanage/csr"
+    response = vmanage.apiCall("POST", endpoint, csrRequest)
     return response
 
 def getSslProxyList(vmanage):
@@ -180,8 +180,8 @@ def getSslProxyList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/list"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/list"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def renewCert(vmanage, certRequest):
@@ -197,8 +197,8 @@ def renewCert(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/renew"
-    response = vmanage.client.apiCall("POST", endpoint, certRequest)
+    endpoint = f"dataservice/sslproxy/renew"
+    response = vmanage.apiCall("POST", endpoint, certRequest)
     return response
 
 def revokeCert(vmanage, certRequest):
@@ -214,8 +214,8 @@ def revokeCert(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/revoke"
-    response = vmanage.client.apiCall("POST", endpoint, certRequest)
+    endpoint = f"dataservice/sslproxy/revoke"
+    response = vmanage.apiCall("POST", endpoint, certRequest)
     return response
 
 def revokeRenewCert(vmanage, certRequest):
@@ -231,8 +231,8 @@ def revokeRenewCert(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/revokerenew"
-    response = vmanage.client.apiCall("POST", endpoint, certRequest)
+    endpoint = f"dataservice/sslproxy/revokerenew"
+    response = vmanage.apiCall("POST", endpoint, certRequest)
     return response
 
 def getCertState(vmanage):
@@ -247,8 +247,8 @@ def getCertState(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/certificate"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/settings/certificate"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEntCert(vmanage):
@@ -263,8 +263,8 @@ def getEntCert(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/enterprise/certificate"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/settings/enterprise/certificate"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def setEntCert(vmanage, certRequest):
@@ -280,8 +280,8 @@ def setEntCert(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/enterprise/certificate"
-    response = vmanage.client.apiCall("POST", endpoint, certRequest)
+    endpoint = f"dataservice/sslproxy/settings/enterprise/certificate"
+    response = vmanage.apiCall("POST", endpoint, certRequest)
     return response
 
 def getVManageEntRootCert(vmanage):
@@ -296,8 +296,8 @@ def getVManageEntRootCert(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/enterprise/rootca"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/settings/enterprise/rootca"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def setEntRootCaCert(vmanage, certRequest):
@@ -313,8 +313,8 @@ def setEntRootCaCert(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/enterprise/rootca"
-    response = vmanage.client.apiCall("POST", endpoint, certRequest)
+    endpoint = f"dataservice/sslproxy/settings/enterprise/rootca"
+    response = vmanage.apiCall("POST", endpoint, certRequest)
     return response
 
 def getvManageCert(vmanage):
@@ -329,8 +329,8 @@ def getvManageCert(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/vmanage/certificate"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/settings/vmanage/certificate"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def setvManageintermediateCert(vmanage, certRequest):
@@ -346,8 +346,8 @@ def setvManageintermediateCert(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/vmanage/certificate"
-    response = vmanage.client.apiCall("POST", endpoint, certRequest)
+    endpoint = f"dataservice/sslproxy/settings/vmanage/certificate"
+    response = vmanage.apiCall("POST", endpoint, certRequest)
     return response
 
 def getvManageCSR(vmanage):
@@ -362,8 +362,8 @@ def getvManageCSR(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/vmanage/csr"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/settings/vmanage/csr"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getvManageRootCA(vmanage):
@@ -378,8 +378,8 @@ def getvManageRootCA(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/vmanage/rootca"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sslproxy/settings/vmanage/rootca"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def setvManageRootCA(vmanage, certRequest):
@@ -395,6 +395,6 @@ def setvManageRootCA(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sslproxy/settings/vmanage/rootca"
-    response = vmanage.client.apiCall("POST", endpoint, certRequest)
+    endpoint = f"dataservice/sslproxy/settings/vmanage/rootca"
+    response = vmanage.apiCall("POST", endpoint, certRequest)
     return response

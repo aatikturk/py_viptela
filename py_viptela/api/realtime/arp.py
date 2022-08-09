@@ -11,6 +11,6 @@ def getInterface(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/arp?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/arp?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

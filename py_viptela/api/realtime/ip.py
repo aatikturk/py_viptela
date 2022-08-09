@@ -16,8 +16,8 @@ def getFib(vmanage, vpnId, af, prefix, tloc, color, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/fib?vpnId={vpnId}&af={af}&prefix={prefix}&tloc={tloc}&color={color}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/fib?vpnId={vpnId}&af={af}&prefix={prefix}&tloc={tloc}&color={color}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getIetfRouting(vmanage, instanceName, af, outIf, srcProto, nextHop, deviceId):
     """
@@ -37,8 +37,8 @@ def getIetfRouting(vmanage, instanceName, af, outIf, srcProto, nextHop, deviceId
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/ipRoutes?instanceName={instanceName}&af={af}&outIf={outIf}&srcProto={srcProto}&nextHop={nextHop}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/ipRoutes?instanceName={instanceName}&af={af}&outIf={outIf}&srcProto={srcProto}&nextHop={nextHop}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getIPMfibOil(vmanage, deviceId):
     """
@@ -53,8 +53,8 @@ def getIPMfibOil(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/mfiboil?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/mfiboil?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getIPMfibStats(vmanage, deviceId):
     """
@@ -69,8 +69,8 @@ def getIPMfibStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/mfibstats?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/mfibstats?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getIPMfibSummary(vmanage, deviceId):
     """
@@ -85,8 +85,8 @@ def getIPMfibSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/mfibsummary?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/mfibsummary?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getNatFilter(vmanage, natVpnId, natIfname, privateSrcAddr, proto, deviceId):
     """
@@ -105,8 +105,8 @@ def getNatFilter(vmanage, natVpnId, natIfname, privateSrcAddr, proto, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/nat/filter?natVpnId={natVpnId}&natIfname={natIfname}&privateSrcAddr={privateSrcAddr}&proto={proto}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/nat/filter?natVpnId={natVpnId}&natIfname={natIfname}&privateSrcAddr={privateSrcAddr}&proto={proto}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getNatInterface(vmanage, deviceId):
     """
@@ -121,8 +121,8 @@ def getNatInterface(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/nat/interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/nat/interface?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getNatIfStats(vmanage, deviceId):
     """
@@ -137,8 +137,8 @@ def getNatIfStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/nat/interfacestatistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/nat/interfacestatistics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getNatTranslations(vmanage, deviceId):
     """
@@ -153,8 +153,8 @@ def getNatTranslations(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/nat/translation?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/nat/translation?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getNat64Translations(vmanage, deviceId):
     """
@@ -169,8 +169,8 @@ def getNat64Translations(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/nat64/translation?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/nat64/translation?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRouteTable(vmanage, vpnId, af, prefix, protocol, deviceId):
     """
@@ -189,6 +189,6 @@ def getRouteTable(vmanage, vpnId, af, prefix, protocol, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ip/routetable?vpnId={vpnId}&af={af}&prefix={prefix}&protocol={protocol}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ip/routetable?vpnId={vpnId}&af={af}&prefix={prefix}&protocol={protocol}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

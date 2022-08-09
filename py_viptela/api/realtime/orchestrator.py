@@ -11,8 +11,8 @@ def getConnList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/connections?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/connections?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getConnHist(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getConnHist(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/connectionshistory?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/connectionshistory?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getLocalProperties(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getLocalProperties(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/localproperties?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/localproperties?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRevProxy(vmanage, deviceId):
     """
@@ -59,8 +59,8 @@ def getRevProxy(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/proxymapping?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/proxymapping?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStats(vmanage, deviceId):
     """
@@ -75,8 +75,8 @@ def getStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/statistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/statistics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getConnSummary(vmanage, deviceId):
     """
@@ -91,8 +91,8 @@ def getConnSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/summary?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getValidDevicesList(vmanage, deviceId):
     """
@@ -107,8 +107,8 @@ def getValidDevicesList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/validvedges?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/validvedges?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getValidVManageId(vmanage, deviceId):
     """
@@ -123,8 +123,8 @@ def getValidVManageId(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/validvmanageid?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/validvmanageid?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getValidVSmartsList(vmanage, deviceId):
     """
@@ -139,6 +139,6 @@ def getValidVSmartsList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/orchestrator/validvsmarts?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/orchestrator/validvsmarts?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

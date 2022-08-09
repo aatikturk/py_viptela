@@ -10,8 +10,8 @@ def getQueueEntries(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/on-demand/queue"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createQueueEntry(vmanage, queue):
     """
@@ -26,8 +26,8 @@ def createQueueEntry(vmanage, queue):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue"
-    response = vmanage.client.apiCall("POST", endpoint, queue)
+    endpoint = f"dataservice/statistics/on-demand/queue"
+    response = vmanage.apiCall("POST", endpoint, queue)
     return response
 def getQueueProperties(vmanage):
     """
@@ -41,8 +41,8 @@ def getQueueProperties(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue/properties"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/on-demand/queue/properties"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def updateQueueEntry(vmanage, queue, entryId):
     """
@@ -58,8 +58,8 @@ def updateQueueEntry(vmanage, queue, entryId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue/{entryId}"
-    response = vmanage.client.apiCall("PUT", endpoint, queue)
+    endpoint = f"dataservice/statistics/on-demand/queue/{entryId}"
+    response = vmanage.apiCall("PUT", endpoint, queue)
     return response
 def deleteQueueEntry(vmanage, entryId):
     """
@@ -74,6 +74,6 @@ def deleteQueueEntry(vmanage, entryId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/on-demand/queue/{entryId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/statistics/on-demand/queue/{entryId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

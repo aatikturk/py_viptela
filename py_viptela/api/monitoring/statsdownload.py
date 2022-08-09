@@ -11,8 +11,8 @@ def fetchList(vmanage, processType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/download/{processType}/fetchvManageList"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/download/{processType}/fetchvManageList"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def download(vmanage, processType, fileType, queue, deviceIp, token, fileName):
     """
@@ -32,8 +32,8 @@ def download(vmanage, processType, fileType, queue, deviceIp, token, fileName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/download/{processType}/file/{fileType}/{queue}/{deviceIp}/{token}/{fileName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/download/{processType}/file/{fileType}/{queue}/{deviceIp}/{token}/{fileName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def downloadList(vmanage, bodyParameter, processType):
     """
@@ -49,6 +49,6 @@ def downloadList(vmanage, bodyParameter, processType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/download/{processType}/filelist"
-    response = vmanage.client.apiCall("POST", endpoint, bodyParameter)
+    endpoint = f"dataservice/statistics/download/{processType}/filelist"
+    response = vmanage.apiCall("POST", endpoint, bodyParameter)
     return response

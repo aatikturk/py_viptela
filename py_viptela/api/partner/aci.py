@@ -11,8 +11,8 @@ def getACIDefinitions(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/aci/policy"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDscpMappings(vmanage, partnerId):
     """
@@ -27,8 +27,8 @@ def getDscpMappings(vmanage, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/dscpmapping/{partnerId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/aci/policy/dscpmapping/{partnerId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createDscpMappings(vmanage, acidefinition, partnerId):
     """
@@ -44,8 +44,8 @@ def createDscpMappings(vmanage, acidefinition, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/dscpmapping/{partnerId}"
-    response = vmanage.client.apiCall("POST", endpoint, acidefinition)
+    endpoint = f"dataservice/partner/aci/policy/dscpmapping/{partnerId}"
+    response = vmanage.apiCall("POST", endpoint, acidefinition)
     return response
 def deleteDscpMappings(vmanage, partnerId):
     """
@@ -60,8 +60,8 @@ def deleteDscpMappings(vmanage, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/dscpmapping/{partnerId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/partner/aci/policy/dscpmapping/{partnerId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 def getEvents(vmanage, partnerId, starttime, endtime):
     """
@@ -78,8 +78,8 @@ def getEvents(vmanage, partnerId, starttime, endtime):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/events/{partnerId}?starttime={starttime}&endtime={endtime}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/aci/policy/events/{partnerId}?starttime={starttime}&endtime={endtime}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDataPrefixMappings(vmanage, partnerId):
     """
@@ -94,8 +94,8 @@ def getDataPrefixMappings(vmanage, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/prefixmapping/{partnerId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/aci/policy/prefixmapping/{partnerId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def setDataPrefixMappings(vmanage, prefixdefinition, partnerId):
     """
@@ -111,8 +111,8 @@ def setDataPrefixMappings(vmanage, prefixdefinition, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/prefixmapping/{partnerId}"
-    response = vmanage.client.apiCall("POST", endpoint, prefixdefinition)
+    endpoint = f"dataservice/partner/aci/policy/prefixmapping/{partnerId}"
+    response = vmanage.apiCall("POST", endpoint, prefixdefinition)
     return response
 def getDataPrefixSequences(vmanage):
     """
@@ -126,6 +126,6 @@ def getDataPrefixSequences(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/aci/policy/sequences"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/aci/policy/sequences"
+    response = vmanage.apiCall("GET", endpoint)
     return response

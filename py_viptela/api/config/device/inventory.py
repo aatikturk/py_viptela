@@ -12,8 +12,8 @@ def createDevice(vmanage, createdevicerequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device"
-    response = vmanage.client.apiCall("POST", endpoint, createdevicerequest)
+    endpoint = f"dataservice/system/device"
+    response = vmanage.apiCall("POST", endpoint, createdevicerequest)
     return response
 
 def generateBootstrapConfigForVedge(vmanage, uuid, configtype, inclDefRootCert, version):
@@ -32,8 +32,8 @@ def generateBootstrapConfigForVedge(vmanage, uuid, configtype, inclDefRootCert, 
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/bootstrap/device/{uuid}?configtype={configtype}&inclDefRootCert={inclDefRootCert}&version={version}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/bootstrap/device/{uuid}?configtype={configtype}&inclDefRootCert={inclDefRootCert}&version={version}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def generateBootstrapConfigForVedges(vmanage, devicebootstraptypeandid):
@@ -49,8 +49,8 @@ def generateBootstrapConfigForVedges(vmanage, devicebootstraptypeandid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/bootstrap/devices"
-    response = vmanage.client.apiCall("POST", endpoint, devicebootstraptypeandid)
+    endpoint = f"dataservice/system/device/bootstrap/devices"
+    response = vmanage.apiCall("POST", endpoint, devicebootstraptypeandid)
     return response
 
 def getBootstrapConfigZip(vmanage, id):
@@ -66,8 +66,8 @@ def getBootstrapConfigZip(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/bootstrap/download/{id}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/bootstrap/download/{id}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def generateGenericBootstrapConfigForVedges(vmanage, wanif):
@@ -83,8 +83,8 @@ def generateGenericBootstrapConfigForVedges(vmanage, wanif):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/bootstrap/generic/devices?wanif={wanif}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/bootstrap/generic/devices?wanif={wanif}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def claimDevices(vmanage, claimdevicerequest):
@@ -100,8 +100,8 @@ def claimDevices(vmanage, claimdevicerequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/claimDevices"
-    response = vmanage.client.apiCall("POST", endpoint, claimdevicerequest)
+    endpoint = f"dataservice/system/device/claimDevices"
+    response = vmanage.apiCall("POST", endpoint, claimdevicerequest)
     return response
 
 def getControllerVEdgeSyncStatus(vmanage):
@@ -116,8 +116,8 @@ def getControllerVEdgeSyncStatus(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/controllers/vedge/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/controllers/vedge/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def decommissionVedgeCloud(vmanage, uuid):
@@ -133,8 +133,8 @@ def decommissionVedgeCloud(vmanage, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/decommission/{uuid}"
-    response = vmanage.client.apiCall("PUT", endpoint)
+    endpoint = f"dataservice/system/device/decommission/{uuid}"
+    response = vmanage.apiCall("PUT", endpoint)
     return response
 
 def devicesWithoutSubjectSudi(vmanage):
@@ -149,8 +149,8 @@ def devicesWithoutSubjectSudi(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/devicesWithoutSubjectSudi"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/devicesWithoutSubjectSudi"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def formPost(vmanage):
@@ -165,8 +165,8 @@ def formPost(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/fileupload"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/system/device/fileupload"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def generatePAYG(vmanage, bodyParameter):
@@ -182,8 +182,8 @@ def generatePAYG(vmanage, bodyParameter):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/generate-payg"
-    response = vmanage.client.apiCall("POST", endpoint, bodyParameter)
+    endpoint = f"dataservice/system/device/generate-payg"
+    response = vmanage.apiCall("POST", endpoint, bodyParameter)
     return response
 
 def setLifeCycle(vmanage, uuid, enable):
@@ -200,8 +200,8 @@ def setLifeCycle(vmanage, uuid, enable):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/lifecycle/management/{uuid}?enable={enable}"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/system/device/lifecycle/management/{uuid}?enable={enable}"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def getManagementSystemIPInfo(vmanage):
@@ -216,8 +216,8 @@ def getManagementSystemIPInfo(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/management/systemip"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/management/systemip"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def migrateDevice(vmanage, uuid):
@@ -233,8 +233,8 @@ def migrateDevice(vmanage, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/migrateDevice/{uuid}"
-    response = vmanage.client.apiCall("PUT", endpoint)
+    endpoint = f"dataservice/system/device/migrateDevice/{uuid}"
+    response = vmanage.apiCall("PUT", endpoint)
     return response
 
 def resetVedgeCloud(vmanage, uuid):
@@ -250,8 +250,8 @@ def resetVedgeCloud(vmanage, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/reset/{uuid}"
-    response = vmanage.client.apiCall("PUT", endpoint)
+    endpoint = f"dataservice/system/device/reset/{uuid}"
+    response = vmanage.apiCall("PUT", endpoint)
     return response
 
 def getRMACandidates(vmanage, deviceType, uuid):
@@ -268,8 +268,8 @@ def getRMACandidates(vmanage, deviceType, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/rma/candidates/{deviceType}?uuid={uuid}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/rma/candidates/{deviceType}?uuid={uuid}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getRootCertStatusAll(vmanage, state):
@@ -285,8 +285,8 @@ def getRootCertStatusAll(vmanage, state):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/rootcertchain/status?state={state}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/rootcertchain/status?state={state}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def checkvmanageSignedCert(vmanage):
@@ -301,8 +301,8 @@ def checkvmanageSignedCert(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/vmanagesignedcert/iscreated"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/vmanagesignedcert/iscreated"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def validateUser(vmanage, bodyParameter):
@@ -318,8 +318,8 @@ def validateUser(vmanage, bodyParameter):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/smartaccount/authenticate"
-    response = vmanage.client.apiCall("POST", endpoint, bodyParameter)
+    endpoint = f"dataservice/system/device/smartaccount/authenticate"
+    response = vmanage.apiCall("POST", endpoint, bodyParameter)
     return response
 
 def syncDevices(vmanage, bodyParameter):
@@ -335,8 +335,8 @@ def syncDevices(vmanage, bodyParameter):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/smartaccount/sync"
-    response = vmanage.client.apiCall("POST", endpoint, bodyParameter)
+    endpoint = f"dataservice/system/device/smartaccount/sync"
+    response = vmanage.apiCall("POST", endpoint, bodyParameter)
     return response
 
 def syncRootCertChain(vmanage):
@@ -351,8 +351,8 @@ def syncRootCertChain(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/sync/rootcertchain"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/sync/rootcertchain"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTenantManagementSystemIPs(vmanage):
@@ -368,8 +368,8 @@ def getTenantManagementSystemIPs(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/tenant/management/systemip"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/tenant/management/systemip"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudDockDataBasedOnDeviceType(vmanage, deviceCategory):
@@ -385,8 +385,8 @@ def getCloudDockDataBasedOnDeviceType(vmanage, deviceCategory):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/type/{deviceCategory}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/type/{deviceCategory}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudDockDefaultConfigBasedOnDeviceType(vmanage, deviceCategory):
@@ -402,8 +402,8 @@ def getCloudDockDefaultConfigBasedOnDeviceType(vmanage, deviceCategory):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/type/{deviceCategory}/defaultConfig"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/type/{deviceCategory}/defaultConfig"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getAllUnclaimedDevices(vmanage):
@@ -418,8 +418,8 @@ def getAllUnclaimedDevices(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/unclaimedDevices"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/unclaimedDevices"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def invalidateVmanageRootCA(vmanage, uuid):
@@ -435,8 +435,8 @@ def invalidateVmanageRootCA(vmanage, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/vmanagerootca/{uuid}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/system/device/vmanagerootca/{uuid}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getDevicesDetails(vmanage, deviceCategory, model, state, uuid, deviceIP, validity):
@@ -458,8 +458,8 @@ def getDevicesDetails(vmanage, deviceCategory, model, state, uuid, deviceIP, val
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/{deviceCategory}?model={model}&state={state}&uuid={uuid}&deviceIP={deviceIP}&validity={validity}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/device/{deviceCategory}?model={model}&state={state}&uuid={uuid}&deviceIP={deviceIP}&validity={validity}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editDevice(vmanage, deviceconfig, uuid):
@@ -476,8 +476,8 @@ def editDevice(vmanage, deviceconfig, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/{uuid}"
-    response = vmanage.client.apiCall("PUT", endpoint, deviceconfig)
+    endpoint = f"dataservice/system/device/{uuid}"
+    response = vmanage.apiCall("PUT", endpoint, deviceconfig)
     return response
 
 def deleteDevice(vmanage, uuid):
@@ -493,6 +493,6 @@ def deleteDevice(vmanage, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/device/{uuid}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/system/device/{uuid}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

@@ -10,8 +10,8 @@ def getStatisticType(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def startStatsCollection(vmanage):
     """
@@ -25,8 +25,8 @@ def startStatsCollection(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/collect"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/collect"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def generateStatsCollectThreadReport(vmanage):
     """
@@ -40,8 +40,8 @@ def generateStatsCollectThreadReport(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/collect/thread/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/collect/thread/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def resetStatsCollection(vmanage, processQueue):
     """
@@ -56,8 +56,8 @@ def resetStatsCollection(vmanage, processQueue):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/collection/reset/{processQueue}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/collection/reset/{processQueue}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def enableStatsDemo(vmanage, enable):
     """
@@ -72,8 +72,8 @@ def enableStatsDemo(vmanage, enable):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/demomode?enable={enable}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/demomode?enable={enable}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def processStatsData(vmanage):
     """
@@ -87,8 +87,8 @@ def processStatsData(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/process"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsProcessingCounters(vmanage):
     """
@@ -102,8 +102,8 @@ def getStatsProcessingCounters(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process/counters"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/process/counters"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsProcessReport(vmanage, processQueue):
     """
@@ -118,8 +118,8 @@ def getStatsProcessReport(vmanage, processQueue):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process/status?processQueue={processQueue}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/process/status?processQueue={processQueue}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsProcessThreadReport(vmanage):
     """
@@ -133,6 +133,6 @@ def getStatsProcessThreadReport(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/process/thread/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/process/thread/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response

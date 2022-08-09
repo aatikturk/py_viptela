@@ -10,8 +10,8 @@ def installPkg(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/device/action/software/package"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def getUploadImagesCount(vmanage, imageType):
@@ -27,8 +27,8 @@ def getUploadImagesCount(vmanage, imageType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/imageCount?imageType={imageType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/action/software/package/imageCount?imageType={imageType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def downloadPkgFile(vmanage, fileName, imageType):
@@ -45,8 +45,8 @@ def downloadPkgFile(vmanage, fileName, imageType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{fileName}?imageType={imageType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/action/software/package/{fileName}?imageType={imageType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def processSoftwareImage(vmanage, imageType):
@@ -62,8 +62,8 @@ def processSoftwareImage(vmanage, imageType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{imageType}"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/device/action/software/package/{imageType}"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def getImgMeta(vmanage, versionId):
@@ -79,8 +79,8 @@ def getImgMeta(vmanage, versionId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{versionId}/metadata"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/action/software/package/{versionId}/metadata"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editImgMeta(vmanage, imageData, versionId):
@@ -97,6 +97,6 @@ def editImgMeta(vmanage, imageData, versionId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/software/package/{versionId}/metadata"
-    response = vmanage.client.apiCall("PUT", endpoint, imageData)
+    endpoint = f"dataservice/device/action/software/package/{versionId}/metadata"
+    response = vmanage.apiCall("PUT", endpoint, imageData)
     return response

@@ -11,8 +11,8 @@ def getVbranchNics(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/nics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/vm/nics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getCloudDockNics(vmanage, userGroup):
     """
@@ -27,8 +27,8 @@ def getCloudDockNics(vmanage, userGroup):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/notifications?userGroup={userGroup}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/vm/notifications?userGroup={userGroup}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getVbranch(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getVbranch(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/oper/state?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/vm/oper/state?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getState(vmanage, deviceId):
     """
@@ -59,6 +59,6 @@ def getState(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vm/state?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/vm/state?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

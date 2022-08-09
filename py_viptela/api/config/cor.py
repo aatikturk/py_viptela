@@ -10,8 +10,8 @@ def getCORStatus(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createAndMap(vmanage, request):
@@ -27,8 +27,8 @@ def createAndMap(vmanage, request):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor"
-    response = vmanage.client.apiCall("POST", endpoint, request)
+    endpoint = f"dataservice/template/cor"
+    response = vmanage.apiCall("POST", endpoint, request)
     return response
 
 def raiseAlarmForAccount(vmanage, accountobject):
@@ -44,8 +44,8 @@ def raiseAlarmForAccount(vmanage, accountobject):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/account/alarm"
-    response = vmanage.client.apiCall("POST", endpoint, accountobject)
+    endpoint = f"dataservice/template/cor/account/alarm"
+    response = vmanage.apiCall("POST", endpoint, accountobject)
     return response
 
 def removeTransitVPC(vmanage, accountid, transitvpcid, cloudregion, cloudtype):
@@ -64,8 +64,8 @@ def removeTransitVPC(vmanage, accountid, transitvpcid, cloudregion, cloudtype):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/accountid/{accountid}?transitvpcid={transitvpcid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/cor/accountid/{accountid}?transitvpcid={transitvpcid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def acquireRP(vmanage, request):
@@ -81,8 +81,8 @@ def acquireRP(vmanage, request):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/acquireResourcePool"
-    response = vmanage.client.apiCall("POST", endpoint, request)
+    endpoint = f"dataservice/template/cor/acquireResourcePool"
+    response = vmanage.apiCall("POST", endpoint, request)
     return response
 
 def getAmiList(vmanage, accountid, cloudregion, cloudtype):
@@ -100,8 +100,8 @@ def getAmiList(vmanage, accountid, cloudregion, cloudtype):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/ami?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/ami?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudList(vmanage):
@@ -116,8 +116,8 @@ def getCloudList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/cloud"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/cloud"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudAccounts(vmanage, cloudtype, cloudEnvironment):
@@ -134,8 +134,8 @@ def getCloudAccounts(vmanage, cloudtype, cloudEnvironment):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/cloud/account?cloudtype={cloudtype}&cloudEnvironment={cloudEnvironment}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/cloud/account?cloudtype={cloudtype}&cloudEnvironment={cloudEnvironment}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def authCredAndUpdate(vmanage, credential):
@@ -151,8 +151,8 @@ def authCredAndUpdate(vmanage, credential):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/cloud/authenticate"
-    response = vmanage.client.apiCall("PUT", endpoint, credential)
+    endpoint = f"dataservice/template/cor/cloud/authenticate"
+    response = vmanage.apiCall("PUT", endpoint, credential)
     return response
 
 def authCORCredAndAdd(vmanage, credential):
@@ -168,8 +168,8 @@ def authCORCredAndAdd(vmanage, credential):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/cloud/authenticate"
-    response = vmanage.client.apiCall("POST", endpoint, credential)
+    endpoint = f"dataservice/template/cor/cloud/authenticate"
+    response = vmanage.apiCall("POST", endpoint, credential)
     return response
 
 def getCloudHostVpcAccountDetails(vmanage):
@@ -184,8 +184,8 @@ def getCloudHostVpcAccountDetails(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/cloud/host/accountdetails"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/cloud/host/accountdetails"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudMappedHostAccounts(vmanage, accountid, cloudtype):
@@ -202,8 +202,8 @@ def getCloudMappedHostAccounts(vmanage, accountid, cloudtype):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/cloud/mappedhostaccounts?accountid={accountid}&cloudtype={cloudtype}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/cloud/mappedhostaccounts?accountid={accountid}&cloudtype={cloudtype}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createRP(vmanage, request):
@@ -219,8 +219,8 @@ def createRP(vmanage, request):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/createResourcePool"
-    response = vmanage.client.apiCall("POST", endpoint, request)
+    endpoint = f"dataservice/template/cor/createResourcePool"
+    response = vmanage.apiCall("POST", endpoint, request)
     return response
 
 def removeDeviceId(vmanage, accountid, transitvpcid, transitvpcname, cloudregion, cloudtype, devicePairId):
@@ -241,8 +241,8 @@ def removeDeviceId(vmanage, accountid, transitvpcid, transitvpcname, cloudregion
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/deleteDevicepair?accountid={accountid}&transitvpcid={transitvpcid}&transitvpcname={transitvpcname}&cloudregion={cloudregion}&cloudtype={cloudtype}&devicePairId={devicePairId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/cor/deleteDevicepair?accountid={accountid}&transitvpcid={transitvpcid}&transitvpcname={transitvpcname}&cloudregion={cloudregion}&cloudtype={cloudtype}&devicePairId={devicePairId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getCORDevices(vmanage):
@@ -257,8 +257,8 @@ def getCORDevices(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/device"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/device"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def addDevicePair(vmanage, request):
@@ -274,8 +274,8 @@ def addDevicePair(vmanage, request):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/devicepair"
-    response = vmanage.client.apiCall("POST", endpoint, request)
+    endpoint = f"dataservice/template/cor/devicepair"
+    response = vmanage.apiCall("POST", endpoint, request)
     return response
 
 def getHostVPCs(vmanage, transitVpcId, devicePairId):
@@ -292,8 +292,8 @@ def getHostVPCs(vmanage, transitVpcId, devicePairId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/devicepair/hostvpc?transitVpcId={transitVpcId}&devicePairId={devicePairId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/devicepair/hostvpc?transitVpcId={transitVpcId}&devicePairId={devicePairId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getExternalId(vmanage):
@@ -308,8 +308,8 @@ def getExternalId(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/externalId"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/externalId"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTransitDevicePairAndHostList(vmanage, accountId, cloudRegion):
@@ -326,8 +326,8 @@ def getTransitDevicePairAndHostList(vmanage, accountId, cloudRegion):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/getTransitDevicePairAndHostList?accountId={accountId}&cloudRegion={cloudRegion}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/getTransitDevicePairAndHostList?accountId={accountId}&cloudRegion={cloudRegion}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTransitVpcVpnList(vmanage, accountId):
@@ -343,8 +343,8 @@ def getTransitVpcVpnList(vmanage, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/getTransitVpnList?accountId={accountId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/getTransitVpnList?accountId={accountId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudHostVPCs(vmanage, accountid, cloudregion, cloudtype):
@@ -362,8 +362,8 @@ def getCloudHostVPCs(vmanage, accountid, cloudregion, cloudtype):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/hostvpc?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/hostvpc?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTenantAndHostVpcList(vmanage, intent):
@@ -379,8 +379,8 @@ def getTenantAndHostVpcList(vmanage, intent):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/hostvpclist?intent={intent}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/hostvpclist?intent={intent}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateHostVpcReachability(vmanage, updatevpcstatus):
@@ -396,8 +396,8 @@ def updateHostVpcReachability(vmanage, updatevpcstatus):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/hostvpclist"
-    response = vmanage.client.apiCall("PUT", endpoint, updatevpcstatus)
+    endpoint = f"dataservice/template/cor/hostvpclist"
+    response = vmanage.apiCall("PUT", endpoint, updatevpcstatus)
     return response
 
 def getMappedVPCs(vmanage, accountid, cloudregion):
@@ -414,8 +414,8 @@ def getMappedVPCs(vmanage, accountid, cloudregion):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/map?accountid={accountid}&cloudregion={cloudregion}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/map?accountid={accountid}&cloudregion={cloudregion}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def mapVPCs(vmanage, host):
@@ -431,8 +431,8 @@ def mapVPCs(vmanage, host):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/map"
-    response = vmanage.client.apiCall("POST", endpoint, host)
+    endpoint = f"dataservice/template/cor/map"
+    response = vmanage.apiCall("POST", endpoint, host)
     return response
 
 def unmapVPCs(vmanage, host):
@@ -448,8 +448,8 @@ def unmapVPCs(vmanage, host):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/map"
-    response = vmanage.client.apiCall("DELETE", endpoint, host)
+    endpoint = f"dataservice/template/cor/map"
+    response = vmanage.apiCall("DELETE", endpoint, host)
     return response
 
 def getPemKeyList(vmanage, accountid, cloudregion, cloudtype):
@@ -467,8 +467,8 @@ def getPemKeyList(vmanage, accountid, cloudregion, cloudtype):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/pem?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/pem?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def scaleDown(vmanage, updatevpc):
@@ -484,8 +484,8 @@ def scaleDown(vmanage, updatevpc):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/scale/down"
-    response = vmanage.client.apiCall("POST", endpoint, updatevpc)
+    endpoint = f"dataservice/template/cor/scale/down"
+    response = vmanage.apiCall("POST", endpoint, updatevpc)
     return response
 
 def scaleUp(vmanage, updatevpc):
@@ -501,8 +501,8 @@ def scaleUp(vmanage, updatevpc):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/scale/up"
-    response = vmanage.client.apiCall("POST", endpoint, updatevpc)
+    endpoint = f"dataservice/template/cor/scale/up"
+    response = vmanage.apiCall("POST", endpoint, updatevpc)
     return response
 
 def updatestatus(vmanage, statusobject):
@@ -518,8 +518,8 @@ def updatestatus(vmanage, statusobject):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/status"
-    response = vmanage.client.apiCall("POST", endpoint, statusobject)
+    endpoint = f"dataservice/template/cor/status"
+    response = vmanage.apiCall("POST", endpoint, statusobject)
     return response
 
 def getTransitVPCs(vmanage, accountid, cloudregion, cloudtype):
@@ -537,8 +537,8 @@ def getTransitVPCs(vmanage, accountid, cloudregion, cloudtype):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/transitvpc?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/transitvpc?accountid={accountid}&cloudregion={cloudregion}&cloudtype={cloudtype}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateTransitVPC(vmanage, vpc):
@@ -554,8 +554,8 @@ def updateTransitVPC(vmanage, vpc):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/transitvpc"
-    response = vmanage.client.apiCall("PUT", endpoint, vpc)
+    endpoint = f"dataservice/template/cor/transitvpc"
+    response = vmanage.apiCall("PUT", endpoint, vpc)
     return response
 
 def addTransitVPC(vmanage, vpc):
@@ -571,8 +571,8 @@ def addTransitVPC(vmanage, vpc):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/transitvpc"
-    response = vmanage.client.apiCall("POST", endpoint, vpc)
+    endpoint = f"dataservice/template/cor/transitvpc"
+    response = vmanage.apiCall("POST", endpoint, vpc)
     return response
 
 def updateTransitVpcAutoscaleProperties(vmanage, vpc):
@@ -588,8 +588,8 @@ def updateTransitVpcAutoscaleProperties(vmanage, vpc):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/transitvpc/autoscale-properties"
-    response = vmanage.client.apiCall("PUT", endpoint, vpc)
+    endpoint = f"dataservice/template/cor/transitvpc/autoscale-properties"
+    response = vmanage.apiCall("PUT", endpoint, vpc)
     return response
 
 def getTransitVPCSupportedSize(vmanage, cloudtype, cloudEnvironment):
@@ -606,6 +606,6 @@ def getTransitVPCSupportedSize(vmanage, cloudtype, cloudEnvironment):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cor/transitvpc/size?cloudtype={cloudtype}&cloudEnvironment={cloudEnvironment}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cor/transitvpc/size?cloudtype={cloudtype}&cloudEnvironment={cloudEnvironment}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

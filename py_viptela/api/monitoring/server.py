@@ -10,6 +10,6 @@ def createServerInfo(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/server/info"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/server/info"
+    response = vmanage.apiCall("GET", endpoint)
     return response

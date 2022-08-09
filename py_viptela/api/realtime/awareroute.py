@@ -11,8 +11,8 @@ def getSlaList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app-route/sla-class?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/app-route/sla-class?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatList(vmanage, remote_system_ip, local_color, remote_color, deviceId):
     """
@@ -30,6 +30,6 @@ def getStatList(vmanage, remote_system_ip, local_color, remote_color, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app-route/statistics?remote-system-ip={remote_system_ip}&local-color={local_color}&remote-color={remote_color}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/app-route/statistics?remote-system-ip={remote_system_ip}&local-color={local_color}&remote-color={remote_color}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -10,8 +10,8 @@ def getPartners(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getVPNList(vmanage):
     """
@@ -25,8 +25,8 @@ def getVPNList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/vpn"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/vpn"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getPartnersByType(vmanage, partnerType):
     """
@@ -41,8 +41,8 @@ def getPartnersByType(vmanage, partnerType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/{partnerType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def registerPartner(vmanage, partner, partnerType):
     """
@@ -58,8 +58,8 @@ def registerPartner(vmanage, partner, partnerType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}"
-    response = vmanage.client.apiCall("POST", endpoint, partner)
+    endpoint = f"dataservice/partner/{partnerType}"
+    response = vmanage.apiCall("POST", endpoint, partner)
     return response
 def getPartnerDevices(vmanage, partnerType, nmsId):
     """
@@ -75,8 +75,8 @@ def getPartnerDevices(vmanage, partnerType, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}/map/{nmsId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/{partnerType}/map/{nmsId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def mapDevices(vmanage, listofdevices, partnerType, nmsId):
     """
@@ -93,8 +93,8 @@ def mapDevices(vmanage, listofdevices, partnerType, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}/map/{nmsId}"
-    response = vmanage.client.apiCall("POST", endpoint, listofdevices)
+    endpoint = f"dataservice/partner/{partnerType}/map/{nmsId}"
+    response = vmanage.apiCall("POST", endpoint, listofdevices)
     return response
 def unmapDevices(vmanage, partnerType, nmsId):
     """
@@ -110,8 +110,8 @@ def unmapDevices(vmanage, partnerType, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}/map/{nmsId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/partner/{partnerType}/map/{nmsId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 def deleteDeviceMapping(vmanage, listofdevices, partnerType, nmsId):
     """
@@ -128,8 +128,8 @@ def deleteDeviceMapping(vmanage, listofdevices, partnerType, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}/unmap/{nmsId}"
-    response = vmanage.client.apiCall("POST", endpoint, listofdevices)
+    endpoint = f"dataservice/partner/{partnerType}/unmap/{nmsId}"
+    response = vmanage.apiCall("POST", endpoint, listofdevices)
     return response
 def getPartner(vmanage, partnerType, nmsId):
     """
@@ -145,8 +145,8 @@ def getPartner(vmanage, partnerType, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}/{nmsId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/{partnerType}/{nmsId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def updatePartner(vmanage, partner, partnerType, nmsId):
     """
@@ -163,8 +163,8 @@ def updatePartner(vmanage, partner, partnerType, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}/{nmsId}"
-    response = vmanage.client.apiCall("PUT", endpoint, partner)
+    endpoint = f"dataservice/partner/{partnerType}/{nmsId}"
+    response = vmanage.apiCall("PUT", endpoint, partner)
     return response
 def deletePartner(vmanage, partnerType, nmsId):
     """
@@ -180,8 +180,8 @@ def deletePartner(vmanage, partnerType, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/{partnerType}/{nmsId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/partner/{partnerType}/{nmsId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 def getDataChangeInfo(vmanage, partnerId, event_id, eventNames, wait_time):
     """
@@ -199,6 +199,6 @@ def getDataChangeInfo(vmanage, partnerId, event_id, eventNames, wait_time):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/serverlongpoll/event/poll/{partnerId}?event_id={event_id}&eventNames={eventNames}&wait_time={wait_time}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/serverlongpoll/event/poll/{partnerId}?event_id={event_id}&eventNames={eventNames}&wait_time={wait_time}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

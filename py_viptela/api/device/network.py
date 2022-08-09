@@ -12,8 +12,8 @@ def getVmanageControlStatus(vmanage, isCached, vpnId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/connectionssummary?isCached={isCached}&vpnId={vpnId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/network/connectionssummary?isCached={isCached}&vpnId={vpnId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getRebootCount(vmanage, isCached):
@@ -29,8 +29,8 @@ def getRebootCount(vmanage, isCached):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/issues/rebootcount?isCached={isCached}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/network/issues/rebootcount?isCached={isCached}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getNetworkIssuesSummary(vmanage):
@@ -45,8 +45,8 @@ def getNetworkIssuesSummary(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/issues/summary"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/network/issues/summary"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getNetworkStatusSummary(vmanage):
@@ -61,6 +61,6 @@ def getNetworkStatusSummary(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/network/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/network/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response

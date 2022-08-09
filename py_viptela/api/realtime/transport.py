@@ -11,6 +11,6 @@ def getConnList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/transport/connection?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/transport/connection?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

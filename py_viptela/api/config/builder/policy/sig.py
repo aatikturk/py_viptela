@@ -11,6 +11,6 @@ def getSigDataCenterList(vmanage, type):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sig/datacenters/{type}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sig/datacenters/{type}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

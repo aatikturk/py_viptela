@@ -12,8 +12,8 @@ def pushMasterBootstrap(vmanage, bootstrapTemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attachBootStrap"
-    response = vmanage.client.apiCall("POST", endpoint, bootstrapTemplate)
+    endpoint = f"dataservice/template/device/config/attachBootStrap"
+    response = vmanage.apiCall("POST", endpoint, bootstrapTemplate)
     return response
 
 def pushCLITemplate(vmanage, devicetemplate):
@@ -30,8 +30,8 @@ def pushCLITemplate(vmanage, devicetemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attachcli"
-    response = vmanage.client.apiCall("POST", endpoint, devicetemplate)
+    endpoint = f"dataservice/template/device/config/attachcli"
+    response = vmanage.apiCall("POST", endpoint, devicetemplate)
     return response
 
 def editCloudxConfig(vmanage, cloudxconfig):
@@ -48,8 +48,8 @@ def editCloudxConfig(vmanage, cloudxconfig):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attachcloudx"
-    response = vmanage.client.apiCall("PUT", endpoint, cloudxconfig)
+    endpoint = f"dataservice/template/device/config/attachcloudx"
+    response = vmanage.apiCall("PUT", endpoint, cloudxconfig)
     return response
 
 def pushCloudxConfig(vmanage, cloudxconfig):
@@ -65,8 +65,8 @@ def pushCloudxConfig(vmanage, cloudxconfig):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attachcloudx"
-    response = vmanage.client.apiCall("POST", endpoint, cloudxconfig)
+    endpoint = f"dataservice/template/device/config/attachcloudx"
+    response = vmanage.apiCall("POST", endpoint, cloudxconfig)
     return response
 
 def getAttachedDeviceList(vmanage, masterTemplateId):
@@ -83,8 +83,8 @@ def getAttachedDeviceList(vmanage, masterTemplateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attached/{masterTemplateId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/device/config/attached/{masterTemplateId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getAttachedConfigToDevice(vmanage, deviceId):
@@ -101,8 +101,8 @@ def getAttachedConfigToDevice(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attachedconfig?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/device/config/attachedconfig?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def pushMasterTemplate(vmanage, devicetemplate):
@@ -119,8 +119,8 @@ def pushMasterTemplate(vmanage, devicetemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attachfeature"
-    response = vmanage.client.apiCall("POST", endpoint, devicetemplate)
+    endpoint = f"dataservice/template/device/config/attachfeature"
+    response = vmanage.apiCall("POST", endpoint, devicetemplate)
     return response
 
 def attachDeviceTemplate(vmanage, devicetemplate):
@@ -137,8 +137,8 @@ def attachDeviceTemplate(vmanage, devicetemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/attachment"
-    response = vmanage.client.apiCall("POST", endpoint, devicetemplate)
+    endpoint = f"dataservice/template/device/config/attachment"
+    response = vmanage.apiCall("POST", endpoint, devicetemplate)
     return response
 
 def getDeviceListByMasterTemplateId(vmanage, masterTemplateId):
@@ -155,8 +155,8 @@ def getDeviceListByMasterTemplateId(vmanage, masterTemplateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/available/{masterTemplateId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/device/config/available/{masterTemplateId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getDeviceConfigurationPreview(vmanage, devicetemplate):
@@ -173,8 +173,8 @@ def getDeviceConfigurationPreview(vmanage, devicetemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/config"
-    response = vmanage.client.apiCall("POST", endpoint, devicetemplate)
+    endpoint = f"dataservice/template/device/config/config"
+    response = vmanage.apiCall("POST", endpoint, devicetemplate)
     return response
 
 def detachDeviceTemplate(vmanage, devicetemplate):
@@ -191,8 +191,8 @@ def detachDeviceTemplate(vmanage, devicetemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/detach"
-    response = vmanage.client.apiCall("POST", endpoint, devicetemplate)
+    endpoint = f"dataservice/template/device/config/detach"
+    response = vmanage.apiCall("POST", endpoint, devicetemplate)
     return response
 
 def detachSites(vmanage, cloudxconfig):
@@ -209,8 +209,8 @@ def detachSites(vmanage, cloudxconfig):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/detachcloudx"
-    response = vmanage.client.apiCall("POST", endpoint, cloudxconfig)
+    endpoint = f"dataservice/template/device/config/detachcloudx"
+    response = vmanage.apiCall("POST", endpoint, cloudxconfig)
     return response
 
 def getDevicesWithDuplicateIP(vmanage, devicelist):
@@ -227,8 +227,8 @@ def getDevicesWithDuplicateIP(vmanage, devicelist):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/duplicateip"
-    response = vmanage.client.apiCall("POST", endpoint, devicelist)
+    endpoint = f"dataservice/template/device/config/duplicateip"
+    response = vmanage.apiCall("POST", endpoint, devicelist)
     return response
 
 def createInputWithoutDevice(vmanage, devicetemplate):
@@ -245,8 +245,8 @@ def createInputWithoutDevice(vmanage, devicetemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/exportcsv"
-    response = vmanage.client.apiCall("POST", endpoint, devicetemplate)
+    endpoint = f"dataservice/template/device/config/exportcsv"
+    response = vmanage.apiCall("POST", endpoint, devicetemplate)
     return response
 
 def createDeviceInput(vmanage, templatedeviceinput):
@@ -263,8 +263,8 @@ def createDeviceInput(vmanage, templatedeviceinput):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/input"
-    response = vmanage.client.apiCall("POST", endpoint, templatedeviceinput)
+    endpoint = f"dataservice/template/device/config/input"
+    response = vmanage.apiCall("POST", endpoint, templatedeviceinput)
     return response
 
 def processInputCommaSepFile(vmanage, devicetemplate):
@@ -281,8 +281,8 @@ def processInputCommaSepFile(vmanage, devicetemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/process/input/file"
-    response = vmanage.client.apiCall("POST", endpoint, devicetemplate)
+    endpoint = f"dataservice/template/device/config/process/input/file"
+    response = vmanage.apiCall("POST", endpoint, devicetemplate)
     return response
 
 def getQuickConnectVariables(vmanage, devicelist):
@@ -298,8 +298,8 @@ def getQuickConnectVariables(vmanage, devicelist):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/quickconnectvariable"
-    response = vmanage.client.apiCall("POST", endpoint, devicelist)
+    endpoint = f"dataservice/template/device/config/quickconnectvariable"
+    response = vmanage.apiCall("POST", endpoint, devicelist)
     return response
 
 def checkVbond(vmanage):
@@ -315,8 +315,8 @@ def checkVbond(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/vbond"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/device/config/vbond"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def validateTemplate(vmanage, payload):
@@ -333,6 +333,6 @@ def validateTemplate(vmanage, payload):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/device/config/verify"
-    response = vmanage.client.apiCall("POST", endpoint, payload)
+    endpoint = f"dataservice/template/device/config/verify"
+    response = vmanage.apiCall("POST", endpoint, payload)
     return response

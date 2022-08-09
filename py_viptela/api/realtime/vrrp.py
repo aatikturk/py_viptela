@@ -11,6 +11,6 @@ def getIf(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/vrrp?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/vrrp?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

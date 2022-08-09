@@ -11,8 +11,8 @@ def getWLANClients(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/wlan/clients?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/wlan/clients?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getWLANInterfaces(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getWLANInterfaces(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/wlan/interfaces?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/wlan/interfaces?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getWLANRadios(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getWLANRadios(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/wlan/radios?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/wlan/radios?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getWLANRadius(vmanage, deviceId):
     """
@@ -59,6 +59,6 @@ def getWLANRadius(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/wlan/radius?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/wlan/radius?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

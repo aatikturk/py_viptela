@@ -12,8 +12,8 @@ def getDetail(vmanage, ifname, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sfp/detail?ifname={ifname}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/sfp/detail?ifname={ifname}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDiag(vmanage, ifname, deviceId):
     """
@@ -29,8 +29,8 @@ def getDiag(vmanage, ifname, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sfp/diagnostic?ifname={ifname}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/sfp/diagnostic?ifname={ifname}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDiagAlarm(vmanage, ifname, deviceId):
     """
@@ -46,8 +46,8 @@ def getDiagAlarm(vmanage, ifname, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sfp/diagnosticMeasurementAlarm?ifname={ifname}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/sfp/diagnosticMeasurementAlarm?ifname={ifname}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDiagValue(vmanage, ifname, deviceId):
     """
@@ -63,6 +63,6 @@ def getDiagValue(vmanage, ifname, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sfp/diagnosticMeasurementValue?ifname={ifname}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/sfp/diagnosticMeasurementValue?ifname={ifname}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

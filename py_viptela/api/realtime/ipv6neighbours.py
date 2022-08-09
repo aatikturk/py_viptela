@@ -14,6 +14,6 @@ def getInterface(vmanage, vpnId, ifname, mac, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ndv6?vpn-id={vpnId}&if-name={ifname}&mac={mac}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ndv6?vpn-id={vpnId}&if-name={ifname}&mac={mac}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

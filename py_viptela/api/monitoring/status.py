@@ -11,8 +11,8 @@ def getDisabledDeviceList(vmanage, indexName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/disable/devicelist/{indexName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/settings/disable/devicelist/{indexName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def updateDeviceList(vmanage, disableddevice, indexName):
     """
@@ -28,8 +28,8 @@ def updateDeviceList(vmanage, disableddevice, indexName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/disable/devicelist/{indexName}"
-    response = vmanage.client.apiCall("PUT", endpoint, disableddevice)
+    endpoint = f"dataservice/statistics/settings/disable/devicelist/{indexName}"
+    response = vmanage.apiCall("PUT", endpoint, disableddevice)
     return response
 def getSettings(vmanage):
     """
@@ -43,8 +43,8 @@ def getSettings(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/settings/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def updateSettings(vmanage, statssetting):
     """
@@ -59,8 +59,8 @@ def updateSettings(vmanage, statssetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/status"
-    response = vmanage.client.apiCall("PUT", endpoint, statssetting)
+    endpoint = f"dataservice/statistics/settings/status"
+    response = vmanage.apiCall("PUT", endpoint, statssetting)
     return response
 def getEnabledIndex(vmanage, deviceId):
     """
@@ -75,6 +75,6 @@ def getEnabledIndex(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/settings/status/device?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/settings/status/device?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

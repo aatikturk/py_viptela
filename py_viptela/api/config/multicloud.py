@@ -12,8 +12,8 @@ def getAllCloudAccounts(vmanage, cloudType, cgEnable):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts?cloudType={cloudType}&cloudGatewayEnabled={cgEnable}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/accounts?cloudType={cloudType}&cloudGatewayEnabled={cgEnable}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def validateAccountAdd(vmanage, account):
@@ -29,8 +29,8 @@ def validateAccountAdd(vmanage, account):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts"
-    response = vmanage.client.apiCall("POST", endpoint, account)
+    endpoint = f"dataservice/multicloud/accounts"
+    response = vmanage.apiCall("POST", endpoint, account)
     return response
 
 def getEdgeAccounts(vmanage, edgeType):
@@ -46,8 +46,8 @@ def getEdgeAccounts(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/edge?edgeType={edgeType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/accounts/edge?edgeType={edgeType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def validateEdgeAccountAdd(vmanage, account):
@@ -63,8 +63,8 @@ def validateEdgeAccountAdd(vmanage, account):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/edge"
-    response = vmanage.client.apiCall("POST", endpoint, account)
+    endpoint = f"dataservice/multicloud/accounts/edge"
+    response = vmanage.apiCall("POST", endpoint, account)
     return response
 
 def getEdgeAccountDetails(vmanage, accountId):
@@ -80,8 +80,8 @@ def getEdgeAccountDetails(vmanage, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/edge/{accountId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/accounts/edge/{accountId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateEdgeAccount(vmanage, account, accountId):
@@ -98,8 +98,8 @@ def updateEdgeAccount(vmanage, account, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/edge/{accountId}"
-    response = vmanage.client.apiCall("PUT", endpoint, account)
+    endpoint = f"dataservice/multicloud/accounts/edge/{accountId}"
+    response = vmanage.apiCall("PUT", endpoint, account)
     return response
 
 def deleteEdgeAccount(vmanage, accountId):
@@ -115,8 +115,8 @@ def deleteEdgeAccount(vmanage, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/edge/{accountId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/accounts/edge/{accountId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def validateEdgeAccountUpdateCred(vmanage, account, accountId):
@@ -133,8 +133,8 @@ def validateEdgeAccountUpdateCred(vmanage, account, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/edge/{accountId}/credentials"
-    response = vmanage.client.apiCall("PUT", endpoint, account)
+    endpoint = f"dataservice/multicloud/accounts/edge/{accountId}/credentials"
+    response = vmanage.apiCall("PUT", endpoint, account)
     return response
 
 def getCloudAccountDetails(vmanage, accountId):
@@ -150,8 +150,8 @@ def getCloudAccountDetails(vmanage, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/{accountId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/accounts/{accountId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateAccount(vmanage, account, accountId):
@@ -168,8 +168,8 @@ def updateAccount(vmanage, account, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/{accountId}"
-    response = vmanage.client.apiCall("PUT", endpoint, account)
+    endpoint = f"dataservice/multicloud/accounts/{accountId}"
+    response = vmanage.apiCall("PUT", endpoint, account)
     return response
 
 def deleteAccount(vmanage, accountId):
@@ -185,8 +185,8 @@ def deleteAccount(vmanage, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/{accountId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/accounts/{accountId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def validateAccountUpdateCred(vmanage, account, accountId):
@@ -203,8 +203,8 @@ def validateAccountUpdateCred(vmanage, account, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/accounts/{accountId}/credentials"
-    response = vmanage.client.apiCall("PUT", endpoint, account)
+    endpoint = f"dataservice/multicloud/accounts/{accountId}/credentials"
+    response = vmanage.apiCall("PUT", endpoint, account)
     return response
 
 def auditDryRun(vmanage, cloudType, cloudRegion):
@@ -221,8 +221,8 @@ def auditDryRun(vmanage, cloudType, cloudRegion):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/audit?cloudType={cloudType}&cloudRegion={cloudRegion}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/audit?cloudType={cloudType}&cloudRegion={cloudRegion}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def audit(vmanage, audit):
@@ -238,8 +238,8 @@ def audit(vmanage, audit):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/audit"
-    response = vmanage.client.apiCall("POST", endpoint, audit)
+    endpoint = f"dataservice/multicloud/audit"
+    response = vmanage.apiCall("POST", endpoint, audit)
     return response
 
 def getEdgeBillingAccounts(vmanage, edgeType, edgeAccountId, region):
@@ -257,8 +257,8 @@ def getEdgeBillingAccounts(vmanage, edgeType, edgeAccountId, region):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/billingaccounts/edge/{edgeType}/{edgeAccountId}?region={region}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/billingaccounts/edge/{edgeType}/{edgeAccountId}?region={region}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCgws(vmanage, cloudType, accountId, region, cgName):
@@ -277,8 +277,8 @@ def getCgws(vmanage, cloudType, accountId, region, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway?cloudType={cloudType}&accountId={accountId}&region={region}&cloudGatewayName={cgName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway?cloudType={cloudType}&accountId={accountId}&region={region}&cloudGatewayName={cgName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createCgw(vmanage, cg):
@@ -294,8 +294,8 @@ def createCgw(vmanage, cg):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway"
-    response = vmanage.client.apiCall("POST", endpoint, cg)
+    endpoint = f"dataservice/multicloud/cloudgateway"
+    response = vmanage.apiCall("POST", endpoint, cg)
     return response
 
 def getAzureNetworkVirtualAppliances(vmanage, cloudType, accoundId, region, rgName, rgSource, vhubName, vhubSource):
@@ -317,8 +317,8 @@ def getAzureNetworkVirtualAppliances(vmanage, cloudType, accoundId, region, rgNa
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/nvas?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={rgName}&resourceGroupSource={rgSource}&vhubName={vhubName}&vhubSource={vhubSource}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/nvas?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={rgName}&resourceGroupSource={rgSource}&vhubName={vhubName}&vhubSource={vhubSource}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getAzureNvaSkuList(vmanage):
@@ -333,8 +333,8 @@ def getAzureNvaSkuList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/nvasku"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/nvasku"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCgwOrgResources(vmanage, cgName):
@@ -350,8 +350,8 @@ def getCgwOrgResources(vmanage, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/resource?cloudGatewayName={cgName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/resource?cloudGatewayName={cgName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getAzureResourceGroups(vmanage, cloudType, accountId):
@@ -368,8 +368,8 @@ def getAzureResourceGroups(vmanage, cloudType, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/resourceGroups?cloudType={cloudType}&accountId={accountId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/resourceGroups?cloudType={cloudType}&accountId={accountId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getAzureVirtualHubs(vmanage, cloudType, accoundId, region, rgName, rgSource, vwanName, vwanSource):
@@ -391,8 +391,8 @@ def getAzureVirtualHubs(vmanage, cloudType, accoundId, region, rgName, rgSource,
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/vhubs?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={rgName}&resourceGroupSource={rgSource}&vwanName={vwanName}&vwanSource={vwanSource}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/vhubs?cloudType={cloudType}&accoundId={accoundId}&region={region}&resourceGroupName={rgName}&resourceGroupSource={rgSource}&vwanName={vwanName}&vwanSource={vwanSource}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getAzureVirtualWans(vmanage, cloudType, accoundId, rgName, rgSource):
@@ -411,8 +411,8 @@ def getAzureVirtualWans(vmanage, cloudType, accoundId, rgName, rgSource):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/vwans?cloudType={cloudType}&accoundId={accoundId}&resourceGroupName={rgName}&resourceGroupSource={rgSource}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/vwans?cloudType={cloudType}&accoundId={accoundId}&resourceGroupName={rgName}&resourceGroupSource={rgSource}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCgwDetails(vmanage, cgName):
@@ -428,8 +428,8 @@ def getCgwDetails(vmanage, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/{cgName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/{cgName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateCgw(vmanage, cloudgateway, cgName):
@@ -446,8 +446,8 @@ def updateCgw(vmanage, cloudgateway, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/{cgName}"
-    response = vmanage.client.apiCall("PUT", endpoint, cloudgateway)
+    endpoint = f"dataservice/multicloud/cloudgateway/{cgName}"
+    response = vmanage.apiCall("PUT", endpoint, cloudgateway)
     return response
 
 def deleteCgw(vmanage, cgName):
@@ -463,8 +463,8 @@ def deleteCgw(vmanage, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/{cgName}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/{cgName}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getSitesAttached(vmanage, cgName, systemIp, siteId, color, vpnTunnelStatus):
@@ -484,8 +484,8 @@ def getSitesAttached(vmanage, cgName, systemIp, siteId, color, vpnTunnelStatus):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/{cgName}/site?systemIp={systemIp}&siteId={siteId}&color={color}&vpnTunnelStatus={vpnTunnelStatus}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateway/{cgName}/site?systemIp={systemIp}&siteId={siteId}&color={color}&vpnTunnelStatus={vpnTunnelStatus}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def TunnelScaling(vmanage, siteinformation, cgName):
@@ -502,8 +502,8 @@ def TunnelScaling(vmanage, siteinformation, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/{cgName}/site"
-    response = vmanage.client.apiCall("PUT", endpoint, siteinformation)
+    endpoint = f"dataservice/multicloud/cloudgateway/{cgName}/site"
+    response = vmanage.apiCall("PUT", endpoint, siteinformation)
     return response
 
 def attachSites(vmanage, siteinformation, cgName):
@@ -520,8 +520,8 @@ def attachSites(vmanage, siteinformation, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/{cgName}/site"
-    response = vmanage.client.apiCall("POST", endpoint, siteinformation)
+    endpoint = f"dataservice/multicloud/cloudgateway/{cgName}/site"
+    response = vmanage.apiCall("POST", endpoint, siteinformation)
     return response
 
 def detachSites(vmanage, siteinformation, cgName):
@@ -538,8 +538,8 @@ def detachSites(vmanage, siteinformation, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateway/{cgName}/site"
-    response = vmanage.client.apiCall("DELETE", endpoint, siteinformation)
+    endpoint = f"dataservice/multicloud/cloudgateway/{cgName}/site"
+    response = vmanage.apiCall("DELETE", endpoint, siteinformation)
     return response
 
 def getCloudGateways(vmanage, cloudType):
@@ -555,8 +555,8 @@ def getCloudGateways(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgateways/{cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgateways/{cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCgwCustomSettingDetails(vmanage, cgName):
@@ -572,8 +572,8 @@ def getCgwCustomSettingDetails(vmanage, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgatewaysetting/{cgName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgatewaysetting/{cgName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCgwTypes(vmanage, cloudType):
@@ -589,8 +589,8 @@ def getCgwTypes(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/cloudgatewaytype?cloudType={cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/cloudgatewaytype?cloudType={cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudConnectedSitesByEdgeType(vmanage, edgeType, edgeGatewayName):
@@ -607,8 +607,8 @@ def getCloudConnectedSitesByEdgeType(vmanage, edgeType, edgeGatewayName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connected-sites/edge/{edgeType}?edgeGatewayName={edgeGatewayName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/connected-sites/edge/{edgeType}?edgeGatewayName={edgeGatewayName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudConnectedSitesByCloudType(vmanage, cloudType, cgName):
@@ -625,8 +625,8 @@ def getCloudConnectedSitesByCloudType(vmanage, cloudType, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connected-sites/{cloudType}?cloudGatewayName={cgName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/connected-sites/{cloudType}?cloudGatewayName={cgName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEdgeConnectivityDetails(vmanage, edgeType, connectivityName, connectivityType, edgeGatewayName):
@@ -645,8 +645,8 @@ def getEdgeConnectivityDetails(vmanage, edgeType, connectivityName, connectivity
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivity/edge?edgeType={edgeType}&connectivityName={connectivityName}&connectivityType={connectivityType}&edgeGatewayName={edgeGatewayName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/connectivity/edge?edgeType={edgeType}&connectivityName={connectivityName}&connectivityType={connectivityType}&edgeGatewayName={edgeGatewayName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateEdgeConnectivity(vmanage, edgeconnectivity):
@@ -662,8 +662,8 @@ def updateEdgeConnectivity(vmanage, edgeconnectivity):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivity/edge"
-    response = vmanage.client.apiCall("PUT", endpoint, edgeconnectivity)
+    endpoint = f"dataservice/multicloud/connectivity/edge"
+    response = vmanage.apiCall("PUT", endpoint, edgeconnectivity)
     return response
 
 def createEdgeConnectivity(vmanage, edgeconnectivity):
@@ -679,8 +679,8 @@ def createEdgeConnectivity(vmanage, edgeconnectivity):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivity/edge"
-    response = vmanage.client.apiCall("POST", endpoint, edgeconnectivity)
+    endpoint = f"dataservice/multicloud/connectivity/edge"
+    response = vmanage.apiCall("POST", endpoint, edgeconnectivity)
     return response
 
 def deleteEdgeConnectivity(vmanage, connectionName):
@@ -696,8 +696,8 @@ def deleteEdgeConnectivity(vmanage, connectionName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivity/edge/{connectionName}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/connectivity/edge/{connectionName}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getEdgeConnectivityDetailByName(vmanage, connectivityName):
@@ -713,8 +713,8 @@ def getEdgeConnectivityDetailByName(vmanage, connectivityName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivity/edge/{connectivityName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/connectivity/edge/{connectivityName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getConnectivityGateways(vmanage, accountId, cloudType, connectivityType, connectivityGatewayName, region, network, state, refresh):
@@ -737,8 +737,8 @@ def getConnectivityGateways(vmanage, accountId, cloudType, connectivityType, con
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivitygateway?accountId={accountId}&cloudType={cloudType}&connectivityType={connectivityType}&connectivityGatewayName={connectivityGatewayName}&region={region}&network={network}&state={state}&refresh={refresh}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/connectivitygateway?accountId={accountId}&cloudType={cloudType}&connectivityType={connectivityType}&connectivityGatewayName={connectivityGatewayName}&region={region}&network={network}&state={state}&refresh={refresh}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createConnectivityGateway(vmanage, connectivitygateway):
@@ -754,8 +754,8 @@ def createConnectivityGateway(vmanage, connectivitygateway):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivitygateway"
-    response = vmanage.client.apiCall("POST", endpoint, connectivitygateway)
+    endpoint = f"dataservice/multicloud/connectivitygateway"
+    response = vmanage.apiCall("POST", endpoint, connectivitygateway)
     return response
 
 def cleanUpAllConnectivityGatewaysInLocalDB(vmanage, deletionType):
@@ -771,8 +771,8 @@ def cleanUpAllConnectivityGatewaysInLocalDB(vmanage, deletionType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivitygateway?deletionType={deletionType}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/connectivitygateway?deletionType={deletionType}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def deleteConnectivityGateway(vmanage, cloudProvider, connectivityGatewayName, connectivityType):
@@ -790,8 +790,8 @@ def deleteConnectivityGateway(vmanage, cloudProvider, connectivityGatewayName, c
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivitygateway/{cloudProvider}/{connectivityGatewayName}?connectivityType={connectivityType}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/connectivitygateway/{cloudProvider}/{connectivityGatewayName}?connectivityType={connectivityType}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getConnectivityGatewayCreationOptions(vmanage, accountId, cloudType, connectivityType, refresh):
@@ -810,8 +810,8 @@ def getConnectivityGatewayCreationOptions(vmanage, accountId, cloudType, connect
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/connectivitygatewaycreationoptions?accountId={accountId}&cloudType={cloudType}&connectivityType={connectivityType}&refresh={refresh}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/connectivitygatewaycreationoptions?accountId={accountId}&cloudType={cloudType}&connectivityType={connectivityType}&refresh={refresh}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getDashboardEdgeInfo(vmanage):
@@ -826,8 +826,8 @@ def getDashboardEdgeInfo(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/dashboard/edge"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/dashboard/edge"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getWanDevices(vmanage):
@@ -842,8 +842,8 @@ def getWanDevices(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/device"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/device"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudDevicesByEdgeType(vmanage, edgeType, edgeGatewayName):
@@ -860,8 +860,8 @@ def getCloudDevicesByEdgeType(vmanage, edgeType, edgeGatewayName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/devices/edge/{edgeType}?edgeGatewayName={edgeGatewayName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/devices/edge/{edgeType}?edgeGatewayName={edgeGatewayName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudDevicesCloudType(vmanage, cloudType, cgName):
@@ -878,8 +878,8 @@ def getCloudDevicesCloudType(vmanage, cloudType, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/devices/{cloudType}?cloudGatewayName={cgName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/devices/{cloudType}?cloudGatewayName={cgName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEdgeWanDevices(vmanage, edgeType):
@@ -895,8 +895,8 @@ def getEdgeWanDevices(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/edge/{edgeType}/device"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/edge/{edgeType}/device"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getIcgws(vmanage, edgeType, accountId, region, regionId, resourceState, edgeGatewayName):
@@ -917,8 +917,8 @@ def getIcgws(vmanage, edgeType, accountId, region, regionId, resourceState, edge
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateway/edge?edgeType={edgeType}&accountId={accountId}&region={region}&regionId={regionId}&resourceState={resourceState}&edgeGatewayName={edgeGatewayName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/gateway/edge?edgeType={edgeType}&accountId={accountId}&region={region}&regionId={regionId}&resourceState={resourceState}&edgeGatewayName={edgeGatewayName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createIcgw(vmanage, interconnectgateway):
@@ -934,8 +934,8 @@ def createIcgw(vmanage, interconnectgateway):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateway/edge"
-    response = vmanage.client.apiCall("POST", endpoint, interconnectgateway)
+    endpoint = f"dataservice/multicloud/gateway/edge"
+    response = vmanage.apiCall("POST", endpoint, interconnectgateway)
     return response
 
 def getIcgwCustomSettingDetails(vmanage, edgeGatewayName):
@@ -951,8 +951,8 @@ def getIcgwCustomSettingDetails(vmanage, edgeGatewayName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateway/edge/setting/{edgeGatewayName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/gateway/edge/setting/{edgeGatewayName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getIcgwTypes(vmanage, edgeType):
@@ -968,8 +968,8 @@ def getIcgwTypes(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateway/edge/types?edgeType={edgeType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/gateway/edge/types?edgeType={edgeType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getIcgwDetails(vmanage, edgeGatewayName):
@@ -985,8 +985,8 @@ def getIcgwDetails(vmanage, edgeGatewayName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateway/edge/{edgeGatewayName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/gateway/edge/{edgeGatewayName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateIcgw(vmanage, gatewayInfo, edgeGatewayName):
@@ -1003,8 +1003,8 @@ def updateIcgw(vmanage, gatewayInfo, edgeGatewayName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateway/edge/{edgeGatewayName}"
-    response = vmanage.client.apiCall("PUT", endpoint, gatewayInfo)
+    endpoint = f"dataservice/multicloud/gateway/edge/{edgeGatewayName}"
+    response = vmanage.apiCall("PUT", endpoint, gatewayInfo)
     return response
 
 def deleteIcgw(vmanage, edgeGatewayName):
@@ -1020,8 +1020,8 @@ def deleteIcgw(vmanage, edgeGatewayName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateway/edge/{edgeGatewayName}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/gateway/edge/{edgeGatewayName}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getEdgeGateways(vmanage, edgeType):
@@ -1037,8 +1037,8 @@ def getEdgeGateways(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/gateways/edge/{edgeType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/gateways/edge/{edgeType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getHostVpcs(vmanage, cloudType, accountIds, region, untagged):
@@ -1057,8 +1057,8 @@ def getHostVpcs(vmanage, cloudType, accountIds, region, untagged):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/hostvpc?cloudType={cloudType}&accountIds={accountIds}&region={region}&untagged={untagged}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/hostvpc?cloudType={cloudType}&accountIds={accountIds}&region={region}&untagged={untagged}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getVpcTags(vmanage, cloudType, region, tagName):
@@ -1076,8 +1076,8 @@ def getVpcTags(vmanage, cloudType, region, tagName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/hostvpc/tags?cloudType={cloudType}&region={region}&tagName={tagName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/hostvpc/tags?cloudType={cloudType}&region={region}&tagName={tagName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editTag(vmanage, vpctag):
@@ -1093,8 +1093,8 @@ def editTag(vmanage, vpctag):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/hostvpc/tags"
-    response = vmanage.client.apiCall("PUT", endpoint, vpctag)
+    endpoint = f"dataservice/multicloud/hostvpc/tags"
+    response = vmanage.apiCall("PUT", endpoint, vpctag)
     return response
 
 def hostvpcTagging(vmanage, vpctag):
@@ -1110,8 +1110,8 @@ def hostvpcTagging(vmanage, vpctag):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/hostvpc/tags"
-    response = vmanage.client.apiCall("POST", endpoint, vpctag)
+    endpoint = f"dataservice/multicloud/hostvpc/tags"
+    response = vmanage.apiCall("POST", endpoint, vpctag)
     return response
 
 def unTag(vmanage, tagName):
@@ -1127,8 +1127,8 @@ def unTag(vmanage, tagName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/hostvpc/tags/{tagName}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/hostvpc/tags/{tagName}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getSupportedEdgeImageNames(vmanage, edgeType):
@@ -1144,8 +1144,8 @@ def getSupportedEdgeImageNames(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/imagename/edge?edgeType={edgeType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/imagename/edge?edgeType={edgeType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getSupportedInstanceSize(vmanage, cloudType, accountId, cloudRegion):
@@ -1163,8 +1163,8 @@ def getSupportedInstanceSize(vmanage, cloudType, accountId, cloudRegion):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/instancesize?cloudType={cloudType}&accountId={accountId}&cloudRegion={cloudRegion}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/instancesize?cloudType={cloudType}&accountId={accountId}&cloudRegion={cloudRegion}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getSupportedEdgeInstanceSize(vmanage, edgeType):
@@ -1180,8 +1180,8 @@ def getSupportedEdgeInstanceSize(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/instancesize/edge?edgeType={edgeType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/instancesize/edge?edgeType={edgeType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getWanInterfaceColors(vmanage):
@@ -1196,8 +1196,8 @@ def getWanInterfaceColors(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/interfacecolor"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/interfacecolor"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEdgeLocationsInfo(vmanage, edgeType, accountId, region):
@@ -1215,8 +1215,8 @@ def getEdgeLocationsInfo(vmanage, edgeType, accountId, region):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/locations/edge/{edgeType}?accountId={accountId}&region={region}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/locations/edge/{edgeType}?accountId={accountId}&region={region}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def deleteEdge(vmanage, edgeType):
@@ -1232,8 +1232,8 @@ def deleteEdge(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/locations/edge/{edgeType}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/locations/edge/{edgeType}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def updateEdgeLocationsInfo(vmanage, edgeType, accountId):
@@ -1250,8 +1250,8 @@ def updateEdgeLocationsInfo(vmanage, edgeType, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/locations/edge/{edgeType}/accountId/{accountId}"
-    response = vmanage.client.apiCall("PUT", endpoint)
+    endpoint = f"dataservice/multicloud/locations/edge/{edgeType}/accountId/{accountId}"
+    response = vmanage.apiCall("PUT", endpoint)
     return response
 
 def getMappingMatrix(vmanage, cloudType):
@@ -1267,8 +1267,8 @@ def getMappingMatrix(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map?cloudType={cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/map?cloudType={cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def processMapping(vmanage, vpcmapping):
@@ -1284,8 +1284,8 @@ def processMapping(vmanage, vpcmapping):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map"
-    response = vmanage.client.apiCall("POST", endpoint, vpcmapping)
+    endpoint = f"dataservice/multicloud/map"
+    response = vmanage.apiCall("POST", endpoint, vpcmapping)
     return response
 
 def getDefaultMappingValues(vmanage, cloudType):
@@ -1301,8 +1301,8 @@ def getDefaultMappingValues(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map/defaults?cloudType={cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/map/defaults?cloudType={cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getMappingStatus(vmanage, cloudType, region):
@@ -1319,8 +1319,8 @@ def getMappingStatus(vmanage, cloudType, region):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map/status?cloudType={cloudType}&region={region}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/map/status?cloudType={cloudType}&region={region}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getMappingSummary(vmanage, vpnTunnelStatus, cloudType):
@@ -1337,8 +1337,8 @@ def getMappingSummary(vmanage, vpnTunnelStatus, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map/summary?vpnTunnelStatus={vpnTunnelStatus}&cloudType={cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/map/summary?vpnTunnelStatus={vpnTunnelStatus}&cloudType={cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getMappingTags(vmanage, cloudType):
@@ -1354,8 +1354,8 @@ def getMappingTags(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map/tags?cloudType={cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/map/tags?cloudType={cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEdgeMappingTags(vmanage, cloudType, accountId):
@@ -1372,8 +1372,8 @@ def getEdgeMappingTags(vmanage, cloudType, accountId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map/tags/edge?cloudType={cloudType}&accountId={accountId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/map/tags/edge?cloudType={cloudType}&accountId={accountId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getMappingVpns(vmanage):
@@ -1388,8 +1388,8 @@ def getMappingVpns(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/map/vpns"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/map/vpns"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCgwAssociatedMappings(vmanage, cloudType, cgName, siteUuid):
@@ -1407,8 +1407,8 @@ def getCgwAssociatedMappings(vmanage, cloudType, cgName, siteUuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/mapping/{cloudType}?cloudGatewayName={cgName}&siteUuid={siteUuid}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/mapping/{cloudType}?cloudGatewayName={cgName}&siteUuid={siteUuid}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getPartnerPorts(vmanage, edgeType, accountId, cloudType, connectType, vxcPermitted, authorizationKey, refresh):
@@ -1430,8 +1430,8 @@ def getPartnerPorts(vmanage, edgeType, accountId, cloudType, connectType, vxcPer
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/partnerports/edge?edgeType={edgeType}&accountId={accountId}&cloudType={cloudType}&connectType={connectType}&vxcPermitted={vxcPermitted}&authorizationKey={authorizationKey}&refresh={refresh}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/partnerports/edge?edgeType={edgeType}&accountId={accountId}&cloudType={cloudType}&connectType={connectType}&vxcPermitted={vxcPermitted}&authorizationKey={authorizationKey}&refresh={refresh}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getPortSpeed(vmanage, edgeType, edgeAccountId, connectivityType, cloudType, cloudAccountId, connectType, connectSubType, connectivityGateway, partnerPort):
@@ -1455,8 +1455,8 @@ def getPortSpeed(vmanage, edgeType, edgeAccountId, connectivityType, cloudType, 
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/portSpeed/edge/{edgeType}/{edgeAccountId}/{connectivityType}?cloudType={cloudType}&cloudAccountId={cloudAccountId}&connectType={connectType}&connectSubType={connectSubType}&connectivityGateway={connectivityGateway}&partnerPort={partnerPort}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/portSpeed/edge/{edgeType}/{edgeAccountId}/{connectivityType}?cloudType={cloudType}&cloudAccountId={cloudAccountId}&connectType={connectType}&connectSubType={connectSubType}&connectivityGateway={connectivityGateway}&partnerPort={partnerPort}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudRegions(vmanage, cloudType):
@@ -1472,8 +1472,8 @@ def getCloudRegions(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/regions?cloudType={cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/regions?cloudType={cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEdgeGlobalSettings(vmanage, edgeType):
@@ -1489,8 +1489,8 @@ def getEdgeGlobalSettings(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/settings/edge/global?edgeType={edgeType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/settings/edge/global?edgeType={edgeType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateEdgeGlobalSettings(vmanage, globalsetting):
@@ -1506,8 +1506,8 @@ def updateEdgeGlobalSettings(vmanage, globalsetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/settings/edge/global"
-    response = vmanage.client.apiCall("PUT", endpoint, globalsetting)
+    endpoint = f"dataservice/multicloud/settings/edge/global"
+    response = vmanage.apiCall("PUT", endpoint, globalsetting)
     return response
 
 def addEdgeGlobalSettings(vmanage, globalsetting):
@@ -1523,8 +1523,8 @@ def addEdgeGlobalSettings(vmanage, globalsetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/settings/edge/global"
-    response = vmanage.client.apiCall("POST", endpoint, globalsetting)
+    endpoint = f"dataservice/multicloud/settings/edge/global"
+    response = vmanage.apiCall("POST", endpoint, globalsetting)
     return response
 
 def getGlobalSettings(vmanage, cloudType):
@@ -1540,8 +1540,8 @@ def getGlobalSettings(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/settings/global?cloudType={cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/settings/global?cloudType={cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateGlobalSettings(vmanage, globalsetting):
@@ -1557,8 +1557,8 @@ def updateGlobalSettings(vmanage, globalsetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/settings/global"
-    response = vmanage.client.apiCall("PUT", endpoint, globalsetting)
+    endpoint = f"dataservice/multicloud/settings/global"
+    response = vmanage.apiCall("PUT", endpoint, globalsetting)
     return response
 
 def addGlobalSettings(vmanage, globalsetting):
@@ -1574,8 +1574,8 @@ def addGlobalSettings(vmanage, globalsetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/settings/global"
-    response = vmanage.client.apiCall("POST", endpoint, globalsetting)
+    endpoint = f"dataservice/multicloud/settings/global"
+    response = vmanage.apiCall("POST", endpoint, globalsetting)
     return response
 
 def getSites(vmanage, color, attached):
@@ -1592,8 +1592,8 @@ def getSites(vmanage, color, attached):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/site?color={color}&attached={attached}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/site?color={color}&attached={attached}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getSshKeyList(vmanage, cloudType, accountId, cloudRegion):
@@ -1611,8 +1611,8 @@ def getSshKeyList(vmanage, cloudType, accountId, cloudRegion):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/sshkeys?cloudType={cloudType}&accountId={accountId}&cloudRegion={cloudRegion}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/sshkeys?cloudType={cloudType}&accountId={accountId}&cloudRegion={cloudRegion}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getPostAggregationDataByQuery(vmanage, statsquerystring):
@@ -1628,8 +1628,8 @@ def getPostAggregationDataByQuery(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/statistics/interface/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/multicloud/statistics/interface/aggregation"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 
 def getSupportedSoftwareImageList(vmanage, cloudType, accountId, cloudRegion):
@@ -1647,8 +1647,8 @@ def getSupportedSoftwareImageList(vmanage, cloudType, accountId, cloudRegion):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/swimages?cloudType={cloudType}&accountId={accountId}&cloudRegion={cloudRegion}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/swimages?cloudType={cloudType}&accountId={accountId}&cloudRegion={cloudRegion}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def telemetry(vmanage, telemetry):
@@ -1664,8 +1664,8 @@ def telemetry(vmanage, telemetry):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/telemetry"
-    response = vmanage.client.apiCall("POST", endpoint, telemetry)
+    endpoint = f"dataservice/multicloud/telemetry"
+    response = vmanage.apiCall("POST", endpoint, telemetry)
     return response
 
 def getTunnelNames(vmanage, cloudType, cgName):
@@ -1682,8 +1682,8 @@ def getTunnelNames(vmanage, cloudType, cgName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/tunnels/{cloudType}?cloudGatewayName={cgName}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/tunnels/{cloudType}?cloudGatewayName={cgName}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudTypes(vmanage):
@@ -1698,8 +1698,8 @@ def getCloudTypes(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/types"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/types"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEdgeTypes(vmanage):
@@ -1714,8 +1714,8 @@ def getEdgeTypes(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/types/edge"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/types/edge"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getVHubs(vmanage, cloudType, accountId, resourceGroup, vWanName, vNetTags):
@@ -1735,8 +1735,8 @@ def getVHubs(vmanage, cloudType, accountId, resourceGroup, vWanName, vNetTags):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/vhubs?cloudType={cloudType}&accountId={accountId}&resourceGroup={resourceGroup}&vWanName={vWanName}&vNetTags={vNetTags}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/vhubs?cloudType={cloudType}&accountId={accountId}&resourceGroup={resourceGroup}&vWanName={vWanName}&vNetTags={vNetTags}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createVirtualWan(vmanage, virtualwan):
@@ -1752,8 +1752,8 @@ def createVirtualWan(vmanage, virtualwan):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/vwan"
-    response = vmanage.client.apiCall("POST", endpoint, virtualwan)
+    endpoint = f"dataservice/multicloud/vwan"
+    response = vmanage.apiCall("POST", endpoint, virtualwan)
     return response
 
 def deleteVirtualWan(vmanage, cloudProvider, vWanName):
@@ -1770,8 +1770,8 @@ def deleteVirtualWan(vmanage, cloudProvider, vWanName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/vwan/{cloudProvider}/{vWanName}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/multicloud/vwan/{cloudProvider}/{vWanName}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getVWans(vmanage, accountId, cloudType, resourceGroup, refresh):
@@ -1790,8 +1790,8 @@ def getVWans(vmanage, accountId, cloudType, resourceGroup, refresh):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/vwans?accountId={accountId}&cloudType={cloudType}&resourceGroup={resourceGroup}&refresh={refresh}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/vwans?accountId={accountId}&cloudType={cloudType}&resourceGroup={resourceGroup}&refresh={refresh}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getEdgeWidget(vmanage, edgeType):
@@ -1807,8 +1807,8 @@ def getEdgeWidget(vmanage, edgeType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/widget/edge/{edgeType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/widget/edge/{edgeType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getCloudWidget(vmanage, cloudType):
@@ -1824,6 +1824,6 @@ def getCloudWidget(vmanage, cloudType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/multicloud/widget/{cloudType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/multicloud/widget/{cloudType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

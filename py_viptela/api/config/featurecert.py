@@ -12,8 +12,8 @@ def getDeviceCert(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/certificate?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/featurecertificate/certificate?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def install(vmanage, certRequest):
@@ -30,8 +30,8 @@ def install(vmanage, certRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/certificate"
-    response = vmanage.client.apiCall("PUT", endpoint, certRequest)
+    endpoint = f"dataservice/featurecertificate/certificate"
+    response = vmanage.apiCall("PUT", endpoint, certRequest)
     return response
 
 def getDeviceCsr(vmanage, deviceId):
@@ -48,8 +48,8 @@ def getDeviceCsr(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/devicecsr?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/featurecertificate/devicecsr?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def genDeviceCsr(vmanage, csrRequest):
@@ -66,8 +66,8 @@ def genDeviceCsr(vmanage, csrRequest):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/devicecsr"
-    response = vmanage.client.apiCall("PUT", endpoint, csrRequest)
+    endpoint = f"dataservice/featurecertificate/devicecsr"
+    response = vmanage.apiCall("PUT", endpoint, csrRequest)
     return response
 
 def revoke(vmanage, revokeReq):
@@ -84,8 +84,8 @@ def revoke(vmanage, revokeReq):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/revoke"
-    response = vmanage.client.apiCall("PUT", endpoint, revokeReq)
+    endpoint = f"dataservice/featurecertificate/revoke"
+    response = vmanage.apiCall("PUT", endpoint, revokeReq)
     return response
 
 def getFeatureCaState(vmanage):
@@ -101,6 +101,6 @@ def getFeatureCaState(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/featurecertificate/syslogconfig"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/featurecertificate/syslogconfig"
+    response = vmanage.apiCall("GET", endpoint)
     return response

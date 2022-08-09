@@ -10,8 +10,8 @@ def generateVoiceTemplateList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/voice"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createVoiceTemplate(vmanage, policytemplate):
@@ -27,8 +27,8 @@ def createVoiceTemplate(vmanage, policytemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice"
-    response = vmanage.client.apiCall("POST", endpoint, policytemplate)
+    endpoint = f"dataservice/template/policy/voice"
+    response = vmanage.apiCall("POST", endpoint, policytemplate)
     return response
 
 def getTemplateById(vmanage, policyId):
@@ -44,8 +44,8 @@ def getTemplateById(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice/definition/{policyId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/voice/definition/{policyId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getVoicePolicyDeviceList(vmanage):
@@ -60,8 +60,8 @@ def getVoicePolicyDeviceList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice/devices"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/voice/devices"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getDeviceListByPolicyId(vmanage, policyId):
@@ -77,8 +77,8 @@ def getDeviceListByPolicyId(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice/devices/{policyId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/voice/devices/{policyId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def generateVoicePolicySummary(vmanage):
@@ -93,8 +93,8 @@ def generateVoicePolicySummary(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice/summary"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/voice/summary"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getVoiceTemplatesForDevice(vmanage, deviceModel):
@@ -110,8 +110,8 @@ def getVoiceTemplatesForDevice(vmanage, deviceModel):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice/{deviceModel}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/voice/{deviceModel}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editVoiceTemplate(vmanage, policytemplate, policyId):
@@ -128,8 +128,8 @@ def editVoiceTemplate(vmanage, policytemplate, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice/{policyId}"
-    response = vmanage.client.apiCall("PUT", endpoint, policytemplate)
+    endpoint = f"dataservice/template/policy/voice/{policyId}"
+    response = vmanage.apiCall("PUT", endpoint, policytemplate)
     return response
 
 def deleteVoiceTemplate(vmanage, policyId):
@@ -145,6 +145,6 @@ def deleteVoiceTemplate(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/voice/{policyId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/policy/voice/{policyId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

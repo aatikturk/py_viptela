@@ -11,8 +11,8 @@ def getGlobalDropStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sdwan-global-drop-statistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/sdwan-global-drop-statistics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStats(vmanage, deviceId):
     """
@@ -27,6 +27,6 @@ def getStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sdwan-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/sdwan-stats?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

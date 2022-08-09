@@ -11,8 +11,8 @@ def getFlowCount(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app/log/flow-count?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/app/log/flow-count?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getFlows(vmanage, deviceId):
     """
@@ -27,6 +27,6 @@ def getFlows(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/app/log/flows?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/app/log/flows?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

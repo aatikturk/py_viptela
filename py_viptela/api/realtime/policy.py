@@ -11,8 +11,8 @@ def getAclAssociations(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/accesslistassociations?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/accesslistassociations?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAclCounters(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getAclCounters(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/accesslistcounters?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/accesslistcounters?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAclNames(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getAclNames(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/accesslistnames?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/accesslistnames?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAclPolicers(vmanage, deviceId):
     """
@@ -59,8 +59,8 @@ def getAclPolicers(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/accesslistpolicers?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/accesslistpolicers?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAppRouteFilter(vmanage, deviceId):
     """
@@ -75,8 +75,8 @@ def getAppRouteFilter(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/approutepolicyfilter?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/approutepolicyfilter?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDataPolicyFilter(vmanage, deviceId):
     """
@@ -91,8 +91,8 @@ def getDataPolicyFilter(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/datapolicyfilter?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/datapolicyfilter?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getFilterMemUsage(vmanage, deviceId):
     """
@@ -107,8 +107,8 @@ def getFilterMemUsage(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/filtermemoryusage?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/filtermemoryusage?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAclAssocV6(vmanage, deviceId):
     """
@@ -123,8 +123,8 @@ def getAclAssocV6(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/ipv6/accesslistassociations?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/ipv6/accesslistassociations?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAclCountersV6(vmanage, deviceId):
     """
@@ -139,8 +139,8 @@ def getAclCountersV6(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/ipv6/accesslistcounters?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/ipv6/accesslistcounters?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAclNamesV6(vmanage, deviceId):
     """
@@ -155,8 +155,8 @@ def getAclNamesV6(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/ipv6/accesslistnames?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/ipv6/accesslistnames?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAclPolicersV6(vmanage, deviceId):
     """
@@ -171,8 +171,8 @@ def getAclPolicersV6(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/ipv6/accesslistpolicers?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/ipv6/accesslistpolicers?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getQosMapInfo(vmanage, deviceId):
     """
@@ -187,8 +187,8 @@ def getQosMapInfo(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/qosmapinfo?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/qosmapinfo?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getQosSchedulerInfo(vmanage, deviceId):
     """
@@ -203,8 +203,8 @@ def getQosSchedulerInfo(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/qosschedulerinfo?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/qosschedulerinfo?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRewriteAssocInfo(vmanage, deviceId):
     """
@@ -219,8 +219,8 @@ def getRewriteAssocInfo(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/rewriteassociations?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/rewriteassociations?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSdwanPolicyFromVsmart(vmanage, deviceId):
     """
@@ -235,8 +235,8 @@ def getSdwanPolicyFromVsmart(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/vsmart?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/vsmart?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getZoneDropStats(vmanage, deviceId):
     """
@@ -251,8 +251,8 @@ def getZoneDropStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/zbfwdropstatistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/zbfwdropstatistics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getZbfwStats(vmanage, deviceId):
     """
@@ -267,8 +267,8 @@ def getZbfwStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/zbfwstatistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/zbfwstatistics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getZonePairSessions(vmanage, deviceId):
     """
@@ -283,8 +283,8 @@ def getZonePairSessions(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/zonepairsessions?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/zonepairsessions?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getZonePairs(vmanage, deviceId):
     """
@@ -299,8 +299,8 @@ def getZonePairs(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/zonepairstatistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/zonepairstatistics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getZonePolicyFilters(vmanage, deviceId):
     """
@@ -315,6 +315,6 @@ def getZonePolicyFilters(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/policy/zonepolicyfilter?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/policy/zonepolicyfilter?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

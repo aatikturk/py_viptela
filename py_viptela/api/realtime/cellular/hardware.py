@@ -11,6 +11,6 @@ def getHardwareInfo(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/hardware?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/cellularEiolte/hardware?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

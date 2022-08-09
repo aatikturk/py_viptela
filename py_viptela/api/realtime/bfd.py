@@ -13,8 +13,8 @@ def getHistoryList(vmanage, systemIp, color, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/history?system-ip={systemIp}&color={color}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/history?system-ip={systemIp}&color={color}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getLinkList(vmanage, state):
     """
@@ -29,8 +29,8 @@ def getLinkList(vmanage, state):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/links?state={state}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/links?state={state}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSessions(vmanage, systemIp, color, localColor, deviceId):
     """
@@ -48,8 +48,8 @@ def getSessions(vmanage, systemIp, color, localColor, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/sessions?system-ip={systemIp}&color={color}&local-color={localColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/sessions?system-ip={systemIp}&color={color}&local-color={localColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSiteStateDetail(vmanage):
     """
@@ -63,8 +63,8 @@ def getSiteStateDetail(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/sites/detail"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/sites/detail"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSitesSummary(vmanage, isCached, vpnId):
     """
@@ -80,8 +80,8 @@ def getSitesSummary(vmanage, isCached, vpnId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/sites/summary?isCached={isCached}&vpnId={vpnId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/sites/summary?isCached={isCached}&vpnId={vpnId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStateSummary(vmanage, deviceId):
     """
@@ -96,8 +96,8 @@ def getStateSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/state/device?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/state/device?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStateSummaryTloc(vmanage, deviceId):
     """
@@ -112,8 +112,8 @@ def getStateSummaryTloc(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/state/device/tloc?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/state/device/tloc?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatus(vmanage):
     """
@@ -127,8 +127,8 @@ def getStatus(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSummary(vmanage, deviceId):
     """
@@ -143,8 +143,8 @@ def getSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/summary?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatusSummary(vmanage, deviceId):
     """
@@ -159,8 +159,8 @@ def getStatusSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/summary/device?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/summary/device?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSyncSession(vmanage, systemIp, color, localColor, deviceId):
     """
@@ -178,8 +178,8 @@ def getSyncSession(vmanage, systemIp, color, localColor, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/synced/sessions?system-ip={systemIp}&color={color}&local-color={localColor}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/synced/sessions?system-ip={systemIp}&color={color}&local-color={localColor}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getTLOCSummary(vmanage, deviceId):
     """
@@ -194,6 +194,6 @@ def getTLOCSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/bfd/tloc?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/bfd/tloc?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -11,8 +11,8 @@ def getConnInfo(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/connections?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/cellularEiolte/connections?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRadioInfo(vmanage, deviceId):
     """
@@ -27,6 +27,6 @@ def getRadioInfo(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/cellularEiolte/radio?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/cellularEiolte/radio?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

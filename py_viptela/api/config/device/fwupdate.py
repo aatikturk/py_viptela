@@ -10,8 +10,8 @@ def get(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/action/firmware"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def process(vmanage):
@@ -26,8 +26,8 @@ def process(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/device/action/firmware"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def activate(vmanage, fwInfo):
@@ -43,8 +43,8 @@ def activate(vmanage, fwInfo):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/activate"
-    response = vmanage.client.apiCall("POST", endpoint, fwInfo)
+    endpoint = f"dataservice/device/action/firmware/activate"
+    response = vmanage.apiCall("POST", endpoint, fwInfo)
     return response
 
 def getDevicesFWUpgrade(vmanage):
@@ -59,8 +59,8 @@ def getDevicesFWUpgrade(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/devices"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/action/firmware/devices"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def install(vmanage, fwInfo):
@@ -76,8 +76,8 @@ def install(vmanage, fwInfo):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/install"
-    response = vmanage.client.apiCall("POST", endpoint, fwInfo)
+    endpoint = f"dataservice/device/action/firmware/install"
+    response = vmanage.apiCall("POST", endpoint, fwInfo)
     return response
 
 def remove(vmanage, fwInfo):
@@ -93,8 +93,8 @@ def remove(vmanage, fwInfo):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/remove"
-    response = vmanage.client.apiCall("POST", endpoint, fwInfo)
+    endpoint = f"dataservice/device/action/firmware/remove"
+    response = vmanage.apiCall("POST", endpoint, fwInfo)
     return response
 
 def getDetails(vmanage, versionId):
@@ -110,8 +110,8 @@ def getDetails(vmanage, versionId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/{versionId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/action/firmware/{versionId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def delete(vmanage, versionId):
@@ -127,6 +127,6 @@ def delete(vmanage, versionId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/action/firmware/{versionId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/device/action/firmware/{versionId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

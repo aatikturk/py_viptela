@@ -11,8 +11,8 @@ def getStatDataRawData(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system?query={query}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system?query={query}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsRawData(vmanage, query):
     """
@@ -27,8 +27,8 @@ def getStatsRawData(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/statistics/system"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
@@ -43,8 +43,8 @@ def getAggregationDataByQuery(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/aggregation?query={query}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/aggregation?query={query}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getPostAggregationDataByQuery(vmanage, query):
     """
@@ -59,8 +59,8 @@ def getPostAggregationDataByQuery(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/statistics/system/aggregation"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getPostAggregationAppDataByQuery(vmanage, query):
     """
@@ -75,8 +75,8 @@ def getPostAggregationAppDataByQuery(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/app-agg/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/statistics/system/app-agg/aggregation"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def createDeviceSystemCPUStat(vmanage, query, deviceId):
     """
@@ -92,8 +92,8 @@ def createDeviceSystemCPUStat(vmanage, query, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/cpu?query={query}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/cpu?query={query}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatDataRawDataAsCSV(vmanage, query):
     """
@@ -108,8 +108,8 @@ def getStatDataRawDataAsCSV(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/csv?query={query}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/csv?query={query}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getCount(vmanage, query):
     """
@@ -124,8 +124,8 @@ def getCount(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/doccount?query={query}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/doccount?query={query}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getCountPost(vmanage, query):
     """
@@ -140,8 +140,8 @@ def getCountPost(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/doccount"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/statistics/system/doccount"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getStatDataFields(vmanage):
     """
@@ -155,8 +155,8 @@ def getStatDataFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createDeviceSystemMemoryStat(vmanage, query, deviceId):
     """
@@ -172,8 +172,8 @@ def createDeviceSystemMemoryStat(vmanage, query, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/memory?query={query}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/memory?query={query}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatBulkRawData(vmanage, query, scrollId, count):
     """
@@ -190,8 +190,8 @@ def getStatBulkRawData(vmanage, query, scrollId, count):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/page?query={query}&scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/page?query={query}&scrollId={scrollId}&count={count}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getPostStatBulkRawData(vmanage, query, scrollId, count):
     """
@@ -208,8 +208,8 @@ def getPostStatBulkRawData(vmanage, query, scrollId, count):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/statistics/system/page?scrollId={scrollId}&count={count}"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getStatQueryFields(vmanage):
     """
@@ -223,6 +223,6 @@ def getStatQueryFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/system/query/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/system/query/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response

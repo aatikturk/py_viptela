@@ -10,6 +10,6 @@ def getVmanageConnList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/messaging/device/vmanage"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/messaging/device/vmanage"
+    response = vmanage.apiCall("GET", endpoint)
     return response

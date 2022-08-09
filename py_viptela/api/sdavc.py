@@ -10,8 +10,8 @@ def getCloudConnector(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sdavc/cloudconnector"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def disableCloudConnector(vmanage, payload):
     """
@@ -26,8 +26,8 @@ def disableCloudConnector(vmanage, payload):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector"
-    response = vmanage.client.apiCall("PUT", endpoint, payload)
+    endpoint = f"dataservice/sdavc/cloudconnector"
+    response = vmanage.apiCall("PUT", endpoint, payload)
     return response
 def enableCloudConnector(vmanage, payload):
     """
@@ -42,8 +42,8 @@ def enableCloudConnector(vmanage, payload):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector"
-    response = vmanage.client.apiCall("POST", endpoint, payload)
+    endpoint = f"dataservice/sdavc/cloudconnector"
+    response = vmanage.apiCall("POST", endpoint, payload)
     return response
 def getCloudConnectorStatus(vmanage):
     """
@@ -57,6 +57,6 @@ def getCloudConnectorStatus(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/sdavc/cloudconnector/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/sdavc/cloudconnector/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response

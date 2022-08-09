@@ -11,8 +11,8 @@ def updateLeaseTime(vmanage, processId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/lock/{processId}"
-    response = vmanage.client.apiCall("PUT", endpoint)
+    endpoint = f"dataservice/template/lock/{processId}"
+    response = vmanage.apiCall("PUT", endpoint)
     return response
 
 def removeLock(vmanage, processId):
@@ -28,6 +28,6 @@ def removeLock(vmanage, processId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/lock/{processId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/lock/{processId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

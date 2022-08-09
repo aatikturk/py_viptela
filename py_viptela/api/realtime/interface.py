@@ -14,8 +14,8 @@ def getInterface(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getARPStats(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -33,8 +33,8 @@ def getARPStats(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/arp_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/arp_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getErrorStats(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -52,8 +52,8 @@ def getErrorStats(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/error_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/error_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getV6Stats(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -71,8 +71,8 @@ def getV6Stats(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/ipv6Stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/ipv6Stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getPktSizes(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -90,8 +90,8 @@ def getPktSizes(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/pkt_size?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/pkt_size?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getPortStats(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -109,8 +109,8 @@ def getPortStats(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/port_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/port_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getQosStats(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -128,8 +128,8 @@ def getQosStats(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/qosStats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/qosStats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getQueueStats(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -147,8 +147,8 @@ def getQueueStats(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/queue_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/queue_stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDeviceSerialInterface(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -166,8 +166,8 @@ def getDeviceSerialInterface(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/serial?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/serial?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStats(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -185,8 +185,8 @@ def getStats(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSyncedInterface(vmanage, vpnId, ifname, af, deviceId):
     """
@@ -204,8 +204,8 @@ def getSyncedInterface(vmanage, vpnId, ifname, af, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/synced?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/synced?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def trustsec(vmanage, deviceId):
     """
@@ -220,8 +220,8 @@ def trustsec(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/trustsec?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/trustsec?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getInterfaceVPN(vmanage, deviceId):
     """
@@ -236,6 +236,6 @@ def getInterfaceVPN(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/interface/vpn?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/interface/vpn?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

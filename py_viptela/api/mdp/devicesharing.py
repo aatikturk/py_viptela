@@ -11,8 +11,8 @@ def getAttached(vmanage, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/attachDevices/{nmsId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/mdp/attachDevices/{nmsId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editAttached(vmanage, devicelist, nmsId):
@@ -29,8 +29,8 @@ def editAttached(vmanage, devicelist, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/attachDevices/{nmsId}"
-    response = vmanage.client.apiCall("PUT", endpoint, devicelist)
+    endpoint = f"dataservice/mdp/attachDevices/{nmsId}"
+    response = vmanage.apiCall("PUT", endpoint, devicelist)
     return response
 
 def attach(vmanage, devicelist, nmsId):
@@ -47,8 +47,8 @@ def attach(vmanage, devicelist, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/attachDevices/{nmsId}"
-    response = vmanage.client.apiCall("POST", endpoint, devicelist)
+    endpoint = f"dataservice/mdp/attachDevices/{nmsId}"
+    response = vmanage.apiCall("POST", endpoint, devicelist)
     return response
 
 def detach(vmanage, devicelist, nmsId):
@@ -65,8 +65,8 @@ def detach(vmanage, devicelist, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/detachDevices/{nmsId}"
-    response = vmanage.client.apiCall("POST", endpoint, devicelist)
+    endpoint = f"dataservice/mdp/detachDevices/{nmsId}"
+    response = vmanage.apiCall("POST", endpoint, devicelist)
     return response
 
 def getSupported(vmanage, nmsId):
@@ -82,6 +82,6 @@ def getSupported(vmanage, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/devices/{nmsId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/mdp/devices/{nmsId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

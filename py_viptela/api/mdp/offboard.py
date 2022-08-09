@@ -11,8 +11,8 @@ def disconnect(vmanage, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/disconnect/{nmsId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/mdp/disconnect/{nmsId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def offboard(vmanage, nmsId):
@@ -28,6 +28,6 @@ def offboard(vmanage, nmsId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard/{nmsId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/mdp/onboard/{nmsId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

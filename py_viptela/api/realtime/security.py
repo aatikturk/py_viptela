@@ -11,6 +11,6 @@ def getSessionList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/security/information?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/security/information?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

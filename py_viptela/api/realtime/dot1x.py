@@ -11,8 +11,8 @@ def getClients(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/clients?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/dot1x/clients?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getInterfaces(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getInterfaces(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/interfaces?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/dot1x/interfaces?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRadius(vmanage, deviceId):
     """
@@ -43,6 +43,6 @@ def getRadius(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/dot1x/radius?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/dot1x/radius?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

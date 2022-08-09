@@ -1,5 +1,5 @@
 import requests
-from response_parser import parse_response
+from py_viptela.response_parser import parse_response
 
 
 class RestClient:
@@ -17,14 +17,14 @@ class RestClient:
         self.headers = {'Content-Type':'application/json'}
         self.baseurl = f"https://{self.host}:{self.port}"
 
-    def apiCall(self, method, api, query="", payload=None):
+    def apiCall(self, method, endpoint, payload=None):
         methods = {
             "GET":self.session.get,
             "POST": self.session.post,
             "PUT": self.session.put,
             "DELETE": self.session.delete
         }
-        url = f"{self.baseurl}/{api}?{query}"
+        url = f"{self.baseurl}/{endpoint}"
 
         try:
             response = methods[method](url=url, headers=self.headers, data=payload)

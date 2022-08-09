@@ -11,8 +11,8 @@ def checkIfClusterLocked(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/clusterLocked"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/clusterLocked"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getClusterWorkflowVersion(vmanage):
     """
@@ -27,8 +27,8 @@ def getClusterWorkflowVersion(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/clusterworkflow/version"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/clusterworkflow/version"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def configureVmanage(vmanage, vmanageConfig):
     """
@@ -44,8 +44,8 @@ def configureVmanage(vmanage, vmanageConfig):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/configure"
-    response = vmanage.client.apiCall("POST", endpoint, vmanageConfig)
+    endpoint = f"dataservice/clusterManagement/configure"
+    response = vmanage.apiCall("POST", endpoint, vmanageConfig)
     return response
 def getConnectedDevices(vmanage, vmanageIP):
     """
@@ -61,8 +61,8 @@ def getConnectedDevices(vmanage, vmanageIP):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/connectedDevices/{vmanageIP}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/connectedDevices/{vmanageIP}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def healthDetails(vmanage):
     """
@@ -77,8 +77,8 @@ def healthDetails(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/health/details"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/health/details"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def healthStatusInfo(vmanage):
     """
@@ -93,8 +93,8 @@ def healthStatusInfo(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/health/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/health/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def healthSummary(vmanage, isCached):
     """
@@ -110,8 +110,8 @@ def healthSummary(vmanage, isCached):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/health/summary?isCached={isCached}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/health/summary?isCached={isCached}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getConfiguredIPList(vmanage, vmanageID):
     """
@@ -127,8 +127,8 @@ def getConfiguredIPList(vmanage, vmanageID):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/iplist/{vmanageID}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/iplist/{vmanageID}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def isClusterReady(vmanage):
     """
@@ -143,8 +143,8 @@ def isClusterReady(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/isready"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/isready"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def listVmanages(vmanage):
     """
@@ -159,8 +159,8 @@ def listVmanages(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/list"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/list"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def nodeProperties(vmanage):
     """
@@ -175,8 +175,8 @@ def nodeProperties(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/nodeProperties"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/nodeProperties"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def removeVmanage(vmanage, vmanageInfo):
     """
@@ -192,8 +192,8 @@ def removeVmanage(vmanage, vmanageInfo):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/remove"
-    response = vmanage.client.apiCall("POST", endpoint, vmanageInfo)
+    endpoint = f"dataservice/clusterManagement/remove"
+    response = vmanage.apiCall("POST", endpoint, vmanageInfo)
     return response
 def performReplicationAndRebalanceOfKafkaPartitions(vmanage):
     """
@@ -208,8 +208,8 @@ def performReplicationAndRebalanceOfKafkaPartitions(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/replicateAndRebalance"
-    response = vmanage.client.apiCall("PUT", endpoint)
+    endpoint = f"dataservice/clusterManagement/replicateAndRebalance"
+    response = vmanage.apiCall("PUT", endpoint)
     return response
 def editVmanage(vmanage, clusterConfig):
     """
@@ -225,8 +225,8 @@ def editVmanage(vmanage, clusterConfig):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/setup"
-    response = vmanage.client.apiCall("PUT", endpoint, clusterConfig)
+    endpoint = f"dataservice/clusterManagement/setup"
+    response = vmanage.apiCall("PUT", endpoint, clusterConfig)
     return response
 def addVmanage(vmanage, clusterConfig):
     """
@@ -241,8 +241,8 @@ def addVmanage(vmanage, clusterConfig):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/setup"
-    response = vmanage.client.apiCall("POST", endpoint, clusterConfig)
+    endpoint = f"dataservice/clusterManagement/setup"
+    response = vmanage.apiCall("POST", endpoint, clusterConfig)
     return response
 def getTenancyMode(vmanage):
     """
@@ -257,8 +257,8 @@ def getTenancyMode(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/tenancy/mode"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/tenancy/mode"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def setTenancyMode(vmanage, tenancySetting):
     """
@@ -273,8 +273,8 @@ def setTenancyMode(vmanage, tenancySetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/tenancy/mode"
-    response = vmanage.client.apiCall("POST", endpoint, tenancySetting)
+    endpoint = f"dataservice/clusterManagement/tenancy/mode"
+    response = vmanage.apiCall("POST", endpoint, tenancySetting)
     return response
 def getTenantsList(vmanage):
     """
@@ -289,8 +289,8 @@ def getTenantsList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/tenantList"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/tenantList"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def addOrUpdateUserCredentials(vmanage, creds):
     """
@@ -306,8 +306,8 @@ def addOrUpdateUserCredentials(vmanage, creds):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/userCreds"
-    response = vmanage.client.apiCall("POST", endpoint, creds)
+    endpoint = f"dataservice/clusterManagement/userCreds"
+    response = vmanage.apiCall("POST", endpoint, creds)
     return response
 def getVManageDetails(vmanage, vmanageIP):
     """
@@ -323,8 +323,8 @@ def getVManageDetails(vmanage, vmanageIP):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/vManage/details/{vmanageIP}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/vManage/details/{vmanageIP}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getConnectedDevicesPerTenant(vmanage, tenantId, vmanageIP):
     """
@@ -341,6 +341,6 @@ def getConnectedDevicesPerTenant(vmanage, tenantId, vmanageIP):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/clusterManagement/{tenantId}/connectedDevices/{vmanageIP}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/clusterManagement/{tenantId}/connectedDevices/{vmanageIP}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -11,8 +11,8 @@ def getUmbrellaDevReg(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/device-registration?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/umbrella/device-registration?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getUmbrellaDNSCrypt(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getUmbrellaDNSCrypt(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/dnscrypt?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/umbrella/dnscrypt?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getUmbrellaDpStats(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getUmbrellaDpStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/dp-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/umbrella/dp-stats?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getUmbrellaOverview(vmanage, deviceId):
     """
@@ -59,8 +59,8 @@ def getUmbrellaOverview(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/overview?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/umbrella/overview?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getUmbrellaConfig(vmanage, deviceId):
     """
@@ -75,6 +75,6 @@ def getUmbrellaConfig(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/umbrella/umbrella-config?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/umbrella/umbrella-config?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

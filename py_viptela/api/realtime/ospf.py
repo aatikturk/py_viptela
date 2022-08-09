@@ -11,8 +11,8 @@ def getDbList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/database?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/database?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDbExt(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getDbExt(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/databaseexternal?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/databaseexternal?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDbSummary(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getDbSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/databasesummary?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/databasesummary?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getInterfaces(vmanage, deviceId):
     """
@@ -59,8 +59,8 @@ def getInterfaces(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/interface?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getNeighbors(vmanage, deviceId):
     """
@@ -75,8 +75,8 @@ def getNeighbors(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/neighbor?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/neighbor?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getProcess(vmanage, deviceId):
     """
@@ -91,8 +91,8 @@ def getProcess(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/process?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/process?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRoutes(vmanage, deviceId):
     """
@@ -107,8 +107,8 @@ def getRoutes(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/routes?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/routes?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getV3Interface(vmanage, deviceId):
     """
@@ -123,8 +123,8 @@ def getV3Interface(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/v3interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/v3interface?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getV3Neighbors(vmanage, deviceId):
     """
@@ -139,6 +139,6 @@ def getV3Neighbors(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ospf/v3neighbor?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ospf/v3neighbor?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

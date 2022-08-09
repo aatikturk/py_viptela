@@ -11,6 +11,6 @@ def getDeviceInfo(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/containers/container?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/csp/containers/container?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

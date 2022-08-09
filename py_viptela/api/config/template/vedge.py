@@ -10,8 +10,8 @@ def generatePolicyTemplateList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vedge"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createVEdgeTemplate(vmanage, templatepolicy):
@@ -27,8 +27,8 @@ def createVEdgeTemplate(vmanage, templatepolicy):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge"
-    response = vmanage.client.apiCall("POST", endpoint, templatepolicy)
+    endpoint = f"dataservice/template/policy/vedge"
+    response = vmanage.apiCall("POST", endpoint, templatepolicy)
     return response
 
 def getVEdgeTemplate(vmanage, policyId):
@@ -44,8 +44,8 @@ def getVEdgeTemplate(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge/definition/{policyId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vedge/definition/{policyId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getVEdgePolicyDeviceList(vmanage):
@@ -60,8 +60,8 @@ def getVEdgePolicyDeviceList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge/devices"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vedge/devices"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getDeviceListByPolicy(vmanage, policyId):
@@ -77,8 +77,8 @@ def getDeviceListByPolicy(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge/devices/{policyId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vedge/devices/{policyId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editVEdgeTemplate(vmanage, templatepolicy, policyId):
@@ -95,8 +95,8 @@ def editVEdgeTemplate(vmanage, templatepolicy, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge/{policyId}"
-    response = vmanage.client.apiCall("PUT", endpoint, templatepolicy)
+    endpoint = f"dataservice/template/policy/vedge/{policyId}"
+    response = vmanage.apiCall("PUT", endpoint, templatepolicy)
     return response
 
 def deleteVEdgeTemplate(vmanage, policyId):
@@ -112,8 +112,8 @@ def deleteVEdgeTemplate(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge/{policyId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/policy/vedge/{policyId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def changePolicyResourceGroup(vmanage, policyId, resourceGroupName):
@@ -130,6 +130,6 @@ def changePolicyResourceGroup(vmanage, policyId, resourceGroupName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vedge/{resourceGroupName}/{policyId}"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/template/policy/vedge/{resourceGroupName}/{policyId}"
+    response = vmanage.apiCall("POST", endpoint)
     return response

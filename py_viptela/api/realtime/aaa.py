@@ -12,8 +12,8 @@ def getServers(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/aaa/servers?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/aaa/servers?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getUsers(vmanage, deviceId):
     """
@@ -28,8 +28,8 @@ def getUsers(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/aaa/users?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/aaa/users?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getACLMatchCounterUsers(vmanage, deviceId):
     """
@@ -44,8 +44,8 @@ def getACLMatchCounterUsers(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/acl/matchcounter?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/acl/matchcounter?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getLoggingFromDevice(vmanage, deviceId):
     """
@@ -60,8 +60,8 @@ def getLoggingFromDevice(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/logging?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/logging?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getUnclaimedVedges(vmanage, deviceId):
     """
@@ -76,8 +76,8 @@ def getUnclaimedVedges(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/unclaimed/vedges?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/unclaimed/vedges?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getUsersFromDevice(vmanage, deviceId):
     """
@@ -92,8 +92,8 @@ def getUsersFromDevice(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/users?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/users?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAllDeviceUsers(vmanage, deviceId):
     """
@@ -108,6 +108,6 @@ def getAllDeviceUsers(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/users/list?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/users/list?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

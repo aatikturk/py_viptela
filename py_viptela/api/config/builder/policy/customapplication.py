@@ -11,8 +11,8 @@ def MapTrafficProfiles(vmanage, apppayload):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/clouddiscoveredapp"
-    response = vmanage.client.apiCall("POST", endpoint, apppayload)
+    endpoint = f"dataservice/template/policy/clouddiscoveredapp"
+    response = vmanage.apiCall("POST", endpoint, apppayload)
     return response
 
 def getCustomApps(vmanage):
@@ -27,8 +27,8 @@ def getCustomApps(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/customapp"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def create(vmanage, apppayload):
@@ -44,8 +44,8 @@ def create(vmanage, apppayload):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp"
-    response = vmanage.client.apiCall("POST", endpoint, apppayload)
+    endpoint = f"dataservice/template/policy/customapp"
+    response = vmanage.apiCall("POST", endpoint, apppayload)
     return response
 
 def getById(vmanage, id):
@@ -61,8 +61,8 @@ def getById(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp/{id}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/customapp/{id}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def edit(vmanage, apppayload, id):
@@ -79,8 +79,8 @@ def edit(vmanage, apppayload, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp/{id}"
-    response = vmanage.client.apiCall("PUT", endpoint, apppayload)
+    endpoint = f"dataservice/template/policy/customapp/{id}"
+    response = vmanage.apiCall("PUT", endpoint, apppayload)
     return response
 
 def delete(vmanage, id):
@@ -96,6 +96,6 @@ def delete(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/customapp/{id}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/policy/customapp/{id}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

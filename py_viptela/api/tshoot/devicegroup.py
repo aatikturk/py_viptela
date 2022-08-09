@@ -10,8 +10,8 @@ def listDeviceGroupList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/group"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/group"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def listDeviceGroups(vmanage):
     """
@@ -25,8 +25,8 @@ def listDeviceGroups(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/group/device"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/group/device"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def listGroupDevices(vmanage, groupId, ssh, vpnId):
     """
@@ -43,8 +43,8 @@ def listGroupDevices(vmanage, groupId, ssh, vpnId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/group/devices?groupId={groupId}&ssh={ssh}&vpnId={vpnId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/group/devices?groupId={groupId}&ssh={ssh}&vpnId={vpnId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def listGroupDevicesForMap(vmanage, groupId, vpnId):
     """
@@ -60,8 +60,8 @@ def listGroupDevicesForMap(vmanage, groupId, vpnId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/group/map/devices?groupId={groupId}&vpnId={vpnId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/group/map/devices?groupId={groupId}&vpnId={vpnId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def listGroupLinksForMap(vmanage, groupId):
     """
@@ -76,6 +76,6 @@ def listGroupLinksForMap(vmanage, groupId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/group/map/devices/links?groupId={groupId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/group/map/devices/links?groupId={groupId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -11,8 +11,8 @@ def getInterface(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/eigrp/interface?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/eigrp/interface?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRoute(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getRoute(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/eigrp/route?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/eigrp/route?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getTopology(vmanage, deviceId):
     """
@@ -43,6 +43,6 @@ def getTopology(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/eigrp/topology?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/eigrp/topology?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

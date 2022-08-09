@@ -11,8 +11,8 @@ def getStatDataRawData(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsRawData(vmanage, statsquerystring):
     """
@@ -27,8 +27,8 @@ def getStatsRawData(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/statistics/dpi"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getPostAggregationAppData(vmanage, queryfilter):
     """
@@ -43,8 +43,8 @@ def getPostAggregationAppData(vmanage, queryfilter):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/agg-app/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, queryfilter)
+    endpoint = f"dataservice/statistics/dpi/agg-app/aggregation"
+    response = vmanage.apiCall("POST", endpoint, queryfilter)
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
@@ -59,8 +59,8 @@ def getAggregationDataByQuery(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/aggregation?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/aggregation?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getPostAggregationData(vmanage, queryfilter):
     """
@@ -75,8 +75,8 @@ def getPostAggregationData(vmanage, queryfilter):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, queryfilter)
+    endpoint = f"dataservice/statistics/dpi/aggregation"
+    response = vmanage.apiCall("POST", endpoint, queryfilter)
     return response
 def createDPIFlowsGridListQuery(vmanage, query, limit):
     """
@@ -92,8 +92,8 @@ def createDPIFlowsGridListQuery(vmanage, query, limit):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/applications?query={query_string}&limit={limit}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/applications?query={query_string}&limit={limit}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def createDPISummary(vmanage, query, limit):
     """
@@ -109,8 +109,8 @@ def createDPISummary(vmanage, query, limit):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/applications/summary?query={query_string}&limit={limit}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/applications/summary?query={query_string}&limit={limit}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getStatDataRawDataAsCSV(vmanage, query):
     """
@@ -125,8 +125,8 @@ def getStatDataRawDataAsCSV(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/csv?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/csv?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getUniqueFlowCount(vmanage, deviceId, interval, application, window, family):
     """
@@ -145,8 +145,8 @@ def getUniqueFlowCount(vmanage, deviceId, interval, application, window, family)
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/device/application/flowcount?deviceId={deviceId}&interval={interval}&application={application}&window={window}&family={family}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/device/application/flowcount?deviceId={deviceId}&interval={interval}&application={application}&window={window}&family={family}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createDPIDeviceGridData(vmanage, query, limit):
     """
@@ -162,8 +162,8 @@ def createDPIDeviceGridData(vmanage, query, limit):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/device/applications?query={query_string}&limit={limit}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/device/applications?query={query_string}&limit={limit}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def createDPIDeviceAndAppDetails(vmanage, query):
     """
@@ -178,8 +178,8 @@ def createDPIDeviceAndAppDetails(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/device/details/applications?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/device/details/applications?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getCount(vmanage, query):
     """
@@ -194,8 +194,8 @@ def getCount(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/doccount?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/doccount?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getCountPost(vmanage, query):
     """
@@ -210,8 +210,8 @@ def getCountPost(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/doccount"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/statistics/dpi/doccount"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getStatDataFields(vmanage):
     """
@@ -225,8 +225,8 @@ def getStatDataFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatBulkRawData(vmanage, query, scrollId, count):
     """
@@ -243,8 +243,8 @@ def getStatBulkRawData(vmanage, query, scrollId, count):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/page?query={query_string}&scrollId={scrollId}&count={count}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/page?query={query_string}&scrollId={scrollId}&count={count}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
@@ -261,8 +261,8 @@ def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/statistics/dpi/page?scrollId={scrollId}&count={count}"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getAggregationDataForPacketDup(vmanage, querystring):
     """
@@ -277,8 +277,8 @@ def getAggregationDataForPacketDup(vmanage, querystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/pktdup/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, querystring)
+    endpoint = f"dataservice/statistics/dpi/pktdup/aggregation"
+    response = vmanage.apiCall("POST", endpoint, querystring)
     return response
 def getStatQueryFields(vmanage):
     """
@@ -292,8 +292,8 @@ def getStatQueryFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/query/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/dpi/query/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAggregationDataDPI(vmanage, querystring):
     """
@@ -308,6 +308,6 @@ def getAggregationDataDPI(vmanage, querystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/dpi/recovery/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, querystring)
+    endpoint = f"dataservice/statistics/dpi/recovery/aggregation"
+    response = vmanage.apiCall("POST", endpoint, querystring)
     return response

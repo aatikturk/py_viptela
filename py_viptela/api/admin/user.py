@@ -14,8 +14,8 @@ def getColoGroups(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/cologroup"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/cologroup"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createColoGroup(vmanage, colocationgroup):
@@ -31,8 +31,8 @@ def createColoGroup(vmanage, colocationgroup):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/cologroup"
-    response = vmanage.client.apiCall("POST", endpoint, colocationgroup)
+    endpoint = f"dataservice/admin/cologroup"
+    response = vmanage.apiCall("POST", endpoint, colocationgroup)
     return response
 
 def editColoGroup(vmanage, colocationgroup, id):
@@ -49,8 +49,8 @@ def editColoGroup(vmanage, colocationgroup, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/cologroup/{id}"
-    response = vmanage.client.apiCall("PUT", endpoint, colocationgroup)
+    endpoint = f"dataservice/admin/cologroup/{id}"
+    response = vmanage.apiCall("PUT", endpoint, colocationgroup)
     return response
 
 def deleteColoGroup(vmanage, id):
@@ -66,8 +66,8 @@ def deleteColoGroup(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/cologroup/{id}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/admin/cologroup/{id}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getResourceGroups(vmanage):
@@ -82,8 +82,8 @@ def getResourceGroups(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/resourcegroup"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/resourcegroup"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createResourceGroup(vmanage, createagroup):
@@ -99,8 +99,8 @@ def createResourceGroup(vmanage, createagroup):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/resourcegroup"
-    response = vmanage.client.apiCall("POST", endpoint, createagroup)
+    endpoint = f"dataservice/admin/resourcegroup"
+    response = vmanage.apiCall("POST", endpoint, createagroup)
     return response
 
 def switchView(vmanage, groupView):
@@ -116,8 +116,8 @@ def switchView(vmanage, groupView):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/resourcegroup/switch"
-    response = vmanage.client.apiCall("POST", endpoint, groupView)
+    endpoint = f"dataservice/admin/resourcegroup/switch"
+    response = vmanage.apiCall("POST", endpoint, groupView)
     return response
 
 def editResourceGroup(vmanage, updategroupdescription, groupId):
@@ -134,8 +134,8 @@ def editResourceGroup(vmanage, updategroupdescription, groupId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/resourcegroup/{groupId}"
-    response = vmanage.client.apiCall("PUT", endpoint, updategroupdescription)
+    endpoint = f"dataservice/admin/resourcegroup/{groupId}"
+    response = vmanage.apiCall("PUT", endpoint, updategroupdescription)
     return response
 
 def deleteResourceGroup(vmanage, groupId):
@@ -151,8 +151,8 @@ def deleteResourceGroup(vmanage, groupId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/resourcegroup/{groupId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/admin/resourcegroup/{groupId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def findUsers(vmanage):
@@ -167,8 +167,8 @@ def findUsers(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/user"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createUser(vmanage, user):
@@ -184,8 +184,8 @@ def createUser(vmanage, user):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user"
-    response = vmanage.client.apiCall("POST", endpoint, user)
+    endpoint = f"dataservice/admin/user"
+    response = vmanage.apiCall("POST", endpoint, user)
     return response
 
 def getActiveSessions(vmanage):
@@ -200,8 +200,8 @@ def getActiveSessions(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/activeSessions"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/user/activeSessions"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateAdminPassword(vmanage, user):
@@ -217,8 +217,8 @@ def updateAdminPassword(vmanage, user):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/admin/password"
-    response = vmanage.client.apiCall("POST", endpoint, user)
+    endpoint = f"dataservice/admin/user/admin/password"
+    response = vmanage.apiCall("POST", endpoint, user)
     return response
 
 def validatePassword(vmanage, userpassword):
@@ -234,8 +234,8 @@ def validatePassword(vmanage, userpassword):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/password/validate"
-    response = vmanage.client.apiCall("POST", endpoint, userpassword)
+    endpoint = f"dataservice/admin/user/password/validate"
+    response = vmanage.apiCall("POST", endpoint, userpassword)
     return response
 
 def updatePassword(vmanage, user, userName):
@@ -252,8 +252,8 @@ def updatePassword(vmanage, user, userName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/password/{userName}"
-    response = vmanage.client.apiCall("PUT", endpoint, user)
+    endpoint = f"dataservice/admin/user/password/{userName}"
+    response = vmanage.apiCall("PUT", endpoint, user)
     return response
 
 def updateProfileLocale(vmanage, user):
@@ -269,8 +269,8 @@ def updateProfileLocale(vmanage, user):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/profile/locale"
-    response = vmanage.client.apiCall("PUT", endpoint, user)
+    endpoint = f"dataservice/admin/user/profile/locale"
+    response = vmanage.apiCall("PUT", endpoint, user)
     return response
 
 def updateProfilePassword(vmanage, user):
@@ -286,8 +286,8 @@ def updateProfilePassword(vmanage, user):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/profile/password"
-    response = vmanage.client.apiCall("PUT", endpoint, user)
+    endpoint = f"dataservice/admin/user/profile/password"
+    response = vmanage.apiCall("PUT", endpoint, user)
     return response
 
 def removeSessions(vmanage, user):
@@ -303,8 +303,8 @@ def removeSessions(vmanage, user):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/removeSessions"
-    response = vmanage.client.apiCall("DELETE", endpoint, user)
+    endpoint = f"dataservice/admin/user/removeSessions"
+    response = vmanage.apiCall("DELETE", endpoint, user)
     return response
 
 def resetUser(vmanage, user):
@@ -320,8 +320,8 @@ def resetUser(vmanage, user):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/reset"
-    response = vmanage.client.apiCall("POST", endpoint, user)
+    endpoint = f"dataservice/admin/user/reset"
+    response = vmanage.apiCall("POST", endpoint, user)
     return response
 
 def resourceGroupName(vmanage):
@@ -336,8 +336,8 @@ def resourceGroupName(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/resourceGroupName"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/user/resourceGroupName"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def findUserRole(vmanage):
@@ -352,8 +352,8 @@ def findUserRole(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/role"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/user/role"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def findUserAuthType(vmanage):
@@ -368,8 +368,8 @@ def findUserAuthType(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/userAuthType"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/user/userAuthType"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateUser(vmanage, user, userName):
@@ -386,8 +386,8 @@ def updateUser(vmanage, user, userName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/{userName}"
-    response = vmanage.client.apiCall("PUT", endpoint, user)
+    endpoint = f"dataservice/admin/user/{userName}"
+    response = vmanage.apiCall("PUT", endpoint, user)
     return response
 
 def deleteUser(vmanage, userName):
@@ -403,8 +403,8 @@ def deleteUser(vmanage, userName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/user/{userName}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/admin/user/{userName}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def findUserGroups(vmanage):
@@ -419,8 +419,8 @@ def findUserGroups(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/usergroup"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/usergroup"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createUserGroup(vmanage, usergroup):
@@ -436,8 +436,8 @@ def createUserGroup(vmanage, usergroup):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/usergroup"
-    response = vmanage.client.apiCall("POST", endpoint, usergroup)
+    endpoint = f"dataservice/admin/usergroup"
+    response = vmanage.apiCall("POST", endpoint, usergroup)
     return response
 
 def createGroupGridColumns(vmanage):
@@ -452,8 +452,8 @@ def createGroupGridColumns(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/usergroup/definition"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/usergroup/definition"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def findUserGroupsAsKeyValue(vmanage):
@@ -468,8 +468,8 @@ def findUserGroupsAsKeyValue(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/usergroup/keyvalue"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/usergroup/keyvalue"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def updateUserGroup(vmanage, usergroup, userGroupId):
@@ -486,8 +486,8 @@ def updateUserGroup(vmanage, usergroup, userGroupId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/usergroup/{userGroupId}"
-    response = vmanage.client.apiCall("PUT", endpoint, usergroup)
+    endpoint = f"dataservice/admin/usergroup/{userGroupId}"
+    response = vmanage.apiCall("PUT", endpoint, usergroup)
     return response
 
 def deleteUserGroup(vmanage, userGroupId):
@@ -503,8 +503,8 @@ def deleteUserGroup(vmanage, userGroupId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/usergroup/{userGroupId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/admin/usergroup/{userGroupId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getVpnGroups(vmanage):
@@ -519,8 +519,8 @@ def getVpnGroups(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/vpngroup"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/admin/vpngroup"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createVpnGroup(vmanage, vpngroup):
@@ -536,8 +536,8 @@ def createVpnGroup(vmanage, vpngroup):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/vpngroup"
-    response = vmanage.client.apiCall("POST", endpoint, vpngroup)
+    endpoint = f"dataservice/admin/vpngroup"
+    response = vmanage.apiCall("POST", endpoint, vpngroup)
     return response
 
 def editVpnGroup(vmanage, vpngroup, id):
@@ -554,8 +554,8 @@ def editVpnGroup(vmanage, vpngroup, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/vpngroup/{id}"
-    response = vmanage.client.apiCall("PUT", endpoint, vpngroup)
+    endpoint = f"dataservice/admin/vpngroup/{id}"
+    response = vmanage.apiCall("PUT", endpoint, vpngroup)
     return response
 
 def deleteVpnGroup(vmanage, id):
@@ -571,8 +571,8 @@ def deleteVpnGroup(vmanage, id):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/admin/vpngroup/{id}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/admin/vpngroup/{id}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 

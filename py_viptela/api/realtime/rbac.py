@@ -11,8 +11,8 @@ def getPnicStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/pnic?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/csp/pnic?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getPNICStatsFromDevice(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getPNICStatsFromDevice(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/pnic/synced?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/csp/pnic/synced?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRBACInterface(vmanage, deviceId):
     """
@@ -43,6 +43,6 @@ def getRBACInterface(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/csp/rbac?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/csp/rbac?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -11,8 +11,8 @@ def getStatDataRawData(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/fwall?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsRawData(vmanage, statsquerystring):
     """
@@ -27,8 +27,8 @@ def getStatsRawData(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/statistics/fwall"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
@@ -43,8 +43,8 @@ def getAggregationDataByQuery(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/aggregation?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/fwall/aggregation?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getPostAggregationDataByQuery(vmanage, statsquerystring):
     """
@@ -59,8 +59,8 @@ def getPostAggregationDataByQuery(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/statistics/fwall/aggregation"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
@@ -75,8 +75,8 @@ def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/app-agg/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/statistics/fwall/app-agg/aggregation"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getStatDataRawDataAsCSV(vmanage, query):
     """
@@ -91,8 +91,8 @@ def getStatDataRawDataAsCSV(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/csv?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/fwall/csv?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getCount(vmanage, query):
     """
@@ -107,8 +107,8 @@ def getCount(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/doccount?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/fwall/doccount?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getCountPost(vmanage, query):
     """
@@ -123,8 +123,8 @@ def getCountPost(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/doccount"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/statistics/fwall/doccount"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getStatDataFields(vmanage):
     """
@@ -138,8 +138,8 @@ def getStatDataFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/fwall/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatBulkRawData(vmanage, query, scrollId, count):
     """
@@ -156,8 +156,8 @@ def getStatBulkRawData(vmanage, query, scrollId, count):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/page?query={query_string}&scrollId={scrollId}&count={count}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/fwall/page?query={query_string}&scrollId={scrollId}&count={count}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
@@ -174,8 +174,8 @@ def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/statistics/fwall/page?scrollId={scrollId}&count={count}"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getStatQueryFields(vmanage):
     """
@@ -189,6 +189,6 @@ def getStatQueryFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/statistics/fwall/query/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/statistics/fwall/query/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response

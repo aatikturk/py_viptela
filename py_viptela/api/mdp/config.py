@@ -11,6 +11,6 @@ def getConfig(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/mdpconfig/{deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/mdp/policies/mdpconfig/{deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

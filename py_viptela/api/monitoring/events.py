@@ -11,8 +11,8 @@ def getStatDataRawData(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsRawData(vmanage, statsquerystring):
     """
@@ -27,8 +27,8 @@ def getStatsRawData(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/event"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
@@ -43,8 +43,8 @@ def getAggregationDataByQuery(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/aggregation?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/aggregation?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getPostAggregationDataByQuery(vmanage, statsquerystring):
     """
@@ -59,8 +59,8 @@ def getPostAggregationDataByQuery(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/event/aggregation"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
@@ -75,8 +75,8 @@ def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/app-agg/aggregation"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/event/app-agg/aggregation"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getComponentsAsKeyValue(vmanage):
     """
@@ -90,8 +90,8 @@ def getComponentsAsKeyValue(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/component/keyvalue"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/component/keyvalue"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatDataRawDataAsCSV(vmanage, query):
     """
@@ -106,8 +106,8 @@ def getStatDataRawDataAsCSV(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/csv?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/csv?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getCount(vmanage, query):
     """
@@ -122,8 +122,8 @@ def getCount(vmanage, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/doccount?query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/doccount?query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getCountPost(vmanage, query):
     """
@@ -138,8 +138,8 @@ def getCountPost(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/doccount"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/event/doccount"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def enableEventsFromFile(vmanage):
     """
@@ -153,8 +153,8 @@ def enableEventsFromFile(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/enable/fileprocess"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/enable/fileprocess"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatDataFields(vmanage):
     """
@@ -168,8 +168,8 @@ def getStatDataFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getListenersInfo(vmanage):
     """
@@ -183,8 +183,8 @@ def getListenersInfo(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/listeners"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/listeners"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatBulkRawData(vmanage, query, scrollId, count):
     """
@@ -201,8 +201,8 @@ def getStatBulkRawData(vmanage, query, scrollId, count):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/page?query={query_string}&scrollId={scrollId}&count={count}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/page?query={query_string}&scrollId={scrollId}&count={count}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
@@ -219,8 +219,8 @@ def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/page?scrollId={scrollId}&count={count}"
-    response = vmanage.client.apiCall("POST", endpoint, statsquerystring)
+    endpoint = f"dataservice/event/page?scrollId={scrollId}&count={count}"
+    response = vmanage.apiCall("POST", endpoint, statsquerystring)
     return response
 def getStatQueryFields(vmanage):
     """
@@ -234,8 +234,8 @@ def getStatQueryFields(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/query/fields"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/query/fields"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createEventsQueryConfig(vmanage):
     """
@@ -249,8 +249,8 @@ def createEventsQueryConfig(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/query/input"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/query/input"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def findEvents(vmanage, level, deviceId, query):
     """
@@ -267,8 +267,8 @@ def findEvents(vmanage, level, deviceId, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/severity?severity-level={level}&deviceId={deviceId}&query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/severity?severity-level={level}&deviceId={deviceId}&query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getSeverityHistogram(vmanage, deviceId, query):
     """
@@ -284,8 +284,8 @@ def getSeverityHistogram(vmanage, deviceId, query):
     
     """
     query_string = vmanage.builder.generateQuery(query)
-    endpoint     = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/severity/summary?deviceId={deviceId}&query={query_string}"
-    response     = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/severity/summary?deviceId={deviceId}&query={query_string}"
+    response     = vmanage.apiCall("GET", endpoint)
     return response
 def getEventTypesAsKeyValue(vmanage):
     """
@@ -299,6 +299,6 @@ def getEventTypesAsKeyValue(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/event/types/keyvalue"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/event/types/keyvalue"
+    response = vmanage.apiCall("GET", endpoint)
     return response

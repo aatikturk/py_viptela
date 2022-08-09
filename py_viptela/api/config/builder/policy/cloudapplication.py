@@ -10,6 +10,6 @@ def getCloudDiscoveredApps(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/clouddiscoveredapp"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/clouddiscoveredapp"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -11,8 +11,8 @@ def getLogs(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/crashlog?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/crashlog?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getAllLogs(vmanage):
     """
@@ -26,8 +26,8 @@ def getAllLogs(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/crashlog/details"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/crashlog/details"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getInfo(vmanage, deviceId, filename):
     """
@@ -43,8 +43,8 @@ def getInfo(vmanage, deviceId, filename):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/crashlog/log?deviceId={deviceId}&filename={filename}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/crashlog/log?deviceId={deviceId}&filename={filename}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getLogsSynced(vmanage, deviceId):
     """
@@ -59,6 +59,6 @@ def getLogsSynced(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/crashlog/synced?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/crashlog/synced?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

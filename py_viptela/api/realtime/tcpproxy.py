@@ -11,8 +11,8 @@ def getStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tcpproxy/statistics?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/tcpproxy/statistics?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatus(vmanage, deviceId):
     """
@@ -27,6 +27,6 @@ def getStatus(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/tcpproxy/status?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/tcpproxy/status?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

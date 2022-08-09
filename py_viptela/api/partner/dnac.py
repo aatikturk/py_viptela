@@ -12,8 +12,8 @@ def createSDAConfig(vmanage, config, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/dnac/sda/config/{partnerId}"
-    response = vmanage.client.apiCall("POST", endpoint, config)
+    endpoint = f"dataservice/partner/dnac/sda/config/{partnerId}"
+    response = vmanage.apiCall("POST", endpoint, config)
     return response
 def getSDAEnabledDevices(vmanage, partnerId):
     """
@@ -28,8 +28,8 @@ def getSDAEnabledDevices(vmanage, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/dnac/sda/device/{partnerId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/dnac/sda/device/{partnerId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getDeviceDetails(vmanage, partnerId, uuid):
     """
@@ -45,8 +45,8 @@ def getDeviceDetails(vmanage, partnerId, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/dnac/sda/device/{partnerId}/{uuid}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/dnac/sda/device/{partnerId}/{uuid}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createSDAConfigFromNetconf(vmanage, config, partnerId):
     """
@@ -62,8 +62,8 @@ def createSDAConfigFromNetconf(vmanage, config, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/dnac/sda/netconfconfig/{partnerId}"
-    response = vmanage.client.apiCall("POST", endpoint, config)
+    endpoint = f"dataservice/partner/dnac/sda/netconfconfig/{partnerId}"
+    response = vmanage.apiCall("POST", endpoint, config)
     return response
 def getSitesForPartner(vmanage, partnerId):
     """
@@ -78,8 +78,8 @@ def getSitesForPartner(vmanage, partnerId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/dnac/sda/site/{partnerId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/dnac/sda/site/{partnerId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getOverlayVPNList(vmanage):
     """
@@ -93,6 +93,6 @@ def getOverlayVPNList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/partner/dnac/sda/vpn"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/partner/dnac/sda/vpn"
+    response = vmanage.apiCall("GET", endpoint)
     return response

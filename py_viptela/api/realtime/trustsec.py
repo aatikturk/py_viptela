@@ -11,8 +11,8 @@ def getCtsPac(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ctsPac?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ctsPac?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getEnvData(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getEnvData(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/environmentData?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/environmentData?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRadiusServer(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getRadiusServer(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/environmentData/radiusServer?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/environmentData/radiusServer?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRBCounters(vmanage, deviceId):
     """
@@ -59,8 +59,8 @@ def getRBCounters(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/roleBasedCounters?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/roleBasedCounters?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRBv6Counters(vmanage, deviceId):
     """
@@ -75,8 +75,8 @@ def getRBv6Counters(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/roleBasedIpv6Counters?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/roleBasedIpv6Counters?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRBv6Perms(vmanage, deviceId):
     """
@@ -91,8 +91,8 @@ def getRBv6Perms(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/roleBasedIpv6Permissions?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/roleBasedIpv6Permissions?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRBPermissions(vmanage, deviceId):
     """
@@ -107,8 +107,8 @@ def getRBPermissions(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/roleBasedPermissions?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/roleBasedPermissions?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRBSgtMap(vmanage, deviceId):
     """
@@ -123,8 +123,8 @@ def getRBSgtMap(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/roleBasedSgtMap?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/roleBasedSgtMap?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSxpConnections(vmanage, deviceId):
     """
@@ -139,6 +139,6 @@ def getSxpConnections(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/sxpConnections?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/sxpConnections?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

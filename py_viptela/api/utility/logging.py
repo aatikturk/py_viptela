@@ -11,8 +11,8 @@ def listLogFileDetails(vmanage):
     """
     
     vmanage.client.session.headers['Content-Type'] = "text/plain"
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/util/logfile/appserver"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/util/logfile/appserver"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def listVManageServerLogLastNLines(vmanage, lines):
     """
@@ -28,8 +28,8 @@ def listVManageServerLogLastNLines(vmanage, lines):
     """
     
     vmanage.client.session.headers['Content-Type'] = "text/plain"
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/util/logfile/appserver/lastnlines?lines={lines}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/util/logfile/appserver/lastnlines?lines={lines}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def debugLog(vmanage, payload):
     """
@@ -44,8 +44,8 @@ def debugLog(vmanage, payload):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/util/logging/debuglog"
-    response = vmanage.client.apiCall("POST", endpoint, payload)
+    endpoint = f"dataservice/util/logging/debuglog"
+    response = vmanage.apiCall("POST", endpoint, payload)
     return response
 def setLogLevel(vmanage, payload):
     """
@@ -60,8 +60,8 @@ def setLogLevel(vmanage, payload):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/util/logging/level"
-    response = vmanage.client.apiCall("POST", endpoint, payload)
+    endpoint = f"dataservice/util/logging/level"
+    response = vmanage.apiCall("POST", endpoint, payload)
     return response
 def listLoggers(vmanage):
     """
@@ -75,6 +75,6 @@ def listLoggers(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/util/logging/loggers"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/util/logging/loggers"
+    response = vmanage.apiCall("GET", endpoint)
     return response

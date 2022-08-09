@@ -11,8 +11,8 @@ def createStats(vmanage, statsquery):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/analytics"
-    response = vmanage.client.apiCall("PUT", endpoint, statsquery)
+    endpoint = f"dataservice/dca/analytics"
+    response = vmanage.apiCall("PUT", endpoint, statsquery)
     return response
 def getAllStatsDataDCA(vmanage, statssetting):
     """
@@ -27,8 +27,8 @@ def getAllStatsDataDCA(vmanage, statssetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/analytics/all"
-    response = vmanage.client.apiCall("POST", endpoint, statssetting)
+    endpoint = f"dataservice/dca/analytics/all"
+    response = vmanage.apiCall("POST", endpoint, statssetting)
     return response
 def getAccessToken(vmanage):
     """
@@ -42,8 +42,8 @@ def getAccessToken(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/accesstoken"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/dca/cloudservices/accesstoken"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def storeAccessToken(vmanage, dcaaccesstoken):
     """
@@ -58,8 +58,8 @@ def storeAccessToken(vmanage, dcaaccesstoken):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/accesstoken"
-    response = vmanage.client.apiCall("POST", endpoint, dcaaccesstoken)
+    endpoint = f"dataservice/dca/cloudservices/accesstoken"
+    response = vmanage.apiCall("POST", endpoint, dcaaccesstoken)
     return response
 def generateAlarm(vmanage, msg):
     """
@@ -74,8 +74,8 @@ def generateAlarm(vmanage, msg):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/alarm"
-    response = vmanage.client.apiCall("POST", endpoint, msg)
+    endpoint = f"dataservice/dca/cloudservices/alarm"
+    response = vmanage.apiCall("POST", endpoint, msg)
     return response
 def getIdToken(vmanage):
     """
@@ -89,8 +89,8 @@ def getIdToken(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/idtoken"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/dca/cloudservices/idtoken"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def storeIdToken(vmanage, token):
     """
@@ -105,8 +105,8 @@ def storeIdToken(vmanage, token):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/idtoken"
-    response = vmanage.client.apiCall("POST", endpoint, token)
+    endpoint = f"dataservice/dca/cloudservices/idtoken"
+    response = vmanage.apiCall("POST", endpoint, token)
     return response
 def getTelemetrySettings(vmanage):
     """
@@ -120,8 +120,8 @@ def getTelemetrySettings(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/cloudservices/telemetry"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/dca/cloudservices/telemetry"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def generateDCADeviceStateData(vmanage, query, state_data_type):
     """
@@ -137,8 +137,8 @@ def generateDCADeviceStateData(vmanage, query, state_data_type):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/data/device/state/{state_data_type}"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/data/device/state/{state_data_type}"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def generateDCADeviceStatisticsData(vmanage, query, dataType):
     """
@@ -154,8 +154,8 @@ def generateDCADeviceStatisticsData(vmanage, query, dataType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/data/device/statistics/{dataType}"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/data/device/statistics/{dataType}"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getDCATenantOwners(vmanage):
     """
@@ -169,8 +169,8 @@ def getDCATenantOwners(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/dcatenantowners"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/dca/dcatenantowners"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def listAllDevicesDCA(vmanage, query):
     """
@@ -185,8 +185,8 @@ def listAllDevicesDCA(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/device"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/device"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getCrashLogs(vmanage, query):
     """
@@ -201,8 +201,8 @@ def getCrashLogs(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/device/crashlog/details"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/device/crashlog/details"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getCrashLogsSynced(vmanage, deviceId):
     """
@@ -217,8 +217,8 @@ def getCrashLogsSynced(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/device/crashlog/synced?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/dca/device/crashlog/synced?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getCloudServicesConfigurationDCA(vmanage):
     """
@@ -232,8 +232,8 @@ def getCloudServicesConfigurationDCA(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/settings/configuration/cloudservices/dca"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/dca/settings/configuration/cloudservices/dca"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def createDCAAnalyticsDataFile(vmanage, query, type):
     """
@@ -249,8 +249,8 @@ def createDCAAnalyticsDataFile(vmanage, query, type):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/settings/configuration/{type}/dca"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/settings/configuration/{type}/dca"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getStatsDBIndexStatus(vmanage, statssetting):
     """
@@ -265,8 +265,8 @@ def getStatsDBIndexStatus(vmanage, statssetting):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/statistics/settings/status"
-    response = vmanage.client.apiCall("POST", endpoint, statssetting)
+    endpoint = f"dataservice/dca/statistics/settings/status"
+    response = vmanage.apiCall("POST", endpoint, statssetting)
     return response
 def getDevicesDetailsDCA(vmanage, query):
     """
@@ -281,8 +281,8 @@ def getDevicesDetailsDCA(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/system/device"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/system/device"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getDCAAttachedConfigToDevice(vmanage, query):
     """
@@ -297,8 +297,8 @@ def getDCAAttachedConfigToDevice(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/template/device/config/attachedconfig"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/template/device/config/attachedconfig"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getTemplatePolicyDefinitionsDCA(vmanage, query):
     """
@@ -313,8 +313,8 @@ def getTemplatePolicyDefinitionsDCA(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/template/policy/definition/approute"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/template/policy/definition/approute"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getVPNListsDCA(vmanage, query):
     """
@@ -329,8 +329,8 @@ def getVPNListsDCA(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/template/policy/list/vpn"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/template/policy/list/vpn"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getVedgeTemplateListDCA(vmanage, query):
     """
@@ -345,8 +345,8 @@ def getVedgeTemplateListDCA(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/template/policy/vedge"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/template/policy/vedge"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response
 def getVsmartTemplateListDCA(vmanage, query):
     """
@@ -361,6 +361,6 @@ def getVsmartTemplateListDCA(vmanage, query):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/dca/template/policy/vsmart"
-    response = vmanage.client.apiCall("POST", endpoint, query)
+    endpoint = f"dataservice/dca/template/policy/vsmart"
+    response = vmanage.apiCall("POST", endpoint, query)
     return response

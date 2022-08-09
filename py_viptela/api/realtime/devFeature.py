@@ -11,8 +11,8 @@ def getList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/featurelist?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/featurelist?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSyncedList(vmanage, deviceId):
     """
@@ -27,6 +27,6 @@ def getSyncedList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/featurelist/synced?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/featurelist/synced?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

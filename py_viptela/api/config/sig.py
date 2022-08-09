@@ -11,6 +11,6 @@ def getSigTunnelList(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/sig_tunnels?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/cloudx/sig_tunnels?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

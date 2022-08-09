@@ -11,8 +11,8 @@ def getHputStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/appqoe-hput-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/appqoe-hput-stats?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getNatStats(vmanage, deviceId):
     """
@@ -27,8 +27,8 @@ def getNatStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/appqoe-nat-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/appqoe-nat-stats?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRmResources(vmanage, deviceId):
     """
@@ -43,8 +43,8 @@ def getRmResources(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/appqoe-rm-resource?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/appqoe-rm-resource?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getRMStats(vmanage, deviceId):
     """
@@ -59,8 +59,8 @@ def getRMStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/appqoe-rm-stats?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/appqoe-rm-stats?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getServicesStatus(vmanage, deviceId):
     """
@@ -75,8 +75,8 @@ def getServicesStatus(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/appqoe-services-status?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/appqoe-services-status?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSppiPipeStats(vmanage, deviceId):
     """
@@ -91,8 +91,8 @@ def getSppiPipeStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/appqoe-sppi-pipe-resource?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/appqoe-sppi-pipe-resource?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getSppiQueueStats(vmanage, deviceId):
     """
@@ -107,8 +107,8 @@ def getSppiQueueStats(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/appqoe-sppi-queue-resource?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/appqoe-sppi-queue-resource?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getClusterSummary(vmanage, deviceId):
     """
@@ -123,8 +123,8 @@ def getClusterSummary(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/cluster-summary?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/cluster-summary?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getErrorRecent(vmanage, deviceId):
     """
@@ -139,8 +139,8 @@ def getErrorRecent(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/error-recent?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/error-recent?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getFlowClosedError(vmanage, deviceId):
     """
@@ -155,8 +155,8 @@ def getFlowClosedError(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/flow-closed-error?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/flow-closed-error?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getServiceControllers(vmanage, deviceId):
     """
@@ -171,8 +171,8 @@ def getServiceControllers(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/service-controllers?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/service-controllers?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def getStatus(vmanage, deviceId):
     """
@@ -187,6 +187,6 @@ def getStatus(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/appqoe/status?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/appqoe/status?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

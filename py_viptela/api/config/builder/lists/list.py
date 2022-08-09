@@ -10,6 +10,6 @@ def getAll(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/list"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/list"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -11,6 +11,6 @@ def getV6Data(vmanage, deviceId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ipv6/nd6?deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ipv6/nd6?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response

@@ -14,8 +14,8 @@ def getFeatureTemplateList(vmanage, summary, offset, limit):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature?summary={summary}&offset={offset}&limit={limit}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature?summary={summary}&offset={offset}&limit={limit}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createFeatureTemplate(vmanage, featuretemplate):
@@ -31,8 +31,8 @@ def createFeatureTemplate(vmanage, featuretemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature"
-    response = vmanage.client.apiCall("POST", endpoint, featuretemplate)
+    endpoint = f"dataservice/template/feature"
+    response = vmanage.apiCall("POST", endpoint, featuretemplate)
     return response
 
 def cloneTemplate(vmanage, id, name, desc):
@@ -51,8 +51,8 @@ def cloneTemplate(vmanage, id, name, desc):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/clone?id={id}&name={name}&desc={desc}"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/template/feature/clone?id={id}&name={name}&desc={desc}"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def getNetworkInterface(vmanage, deviceModel):
@@ -69,8 +69,8 @@ def getNetworkInterface(vmanage, deviceModel):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/default/networkinterface?deviceModel={deviceModel}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/default/networkinterface?deviceModel={deviceModel}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getDefaultNetworks(vmanage, deviceModel):
@@ -87,8 +87,8 @@ def getDefaultNetworks(vmanage, deviceModel):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/default/networks?deviceModel={deviceModel}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/default/networks?deviceModel={deviceModel}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTemplateDefinition(vmanage, templateId):
@@ -105,8 +105,8 @@ def getTemplateDefinition(vmanage, templateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/definition/{templateId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/definition/{templateId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getDeviceTemplatesAttachedToFeature(vmanage, templateId):
@@ -123,8 +123,8 @@ def getDeviceTemplatesAttachedToFeature(vmanage, templateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/devicetemplates/{templateId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/devicetemplates/{templateId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def listLITemplate(vmanage):
@@ -139,8 +139,8 @@ def listLITemplate(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/li"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/li"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createLITemplate(vmanage, litemplate):
@@ -157,8 +157,8 @@ def createLITemplate(vmanage, litemplate):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/li"
-    response = vmanage.client.apiCall("POST", endpoint, litemplate)
+    endpoint = f"dataservice/template/feature/li"
+    response = vmanage.apiCall("POST", endpoint, litemplate)
     return response
 
 def editLITemplate(vmanage, litemplate, templateId):
@@ -176,8 +176,8 @@ def editLITemplate(vmanage, litemplate, templateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/li/{templateId}"
-    response = vmanage.client.apiCall("PUT", endpoint, litemplate)
+    endpoint = f"dataservice/template/feature/li/{templateId}"
+    response = vmanage.apiCall("PUT", endpoint, litemplate)
     return response
 
 def getMasterTemplateDefinition(vmanage, type_name):
@@ -194,8 +194,8 @@ def getMasterTemplateDefinition(vmanage, type_name):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/master/{type_name}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/master/{type_name}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTemplateForMigration(vmanage):
@@ -211,8 +211,8 @@ def getTemplateForMigration(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/migration"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/migration"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getGeneralTemplate(vmanage, templateId):
@@ -229,8 +229,8 @@ def getGeneralTemplate(vmanage, templateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/object/{templateId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/object/{templateId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def changeTemplateResourceGroup(vmanage, templateId, resourceGroupName):
@@ -247,8 +247,8 @@ def changeTemplateResourceGroup(vmanage, templateId, resourceGroupName):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/resource-group/{resourceGroupName}/{templateId}"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/template/feature/resource-group/{resourceGroupName}/{templateId}"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def getTemplateTypes(vmanage, type):
@@ -265,8 +265,8 @@ def getTemplateTypes(vmanage, type):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/types?type={type}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/types?type={type}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTemplateTypeDefinition(vmanage, type_name, version):
@@ -284,8 +284,8 @@ def getTemplateTypeDefinition(vmanage, type_name, version):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/types/definition/{type_name}/{version}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/types/definition/{type_name}/{version}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def getTemplateByDeviceType(vmanage, deviceType):
@@ -302,8 +302,8 @@ def getTemplateByDeviceType(vmanage, deviceType):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/{deviceType}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/feature/{deviceType}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editFeatureTemplate(vmanage, template, templateId):
@@ -321,8 +321,8 @@ def editFeatureTemplate(vmanage, template, templateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/{templateId}"
-    response = vmanage.client.apiCall("PUT", endpoint, template)
+    endpoint = f"dataservice/template/feature/{templateId}"
+    response = vmanage.apiCall("PUT", endpoint, template)
     return response
 
 def deleteGeneralTemplate(vmanage, templateId):
@@ -338,8 +338,8 @@ def deleteGeneralTemplate(vmanage, templateId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/feature/{templateId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/feature/{templateId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response
 
 def getEncryptedString(vmanage, type6encryption):
@@ -355,6 +355,6 @@ def getEncryptedString(vmanage, type6encryption):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/security/encryptText/encrypt"
-    response = vmanage.client.apiCall("POST", endpoint, type6encryption)
+    endpoint = f"dataservice/template/security/encryptText/encrypt"
+    response = vmanage.apiCall("POST", endpoint, type6encryption)
     return response

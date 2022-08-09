@@ -10,8 +10,8 @@ def getVSmartPolicyTemplateList(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vsmart"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def createVSmartTemplate(vmanage, templatepolicy):
@@ -27,8 +27,8 @@ def createVSmartTemplate(vmanage, templatepolicy):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart"
-    response = vmanage.client.apiCall("POST", endpoint, templatepolicy)
+    endpoint = f"dataservice/template/policy/vsmart"
+    response = vmanage.apiCall("POST", endpoint, templatepolicy)
     return response
 
 def activatePolicyForCloudServices(vmanage, templatepolicy, policyId):
@@ -45,8 +45,8 @@ def activatePolicyForCloudServices(vmanage, templatepolicy, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/activate/central/{policyId}"
-    response = vmanage.client.apiCall("POST", endpoint, templatepolicy)
+    endpoint = f"dataservice/template/policy/vsmart/activate/central/{policyId}"
+    response = vmanage.apiCall("POST", endpoint, templatepolicy)
     return response
 
 def activatePolicy(vmanage, templatepolicy, policyId):
@@ -63,8 +63,8 @@ def activatePolicy(vmanage, templatepolicy, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/activate/{policyId}"
-    response = vmanage.client.apiCall("POST", endpoint, templatepolicy)
+    endpoint = f"dataservice/template/policy/vsmart/activate/{policyId}"
+    response = vmanage.apiCall("POST", endpoint, templatepolicy)
     return response
 
 def editTemplateWithoutLockChecks(vmanage, templatepolicy, policyId):
@@ -81,8 +81,8 @@ def editTemplateWithoutLockChecks(vmanage, templatepolicy, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/central/{policyId}"
-    response = vmanage.client.apiCall("PUT", endpoint, templatepolicy)
+    endpoint = f"dataservice/template/policy/vsmart/central/{policyId}"
+    response = vmanage.apiCall("PUT", endpoint, templatepolicy)
     return response
 
 def checkVSmartConnectivityStatus(vmanage):
@@ -97,8 +97,8 @@ def checkVSmartConnectivityStatus(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/connectivity/status"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vsmart/connectivity/status"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def deActivatePolicy(vmanage, policyId):
@@ -114,8 +114,8 @@ def deActivatePolicy(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/deactivate/{policyId}"
-    response = vmanage.client.apiCall("POST", endpoint)
+    endpoint = f"dataservice/template/policy/vsmart/deactivate/{policyId}"
+    response = vmanage.apiCall("POST", endpoint)
     return response
 
 def getTemplateByPolicyId(vmanage, policyId):
@@ -131,8 +131,8 @@ def getTemplateByPolicyId(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/definition/{policyId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vsmart/definition/{policyId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def QosmosNbarMigrationWarning(vmanage):
@@ -147,8 +147,8 @@ def QosmosNbarMigrationWarning(vmanage):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/qosmos_nbar_migration_warning"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/template/policy/vsmart/qosmos_nbar_migration_warning"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 
 def editVSmartTemplate(vmanage, templatepolicy, policyId):
@@ -165,8 +165,8 @@ def editVSmartTemplate(vmanage, templatepolicy, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/{policyId}"
-    response = vmanage.client.apiCall("PUT", endpoint, templatepolicy)
+    endpoint = f"dataservice/template/policy/vsmart/{policyId}"
+    response = vmanage.apiCall("PUT", endpoint, templatepolicy)
     return response
 
 def deleteVSmartTemplate(vmanage, policyId):
@@ -182,6 +182,6 @@ def deleteVSmartTemplate(vmanage, policyId):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/policy/vsmart/{policyId}"
-    response = vmanage.client.apiCall("DELETE", endpoint)
+    endpoint = f"dataservice/template/policy/vsmart/{policyId}"
+    response = vmanage.apiCall("DELETE", endpoint)
     return response

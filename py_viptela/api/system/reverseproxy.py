@@ -11,8 +11,8 @@ def get(vmanage, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/reverseproxy/{uuid}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/system/reverseproxy/{uuid}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
 def create(vmanage, mapping, uuid):
     """
@@ -28,6 +28,6 @@ def create(vmanage, mapping, uuid):
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/system/reverseproxy/{uuid}"
-    response = vmanage.client.apiCall("POST", endpoint, mapping)
+    endpoint = f"dataservice/system/reverseproxy/{uuid}"
+    response = vmanage.apiCall("POST", endpoint, mapping)
     return response

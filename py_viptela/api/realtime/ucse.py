@@ -14,6 +14,6 @@ def createUcseStats(vmanage, remote_tloc_address, remote_tloc_color, local_tloc_
     
     """
     
-    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/device/ucse/stats?remote-tloc-address={remote_tloc_address}&remote-tloc-color={remote_tloc_color}&local-tloc-color={local_tloc_color}&deviceId={deviceId}"
-    response = vmanage.client.apiCall("GET", endpoint)
+    endpoint = f"dataservice/device/ucse/stats?remote-tloc-address={remote_tloc_address}&remote-tloc-color={remote_tloc_color}&local-tloc-color={local_tloc_color}&deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
     return response
