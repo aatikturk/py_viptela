@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Policy(object):
+def add(vmanage, policy):
     """
-    MDP - Internal Policy Management API
+    Add internal policy from vmanage
     
-    Implements GET POST DEL PUT methods for Internal Policy Management endpoints
-
+    Parameters:
+    policy:	    Internal Policy
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
     
-    
-    def add(self, policy):
-        """
-        Add internal policy from vmanage
-        
-        Parameters:
-        policy:	    Internal Policy
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/policies/mdpconfig"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, policy)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/mdpconfig"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policy)
+    return response

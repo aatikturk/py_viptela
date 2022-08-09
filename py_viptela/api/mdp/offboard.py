@@ -1,53 +1,36 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Offboard(object):
+def disconnect(vmanage, nmsId):
     """
-    MDP - Offboarding API
+    disconnect from mpd controller
     
-    Implements GET POST DEL PUT methods for Offboarding endpoints
-
+    Parameters:
+    Parameter Description
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/disconnect/{nmsId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def offboard(vmanage, nmsId):
+    """
+    offboard the mdp application
+    
+    Parameters:
+    Parameter Description
+    
+    Returns
+    response    (dict)
     
     
-    def disconnect(self, nmsId):
-        """
-        disconnect from mpd controller
-        
-        Parameters:
-        Parameter Description
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/disconnect/{nmsId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def offboard(self, nmsId):
-        """
-        offboard the mdp application
-        
-        Parameters:
-        Parameter Description
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/onboard/{nmsId}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard/{nmsId}"
+    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    return response

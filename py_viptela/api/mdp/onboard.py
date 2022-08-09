@@ -1,71 +1,53 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Onboard(object):
+def onboardMDP(vmanage, onboard):
     """
-    MDP - Onboarding API
+    Start MDP onboarding operation
     
-    Implements GET POST DEL PUT methods for Onboarding endpoints
-
+    Parameters:
+    onboard:	Onboard
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, onboard)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def getOnboardStatus(vmanage):
+    """
+    Get MDP onboarding status
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
     
     
-    def onboardMDP(self, onboard):
-        """
-        Start MDP onboarding operation
-        
-        Parameters:
-        onboard:	Onboard
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/onboard"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, onboard)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard/status"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-
-    def getOnboardStatus(self):
-        """
-        Get MDP onboarding status
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/onboard/status"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def updateOnboardingPayload(self, onboard, nmsId):
-        """
-        update MDP onboarding document
-        
-        Parameters:
-        onboard:	Onboard
-		Parameter Description
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/onboard/{nmsId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, onboard)
-        return response
-
-
+def updateOnboardingPayload(vmanage, onboard, nmsId):
+    """
+    update MDP onboarding document
+    
+    Parameters:
+    onboard:	Onboard
+	Parameter Description
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/onboard/{nmsId}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, onboard)
+    return response

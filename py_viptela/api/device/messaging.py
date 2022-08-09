@@ -1,34 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Messaging(object):
+
+def getVmanageConnList(vmanage):
     """
-    Device - Messaging API
+    Create device vManage connection list
     
-    Implements GET POST DEL PUT methods for Messaging endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
     
-    
-    def getVmanageConnList(self):
-        """
-        Create device vManage connection list
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/messaging/device/vmanage"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/messaging/device/vmanage"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

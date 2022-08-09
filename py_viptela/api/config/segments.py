@@ -1,107 +1,87 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Segments(object):
+def getSegments(vmanage):
     """
-    Configuration - Segments API
+    Get network segments
     
-    Implements GET POST DEL PUT methods for Segments endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+def createSegment(vmanage, segmen):
+    """
+    Create network segment
+    
+    Parameters:
+    segmen:	Network segment
+    
+    Returns
+    response    (dict)
     
     
-    def getSegments(self):
-        """
-        Get network segments
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/segment"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, segmen)
+    return response
 
+def getSegment(vmanage, id):
+    """
+    Get network segment
+    
+    Parameters:
+    id	 (string):	Segment Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment/{id}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def createSegment(self, segmen):
-        """
-        Create network segment
-        
-        Parameters:
-        segmen:	Network segment
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/segment"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, segmen)
-        return response
+def editSegment(vmanage, segmen, id):
+    """
+    Edit network segment
+    
+    Parameters:
+    segmen:	Network segment
+	id	 (string):	Segment Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment/{id}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, segmen)
+    return response
 
-
-    def getSegment(self, id):
-        """
-        Get network segment
-        
-        Parameters:
-        id	 (string):	Segment Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/segment/{id}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def editSegment(self, segmen, id):
-        """
-        Edit network segment
-        
-        Parameters:
-        segmen:	Network segment
-		id	 (string):	Segment Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/segment/{id}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, segmen)
-        return response
-
-
-    def deleteSegment(self, id):
-        """
-        Delete network segment
-        
-        Parameters:
-        id	 (string):	Segment Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/segment/{id}"
-        response = self.client.apiCall(HttpMethods.DELETE, endpoint)
-        return response
-
-
+def deleteSegment(vmanage, id):
+    """
+    Delete network segment
+    
+    Parameters:
+    id	 (string):	Segment Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/segment/{id}"
+    response = vmanage.client.apiCall(HttpMethods.DELETE, endpoint)
+    return response

@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Config(object):
+def getConfig(vmanage, deviceId):
     """
-    MDP - Config Object API
+    Retrieve MDP ConfigObject
     
-    Implements GET POST DEL PUT methods for Config Object endpoints
-
+    Parameters:
+    Parameter Description
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
     
-    
-    def getConfig(self, deviceId):
-        """
-        Retrieve MDP ConfigObject
-        
-        Parameters:
-        Parameter Description
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/policies/mdpconfig/{deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/mdpconfig/{deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

@@ -1,214 +1,188 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Settings(object):
+def getBanner(vmanage):
     """
-    Configuration - Settings API
+    Retrieve banner
     
-    Implements GET POST DEL PUT methods for Settings endpoints
-
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/banner"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
+def getSessionTimout(vmanage):
+    """
+    Get client session timeout
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
     
     
-    def getBanner(self):
-        """
-        Retrieve banner
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/banner"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/clientSessionTimeout"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def createAnalyticsDataFile(vmanage):
+    """
+    Create analytics data file
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/analytics/dca"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint)
+    return response
 
-    def getSessionTimout(self):
-        """
-        Get client session timeout
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/clientSessionTimeout"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+def getCertConfig(vmanage, settingType):
+    """
+    Retrieve certificate configuration value by settingType
+    
+    Parameters:
+    settingType	 (string):	Setting type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/certificate/{settingType}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def editCertConfig(vmanage, certConfig, settingType):
+    """
+    Update certificate configuration
+    
+    Parameters:
+    certConfig:	Certificate config
+	settingType	 (string):	Setting type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/certificate/{settingType}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, certConfig)
+    return response
 
-    def createAnalyticsDataFile(self):
-        """
-        Create analytics data file
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/analytics/dca"
-        response = self.client.apiCall(HttpMethods.POST, endpoint)
-        return response
+def newCertConfig(vmanage, certConfig, settingType):
+    """
+    Add new certificate configuration
+    
+    Parameters:
+    certConfig:	Certificate config
+	settingType	 (string):	Setting type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/certificate/{settingType}"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, certConfig)
+    return response
 
+def getGoogleMapKey(vmanage):
+    """
+    Retrieve Google map key
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/googleMapKey"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def getCertConfig(self, settingType):
-        """
-        Retrieve certificate configuration value by settingType
-        
-        Parameters:
-        settingType	 (string):	Setting type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/certificate/{settingType}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
+def getMaintenanceWindow(vmanage):
+    """
+    Retrieve maintenance window
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/maintenanceWindow"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
+def getConfigBySettingType(vmanage, settingType):
+    """
+    Retrieve configuration value by settingType
+    
+    Parameters:
+    settingType	 (string):	Setting type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/{settingType}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def editCertConfig(self, certConfig, settingType):
-        """
-        Update certificate configuration
-        
-        Parameters:
-        certConfig:	Certificate config
-		settingType	 (string):	Setting type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/certificate/{settingType}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, certConfig)
-        return response
+def editConfig(vmanage, configSetting, settingType):
+    """
+    Update configuration setting
+    
+    Parameters:
+    configSetting:	Configuration setting
+	settingType	 (string):	Setting type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/{settingType}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, configSetting)
+    return response
 
-
-    def newCertConfig(self, certConfig, settingType):
-        """
-        Add new certificate configuration
-        
-        Parameters:
-        certConfig:	Certificate config
-		settingType	 (string):	Setting type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/certificate/{settingType}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, certConfig)
-        return response
-
-
-    def getGoogleMapKey(self):
-        """
-        Retrieve Google map key
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/googleMapKey"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getMaintenanceWindow(self):
-        """
-        Retrieve maintenance window
-        
-        Parameters:
-                
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/maintenanceWindow"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def getConfigBySettingType(self, settingType):
-        """
-        Retrieve configuration value by settingType
-        
-        Parameters:
-        settingType	 (string):	Setting type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/{settingType}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def editConfig(self, configSetting, settingType):
-        """
-        Update configuration setting
-        
-        Parameters:
-        configSetting:	Configuration setting
-		settingType	 (string):	Setting type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/{settingType}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, configSetting)
-        return response
-
-
-    def newConfig(self, configSetting, settingType):
-        """
-        Add new configuration
-        
-        Parameters:
-        configSetting:	Configuration setting
-		settingType	 (string):	Setting type
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/settings/configuration/{settingType}"
-        response = self.client.apiCall(HttpMethods.POST, endpoint, configSetting)
-        return response
-
-
+def newConfig(vmanage, configSetting, settingType):
+    """
+    Add new configuration
+    
+    Parameters:
+    configSetting:	Configuration setting
+	settingType	 (string):	Setting type
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/settings/configuration/{settingType}"
+    response = vmanage.client.apiCall(HttpMethods.POST, endpoint, configSetting)
+    return response

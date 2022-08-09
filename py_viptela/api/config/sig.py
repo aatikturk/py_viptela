@@ -1,35 +1,19 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class SIG(object):
+def getSigTunnelList(vmanage, deviceId):
     """
-    Configuration - Secure Internet Gateway Tunnels API
+    Get Secure Internet Gateway Tunnel List
     
-    Implements GET POST DEL PUT methods for SecureInternetGatewayTunnels endpoints
-
+    Parameters:
+    deviceId	 (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
     """
-
-    def __init__(self, session, host, port):
-        self.client = HttpMethods.HttpClient(session=session)
-        self.host = host
-        self.port = port
     
-    
-    def getSigTunnelList(self, deviceId):
-        """
-        Get Secure Internet Gateway Tunnel List
-        
-        Parameters:
-        deviceId	 (string):	Device Id
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/template/cloudx/sig_tunnels?deviceId={deviceId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/template/cloudx/sig_tunnels?deviceId={deviceId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response

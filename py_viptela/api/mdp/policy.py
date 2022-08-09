@@ -1,54 +1,37 @@
 from py_viptela.query_builder import Builder
 from py_viptela import HttpMethods
 
-class Policy(object):
+def getPolicies(vmanage, nmsId):
     """
-    MDP - Policy Management API
+    Retrieve MDP policies
     
-    Implements GET POST DEL PUT methods for Policy Management endpoints
-
+    Parameters:
+    nmsId:  NMS server ID
+    
+    Returns
+    response    (dict)
+    
+    
     """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/{nmsId}"
+    response = vmanage.client.apiCall(HttpMethods.GET, endpoint)
+    return response
 
-    def __init__(self, session, host, port):
-        self.host = host
-        self.port = port
-        self.client = HttpMethods.HttpClient(session=session)
+def updatePolicyStatus(vmanage, policylist, nmsId):
+    """
+    update policy status
+    
+    Parameters:
+    policylist:	policyList
+	nmsId:  NMS server ID
+    
+    Returns
+    response    (dict)
     
     
-    def getPolicies(self, nmsId):
-        """
-        Retrieve MDP policies
-        
-        Parameters:
-        nmsId:  NMS server ID
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/policies/{nmsId}"
-        response = self.client.apiCall(HttpMethods.GET, endpoint)
-        return response
-
-
-    def updatePolicyStatus(self, policylist, nmsId):
-        """
-        update policy status
-        
-        Parameters:
-        policylist:	policyList
-		nmsId:  NMS server ID
-        
-        Returns
-        response    (dict)
-        
-        
-        """
-        
-        endpoint = f"https://{self.host}:{self.port}/dataservice/mdp/policies/{nmsId}"
-        response = self.client.apiCall(HttpMethods.PUT, endpoint, policylist)
-        return response
-
-
+    """
+    
+    endpoint = f"https://{vmanage.host}:{vmanage.port}/dataservice/mdp/policies/{nmsId}"
+    response = vmanage.client.apiCall(HttpMethods.PUT, endpoint, policylist)
+    return response
