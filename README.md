@@ -51,8 +51,8 @@ cd py-viptela
     password:   vManage password
 
 ```
->>>from vmanage import Vmanage
->>>from api.admin.user import User
+>>>from py_viptela.vmanage import Vmanage
+>>>from py_viptela import api
 >>>
 >>>vmanage = Vmanage(host='198.18.1.10', port=443, username='admin', password='testpassword')
 >>>
@@ -63,9 +63,8 @@ You're ready to make requests using api endpoints.
 Example:  Get all users from the vManage
 
 ```
->>>user_api = User(session=vmanage.session, host=vmanage.host, port=vmanage.port)
 >>>
->>>users = user_api.findUsers()
+>>>users = api.admin.user.findUsers(vmanage)
 >>>
 >>>users
 [{'userName': 'admin', 'locale': 'en_US', 'group': []},
