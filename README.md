@@ -55,7 +55,7 @@ cd py-viptela
 >>>from py_viptela import api
 >>>
 >>>vmanage = Vmanage(host='198.18.1.10', port=443, username='admin', password='testpassword')
->>>
+>>>vmanage.login()
 ```
 
 You're ready to make requests using api endpoints. 
