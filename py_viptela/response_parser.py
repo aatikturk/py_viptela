@@ -19,7 +19,9 @@ def parse_response(response):
             except json.JSONDecodeError:
                 return {"failed":True, "code": 801, "error":ERROR_CODES[801], "msg":response.text}
             else:
-                if raw_data.get("data"):
+                if type(raw_data) == list:
+                    return {"failed":False, "code": status_code, "error":"", "msg":raw_data} 
+                elif raw_data.get("data"):
                     return {"failed":False, "code": status_code, "error":"", "msg":raw_data["data"]} 
                 else:
                     return {"failed":True, "code": 802, "error":ERROR_CODES[802], "msg":response.text}
