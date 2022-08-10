@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 HERE = pathlib.Path(__file__).parent
 
 
-VERSION = '0.2.3'
+VERSION = '0.2.4'
 PACKAGE_NAME = 'py_viptela'
 AUTHOR = 'Adem Atikturk'
 AUTHOR_EMAIL = 'aatikturk@gmail.com'
