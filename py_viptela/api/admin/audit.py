@@ -1,6 +1,3 @@
-
-
-
 def getStatDataRawAuditLogData(vmanage, inputQuery=None):
     """
     Get stat raw data
@@ -80,7 +77,7 @@ def getPropertyAggregationData(vmanage, inputQuery):
     
     
     """
-    query_string = vmanage.builder.generateQuery(query_string)
+    query_string = vmanage.builder.generateQuery(inputQuery)
     endpoint = f"dataservice/auditlog/aggregation?inputQuery={query_string}"
     response = vmanage.apiCall("GET", endpoint)
     return response
@@ -146,7 +143,7 @@ def getCount(vmanage, query):
         }
     
     """
-    query_string = vmanage.builder.generateQuery(query_string)
+    query_string = vmanage.builder.generateQuery(query)
     endpoint = f"dataservice/auditlog/doccount?query={query_string}"
     response     = vmanage.apiCall("GET", endpoint)
     return response
