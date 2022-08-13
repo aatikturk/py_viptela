@@ -13,7 +13,7 @@ class RestClient:
         self.username = username
         self.password = password
         self.session = requests.Session()
-        self.verify = False
+        self.session.verify = False
         self.headers = {'Content-Type':'application/json'}
         self.baseurl = f"https://{self.host}:{self.port}"
 
@@ -28,6 +28,8 @@ class RestClient:
 
         try:
             response = methods[method](url=url, headers=self.headers, data=payload)
+        except requests.exceptions.SSLError:
+            return{'error': 'SSL Error'}
         except requests.exceptions.ConnectTimeout:
             return{'error': 'Connection Timeout'}
         except requests.exceptions.ConnectionError:
