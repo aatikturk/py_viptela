@@ -1,4 +1,6 @@
-def getStatDataRawData(vmanage, query):
+import json
+
+def getStatDataRawData(vmanage, query=None):
     """
     Get stats raw data
     
@@ -10,8 +12,11 @@ def getStatDataRawData(vmanage, query):
     
     
     """
-    query_string = vmanage.builder.generateQuery(query)
-    endpoint = f"dataservice/statistics/approute?query={query_string}"
+    if query:
+        query_string = vmanage.builder.generateQuery(query)
+        endpoint = f"dataservice/statistics/approute?query={query_string}"
+    else:
+        endpoint = f"dataservice/statistics/approute"
     response     = vmanage.apiCall("GET", endpoint)
     return response
 def getStatsRawData(vmanage, query):
@@ -28,7 +33,7 @@ def getStatsRawData(vmanage, query):
     """
     
     endpoint = f"dataservice/statistics/approute"
-    response     = vmanage.apiCall("POST", endpoint, query)
+    response     = vmanage.apiCall("POST", endpoint, json.dumps(query))
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
