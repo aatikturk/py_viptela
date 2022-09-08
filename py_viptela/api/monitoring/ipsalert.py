@@ -1,3 +1,5 @@
+import json
+
 def getStatDataRawData(vmanage, query):
     """
     Get stats raw data
@@ -28,7 +30,7 @@ def getStatsRawData(vmanage, statsquerystring):
     """
     
     endpoint = f"dataservice/statistics/ipsalert"
-    response = vmanage.apiCall("POST", endpoint, statsquerystring)
+    response = vmanage.apiCall("POST", endpoint, json.dumps(statsquerystring))
     return response
 def getAggregationDataByQuery(vmanage, query):
     """
@@ -60,7 +62,7 @@ def getPostAggregationDataByQuery(vmanage, statsquerystring):
     """
     
     endpoint = f"dataservice/statistics/ipsalert/aggregation"
-    response = vmanage.apiCall("POST", endpoint, statsquerystring)
+    response = vmanage.apiCall("POST", endpoint, json.dumps(statsquerystring))
     return response
 def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
@@ -76,7 +78,7 @@ def getPostAggregationAppDataByQuery(vmanage, statsquerystring):
     """
     
     endpoint = f"dataservice/statistics/ipsalert/app-agg/aggregation"
-    response = vmanage.apiCall("POST", endpoint, statsquerystring)
+    response = vmanage.apiCall("POST", endpoint, json.dumps(statsquerystring))
     return response
 def getStatDataRawDataAsCSV(vmanage, query):
     """
@@ -124,7 +126,7 @@ def getCountPost(vmanage, query):
     """
     
     endpoint = f"dataservice/statistics/ipsalert/doccount"
-    response = vmanage.apiCall("POST", endpoint, query)
+    response = vmanage.apiCall("POST", endpoint, json.dumps(query))
     return response
 def getStatDataFields(vmanage):
     """
@@ -175,7 +177,7 @@ def getPostStatBulkRawData(vmanage, statsquerystring, scrollId, count):
     """
     
     endpoint = f"dataservice/statistics/ipsalert/page?scrollId={scrollId}&count={count}"
-    response = vmanage.apiCall("POST", endpoint, statsquerystring)
+    response = vmanage.apiCall("POST", endpoint, json.dumps(statsquerystring))
     return response
 def getStatQueryFields(vmanage):
     """
