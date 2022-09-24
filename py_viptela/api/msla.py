@@ -105,7 +105,7 @@ def getSubscriptionOverview(vmanage):
     endpoint = f"dataservice/msla/devices/subscriptiondistribution"
     response = vmanage.apiCall("GET", endpoint)
     return response
-def getSubscriptions(vmanage, payload):
+def getLicenseSubscriptions(vmanage, payload):
     """
     Retrieve MSLA subscription/licenses
     
@@ -212,7 +212,7 @@ def getAllTemplate(vmanage):
     endpoint = f"dataservice/msla/template"
     response = vmanage.apiCall("GET", endpoint)
     return response
-def getSubscriptions(vmanage, payload):
+def getTempLicenseSubscriptions(vmanage, payload):
     """
     Retrieve MSLA subscription/licenses
     
@@ -228,7 +228,7 @@ def getSubscriptions(vmanage, payload):
     endpoint = f"dataservice/msla/template/licenses"
     response = vmanage.apiCall("POST", endpoint, payload)
     return response
-def getSubscriptions(vmanage, payload):
+def getVaLicenseSubscriptions(vmanage, payload):
     """
     Retrieve MSLA subscription/licenses
     
