@@ -10,7 +10,7 @@ AUTHOR = 'Adem Atikturk'
 AUTHOR_EMAIL = 'aatikturk@gmail.com'
 URL = 'https://github.com/aatikturk/py_viptela'
 LICENSE = 'GNU General Public License v2.0'
-DESCRIPTION = "A Python wrapper around Cisco's vManage API"
+DESCRIPTION = "A Python wrapper around Cisco vManage API"
 
 
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
