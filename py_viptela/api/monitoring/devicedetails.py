@@ -139,7 +139,7 @@ def getDeviceSpecificCounters(vmanage, system_ip):
     
     """
     
-    endpoint = f"dataservice/device/counters?{system_ip}"
+    endpoint = f"dataservice/device/counters?deviceId={system_ip}"
     response = vmanage.apiCall("GET", endpoint)
     return response
 def getDeviceOnlyStatus(vmanage):
