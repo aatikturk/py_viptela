@@ -126,6 +126,22 @@ def getDeviceCounters(vmanage):
     endpoint = f"dataservice/device/counters"
     response = vmanage.apiCall("GET", endpoint)
     return response
+def getDeviceSpecificCounters(vmanage, system_ip):
+    """
+    Get device counters
+    
+    Parameters:
+    system_ip   (str)
+
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"dataservice/device/counters?{system_ip}"
+    response = vmanage.apiCall("GET", endpoint)
+    return response
 def getDeviceOnlyStatus(vmanage):
     """
     Get devices status per type
