@@ -188,7 +188,7 @@ def getStats(vmanage, vpnId, ifname, af, deviceId):
     endpoint = f"dataservice/device/interface/stats?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
     response = vmanage.apiCall("GET", endpoint)
     return response
-def getSyncedInterface(vmanage, vpnId, ifname, af, deviceId):
+def getSyncedInterface(vmanage, deviceId, vpnId=None, ifname=None, af=None):
     """
     Get device interfaces synchronously
     
@@ -203,8 +203,15 @@ def getSyncedInterface(vmanage, vpnId, ifname, af, deviceId):
     
     
     """
+    endpoint = f"dataservice/device/interface/synced?deviceId={deviceId}"
     
-    endpoint = f"dataservice/device/interface/synced?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
+    if vpnId:
+        endpoint = f"{endpoint}&vpn-id={vpnId}"
+    if ifname:
+        endpoint = f"{endpoint}&ifname={ifname}"
+    if af:
+        endpoint = f"{endpoint}&af={af}"
+    
     response = vmanage.apiCall("GET", endpoint)
     return response
 def trustsec(vmanage, deviceId):
