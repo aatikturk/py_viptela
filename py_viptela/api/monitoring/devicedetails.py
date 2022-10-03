@@ -63,6 +63,22 @@ def listAllDevices(vmanage):
     endpoint = f"dataservice/device"
     response = vmanage.apiCall("GET", endpoint)
     return response
+def getSpecificDevice(vmanage, device_id):
+    """
+    List all devices
+    
+    Parameters:
+    device_id   (str)
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"dataservice/device?deviceId={device_id}"
+    response = vmanage.apiCall("GET", endpoint)
+    return response
 def setBlockSync(vmanage, blockSync):
     """
     Set collection manager block set flag
