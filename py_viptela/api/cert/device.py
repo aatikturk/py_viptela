@@ -323,6 +323,22 @@ def getCertificateDetail(vmanage):
     response = vmanage.apiCall("GET", endpoint)
     return response
 
+def getCertificateDetailAll(vmanage):
+    """
+    Get all certificate detail
+    
+    Parameters:
+            
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"dataservice/certificate/stats/detail?status=all"
+    response = vmanage.apiCall("GET", endpoint)
+    return response
+
 def getCertificateStats(vmanage):
     """
     Get certificate expiration status
