@@ -30,7 +30,7 @@ def getAffinityStatus(vmanage, deviceId):
     endpoint = f"dataservice/device/control/affinity/status?deviceId={deviceId}"
     response = vmanage.apiCall("GET", endpoint)
     return response
-def createRealTimeConnectionList(vmanage, peerType, sysIp, deviceId):
+def createRealTimeConnectionList(vmanage, deviceId, peerType=None, sysIp=None):
     """
     Get connections list from device (Real Time)
     
@@ -44,11 +44,15 @@ def createRealTimeConnectionList(vmanage, peerType, sysIp, deviceId):
     
     
     """
-    
-    endpoint = f"dataservice/device/control/connections?peerType={peerType}&sysIp={sysIp}&deviceId={deviceId}"
+    endpoint = f"dataservice/device/control/connections?deviceId={deviceId}"
+    if peerType:
+        endpoint = f"{endpoint}&peer-type={peerType}"
+    if sysIp:
+        endpoint = f"{endpoint}&system-ip={sysIp}"
+
     response = vmanage.apiCall("GET", endpoint)
     return response
-def createConnectionHistoryListRealTime(vmanage, peerType, sysIp, deviceId):
+def createConnectionHistoryListRealTime(vmanage, deviceId, peerType=None, sysIp=None):
     """
     Get connections history list from device (Real Time)
     
@@ -62,8 +66,12 @@ def createConnectionHistoryListRealTime(vmanage, peerType, sysIp, deviceId):
     
     
     """
-    
-    endpoint = f"dataservice/device/control/connectionshistory?peerType={peerType}&sysIp={sysIp}&deviceId={deviceId}"
+    endpoint = f"dataservice/device/control/connectionshistory?deviceId={deviceId}"
+    if peerType:
+        endpoint = f"{endpoint}&peer-type={peerType}"
+    if sysIp:
+        endpoint = f"{endpoint}&system-ip={sysIp}"
+
     response = vmanage.apiCall("GET", endpoint)
     return response
 def getTotalCountForDeviceStates(vmanage, isCached):
