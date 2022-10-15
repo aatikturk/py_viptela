@@ -421,7 +421,7 @@ def getvEdgeCSR(vmanage):
     response = vmanage.apiCall("GET", endpoint)
     return response
 
-def getvEdgeList(vmanage, model, state):
+def getvEdgeList(vmanage):
     """
     Get vEdge list
     
@@ -434,8 +434,7 @@ def getvEdgeList(vmanage, model, state):
     
     
     """
-    
-    endpoint = f"dataservice/certificate/vedge/list?model={model}&state={state}"
+    endpoint = f"dataservice/certificate/vedge/list"
     response = vmanage.apiCall("GET", endpoint)
     return response
 
