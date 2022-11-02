@@ -297,3 +297,8 @@ def getTunnels(vmanage, type, query, limit):
     endpoint = f"dataservice/statistics/approute/tunnels/{type}?query={query_string}&limit={limit}"
     response     = vmanage.apiCall("GET", endpoint)
     return response
+
+def getTunnelsHealth(vmanage, dtype, limit):
+    endpoint = f"dataservice/statistics/approute/tunnels/health/{dtype}?limit={limit}"
+    response = vmanage.apiCall("GET", endpoint)
+    return response
