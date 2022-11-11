@@ -65,7 +65,7 @@ def getPostAggregationDataByQuery(vmanage, query):
     """
     
     endpoint = f"dataservice/statistics/approute/aggregation"
-    response     = vmanage.apiCall("POST", endpoint, query)
+    response     = vmanage.apiCall("POST", endpoint, json.dumps(query))
     return response
 def getPostAggregationAppDataByQuery(vmanage, query):
     """
