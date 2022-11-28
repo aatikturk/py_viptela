@@ -377,7 +377,7 @@ def syncAllMemDB(vmanage):
     endpoint = f"dataservice/device/syncall/memorydb"
     response = vmanage.apiCall("POST", endpoint)
     return response
-def getDeviceTlocStatus(vmanage, deviceId, color):
+def getDeviceTlocStatus(vmanage, deviceId, color=None):
     """
     Get TLOC status list
     
@@ -390,8 +390,10 @@ def getDeviceTlocStatus(vmanage, deviceId, color):
     
     
     """
-    
-    endpoint = f"dataservice/device/tloc?deviceId={deviceId}&color={color}"
+    if color:
+        endpoint = f"dataservice/device/tloc?deviceId={deviceId}&color={color}"
+    else:
+        endpoint = f"dataservice/device/tloc?deviceId={deviceId}"
     response = vmanage.apiCall("GET", endpoint)
     return response
 def getTlocUtil(vmanage):
