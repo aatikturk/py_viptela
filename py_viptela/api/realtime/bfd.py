@@ -197,3 +197,22 @@ def getTLOCSummary(vmanage, deviceId):
     endpoint = f"dataservice/device/bfd/tloc?deviceId={deviceId}"
     response = vmanage.apiCall("GET", endpoint)
     return response
+
+
+def getTlocIfMapping(vmanage, deviceId):
+    """
+    Added on api version 20.9
+    Get TLOC to Interface mapping from device (Real Time)
+    
+    Parameters:
+    deviceId	 (string):	Device IP
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+
+    endpoint = f"dataservice/device/bfd/state/device/tlocInterfaceMap?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
+    return response
