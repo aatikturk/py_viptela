@@ -23,3 +23,10 @@ class Vmanage(RestClient):
             return True, "Authentication Successful."
         else:
             return False, "Authentication Failed."
+
+    def logout(self,):
+        res = self.session.get(f"{self.baseurl}/logout", headers=self.headers)
+        if res.status_code == 200:
+            return True, "Logout Successful"
+        else:
+            return False, "Logout Failed"
