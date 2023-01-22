@@ -1,4 +1,4 @@
-def getInterface(vmanage, vpnId, ifname, af, deviceId):
+def getInterface(vmanage, deviceId, vpnId=None, ifname=None, af=None):
     """
     Get device interfaces
     
