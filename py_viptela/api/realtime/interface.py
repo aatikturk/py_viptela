@@ -17,6 +17,22 @@ def getInterface(vmanage, deviceId, vpnId=None, ifname=None, af=None):
     endpoint = f"dataservice/device/interface?vpn-id={vpnId}&ifname={ifname}&af-type={af}&deviceId={deviceId}"
     response = vmanage.apiCall("GET", endpoint)
     return response
+def getInterfaceByDeviceIp(vmanage, deviceId):
+    """
+    Get device interfaces
+    
+    Parameters:
+	deviceId	    (string):	Device Id
+    
+    Returns
+    response    (dict)
+    
+    
+    """
+    
+    endpoint = f"dataservice/device/interface?deviceId={deviceId}"
+    response = vmanage.apiCall("GET", endpoint)
+    return response
 def getARPStats(vmanage, vpnId, ifname, af, deviceId):
     """
     Get interface ARP statistics
